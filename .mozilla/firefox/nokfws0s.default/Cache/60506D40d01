@@ -1,0 +1,1170 @@
+<!-- This HTML file has been created by texi2html 1.27
+     from emacs.texi on 3 March 1994 -->
+
+<TITLE>GNU Emacs Manual - The Calendar and the Diary</TITLE>
+<P>Go to the <A HREF="emacs_32.html">previous</A>, <A HREF="emacs_34.html">next</A> section.<P>
+<A NAME="IDX1556"></A>
+<A NAME="IDX1557"></A>
+<H1><A NAME="SEC284" HREF="emacs_toc.html#SEC284">The Calendar and the Diary</A></H1>
+<P>
+  Emacs provides the functions of a desk calendar, with a diary of
+planned or past events.  To enter the calendar, type <KBD>M-x calendar</KBD>;
+this displays a three-month calendar centered on the current month, with
+point on the current date.  If you use prefix argument as in <KBD>C-u
+M-x calendar</KBD>, it prompts you for the month and year to be the center of
+the three-month calendar.  The calendar uses its own buffer and the
+major mode is Calendar mode.
+<P>
+  To exit the calendar, type <KBD>q</KBD>.
+<P>
+<H2><A NAME="SEC285" HREF="emacs_toc.html#SEC285">Movement in the Calendar</A></H2>
+<A NAME="IDX1558"></A>
+<P>
+  Calendar mode lets you move in logical units of time such as days,
+weeks, months, and years.  If you move outside the three months
+originally displayed, the calendar display scrolls automatically through
+time.  Moving to a date lets you view its holidays or diary entries,
+convert it to other calendars; moving longer time periods is useful
+simply to scroll the calendar.
+<P>
+<H3><A NAME="SEC286" HREF="emacs_toc.html#SEC286">Motion by Integral Days, Weeks, Months, Years</A></H3>
+<P>
+  The commands for movement in the calendar buffer parallel the
+commands for movement in text.  You can move forward and backward by
+days, weeks, months, and years.
+<P>
+<DL COMPACT>
+<DT><KBD>C-f</KBD>
+<DD>Move point one day forward (<CODE>calendar-forward-day</CODE>).
+<DT><KBD>C-b</KBD>
+<DD>Move point one day backward (<CODE>calendar-backward-day</CODE>).
+<DT><KBD>C-n</KBD>
+<DD>Move point one week forward (<CODE>calendar-forward-week</CODE>).
+<DT><KBD>C-p</KBD>
+<DD>Move point one week backward (<CODE>calendar-backward-week</CODE>).
+<DT><KBD>M-}</KBD>
+<DD>Move point one month forward (<CODE>calendar-forward-month</CODE>).
+<DT><KBD>M-{</KBD>
+<DD>Move point one month backward (<CODE>calendar-backward-month</CODE>).
+<DT><KBD>C-x ]</KBD>
+<DD>Move point one year forward (<CODE>calendar-forward-year</CODE>).
+<DT><KBD>C-x [</KBD>
+<DD>Move point one year backward (<CODE>calendar-forward-year</CODE>).
+</DL>
+<A NAME="IDX1559"></A>
+<A NAME="IDX1560"></A>
+<A NAME="IDX1561"></A>
+<A NAME="IDX1562"></A>
+<A NAME="IDX1563"></A>
+<A NAME="IDX1564"></A>
+<A NAME="IDX1565"></A>
+<A NAME="IDX1566"></A>
+<P>
+  The day and week commands are natural analogues of the usual Emacs
+commands for moving by characters and by lines.  Just as <KBD>C-n</KBD>
+usually moves to the same column in the following line, in Calendar
+mode it moves to the same day in the following week.  And <KBD>C-p</KBD>
+moves to the same day in the previous week.
+<P>
+  The arrow keys are equivalent to <KBD>C-f</KBD>, <KBD>C-b</KBD>, <KBD>C-n</KBD> and
+<KBD>C-p</KBD>, just as they normally are in other modes.
+<A NAME="IDX1567"></A>
+<A NAME="IDX1568"></A>
+<A NAME="IDX1569"></A>
+<A NAME="IDX1570"></A>
+<A NAME="IDX1571"></A>
+<A NAME="IDX1572"></A>
+<A NAME="IDX1573"></A>
+<A NAME="IDX1574"></A>
+<P>
+  The commands for motion by months and years work like those for
+weeks, but move a larger distance.  The month commands <KBD>M-}</KBD> and
+<KBD>M-{</KBD> move forward or backward by an entire month's time.  The
+year commands <KBD>C-x ]</KBD> and <KBD>C-x [</KBD> move forward or backward a
+whole year.
+<P>
+  The easiest way to remember these commands is to consider months and
+years analogous to paragraphs and pages of text, respectively.  But the
+commands themselves are not quite analogous.  The ordinary Emacs paragraph
+commands move to the beginning or end of a paragraph, whereas these month
+and year commands move by an entire month or an entire year, which usually
+involves skipping across the end of a month or year.
+<P>
+  All these commands accept a numeric argument as a repeat count.
+For convenience, the digit keys and the minus sign specify numeric
+arguments in Calendar mode even without the Meta modifier.  For example,
+<KBD>100 C-f</KBD> moves point 100 days forward from its present location.
+<P>
+<H3><A NAME="SEC287" HREF="emacs_toc.html#SEC287">Beginning or End of Week, Month or Year</A></H3>
+<P>
+  A week (or month, or year) is not just a quantity of days; we think
+of new weeks (months, years) as starting on particular days.  So
+Calendar mode provides commands to move to the beginning or end of a
+week, month or year:
+<P>
+<A NAME="IDX1575"></A>
+<A NAME="IDX1576"></A>
+<DL COMPACT>
+<DT><KBD>C-a</KBD>
+<DD>Move point to beginning of week (<CODE>calendar-beginning-of-week</CODE>).
+<A NAME="IDX1578"></A>
+<A NAME="IDX1577"></A>
+<DT><KBD>C-e</KBD>
+<DD>Move point to end of week (<CODE>calendar-end-of-week</CODE>).
+<A NAME="IDX1580"></A>
+<A NAME="IDX1579"></A>
+<DT><KBD>M-a</KBD>
+<DD>Move point to beginning of month (<CODE>calendar-beginning-of-month</CODE>).
+<A NAME="IDX1582"></A>
+<A NAME="IDX1581"></A>
+<DT><KBD>M-e</KBD>
+<DD>Move point to end of month (<CODE>calendar-end-of-month</CODE>).
+<A NAME="IDX1584"></A>
+<A NAME="IDX1583"></A>
+<DT><KBD>M-&#60;</KBD>
+<DD>Move point to beginning of year (<CODE>calendar-beginning-of-year</CODE>).
+<A NAME="IDX1586"></A>
+<A NAME="IDX1585"></A>
+<DT><KBD>M-&#62;</KBD>
+<DD>Move point to end of year (<CODE>calendar-end-of-year</CODE>).
+</DL>
+<P>
+  These commands also take numeric arguments as repeat counts, with the
+repeat count indicating how many weeks, months, or years to move
+backward or forward.
+<A NAME="IDX1587"></A>
+<A NAME="IDX1588"></A>
+<A NAME="IDX1589"></A>
+<P>
+  By default, weeks begin on Sunday.  To make them begin on Monday
+instead, set the variable <CODE>calendar-week-start-day</CODE> to 1.
+<P>
+<H3><A NAME="SEC288" HREF="emacs_toc.html#SEC288">Particular Dates</A></H3>
+<P>
+  Calendar mode provides commands for getting to a particular date
+specified absolutely.
+<P>
+<DL COMPACT>
+<DT><KBD>g d</KBD>
+<DD>Move point to specified date (<CODE>calendar-goto-date</CODE>).
+<DT><KBD>o</KBD>
+<DD>Center calendar around specified month (<CODE>calendar-other-month</CODE>).
+<DT><KBD>.</KBD>
+<DD>Move point to today's date (<CODE>calendar-current-month</CODE>).
+</DL>
+<A NAME="IDX1590"></A>
+<A NAME="IDX1591"></A>
+<P>
+  <KBD>g d</KBD> (<CODE>calendar-goto-date</CODE>) prompts for a year, a month, and a day
+of the month, and then moves to that date.  Because the calendar includes all
+dates from the beginning of the current era, you must type the year in its
+entirety; that is, type <SAMP>`1990'</SAMP>, not <SAMP>`90'</SAMP>.
+<A NAME="IDX1592"></A>
+<A NAME="IDX1593"></A>
+<P>
+  <KBD>o</KBD> (<CODE>calendar-other-month</CODE>) prompts for a month and year,
+then centers the three-month calendar around that month.
+<A NAME="IDX1594"></A>
+<A NAME="IDX1595"></A>
+<P>
+  You can return to today's date with <KBD>.</KBD>
+(<CODE>calendar-current-month</CODE>).
+<P>
+<H2><A NAME="SEC289" HREF="emacs_toc.html#SEC289">Scrolling in the Calendar</A></H2>
+<A NAME="IDX1596"></A>
+<P>
+  The calendar display scrolls automatically through time when you move out
+of the visible portion.  You can also scroll it manually.  Imagine that the
+calendar window contains a long strip of paper with the months on it.
+Scrolling it means moving the strip so that new months become visible in
+the window.
+<P>
+<DL COMPACT>
+<DT><KBD>C-x &#60;</KBD>
+<DD>Scroll calendar one month forward (<CODE>scroll-calendar-left</CODE>).
+<DT><KBD>C-x &#62;</KBD>
+<DD>Scroll calendar one month backward (<CODE>scroll-calendar-right</CODE>).
+<DT><KBD>C-v</KBD>
+<DD><DT><KBD><KBD>NEXT</KBD></KBD>
+<DD>Scroll calendar three months forward
+(<CODE>scroll-calendar-left-three-months</CODE>).
+<DT><KBD>M-v</KBD>
+<DD><DT><KBD><KBD>PRIOR</KBD></KBD>
+<DD>Scroll calendar three months backward
+(<CODE>scroll-calendar-right-three-months</CODE>).
+<DT><KBD>SPC</KBD>
+<DD>Scroll the next window (<CODE>scroll-other-window</CODE>).
+</DL>
+<A NAME="IDX1597"></A>
+<A NAME="IDX1598"></A>
+<A NAME="IDX1599"></A>
+<A NAME="IDX1600"></A>
+<P>
+  The most basic calendar scroll commands scroll by one month at a
+time.  This means that there are two months of overlap between the
+display before the command and the display after.  <KBD>C-x &#60;</KBD> scrolls
+the calendar contents one month to the left; that is, it moves the
+display forward in time.  <KBD>C-x &#62;</KBD> scrolls the contents to the
+right, which moves backwards in time.
+<A NAME="IDX1601"></A>
+<A NAME="IDX1602"></A>
+<A NAME="IDX1603"></A>
+<A NAME="IDX1604"></A>
+<P>
+  The commands <KBD>C-v</KBD> and <KBD>M-v</KBD> scroll the calendar by an entire
+"screenful"---three months--in analogy with the usual meaning of these
+commands.  <KBD>C-v</KBD> makes later dates visible and <KBD>M-v</KBD> makes earlier
+dates visible.  These commands take a numeric argument as a repeat
+count; in particular, since <KBD>C-u</KBD> (<CODE>universal-argument</CODE>) multiplies
+the next command by four, typing <KBD>C-u C-v</KBD> scrolls the calendar forward by
+a year and typing <KBD>C-u M-v</KBD> scrolls the calendar backward by a year.
+<P>
+  The function keys <KBD>NEXT</KBD> and <KBD>PRIOR</KBD> are equivalent to
+<KBD>C-v</KBD> and <KBD>M-v</KBD>, just as they are in other modes.
+<A NAME="IDX1605"></A>
+<P>
+  In Calendar mode, you can use <KBD>SPC</KBD> (<CODE>scroll-other-window</CODE>)
+to scroll the other window.  This is handy when you display a list of
+holidays or diary entries in another window.
+<P>
+<H2><A NAME="SEC290" HREF="emacs_toc.html#SEC290">Counting Days</A></H2>
+<P>
+<DL COMPACT>
+<DT><KBD>M-=</KBD>
+<DD>Display the number of days in the current region
+(<CODE>calendar-count-days-region</CODE>).
+</DL>
+<A NAME="IDX1606"></A>
+<A NAME="IDX1607"></A>
+<P>
+  To determine the number of days in the region, type <KBD>M-=</KBD>
+(<CODE>calendar-count-days-region</CODE>).  The numbers of days printed is
+<EM>inclusive</EM>; that is, it includes the days specified by mark and
+point.
+<P>
+<H2><A NAME="SEC291" HREF="emacs_toc.html#SEC291">Miscellaneous Calendar Commands</A></H2>
+<P>
+<DL COMPACT>
+<DT><KBD>p d</KBD>
+<DD>Display day-in-year (<CODE>calendar-print-day-of-year</CODE>).
+<DT><KBD>C-c C-l</KBD>
+<DD>Regenerate the calendar window (<CODE>redraw-calendar</CODE>).
+<DT><KBD>q</KBD>
+<DD>Exit from calendar (<CODE>exit-calendar</CODE>).
+</DL>
+<A NAME="IDX1608"></A>
+<A NAME="IDX1609"></A>
+<A NAME="IDX1610"></A>
+<P>
+  To print the number of days elapsed since the start of the year, or
+the number of days remaining in the year, type the <KBD>p d</KBD> command
+(<CODE>calendar-print-day-of-year</CODE>).  This displays both of those
+numbers in the echo area.  The number of days elapsed includes the
+selected date.  The number of days remaining does not include that
+date.
+<A NAME="IDX1611"></A>
+<A NAME="IDX1612"></A>
+<P>
+  If the calendar window gets corrupted, type <KBD>C-c C-l</KBD>
+(<CODE>redraw-calendar</CODE>) to redraw it.
+<A NAME="IDX1613"></A>
+<A NAME="IDX1614"></A>
+<P>
+  To exit from the calendar, type <KBD>q</KBD> (<CODE>exit-calendar</CODE>).  This
+buries all buffers related to the calendar and returns the window display
+to what it was when you entered the calendar.
+<P>
+<A NAME="IDX1615"></A>
+<H2><A NAME="SEC292" HREF="emacs_toc.html#SEC292">Holidays</A></H2>
+<P>
+  The Emacs calendar knows about all major and many minor holidays,
+and can display them.
+<P>
+<DL COMPACT>
+<DT><KBD>h</KBD>
+<DD>Display holidays for the selected date
+(<CODE>calendar-cursor-holidays</CODE>).
+<DT><KBD>x</KBD>
+<DD>Mark holidays in the calendar window (<CODE>mark-calendar-holidays</CODE>).
+<DT><KBD>u</KBD>
+<DD>Unmark calendar window (<CODE>calendar-unmark</CODE>).
+<DT><KBD>a</KBD>
+<DD>List all holidays for the displayed three months in another window
+(<CODE>list-calendar-holidays</CODE>).
+<DT><KBD>M-x holidays</KBD>
+<DD>List all holidays for three months around today's date in another
+window.
+</DL>
+<A NAME="IDX1616"></A>
+<A NAME="IDX1617"></A>
+<P>
+  To see if any holidays fall on a given date, position point on that
+date in the calendar window and use the <KBD>h</KBD> command.  This names
+the holidays for that date, in the echo area if they fit there, 
+otherwise in a separate window.
+<A NAME="IDX1618"></A>
+<A NAME="IDX1619"></A>
+<A NAME="IDX1620"></A>
+<A NAME="IDX1621"></A>
+<P>
+  To find the distribution of holidays for a wider period, use the
+<KBD>x</KBD> command.  This displays a <SAMP>`*'</SAMP> after each date on which a
+holiday falls.  The command applies both to the currently visible months
+and to other months that subsequently become visible by scrolling.  To
+turn marking off and erase the current marks, type <KBD>u</KBD>, which also
+erases any diary marks (see section <A HREF="emacs_33.html#SEC300">The Diary</A>).
+<A NAME="IDX1622"></A>
+<A NAME="IDX1623"></A>
+<P>
+  To get even more detailed information, use the <KBD>a</KBD> command, which
+displays a separate buffer containing a list of all holidays in the
+current three-month range.
+<A NAME="IDX1624"></A>
+<P>
+  The command <KBD>M-x holidays</KBD> displays the list of holidays for the
+current month and the preceding and succeeding months; this works even
+if you don't have a calendar window.  If you want the list of holidays
+centered around a different month, use <KBD>C-u M-x holidays</KBD>, which
+prompts for the month and year.
+<P>
+  The holidays known to Emacs include American holidays and the major
+Christian, Jewish, and Islamic holidays; when floating point is
+available, the calendar also knows about solstices and equinoxes.
+<P>
+  The dates used by Emacs for holidays are based on <EM>current
+practice</EM>, not historical fact.  Historically, for instance, the start
+of daylight savings time and even its existence have varied from year to
+year, but present American law mandates that daylight savings time
+begins on the first Sunday in April.  In an American locale, Emacs
+always uses this definition, even though it is wrong for some prior years.
+<P>
+<A NAME="IDX1625"></A>
+<H2><A NAME="SEC293" HREF="emacs_toc.html#SEC293">Times of Sunrise and Sunset</A></H2>
+<P>
+  Emacs can tell you, to within a minute or two, the times of sunrise and
+sunset for any date, if floating point is available.
+<P>
+<DL COMPACT>
+<DT><KBD>S</KBD>
+<DD>Display times of sunrise and sunset for the selected date
+(<CODE>calendar-sunrise-sunset</CODE>).
+<DT><KBD>M-x sunrise-sunset</KBD>
+<DD>Display times of sunrise and sunset for today's date.
+<DT><KBD>C-u M-x sunrise-sunset</KBD>
+<DD>Display times of sunrise and sunset for a specified date.
+</DL>
+<A NAME="IDX1626"></A>
+<A NAME="IDX1627"></A>
+<A NAME="IDX1628"></A>
+<P>
+  Within the calendar, to display the <EM>local times</EM> of sunrise and
+sunset in the echo area, move point to the date you want, and type
+<KBD>S</KBD>.
+<P>
+  The command <KBD>M-x sunrise-sunset</KBD> is available outside the
+calendar to print this information for today's date or a specified
+date.  To specify a date other than today, use <KBD>C-u M-x
+sunrise-sunset</KBD>, which prompts for the year, month, and day.
+<P>
+  Because the times of sunrise and sunset depend on the location on
+earth, you need to tell Emacs your latitude, longitude, and location
+name before using these commands.  Here is an example of what to set:
+<A NAME="IDX1629"></A>
+<A NAME="IDX1630"></A>
+<A NAME="IDX1631"></A>
+<P>
+<PRE>
+(setq calendar-latitude 40.1)
+(setq calendar-longitude -88.2)
+(setq calendar-location-name "Urbana, IL")
+</PRE>
+<P>
+Use one decimal place in the values of <CODE>calendar-latitude</CODE> and
+<CODE>calendar-longitude</CODE>.
+<P>
+  Your time zone also affects the local time of sunrise and sunset.
+Emacs usually gets this information from the operating system, but if
+these values are not what you want (or if the operating system does not
+supply them), you must set them yourself.  Here is an example:
+<A NAME="IDX1632"></A>
+<A NAME="IDX1633"></A>
+<A NAME="IDX1634"></A>
+<P>
+<PRE>
+(setq calendar-time-zone -360)
+(setq calendar-standard-time-zone-name "CST")
+(setq calendar-daylight-time-zone-name "CDT")
+</PRE>
+<P>
+The value of <CODE>calendar-time-zone</CODE> is the number of minutes
+difference between your local standard time and Coordinated Universal Time
+(Greenwich time).  The values of <CODE>calendar-standard-time-zone-name</CODE>
+and <CODE>calendar-daylight-time-zone-name</CODE> are the abbreviations used
+in your time zone.
+<P>
+  Emacs displays the times of sunrise and sunset <EM>corrected for
+daylight savings time</EM>.  See section <A HREF="emacs_33.html#SEC307">Daylight Savings Time</A>, for how daylight
+savings time is determined.
+<P>
+  You can display the times of sunrise and sunset for any location and
+any date with <KBD>C-u C-u M-x sunrise-sunset</KBD>.  This asks you for a
+longitude, latitude, number of minutes difference from Coordinated
+Universal Time, and date, and then tells you the times of sunrise and
+sunset for that location on that date.
+<P>
+<A NAME="IDX1635"></A>
+<A NAME="IDX1636"></A>
+<H2><A NAME="SEC294" HREF="emacs_toc.html#SEC294">Phases of the Moon</A></H2>
+<P>
+  Emacs can tell you the dates and times of the phases of the moon (new
+moon, first quarter, full moon, last quarter), if floating point is
+available.  This feature is useful for debugging problems that "depend
+on the phase of the moon."
+<P>
+<DL COMPACT>
+<DT><KBD>M</KBD>
+<DD>Display the dates and times for all the quarters of the moon for the
+three-month period shown (<CODE>calendar-phases-of-moon</CODE>).
+<DT><KBD>M-x phases-of-moon</KBD>
+<DD>Display dates and times of the quarters of the moon for three months around
+today's date.
+</DL>
+<A NAME="IDX1637"></A>
+<A NAME="IDX1638"></A>
+<P>
+  Within the calendar, use the <KBD>M</KBD> command to display a separate
+buffer of the phases of the moon for the current three-month range.  The
+dates and times listed are accurate to within a few minutes.
+<A NAME="IDX1639"></A>
+<P>
+  Outside the calendar, use the command <KBD>M-x phases-of-moon</KBD> to
+display the list of the phases of the moon for the current month and the
+preceding and succeeding months.  For information about a different
+month, use <KBD>C-u M-x phases-of-moon</KBD>, which prompts for the month and
+year.
+<P>
+  The dates and times given for the phases of the moon are given in
+local time (corrected for daylight savings, when appropriate); but if
+the variable <CODE>calendar-time-zone</CODE> is void, Coordinated Universal
+Time (the Greenwich time zone) is used.  See section <A HREF="emacs_33.html#SEC307">Daylight Savings Time</A>.
+<P>
+<H2><A NAME="SEC295" HREF="emacs_toc.html#SEC295">Conversion To and From Other Calendars</A></H2>
+<A NAME="IDX1640"></A>
+<P>
+  The Emacs calendar displayed is <EM>always</EM> the Gregorian calendar,
+sometimes called the "new style" calendar, which is used in most of
+the world today.  However, this calendar did not exist before the
+sixteenth century and was not widely used before the eighteenth century;
+it did not fully displace the Julian calendar and gain universal
+acceptance until the early twentieth century.  The Emacs calendar can
+display any month since January, year 1 of the current era, but the
+calendar displayed is the Gregorian, even for a date at which the
+Gregorian calendar did not exist.
+<P>
+  While Emacs cannot display other calendars, it can convert dates to
+and from several other calendars.
+<P>
+<H3><A NAME="SEC296" HREF="emacs_toc.html#SEC296">Supported Calendar Systems</A></H3>
+<A NAME="IDX1641"></A>
+<P>
+  The ISO commercial calendar is used largely in Europe.
+<A NAME="IDX1642"></A>
+<P>
+  The Julian calendar, named after Julius Caesar, was the one used in Europe
+throughout medieval times, and in many countries up until the nineteenth
+century.
+<A NAME="IDX1643"></A>
+<A NAME="IDX1644"></A>
+<P>
+  Astronomers use a simple counting of days elapsed since noon, Monday,
+January 1, 4713 B.C. on the Julian calendar.  The number of days elapsed
+is called the <EM>Julian day number</EM> or the <EM>Astronomical day number</EM>.
+<A NAME="IDX1645"></A>
+<P>
+  The Hebrew calendar is the one used to determine the dates of Jewish
+holidays.  Hebrew calendar dates begin and end at sunset.
+<A NAME="IDX1646"></A>
+<P>
+  The Islamic (Moslem) calendar is the one used to determine the dates
+of Moslem holidays.  There is no universal agreement in the Islamic
+world about the calendar; Emacs uses a widely accepted version, but the
+precise dates of Islamic holidays often depend on proclamation by
+religious authorities, not on calculations.  As a consequence, the
+actual dates of occurrence can vary slightly from the dates computed by
+Emacs.  Islamic calendar dates begin and end at sunset.
+<A NAME="IDX1647"></A>
+<P>
+  The French Revolutionary calendar was created by the Jacobins after the 1789
+revolution, to represent a more secular and nature-based view of the annual
+cycle, and to install a 10-day week in a rationalization measure similar to
+the metric system.  The French government officially abandoned this
+calendar at the end of 1805.
+<A NAME="IDX1648"></A>
+<P>
+  The Maya of Central America used three separate, overlapping calendar
+systems, the <EM>long count</EM>, the <EM>tzolkin</EM>, and the <EM>haab</EM>.
+Emacs knows about all three of these calendars.  Experts dispute the
+exact correlation between the Mayan calendar and our calendar; Emacs uses the
+Goodman-Martinez-Thompson correlation in its calculations.
+<P>
+<H3><A NAME="SEC297" HREF="emacs_toc.html#SEC297">Converting To Other Calendars</A></H3>
+<P>
+  The following commands describe the selected date (the date at point)
+in various other calendar systems:
+<P>
+<A NAME="IDX1649"></A>
+<A NAME="IDX1650"></A>
+<DL COMPACT>
+<DT><KBD>p c</KBD>
+<DD>Display ISO commercial calendar equivalent for selected day
+(<CODE>calendar-print-iso-date</CODE>).
+<A NAME="IDX1651"></A>
+<DT><KBD>p j</KBD>
+<DD>Display Julian date for selected day (<CODE>calendar-print-julian-date</CODE>).
+<A NAME="IDX1652"></A>
+<DT><KBD>p a</KBD>
+<DD>Display astronomical (Julian) day number for selected day
+(<CODE>calendar-print-astro-day-number</CODE>).
+<A NAME="IDX1653"></A>
+<DT><KBD>p h</KBD>
+<DD>Display Hebrew date for selected day (<CODE>calendar-print-hebrew-date</CODE>).
+<A NAME="IDX1654"></A>
+<DT><KBD>p i</KBD>
+<DD>Display Islamic date for selected day (<CODE>calendar-print-islamic-date</CODE>).
+<A NAME="IDX1655"></A>
+<DT><KBD>p f</KBD>
+<DD>Display French Revolutionary date for selected day
+(<CODE>calendar-print-french-date</CODE>).
+<A NAME="IDX1656"></A>
+<DT><KBD>p m</KBD>
+<DD>Display Mayan date for selected day (<CODE>calendar-print-mayan-date</CODE>).
+</DL>
+<P>
+  Put point on the desired date of the Gregorian calendar, then type the
+appropriate keys.  The <KBD>p</KBD> is a mnemonic for "print" since Emacs
+"prints" the equivalent date in the echo area.
+<P>
+<H3><A NAME="SEC298" HREF="emacs_toc.html#SEC298">Converting From Other Calendars</A></H3>
+<P>
+  You can move to dates that you specify on the Commercial, Julian,
+astronomical, Hebrew, Islamic, or French calendars:
+<A NAME="IDX1657"></A>
+<A NAME="IDX1658"></A>
+<A NAME="IDX1659"></A>
+<A NAME="IDX1660"></A>
+<A NAME="IDX1661"></A>
+<A NAME="IDX1662"></A>
+<A NAME="IDX1663"></A>
+<P>
+<DL COMPACT>
+<DT><KBD>g c</KBD>
+<DD>Move to a date specified in the ISO commercial calendar
+(<CODE>calendar-goto-iso-date</CODE>).
+<DT><KBD>g j</KBD>
+<DD>Move to a date specified in the Julian calendar
+(<CODE>calendar-goto-julian-date</CODE>).
+<DT><KBD>g a</KBD>
+<DD>Move to a date specified in astronomical (Julian) day number
+(<CODE>calendar-goto-astro-day-number</CODE>).
+<DT><KBD>g h</KBD>
+<DD>Move to a date specified in the Hebrew calendar
+(<CODE>calendar-goto-hebrew-date</CODE>).
+<DT><KBD>g i</KBD>
+<DD>Move to a date specified in the Islamic calendar
+(<CODE>calendar-goto-islamic-date</CODE>).
+<DT><KBD>g f</KBD>
+<DD>Move to a date specified in the French Revolutionary calendar
+(<CODE>calendar-goto-french-date</CODE>).
+</DL>
+<P>
+  These commands ask you for a date on the other calendar, move point to
+the Gregorian calendar date equivalent to that date, and display the
+other calendar's date in the echo area.  Emacs uses strict completion
+(see section <A HREF="emacs_10.html#SEC33">Completion</A>) whenever it asks you to type a month name, so you
+don't have to worry about the spelling of Hebrew, Islamic, or French names.
+<A NAME="IDX1664"></A>
+<A NAME="IDX1665"></A>
+<P>
+  One common question concerning the Hebrew calendar is the computation
+of the anniversary of a date of death, called a "yahrzeit."  The Emacs
+calendar includes a facility for such calculations.  If you are in the
+calendar, the command <KBD>M-x list-yahrzeit-dates</KBD> asks you for a
+range of years and then displays a list of the yahrzeit dates for those
+years for the date given by point.  If you are not in the calendar,
+this command first asks you for the date of death and the range of
+years, and then displays the list of yahrzeit dates.
+<P>
+<H3><A NAME="SEC299" HREF="emacs_toc.html#SEC299">Converting from the Mayan Calendar</A></H3>
+<P>
+  Here are the commands to select dates based on the Mayan calendar:
+<P>
+<DL COMPACT>
+<DT><KBD>g m l</KBD>
+<DD>Move to a date specified by the long count calendar
+(<CODE>calendar-goto-mayan-long-count-date</CODE>).
+<DT><KBD>g m p t</KBD>
+<DD>Move to the previous occurrence of a place in the
+tzolkin calendar (<CODE>calendar-previous-tzolkin-date</CODE>).
+<DT><KBD>g m n t</KBD>
+<DD>Move to the next occurrence of a place in the
+tzolkin calendar (<CODE>calendar-next-tzolkin-date</CODE>).
+<DT><KBD>g m p h</KBD>
+<DD>Move to the previous occurrence of a place in the
+haab calendar (<CODE>calendar-previous-haab-date</CODE>).
+<DT><KBD>g m n h</KBD>
+<DD>Move to the next occurrence of a place in the
+haab calendar (<CODE>calendar-next-haab-date</CODE>).
+<DT><KBD>g m p c</KBD>
+<DD>Move to the previous occurrence of a place in the
+calendar round (<CODE>calendar-previous-calendar-round-date</CODE>).
+<DT><KBD>g m n c</KBD>
+<DD>Move to the next occurrence of a place in the
+calendar round (<CODE>calendar-next-calendar-round-date</CODE>).
+</DL>
+<A NAME="IDX1666"></A>
+<P>
+  To understand these commands, you need to understand the Mayan calendars.
+The <DFN>long count</DFN> is a counting of days with these units:
+<P>
+<PRE>
+1 kin = 1 day   1 uinal = 20 kin   1 tun = 18 uinal
+1 katun = 20 tun   1 baktun = 20 katun
+</PRE>
+<A NAME="IDX1667"></A>
+<A NAME="IDX1668"></A>
+<P>
+Thus, the long count date 12.16.11.16.6 means 12 baktun, 16 katun, 11
+tun, 16 uinal, and 6 kin.  The Emacs calendar can handle Mayan long
+count dates as early as 7.17.18.13.1, but no earlier.  When you use the
+<KBD>g m l</KBD> command, type the Mayan long count date with the baktun,
+katun, tun, uinal, and kin separated by periods.
+<A NAME="IDX1669"></A>
+<A NAME="IDX1670"></A>
+<A NAME="IDX1671"></A>
+<P>
+  The Mayan tzolkin calendar is a cycle of 260 days formed by a pair of
+independent cycles of 13 and 20 days.  Since this cycle repeats
+endlessly, Emacs provides commands to move backward and forward to the
+previous or next point in the cycle.  Type <KBD>g m p t</KBD> to go to the
+previous tzolkin date; Emacs asks you for a tzolkin date and moves point
+to the previous occurrence of that date.  Similarly, type <KBD>g m n t</KBD>
+to go to the next occurrence of a tzolkin date.
+<A NAME="IDX1672"></A>
+<A NAME="IDX1673"></A>
+<A NAME="IDX1674"></A>
+<P>
+  The Mayan haab calendar is a cycle of 365 days arranged as 18 months
+of 20 days each, followed a 5-day monthless period.  Like the tzolkin
+cycle, this cycle repeats endlessly, and there are commands to move
+backward and forward to the previous or next point in the cycle.  Type
+<KBD>g m p h</KBD> to go to the previous haab date; Emacs asks you for a haab
+date and moves point to the previous occurrence of that date.
+Similarly, type <KBD>g m n h</KBD> to go to the next occurrence of a haab
+date.
+<A NAME="IDX1675"></A>
+<A NAME="IDX1676"></A>
+<P>
+  The Maya also used the combination of the tzolkin date and the haab
+date.  This combination is a cycle of about 52 years called a
+<EM>calendar round</EM>.  If you type <KBD>g m p c</KBD>, Emacs asks you for
+both a haab and a tzolkin date and then moves point to the previous
+occurrence of that combination.  Use <KBD>g m p c</KBD> to move point to the
+next occurrence of a combination.  Emacs signals an error if the
+haab/tzolkin date you have typed is impossible.
+<P>
+  Emacs uses strict completion (see section <A HREF="emacs_10.html#SEC33">Completion</A>) whenever it asks you
+to type a Mayan name, so you don't have to worry about spelling.
+<P>
+<A NAME="IDX1677"></A>
+<H2><A NAME="SEC300" HREF="emacs_toc.html#SEC300">The Diary</A></H2>
+<P>
+  The Emacs diary keeps track of appointments or other events on a daily
+basis, in conjunction with the calendar.  To use the diary feature, you
+must first create a <DFN>diary file</DFN> containing a list of events and
+their dates.  Then Emacs can automatically pick out and display the
+events for today, for the immediate future, or for any specified
+date.
+<P>
+  By default, Emacs uses <TT>`~/diary'</TT> as the diary file.  This is the
+same file that the <CODE>calendar</CODE> utility uses.  A sample
+<TT>`~/diary'</TT> file is:
+<P>
+<PRE>
+12/22/1988 Twentieth wedding anniversary!!
+&#38;1/1. Happy New Year!
+10/22 Ruth's birthday.
+* 21, *: Payday
+Tuesday--weekly meeting with grad students at 10am
+         Supowit, Shen, Bitner, and Kapoor to attend.
+1/13/89 Friday the thirteenth!!
+&#38;thu 4pm squash game with Lloyd.
+mar 16 Dad's birthday
+April 15, 1989 Income tax due.
+&#38;* 15 time cards due.
+</PRE>
+<P>
+  Although you probably will start by creating a diary manually, Emacs
+provides a number of commands to let you view, add, and change diary
+entries.
+<P>
+<H3><A NAME="SEC301" HREF="emacs_toc.html#SEC301">Commands Displaying Diary Entries</A></H3>
+<P>
+  Once you have created a <TT>`~/diary'</TT> file, you can view it from
+within the calendar.  You can also view today's events outside of
+Calendar mode.
+<P>
+<DL COMPACT>
+<DT><KBD>d</KBD>
+<DD>Display any diary entries for the selected date
+(<CODE>view-diary-entries</CODE>).
+<DT><KBD>s</KBD>
+<DD>Display entire diary file (<CODE>show-all-diary-entries</CODE>).
+<DT><KBD>m</KBD>
+<DD>Mark all visible dates that have diary entries
+(<CODE>mark-diary-entries</CODE>).
+<DT><KBD>u</KBD>
+<DD>Unmark calendar window (<CODE>calendar-unmark</CODE>).
+<DT><KBD>M-x print-diary-entries</KBD>
+<DD>Print hard copy of the diary display as it appears.
+<DT><KBD>M-x diary</KBD>
+<DD>Display any diary entries for today's date.
+</DL>
+<A NAME="IDX1678"></A>
+<A NAME="IDX1679"></A>
+<P>
+  Displaying the diary entries with <KBD>d</KBD> shows in a separate window
+the diary entries for the selected date in the calendar.  The mode line
+of the new window shows the date of the diary entries and any holidays
+that fall on that date.
+<P>
+  If you specify a numeric argument with <KBD>d</KBD>, it shows all the diary
+entries for that many successive days.  Thus, <KBD>2 d</KBD> displays all the
+entries for the selected date and for the following day.
+<A NAME="IDX1680"></A>
+<A NAME="IDX1681"></A>
+<P>
+  To get a broader view of which days are mentioned in the diary, use
+the <KBD>m</KBD> command.  This places a <SAMP>`+'</SAMP> after each date which has a
+diary entry.  The command applies both to the currently visible months
+and to other months that subsequently become visible by scrolling.  To
+turn marking off and erase the current marks, type <KBD>u</KBD>, which also
+turns off holiday marks (see section <A HREF="emacs_33.html#SEC292">Holidays</A>).
+<A NAME="IDX1682"></A>
+<A NAME="IDX1683"></A>
+<P>
+  To see the full diary file, rather than just some of the entries, use
+the <KBD>s</KBD> command.
+<P>
+  Display of selected diary entries uses the selective display feature
+to hide entries that don't apply.  This is the same feature that Outline
+mode uses to show part of an outline (see section <A HREF="emacs_25.html#SEC166">Outline Mode</A>).  The diary
+buffer as you see it is an illusion, so simply printing the buffer does
+not print what you see on your screen.
+<P>
+   There is a special command to print hard copy of the diary buffer
+<EM>as it appears</EM>; this command is <KBD>M-x print-diary-entries</KBD>.  It
+sends the data directly to the printer.  You can customize it like
+<CODE>lpr-region</CODE> (see section <A HREF="emacs_34.html#SEC324">Hardcopy Output</A>).
+<A NAME="IDX1684"></A>
+<P>
+  The command <KBD>M-x diary</KBD> displays the diary entries for the current
+date, independently of the calendar display, and optionally for the next
+few days as well; the variable <CODE>number-of-diary-entries</CODE> specifies
+how many days to include.  See section 'Calendar/Diary Options' in <CITE>The Emacs Lisp Reference Manual</CITE>.
+<P>
+  If you put <CODE>(diary)</CODE> in your <TT>`.emacs'</TT> file, this
+automatically displays a window with the day's diary entries, when you
+enter Emacs.  The mode line of the displayed window shows the date and
+any holidays that fall on that date.
+<P>
+<A NAME="IDX1685"></A>
+<H3><A NAME="SEC302" HREF="emacs_toc.html#SEC302">The Diary File</A></H3>
+<A NAME="IDX1686"></A>
+<P>
+  Your <DFN>diary file</DFN> is a file that records events associated with
+particular dates.  The name of the diary file is specified by the variable
+<CODE>diary-file</CODE>; <TT>`~/diary'</TT> is the default.  You can use the same file
+for the <CODE>calendar</CODE> utility program, since its formats are a subset of the
+ones allowed by the Emacs diary facilities.
+<P>
+  Each entry in the diary file describes one event and consists of one
+or more lines.  An entry always begins with a date specification at the
+left margin.  The rest of the entry is simply text to describe the
+event.  If the entry has more than one line, then the lines after the
+first must begin with whitespace to indicate they continue a previous
+entry.  Lines that do not begin with valid dates and do not continue a
+preceding entry are ignored.
+<P>
+  You can inhibit the marking of certain diary entries in the calendar
+window; to do this, insert an ampersand (<SAMP>`&#38;'</SAMP>) at the beginning of
+the entry, before the date.  This has no effect on display of the entry
+in the diary window; it affects only marks on dates in the calendar
+window.  Nonmarking entries are especially useful for generic entries
+that would otherwise mark many different dates.
+<P>
+  If the first line of a diary entry consists only of the date or day
+name with no following blanks or punctuation, then the diary window
+display doesn't include that line; only the continuation lines appear.
+For example:
+<P>
+<PRE>
+02/11/1989
+      Bill B. visits Princeton today
+      2pm Cognitive Studies Committee meeting
+      2:30-5:30 Liz at Lawrenceville
+      4:00pm Dentist appt
+      7:30pm Dinner at George's
+      8:00-10:00pm concert
+</PRE>
+<P>
+appears in the diary window without the date line at the beginning.
+This style of entry looks neater when you display just a single day's
+entries, but can cause confusion if you ask for more than one day's
+entries.
+<P>
+  You can edit the diary entries as they appear in the window, but it is
+important to remember that the buffer displayed contains the <EM>entire</EM>
+diary file, with portions of it concealed from view.  This means, for
+instance, that the <KBD>C-f</KBD> (<CODE>forward-char</CODE>) command can put point
+at what appears to be the end of the line, but what is in reality the
+middle of some concealed line.
+<P>
+  <EM>Be careful when editing the diary entries!</EM>  Inserting
+additional lines or adding/deleting characters in the middle of a
+visible line cannot cause problems, but editing at the end of a line may
+not do what you expect.  Deleting a line may delete other invisible
+entries that follow it.  Before editing the diary, it is best to display
+the entire file with <KBD>s</KBD> (<CODE>show-all-diary-entries</CODE>).
+<P>
+<H3><A NAME="SEC303" HREF="emacs_toc.html#SEC303">Date Formats</A></H3>
+<P>
+  Here are some sample diary entries, illustrating different ways of
+formatting a date.  The examples all show dates in American order
+(month, day, year), but Calendar mode supports European order (day,
+month, year) as an option.
+<P>
+<PRE>
+4/20/93  Switch-over to new tabulation system
+apr. 25  Start tabulating annual results
+4/30  Results for April are due
+*/25  Monthly cycle finishes
+Friday  Don't leave without backing up files
+</PRE>
+<P>
+  The first entry appears only once, on April 20, 1993.  The second and
+third appear every year on the specified dates, and the fourth uses a
+wildcard (asterisk) for the month, so it appears on the 25th of every
+month.  The final entry appears every week on Friday.
+<P>
+  You can use just numbers to express a date, as in
+<SAMP>`<VAR>month</VAR>/<VAR>day</VAR>'</SAMP> or
+<SAMP>`<VAR>month</VAR>/<VAR>day</VAR>/<VAR>year</VAR>'</SAMP>.  This must be followed by a
+nondigit.  In the date itself, <VAR>month</VAR> and <VAR>day</VAR> are numbers of
+one or two digits.  <VAR>year</VAR> is a number and may be abbreviated to the
+last two digits; that is, you can use <SAMP>`11/12/1989'</SAMP> or
+<SAMP>`11/12/89'</SAMP>.
+<P>
+  Dates can also have the form <SAMP>`<VAR>monthname</VAR> <VAR>day</VAR>'</SAMP> or
+<SAMP>`<VAR>monthname</VAR> <VAR>day</VAR>, <VAR>year</VAR>'</SAMP>, where the month's name can
+be spelled in full or abbreviated to three characters (with or without a
+period).  Case is not significant.
+<P>
+  A date may be <DFN>generic</DFN>, or partially unspecified.  Then the entry
+applies to all dates that match the specification.  If the date does not
+contain a year, it is generic and applies to any year.  Alternatively,
+<VAR>month</VAR>, <VAR>day</VAR>, or <VAR>year</VAR> can be a <SAMP>`*'</SAMP>; this matches
+any month, day, or year, respectively.  Thus, a diary entry <SAMP>`3/*/*'</SAMP>
+matches any day in March of any year; so does <SAMP>`march *'</SAMP>.
+<A NAME="IDX1687"></A>
+<A NAME="IDX1688"></A>
+<A NAME="IDX1689"></A>
+<P>
+  If you prefer the European style of writing dates--in which the day
+comes before the month--type <KBD>M-x european-calendar</KBD> while in the
+calendar, or set the variable <CODE>european-calendar-style</CODE> to <CODE>t</CODE>
+<EM>before</EM> using any calendar or diary command.  This mode interprets
+all dates in the diary in the European manner, and also uses European
+style for displaying diary dates.  (Note that there is no comma after
+the <VAR>monthname</VAR> in the European style.)  To go back to the (default)
+American style of writing dates, type <KBD>M-x american-calendar</KBD>.
+<P>
+  You can use the name of a day of the week as a generic date which
+applies to any date falling on that day of the week.  You can abbreviate
+the day of the week to three letters (with or without a period) or spell
+it in full; case is not significant.
+<P>
+<H3><A NAME="SEC304" HREF="emacs_toc.html#SEC304">Commands to Add to the Diary</A></H3>
+<P>
+  While in the calendar, there are several commands to create diary
+entries:
+<P>
+<DL COMPACT>
+<DT><KBD>i d</KBD>
+<DD>Add a diary entry for the selected date (<CODE>insert-diary-entry</CODE>).
+<DT><KBD>i w</KBD>
+<DD>Add a diary entry for the selected day of the week (<CODE>insert-weekly-diary-entry</CODE>).
+<DT><KBD>i m</KBD>
+<DD>Add a diary entry for the selected day of the month (<CODE>insert-monthly-diary-entry</CODE>).
+<DT><KBD>i y</KBD>
+<DD>Add a diary entry for the selected day of the year (<CODE>insert-yearly-diary-entry</CODE>).
+</DL>
+<A NAME="IDX1690"></A>
+<A NAME="IDX1691"></A>
+<P>
+  You can make a diary entry for a specific date by selecting that date
+in the calendar window and typing the <KBD>i d</KBD> command.  This command
+displays the end of your diary file in another window and inserts the
+date; you can then type the rest of the diary entry.
+<A NAME="IDX1692"></A>
+<A NAME="IDX1693"></A>
+<P>
+  If you want to make a diary entry that applies to a specific day of
+the week, select that day of the week (any occurrence will do) and type
+<KBD>i w</KBD>.  This inserts the day-of-week as a generic date; you can then
+type the rest of the diary entry.
+<A NAME="IDX1694"></A>
+<A NAME="IDX1695"></A>
+<A NAME="IDX1696"></A>
+<A NAME="IDX1697"></A>
+<P>
+  You can make a monthly diary entry in the same fashion.  Select the
+day of the month, use the <KBD>i m</KBD> command, and type rest of the
+entry.  Similarly, you can insert a yearly diary entry with the <KBD>i
+y</KBD> command.
+<P>
+  All of the above commands make marking diary entries.  If you want the
+diary entry to be nonmarking, give a prefix argument to the command.
+For example, <KBD>C-u i w</KBD> makes a nonmarking, weekly diary entry.
+<P>
+  When you modify the diary file, be sure to save the file before
+exiting Emacs.
+<P>
+<H3><A NAME="SEC305" HREF="emacs_toc.html#SEC305">Special Diary Entries</A></H3>
+<P>
+  In addition to entries based on calendar dates, your diary file can
+contain <DFN>special entries</DFN> for regular events such as anniversaries.
+These entries are based on Lisp expressions (sexps) that Emacs evaluates
+as it scans the diary file.  Instead of a date, a special entry contains
+<SAMP>`%%'</SAMP> followed by a Lisp expression which must begin and end with
+parentheses.  The Lisp expression determines which dates the entry
+applies to.
+<P>
+  Calendar mode provides commands to insert certain commonly used
+special entries:
+<P>
+<DL COMPACT>
+<DT><KBD>i a</KBD>
+<DD>Add an anniversary diary entry for the selected date
+(<CODE>insert-anniversary-diary-entry</CODE>).
+<DT><KBD>i b</KBD>
+<DD>Add a block diary entry for the current region
+(<CODE>insert-block-diary-entry</CODE>).
+<DT><KBD>i c</KBD>
+<DD>Add a cyclic diary entry starting at the date
+(<CODE>insert-cyclic-diary-entry</CODE>).
+</DL>
+<A NAME="IDX1698"></A>
+<A NAME="IDX1699"></A>
+<P>
+  If you want to make a diary entry that applies to the anniversary of a
+specific date, move point to that date and use the <KBD>i a</KBD> command.
+This displays the end of your diary file in another window and inserts
+the anniversary description; you can then type the rest of the diary
+entry.  The entry looks like this:
+<A NAME="IDX1700"></A>
+<P>
+<PRE>
+%%(diary-anniversary 10 31 1948) Arthur's birthday
+</PRE>
+<P>
+This entry applies to October 31 in any year after 1948; <SAMP>`10 31
+1948'</SAMP> specifies the date.  (If you are using the European calendar
+style, the month and day are interchanged.)  The reason this expression
+requires a beginning year is that advanced diary functions can use it to
+calculate the number of elapsed years.
+<A NAME="IDX1701"></A>
+<A NAME="IDX1702"></A>
+<P>
+  You can make a diary entry entry for a block of dates by setting the
+mark at the date at one end of the block, moving point to the date at
+the other end of the block, and using the <KBD>i b</KBD> command.  This
+command causes the end of your diary file to be displayed in another
+window and the block description to be inserted; you can then type the
+diary entry.  Here is a block diary entry that applies to all dates from
+June 24, 1990 through July 10, 1990:
+<A NAME="IDX1703"></A>
+<P>
+<PRE>
+%%(diary-block 6 24 1990 7 10 1990) Vacation
+</PRE>
+<P>
+The <SAMP>`6 24 1990'</SAMP> indicates the starting date and the <SAMP>`7 10 1990'</SAMP>
+indicates the stopping date.  (Again, if you are using the European calendar
+style, the month and day are interchanged.)
+<A NAME="IDX1704"></A>
+<A NAME="IDX1705"></A>
+<P>
+   <DFN>Cyclic</DFN> diary entries repeat after a fixed interval of days.  To
+create one, select the starting date and use the <KBD>i c</KBD> command.  The
+command prompts for the length of interval, then inserts the entry.
+It looks like this:
+<A NAME="IDX1706"></A>
+<P>
+<PRE>
+%%(diary-cyclic 50 3 1 1990) Renew medication
+</PRE>
+<P>
+which applies to March 1, 1990 and every 50th day following; <SAMP>`3 1 1990'</SAMP>
+specifies the starting date.  (If you are using the European calendar style,
+the month and day are interchanged.)
+<P>
+  All three of the these commands make marking diary entries.  If you want the
+diary entry to be nonmarking, give a numeric argument to the command.  For
+example, <KBD>C-u i a</KBD> makes a nonmarking anniversary diary
+entry.
+<P>
+  Marking sexp diary entries in the calendar is <EM>extremely</EM>
+time-consuming, since every date visible in the calendar window must be
+individually checked.  So it's a good idea to make sexp diary entries
+nonmarking (with <SAMP>`&#38;'</SAMP>) when possible.
+<P>
+  Another sophisticated kind of sexp entry, a <DFN>floating</DFN> diary entry,
+specifies a regularly-occurring event by offsets specified in days,
+weeks, and months.  It is comparable to a crontab entry interpreted by
+the <CODE>cron</CODE> utility.  Here is a nonmarking, floating diary entry
+that applies to the last Thursday in November:
+<A NAME="IDX1707"></A>
+<P>
+<PRE>
+&#38;%%(diary-float 11 4 -1) American Thanksgiving
+</PRE>
+<P>
+The 11 specifies November (the eleventh month), the 4 specifies Thursday
+(the fourth day of the week, where Sunday is numbered zero), and the
+-1 specifies "last" (1 would mean "first", 2 would mean
+"second", -2 would mean "second-to-last", and so on).  The
+month can be a single month or a list of months.  Thus you could change
+the 11 above to <SAMP>`'(1 2 3)'</SAMP> and have the entry apply to the last
+Thursday of January, February, and March.  If the month is <CODE>t</CODE>, the
+entry applies to all months of the year.<P>
+  Most generally, special diary entries can perform arbitrary
+computations to determine when they apply.  See section 'Sexp Diary Entries' in <CITE>The Emacs Lisp Reference Manual</CITE>.
+<P>
+<A NAME="IDX1708"></A>
+<H2><A NAME="SEC306" HREF="emacs_toc.html#SEC306">Appointments</A></H2>
+<P>
+  If you have a diary entry for an appointment, and that diary entry
+begins with a recognizable time of day, Emacs can warn you, several
+minutes beforehand, that that appointment is pending.  Emacs alerts you
+to the appointment by displaying a message in the mode line.
+<A NAME="IDX1709"></A>
+<A NAME="IDX1710"></A>
+<P>
+  To enable appointment notification, you must enable the time display
+feature of Emacs, <KBD>M-x display-time</KBD> (see section <A HREF="emacs_5.html#SEC11">The Mode Line</A>).  You must
+also add the function <CODE>appt-make-list</CODE> to the
+<CODE>diary-display-hook</CODE>, like this:
+<P>
+<PRE>
+(add-hook 'diary-display-hook 'appt-make-list)
+</PRE>
+<P>
+  With these preparations done, when you display the diary (either with
+the <KBD>d</KBD> command in the calendar window or with the <KBD>M-x diary</KBD>
+command), it sets up an appointment list of all the diary entries found
+with recognizable times of day, and reminds you just before each of
+them.
+<P>
+  For example, if you the diary file contains these lines:
+<P>
+<PRE>
+Monday
+  9:30am Coffee break
+ 12:00pm Lunch        
+</PRE>
+<P>
+Then on Mondays, after you have displayed the diary, you will be
+reminded at 9:20am about your coffee break and at 11:50am about lunch.
+<P>
+  Diary entries can have the time in the conventional American style, or
+in "military" style.  You need not be consistent; your diary file can
+have a mixture of the two styles.
+<A NAME="IDX1711"></A>
+<P>
+  Emacs updates the appointments list automatically just after
+midnight.  This also displays the next days' diary entries in the diary
+buffer, unless you set <CODE>appt-display-diary</CODE> to <CODE>nil</CODE>.
+<A NAME="IDX1712"></A>
+<A NAME="IDX1713"></A>
+<A NAME="IDX1714"></A>
+<P>
+  You can also use the appointment notification facility like an alarm
+clock.  The command <KBD>M-x appt-add</KBD> adds entries to the appointment
+list without affecting your diary file.  You delete entries from the
+appointment list with <KBD>M-x appt-delete</KBD>.
+<A NAME="IDX1715"></A>
+<P>
+  You can turn off the appointment notification feature at any time by
+setting <CODE>appt-issue-message</CODE> to <CODE>nil</CODE>.
+<P>
+<A NAME="IDX1716"></A>
+<H2><A NAME="SEC307" HREF="emacs_toc.html#SEC307">Daylight Savings Time</A></H2>
+<P>
+  Emacs understands the difference between standard time and daylight
+savings time--the times given for sunrise, sunset, solstices,
+equinoxes, and the phases of the moon take that into account.  The rules
+for daylight savings time vary from place to place and have also varied
+historically from year to year.  To do the job properly, Emacs needs to
+know which rules to use.
+<P>
+  Some operating systems keep track of the rules that apply to the place
+where you are; on these systems, Emacs gets the information it needs
+from the system automatically.  If some or all of this information is
+missing, Emacs fills in the gaps with the rules currently used in
+Cambridge, Massachusetts.  If the resulting rules are not what you want,
+you can tell Emacs the rules to use by setting certain variables.
+<A NAME="IDX1717"></A>
+<A NAME="IDX1718"></A>
+<P>
+  These values should be Lisp
+expressions that refer to the variable <CODE>year</CODE>, and evaluate to the
+Gregorian date on which daylight savings time starts or (respectively)
+ends, in the form of a list <CODE>(<VAR>month</VAR> <VAR>day</VAR> <VAR>year</VAR>)</CODE>.
+The values should be <CODE>nil</CODE> if your area does not use daylight
+savings time.
+<P>
+  Emacs uses these expressions to determine the starting date of
+daylight savings time for the holiday list and for correcting times of
+day in the solar and lunar calculations.
+<P>
+  The values for Cambridge, Massachusetts are as follows:
+<P>
+<PRE>
+(calendar-nth-named-day 1 0 4 year)
+(calendar-nth-named-day -1 0 10 year)
+</PRE>
+<P>
+i.e. the first 0th day (Sunday) of the fourth month (April) in
+the year specified by <CODE>year</CODE>, and the last Sunday of the tenth month
+(October) of that year.  If daylight savings time were
+changed to start on October 1, you would set
+<CODE>calendar-daylight-savings-starts</CODE> to this:
+<P>
+<PRE>
+(list 10 1 year)
+</PRE>
+<P>
+  If there is no daylight savings time at your location, or if you want
+all times in standard time, set <CODE>calendar-daylight-savings-starts</CODE>
+and <CODE>calendar-daylight-savings-ends</CODE> to <CODE>nil</CODE>.
+<A NAME="IDX1719"></A>
+<P>
+  This variable specifies the difference between daylight savings time and
+standard time, measured in minutes.  The value for Cambridge is 60.
+<A NAME="IDX1720"></A>
+<A NAME="IDX1721"></A>
+<P>
+  These variables specify is the number of minutes after midnight local time
+when the transition to and from daylight savings time should occur.  For
+Cambridge, both variables' values are 120.
+<P>Go to the <A HREF="emacs_32.html">previous</A>, <A HREF="emacs_34.html">next</A> section.<P>

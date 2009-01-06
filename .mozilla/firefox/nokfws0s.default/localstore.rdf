@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="chrome://mozapps/content/downloads/unknownContentType.xul">
+    <NC:persist RDF:resource="chrome://mozapps/content/downloads/unknownContentType.xul#unknownContentType"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul#PersonalToolbar"
+                   collapsed="true" />
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul#nav-bar"
+                   currentset="unified-back-forward-button,back-button,forward-button,reload-button,stop-button,home-button,fd-button,wot-button,del-button-delicious-page,del-button-delicious,del-button-tagPage,urlbar-container,urlbar-search-splitter,search-container,fullscreenflex,window-controls,abp-toolbarbutton" />
+  <RDF:Description RDF:about="chrome://mozapps/content/extensions/extensions.xul">
+    <NC:persist RDF:resource="chrome://mozapps/content/extensions/extensions.xul#search-view"/>
+    <NC:persist RDF:resource="chrome://mozapps/content/extensions/extensions.xul#extensionsManager"/>
+    <NC:persist RDF:resource="chrome://mozapps/content/extensions/extensions.xul#extensions-view"/>
+    <NC:persist RDF:resource="chrome://mozapps/content/extensions/extensions.xul#viewGroup"/>
+    <NC:persist RDF:resource="chrome://mozapps/content/extensions/extensions.xul#themes-view"/>
+    <NC:persist RDF:resource="chrome://mozapps/content/extensions/extensions.xul#plugins-view"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://mozapps/content/extensions/extensions.xul#viewGroup"
+                   last-selected="plugins" />
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul#main-window"
+                   width="940"
+                   screenY="25"
+                   height="1121"
+                   screenX="50"
+                   sizemode="maximized" />
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul#sidebar-box"
+                   src="chrome://ybookmarks/content/ybsidebar.xul" />
+  <RDF:Description RDF:about="chrome://mozapps/content/plugins/pluginInstallerWizard.xul#plugin-installer-wizard"
+                   screenX="659"
+                   screenY="400"
+                   width="601"
+                   height="400"
+                   sizemode="normal" />
+  <RDF:Description RDF:about="chrome://mozapps/content/extensions/extensions.xul#plugins-view"
+                   selected="true"
+                   last-selected="urn:mozilla:item:/usr/lib/xulrunner-addons/plugins/libnullplugin.so" />
+  <RDF:Description RDF:about="chrome://mozapps/content/extensions/extensions.xul#themes-view"
+                   last-selected="urn:mozilla:item:chromifox@altmusictv.com" />
+  <RDF:Description RDF:about="chrome://mozapps/content/downloads/downloads.xul#downloadManager"
+                   screenY="49"
+                   width="485"
+                   height="300"
+                   sizemode="normal"
+                   screenX="4" />
+  <RDF:Description RDF:about="chrome://mozapps/content/downloads/unknownContentType.xul#unknownContentType"
+                   screenX="773"
+                   screenY="622" />
+  <RDF:Description RDF:about="chrome://fgupdater/content/settings.xul#fgupdater-options1"
+                   width="423"
+                   height="522" />
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul#firefm-toolbar"
+                   collapsed="true" />
+  <RDF:Description RDF:about="chrome://mozapps/content/downloads/downloads.xul">
+    <NC:persist RDF:resource="chrome://mozapps/content/downloads/downloads.xul#downloadManager"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul">
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#main-window"/>
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#sidebar-box"/>
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#sidebar-title"/>
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#PersonalToolbar"/>
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#nav-bar"/>
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#firefm-toolbar"/>
+    <NC:persist RDF:resource="chrome://browser/content/browser.xul#ybToolbar"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://firefm/content/fmPreferencesWindow.xul">
+    <NC:persist RDF:resource="chrome://firefm/content/fmPreferencesWindow.xul#firefm-preferences-window"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://firefm/content/fmStartStationDialog.xul">
+    <NC:persist RDF:resource="chrome://firefm/content/fmStartStationDialog.xul#fm-start-station-artist-tab"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://firefm/content/fmStartStationDialog.xul#fm-start-station-artist-tab"
+                   selected="true" />
+  <RDF:Description RDF:about="chrome://mozapps/content/extensions/extensions.xul#extensions-view"
+                   last-selected="urn:mozilla:item:filtersetg@updater" />
+  <RDF:Description RDF:about="chrome://mozapps/content/extensions/extensions.xul#extensionsManager"
+                   width="520"
+                   height="380"
+                   sizemode="normal"
+                   screenY="49"
+                   screenX="4" />
+  <RDF:Description RDF:about="chrome://fgupdater/content/settings.xul">
+    <NC:persist RDF:resource="chrome://fgupdater/content/settings.xul#fgupdater-options1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="chrome://browser/content/browser.xul#ybToolbar"
+                   collapsed="true" />
+  <RDF:Description RDF:about="chrome://firefm/content/fmPreferencesWindow.xul#firefm-preferences-window"
+                   screenX="654"
+                   screenY="423"
+                   lastSelected="firefm-appearance-pane" />
+  <RDF:Description RDF:about="chrome://mozapps/content/plugins/pluginInstallerWizard.xul">
+    <NC:persist RDF:resource="chrome://mozapps/content/plugins/pluginInstallerWizard.xul#plugin-installer-wizard"/>
+  </RDF:Description>
+</RDF:RDF>

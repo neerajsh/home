@@ -1,0 +1,56 @@
+<!ENTITY open "Avaa">
+<!ENTITY openAll "Avaa Kaikki">
+<!ENTITY refresh "Päivitä">
+<!ENTITY refreshAll "Päivitä Kaikki">
+<!ENTITY properties "Ominaisuudet">
+<!ENTITY remove "Poista">
+<!ENTITY preferences "Asetukset">
+<!ENTITY close "Sulje">
+<!ENTITY applyToAll "Käytä kaikissa kansioissa">
+<!ENTITY defaults "Oletukset">
+<!ENTITY general "Yleinen">
+<!ENTITY appearance "Ulkonäkö">
+<!ENTITY folder "Kansio">
+<!ENTITY quantity "Määrä">
+<!ENTITY size "Koko">
+<!ENTITY fixed "Korjattu">
+<!ENTITY shortcutKey "Pikanäppäin">
+<!ENTITY openIn "Avaa se">
+<!ENTITY newTab "uusi välilehti">
+<!ENTITY backgroundTab "tausta välilehti">
+<!ENTITY newWindow "uusi ikkuna">
+<!ENTITY useJava "Käytä Javaa kuvien skaalaamiseen">
+<!ENTITY showRefreshAll "Näytä valikko-kohde Päivitä Kaikki">
+<!ENTITY showInNewTabs "Näytä Pikavalinta uusissa välilehdissä">
+<!ENTITY showEmpty "Näytä tyhjät linkit">
+<!ENTITY page "Sivu">
+<!ENTITY thumbnail "Esikatselukuva">
+<!ENTITY activeThumbnail "Aktiivinen esikatselukuva">
+<!ENTITY load "Lataa">
+<!ENTITY save "Tallenna">
+<!ENTITY font "Font">
+<!ENTITY image "Image">
+<!ENTITY center "Center">
+<!ENTITY background "Background">
+<!ENTITY spacing "Spacing">
+<!ENTITY border "Border">
+<!ENTITY titleBackground "Title background">
+<!ENTITY titleBorder "Title border">
+<!ENTITY titleColor "Title color">
+<!ENTITY opacity "Opacity">
+<!ENTITY clear "Clear">
+<!ENTITY url "URL">
+<!ENTITY customImage "Custom image">
+<!ENTITY title "Title">
+<!ENTITY refreshEvery "Refresh every">
+<!ENTITY minutes "minutes">
+<!ENTITY help "Help">
+<!ENTITY homePage "Home page">
+<!ENTITY addToFastDial "Add to Fast Dial">
+<!ENTITY slowSite "Slow site">
+<!ENTITY add "Add">
+<!ENTITY currentTab "current tab">
+<!ENTITY restartIsNeeded "(restart is needed)">
+<!ENTITY support "Support">
+<!ENTITY contact "Contact">
+<!ENTITY requestLogo "Request a logo">

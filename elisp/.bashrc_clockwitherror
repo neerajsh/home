@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+# Dynamic Bash Prompt
+# > Dynamic colours based on last command exit value plus a floating clock.
+#   By: Jared Warren <jawarren@trentu.ca>
+#
+# To use:
+#   echo 'source ~/.ps1' >> ~/.bashrc
+
+function prompt_command {
+    if [ $? -gt 0 ]
+        then
+        HIST_COLOR='1;31'
+        else
+        HIST_COLOR='1;30'
+        fi
+
+    if [ $CLOCK_ON ]
+        then
+        LIGHT_BLUE="$(tput setaf 4; tput bold)"
+        DEFAULT="$(tput sgr0)"
+        let UPPER_RIGHT=$(tput cols)-10
+
+        tput sc
+        tput cup 0 ${UPPER_RIGHT}
+        echo -n "[$LIGHT_BLUE$(date +%H:%M:%S)$DEFAULT]"
+        tput rc
+        fi
+}
+
+function ps1 {
+    # PROMPT SECTION
+    BLUE='\[\033[0;34m\]'
+    LIGHT_CYAN='\[\033[1;36m\]'
+    WHITE='\[\033[1;37m\]'
+    DEFAULT='\[\033[0m\]'
+
+    CLOCK_ON=1
+    PROMPT_COMMAND=prompt_command
+    # \! - History number of last command
+    # $? - Exit value of last command
+    # \t - Exit time of last command
+    # \w - Current directory (relative)
+    PS1="$BLUE[\[\033[\$(echo -n \$HIST_COLOR)m\]\!$BLUE] $WHITE\w$LIGHT_CYAN\$ $DEFAULT"
+}
+
+ps1
+

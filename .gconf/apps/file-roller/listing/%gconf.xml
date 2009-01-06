@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="list_mode" mtime="1231151560" type="string">
+                <stringvalue>as_folder</stringvalue>
+        </entry>
+        <entry name="sort_type" mtime="1231151560" type="string">
+                <stringvalue>ascending</stringvalue>
+        </entry>
+        <entry name="sort_method" mtime="1231151560" type="string">
+                <stringvalue>name</stringvalue>
+        </entry>
+        <entry name="name_column_width" mtime="1231151560" type="int" value="250">
+        </entry>
+        <entry name="show_path" mtime="1231151549" type="bool" value="false">
+        </entry>
+</gconf>

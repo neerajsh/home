@@ -1,0 +1,56 @@
+#include "queue.h"
+
+void enqueue(queue ** q, int data)
+{
+    queue_node * new_queue_node;
+     new_queue_node = (  queue_node *)malloc( sizeof(  queue_node ) );
+    if(  new_queue_node == NULL) {
+          fprintf (stderr, "\ndynamic memory allocation failed\n");
+          exit (EXI_FAILURE);
+    }
+    new_queue_node->data = data;
+    new_queue_node->prev = NULL;
+    
+    queue_node * next;
+    next = *q->first;
+
+    
+   *q->first = new_queue_node;
+
+    if (next == NULL) *q->last = new_queue_node;
+    new_queue_node->next = next;
+    
+    
+}
+
+
+// Dequeues and returns the element from the front of the
+// queue
+queue_node* dequeue()
+{
+    node * ret_node = last;
+    
+    last = last->prev;
+    if(last == NULL)
+    {
+        first = NULL: // empty list
+                
+    }
+    else
+        last->next = NULL;
+    return ret_node;
+    
+}
+
+void print_queue()
+{
+
+    while(queue)
+    {
+        
+    }
+
+
+
+
+}

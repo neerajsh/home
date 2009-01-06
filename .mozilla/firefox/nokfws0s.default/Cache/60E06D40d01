@@ -1,0 +1,419 @@
+<!-- This HTML file has been created by texi2html 1.27
+     from emacs.texi on 3 March 1994 -->
+
+<TITLE>GNU Emacs Manual - Emacs 18 Antinews</TITLE>
+<P>Go to the <A HREF="emacs_37.html">previous</A>, <A HREF="emacs_39.html">next</A> section.<P>
+<H1><A NAME="SEC389" HREF="emacs_toc.html#SEC389">Emacs 18 Antinews</A></H1>
+<P>
+For those users who live backwards in time, here is information about
+downgrading to Emacs version 18.  We hope you will enjoy the greater
+simplicity that results from the absence of many Emacs 19 features.
+<P>
+<H2>Packages Removed</H2>
+<P>
+To reduce the size of the distribution, we have eliminated numerous
+packages including GNUS, VC (version control), Hexl (for editing
+binary files), Edebug, Emerge, Mpuz, Spook, and Gomoku.
+<P>
+Major modes removed in Emacs 18 include C++ mode, Awk mode, Icon mode,
+Asm mode, Makefile mode, Perl mode and SGML mode.
+<P>
+The function <CODE>enable-flow-control</CODE> does not exist; see the file
+<TT>`PROBLEMS'</TT> in the Emacs distribution for directions for coping
+with flow control.
+<P>
+The Calendar feature provided is a very simple one.  All it can do is
+display three months, by default centered around the current month.
+If you give it a numeric argument, that specifies the number of months
+forward or back.
+<P>
+<H2>Fundamental Changes</H2>
+<P>
+Auto save and garbage collection happen only while you are typing,
+never while you are idle.  This is to make them more like affectionate
+pets.  Think of them as cats that like to sit on your terminal only
+when you are working there.
+<P>
+Transient Mark mode and Line Number mode are absent in Emacs 18.  If
+you are an Emacs user, you are smart enough to keep track of the mark
+in your head, and you don't need line numbers because you can search
+for precisely the text you want.
+<P>
+There are no menu bars or scroll bars; no faces, text properties or
+overlays.
+<P>
+There are no minibuffer history commands.
+<P>
+There is only one frame, so the Emacs 19 <KBD>C-x 5</KBD> command series is
+meaningless.  Instead, <KBD>C-x 5</KBD> in Emacs 18 splits the selected window
+horizontally (like <KBD>C-x 3</KBD> in Emacs 19).
+<P>
+Another simplification in Emacs 18 is that all input events are
+characters.  Function keys and arrow keys are represented as sequences
+of characters; the terminal-specific Emacs Lisp file for your terminal
+is responsible for defining them.  Mouse buttons are defined by a
+special keymap, <CODE>mouse-map</CODE>.  See the file <TT>`x-mouse.el'</TT> for
+how to bind mouse clicks.
+<P>
+Character codes 128 and above always display using <SAMP>`\<VAR>nnn</VAR>'</SAMP>
+notation.  For codes 0 through 31, you can choose between
+<SAMP>`\<VAR>nnn</VAR>'</SAMP> and <SAMP>`^<VAR>c</VAR>'</SAMP> by setting the variable
+<CODE>ctl-arrow</CODE>; but that is the only thing you can specify about how
+character codes should display.
+<P>
+You can't refer to files on other machines using special "magic"
+file names.  Instead, you must use the <CODE>ftp</CODE> library with
+commands such as <KBD>M-x ftp-find-file</KBD> and <KBD>M-x
+ftp-write-file</KBD>.
+<P>
+The character for terminating an incremental search is now <KBD>ESC</KBD>,
+not <KBD>RET</KBD> as in Emacs 19.  If you type <KBD>RET</KBD>, that searches
+for a newline; thus, you can insert a newline in the search string
+just as you would insert it in the text.
+<P>
+<H2>Key Binding Changes</H2>
+<P>
+The key for <CODE>backward-paragraph</CODE> is now <KBD>M-[</KBD>.  The key for
+<CODE>forward-paragraph</CODE> is now <KBD>M-]</KBD>.
+<P>
+The command <CODE>repeat-complex-command</CODE> is now on <KBD>C-x <KBD>ESC</KBD></KBD>.
+<P>
+The register commands have different key bindings:
+<P>
+<DL COMPACT>
+<DT><KBD>C-x /</KBD>
+<DD><CODE>point-to-register</CODE>
+<DT><KBD>C-x j</KBD>
+<DD><CODE>jump-to-register</CODE>
+<DT><KBD>C-x x</KBD>
+<DD><CODE>copy-to-register</CODE>
+<DT><KBD>C-x g</KBD>
+<DD><CODE>insert-register</CODE>
+<DT><KBD>C-x r</KBD>
+<DD><CODE>copy-rectangle-to-register</CODE>
+</DL>
+<P>
+The narrowing commands have also been moved:
+<P>
+<DL COMPACT>
+<DT><KBD>C-x n</KBD>
+<DD><CODE>narrow-to-region</CODE>
+<DT><KBD>C-x p</KBD>
+<DD><CODE>narrow-to-page</CODE>
+<DT><KBD>C-x w</KBD>
+<DD><CODE>widen</CODE>
+</DL>
+<P>
+And the abbrev commands as well:
+<P>
+<DL COMPACT>
+<DT><KBD>C-x C-a</KBD>
+<DD><CODE>add-mode-abbrev</CODE>
+<DT><KBD>C-x +</KBD>
+<DD><CODE>add-global-abbrev</CODE>
+<DT><KBD>C-x C-h</KBD>
+<DD><CODE>inverse-add-mode-abbrev</CODE>
+<DT><KBD>C-x -</KBD>
+<DD><CODE>inverse-add-global-abbrev</CODE>
+<DT><KBD>C-x `</KBD>
+<DD><CODE>expand-abbrev</CODE>
+</DL>
+<P>
+There are no key bindings for the rectangle commands.
+<P>
+<KBD>C-x a</KBD> now runs the command <CODE>append-to-buffer</CODE>.
+<P>
+The key bindings <KBD>C-x 4 r</KBD> and <KBD>C-x 4 C-o</KBD> do not exist.
+<P>
+The help commands <KBD>C-h C-f</KBD>, <KBD>C-h C-k</KBD> and <KBD>C-h p</KBD>
+do not exist in Emacs 18.
+<P>
+The command <KBD>C-M-l</KBD> (<CODE>reposition-window</CODE>) is absent.
+Likewise <KBD>C-M-r</KBD> (<CODE>isearch-backward-regexp</CODE>).
+<P>
+The "two column" commands starting with <KBD>C-x 6</KBD> don't exist in
+Emacs 18.
+<P>
+The TeX mode bindings of <KBD>C-c {</KBD> and <KBD>C-c }</KBD> have been
+moved to <KBD>M-{</KBD> and <KBD>M-}</KBD>.  (These commands are
+<CODE>up-list</CODE> and <CODE>tex-insert-braces</CODE>; they are the TeX
+equivalents of <KBD>M-(</KBD> and <KBD>M-)</KBD>.)
+<P>
+<H2>Incremental Search Changes</H2>
+<P>
+As mentioned above, the character for terminating an incremental
+search is now <KBD>ESC</KBD>, not <KBD>RET</KBD> as in Emacs 19.  If you type
+<KBD>RET</KBD>, that searches for a newline; thus, you can insert a newline
+in the search string just as you would insert it in the text.
+<P>
+There is no ring of previous search strings in Emacs 18.  You can reuse
+the most recent search string, but that's all.
+<P>
+If <CODE>case-fold-search</CODE> is non-<CODE>nil</CODE>, then incremental
+search is <EM>always</EM> case-insensitive.  Typing an upper-case letter
+in the search string has no effect on this.
+<P>
+Spaces in the incremental search string match only spaces.
+<P>
+The meanings of the special search characters are no longer controlled
+by a keymap.  Instead, particular variables named <CODE>search-...-char</CODE>
+specify the character that should have a particular function.
+For example, <KBD>C-s</KBD> repeats the search because the value of
+<CODE>search-repeat-char</CODE> is <CODE>?\C-s</CODE>.
+<P>
+<H2>Editing Command Changes</H2>
+<P>
+<KBD>C-n</KBD> (<CODE>next-line</CODE>) does not check the variable
+<CODE>next-line-add-newlines</CODE>.
+<P>
+The sexp commands such as <KBD>C-M-f</KBD> no longer know anything about
+comments, in modes such as Lisp mode where the end of a comment is the
+end of the line.  They treat the text inside a comment as if it were
+actual code.  If comments containing unbalanced parentheses cause
+trouble, you can use the commands <KBD>C-M-n</KBD> and <KBD>C-M-p</KBD>, which
+do ignore comments.
+<P>
+You can't store file names in registers, and there are no frame
+configurations at all.  The command <KBD>M-x string-rectangle</KBD> does not
+exist either.
+<P>
+The undo command in Emacs 18 is not careful about where to leave point
+when you undo a deletion.  It ends up at one end or the other of the
+text just undeleted.  You must be on the lookout for this, and move
+point appropriately.
+<P>
+Kill commands do nothing useful in read-only buffers.  They just beep.
+<P>
+<KBD>M-z <VAR>c</VAR></KBD> in Emacs 18 kills up to but not including the first
+occurrence of <VAR>c</VAR>.  If <VAR>c</VAR> does not occur in the buffer after
+point, <KBD>M-z</KBD> kills the whole rest of the buffer.
+<P>
+The function <CODE>erase-buffer</CODE> is not a command in Emacs 18.  You
+can call it from a Lisp program, but not interactively.  The
+motivation for this is to protect you from accidentally deleting (not
+killing) the entire text of a buffer that you want to keep.  With
+subsequent changes in even earlier Emacs versions (such as version
+18.54), you might be unable to undo the <CODE>erase-buffer</CODE>.
+<P>
+<KBD>M-x fill-nonuniform-paragraphs</KBD> and Adaptive Fill mode do not exist.
+<P>
+<H2>Other Brief Notes</H2>
+<P>
+Outline mode exists only as a major mode, not as a minor mode.
+<P>
+<KBD>M-!</KBD> (<CODE>shell-command</CODE>) always runs the command synchronously,
+even if the command ends with <SAMP>`&#38;'</SAMP>.
+<P>
+Emacs 18 has no special mode for change log files.  It is a good idea
+to use Indented Text mode, and specify 8 as the value of the variable
+<CODE>left-margin</CODE>.
+<P>
+The command <KBD>M-x comment-region</KBD> does not exist.
+The command <KBD>M-x super-apropos</KBD> does not exist.
+<P>
+<KBD>C-x q</KBD> (<CODE>kbd-macro-query</CODE>) now uses <KBD>C-d</KBD> to terminate
+all iterations of the keyboard macro, rather than <KBD>ESC</KBD>.
+<P>
+The <KBD>M-x setenv</KBD> command is missing in Emacs 18.
+<P>
+<KBD>M-$</KBD> now uses the Unix spell program instead of the GNU program
+Ispell.  If the word around point is a misspelling, it asks you for a
+replacement.
+<P>
+To check spelling of larger units of text, use <KBD>M-x spell-region</KBD>
+or <KBD>M-x spell-buffer</KBD>.  These commands check all words in the specified
+piece of text.  For each word that is not correct, they ask you to
+specify a replacement, and then replace each occurrence.
+<P>
+<KBD>M-x gdb</KBD> still exists in Emacs 18.  <KBD>M-x dbx</KBD> exists, but is
+somewhat different (use <KBD>C-h m</KBD> to find the details).  <KBD>M-x
+sdb</KBD> does not exist at all, but who wants to use SDB?
+<P>
+In Buffer Menu mode, the commands <KBD>%</KBD> and <KBD>C-o</KBD> don't work in
+Emacs 18.  The <KBD>v</KBD> command has been eliminated and merged with the
+<KBD>q</KBD> command, which now exits the buffer menu, displaying all the
+buffers that you have marked.
+<P>
+The View commands (such as <KBD>M-x view-buffer</KBD> and <KBD>M-x
+view-file</KBD>) now use recursive edits.  When you exit viewing, the
+recursive edit returns to its caller.
+<P>
+Emacs 18, like most programs, interprets command line options only when
+it is started--not later on.
+<P>
+The variable to control whether files can set local variables is called
+<CODE>inhibit-local-variables</CODE>.  A non-<CODE>nil</CODE> value means ask the
+user before obeying any local variables lists.
+<P>
+The user option for controlling use of the <CODE>eval</CODE> local variable
+is now called <CODE>inhibit-local-eval</CODE>.  A non-<CODE>nil</CODE> value means
+to ask the user before obeying any <CODE>eval</CODE> local variable.
+<P>
+<H2>File Handling Changes</H2>
+<P>
+As mentioned above, you can't refer to files on other machines using
+special "magic" file names.  Instead, you must use the <CODE>ftp</CODE>
+library with commands such as <KBD>M-x ftp-find-file</KBD> and <KBD>M-x
+ftp-write-file</KBD>.
+<P>
+When you run <KBD>M-x revert-buffer</KBD> with no prefix argument, if the
+buffer has an auto save file more recent that the visited file,
+<CODE>revert-buffer</CODE> asks whether to revert from the auto save file
+instead.
+<P>
+When <KBD>C-x s</KBD> (<CODE>save-some-buffers</CODE>) offers to save each buffer,
+you have only two choices: save it, or don't save it.
+<P>
+<KBD>M-x recover-file</KBD> turns off Auto Save mode in the current buffer.
+To turn it on again, use <KBD>M-x auto-save-mode</KBD>.
+<P>
+The command <KBD>M-x rename-uniquely</KBD> does not exist; instead, use
+<KBD>M-x rename-buffer</KBD> and try various names until you find one that
+isn't in use.  Completion can make this easier.
+<P>
+The directory name abbreviation feature is gone in Emacs 18.
+<P>
+Emacs 18 has no idea of file truenames, and does not try to detect
+when you visit a file via a symbolic link.  You should check manually
+when you visit a file, so as to edit it in the directory where it is
+actually stored.  This way you can make sure that backup files and
+change log entries go in the proper directory.
+<P>
+<KBD>M-x compare-windows</KBD> ignores any prefix argument and always
+considers case and whitespace differences significant.  As for the
+other ways of comparing files, <KBD>M-x diff</KBD> and <KBD>M-x
+diff-backup</KBD>, they don't exist at all.
+<P>
+<H2>Mail Changes</H2>
+<P>
+<SAMP>`%'</SAMP> is now a word-component character in Mail mode.  This is to
+be compatible with Text mode.
+<P>
+The variable <CODE>mail-signature</CODE> is not meaningful; if you wish to
+insert your signature in a mail message, you must type <KBD>C-c C-w</KBD>.
+<P>
+Mail aliases expand only when you send the message--never when you
+type them in.
+<P>
+Rmail now gets new mail into your primary mail file from <TT>`~/mbox'</TT>
+as well as from your system inbox file.  This is handy if you
+occasionally check your newest mail with the <CODE>mail</CODE> program;
+whatever you have looked at and saved with <CODE>mail</CODE> will be brought
+into Rmail the next time you run Rmail.
+<P>
+The Rmail summary buffer is now much simpler.  Only a few special
+commands are available there: <KBD>n</KBD>, <KBD>p</KBD>, and <KBD>j</KBD> for motion,
+<KBD>d</KBD> and <KBD>u</KBD> for deletion, and <KBD>SPC</KBD> and <KBD>DEL</KBD> for
+scrolling the message.  To do anything else, you must go to the Rmail
+buffer.  Also, changes in the Rmail buffer don't update the summary;
+to do that, you must make a new summary.
+<P>
+The Rmail command <CODE>rmail-resend</CODE> (accessible via <KBD>f</KBD> with a
+prefix argument in Emacs 19) does not exist in Emacs 18.  Neither does
+<CODE>rmail-retry-failure</CODE> (<KBD>M-m</KBD> in Emacs 19).
+<P>
+The <KBD>e</KBD> command is now "expunge", just like <KBD>x</KBD>.  To edit
+the current message, type <KBD>w</KBD>, which works in Emacs 19 as well.
+If you type <KBD>e</KBD> meaning to edit, and it expunges instead--well,
+you shouldn't have deleted those messages if you still wanted them.
+<P>
+The <KBD>&#60;</KBD> and <KBD>b</KBD> commands have been removed in Emacs 18.
+Likewise <KBD>C-M-t</KBD> (<CODE>rmail-summarize-by-topic</CODE>) and 
+<KBD>M-x unrmail</KBD>.  Rmail in Emacs 18 is so good, that we can't
+imagine anyone who has tried it would ever wish to use another mail
+reader.
+<P>
+The default output file for <KBD>o</KBD> is now always the last file that
+you used with <KBD>o</KBD>.  The variable <CODE>rmail-output-file-alist</CODE>
+has no special meaning.
+<P>
+Emacs 18 Rmail does not know anything about Content Length fields in
+messages.
+<P>
+<H2>C Mode Changes</H2>
+<P>
+In C mode, the keys <KBD>M-a</KBD> and <KBD>M-e</KBD> now have their usual meanings:
+motion by sentences.  This is useful while editing the comments in a C
+program, but not useful for editing code.  We hope this will encourage
+you to write lots of comments.
+<P>
+The commands <KBD>M-x c-up-conditional</KBD> and <KBD>M-x c-backslash-region</KBD> have
+been removed entirely in Emacs 18.
+<P>
+<H2>Compilation Changes</H2>
+<P>
+<KBD>M-x compile</KBD> now has a much simpler and faster parser for error
+messages.  However, it understands fewer different formats for error
+messages, and is not as easy to customize.
+<P>
+There is no special mode for compilation buffers.  When you select the
+compilation buffer itself, it is just ordinary text.
+<P>
+Speaking of selecting the compilation buffer, you do need to do that
+from time to time to see whether the compilation has finished, because
+Emacs 18 does not display <SAMP>`Compiling'</SAMP> in the mode line to tell
+you the compilation is still going.
+<P>
+<H2>Shell Mode</H2>
+<P>
+Shell mode in Emacs 18 does nothing special for the keys <KBD>TAB</KBD>, 
+<KBD>M-?</KBD>, <KBD>C-a</KBD>, <KBD>C-d</KBD>.  The commands <KBD>M-x dirs</KBD> and
+<KBD>M-x send-invisible</KBD> are also gone.
+<P>
+The history commands <KBD>M-p</KBD> and so on are not available either;
+instead, use <KBD>C-c C-y</KBD> (<CODE>copy-last-shell-input</CODE>).  This
+copies the previous bunch of shell input, and inserts it into the
+buffer before point.  No final newline is inserted, and the input
+copied is not resubmitted until you type <KBD>RET</KBD>.
+<P>
+Use <KBD>C-c C-d</KBD> to send an "end of file" to the shell process.
+<P>
+<H2>Dired Changes</H2>
+<P>
+For simplicity, Dired in Emacs 18 supports just one kind of mark: the
+deletion flag, <SAMP>`*'</SAMP>.  The Emacs 19 Dired commands for flagging
+files do work in Emacs 18, but all the other mark-related commands do
+not.
+<P>
+The Dired subdirectory commands don't exist in Emacs 18.  A Dired buffer
+can contain only one directory.  In particular, this means that 
+the variable <CODE>dired-listing-switches</CODE> must not contain the <SAMP>`R'</SAMP>
+option.  (The <SAMP>`F'</SAMP> option is also not allowed.)
+<P>
+The commands for using <CODE>find</CODE> with Dired have been removed for
+simplicity, also.
+ 
+Emacs 18 Dired provides the following commands for manipulating files
+immediately, and no others.  All of these commands apply to the file
+listed on the current line.
+<P>
+<DL COMPACT>
+<DT><KBD>c</KBD>
+<DD>Copies the file described on the current line.  You must supply a file name
+to copy to, using the minibuffer.
+<DT><KBD>f</KBD>
+<DD>Visits the file described on the current line.  It is just like typing
+<KBD>C-x C-f</KBD> and supplying that file name.  If the file on this line is a
+subdirectory, <KBD>f</KBD> actually causes Dired to be invoked on that
+subdirectory.
+<DT><KBD>G</KBD>
+<DD>Change the group of the file described on the current line.
+<DT><KBD>M</KBD>
+<DD>Change the file mode of the file described on the current line.
+<DT><KBD>o</KBD>
+<DD>Like <KBD>f</KBD>, but uses another window to display the file's buffer.  The
+Dired buffer remains visible in the first window.  This is like using
+<KBD>C-x 4 C-f</KBD> to visit the file.
+<DT><KBD>O</KBD>
+<DD>Change the owner of the file described on the current line.
+(On most systems, you must be a superuser to do this.)
+<DT><KBD>r</KBD>
+<DD>Renames the file described on the current line.  You must supply a file
+name to rename to, using the minibuffer.
+<DT><KBD>v</KBD>
+<DD>Views the file described on this line using <KBD>M-x view-file</KBD>.  Viewing a
+file is like visiting it, but is slanted toward moving around in the file
+conveniently and does not allow changing the file.
+</DL>
+<P>
+<P>Go to the <A HREF="emacs_37.html">previous</A>, <A HREF="emacs_39.html">next</A> section.<P>

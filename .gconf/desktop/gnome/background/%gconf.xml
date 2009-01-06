@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="primary_color" mtime="1231151617" type="string">
+                <stringvalue>#68684b4b3333</stringvalue>
+        </entry>
+        <entry name="secondary_color" mtime="1231151617" type="string">
+                <stringvalue>#68684b4b3333</stringvalue>
+        </entry>
+        <entry name="picture_filename" mtime="1231151617" type="string">
+                <stringvalue>/home/neeraj/Pictures/computer_0023.jpg</stringvalue>
+        </entry>
+        <entry name="color_shading_type" mtime="1231151617" type="string">
+                <stringvalue>solid</stringvalue>
+        </entry>
+        <entry name="picture_options" mtime="1231151617" type="string">
+                <stringvalue>zoom</stringvalue>
+        </entry>
+</gconf>

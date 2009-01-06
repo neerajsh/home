@@ -1,0 +1,6 @@
+#name : readfile ... 
+# --
+${filename} = open (${path}, "r")
+while ${filename}:
+      line = ${filename}.readline()
+      $0

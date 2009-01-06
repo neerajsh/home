@@ -1,0 +1,38 @@
+@import url(chrome://global/skin/);
+
+#browse, #search {
+  min-width: 0px;
+  margin: 0px;
+}
+
+#search {
+  list-style-image: url(chrome://fastdial/skin/search.png);
+  margin-left: 5px;
+}
+
+#customBackground {
+  width: 22px;
+  height: 22px;
+  margin: 1px 0px;
+}
+
+#browse {
+  height: 10px;
+  margin: 0px 3px;
+}
+
+textbox.color {
+  width: 70px;
+}
+
+#restartIsNeeded {
+  visibility: hidden;
+}
+
+menulist {
+  height: 20px;
+}
+
+textbox[type="autocomplete"] {
+  height: 21px;
+}

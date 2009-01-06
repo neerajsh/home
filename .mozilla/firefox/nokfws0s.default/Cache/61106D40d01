@@ -1,0 +1,630 @@
+<!-- This HTML file has been created by texi2html 1.27
+     from emacs.texi on 3 March 1994 -->
+
+<TITLE>GNU Emacs Manual - Compiling and Testing Programs</TITLE>
+<P>Go to the <A HREF="emacs_26.html">previous</A>, <A HREF="emacs_28.html">next</A> section.<P>
+<A NAME="IDX1124"></A>
+<A NAME="IDX1125"></A>
+<A NAME="IDX1126"></A>
+<H1><A NAME="SEC224" HREF="emacs_toc.html#SEC224">Compiling and Testing Programs</A></H1>
+<P>
+  The previous chapter discusses the Emacs commands that are useful for
+making changes in programs.  This chapter deals with commands that assist
+in the larger process of developing and maintaining programs.
+<P>
+<A NAME="IDX1127"></A>
+<A NAME="IDX1128"></A>
+<A NAME="IDX1129"></A>
+<A NAME="IDX1130"></A>
+<H2><A NAME="SEC225" HREF="emacs_toc.html#SEC225">Running `make', or Compilers Generally</A></H2>
+<P>
+  Emacs can run compilers for noninteractive languages such as C and
+Fortran as inferior processes, feeding the error log into an Emacs buffer.
+It can also parse the error messages and show you the source lines where
+compilation errors occurred.
+<P>
+<DL COMPACT>
+<DT><KBD>M-x compile</KBD>
+<DD>Run a compiler asynchronously under Emacs, with error messages to
+<SAMP>`*compilation*'</SAMP> buffer.
+<DT><KBD>M-x grep</KBD>
+<DD>Run <CODE>grep</CODE> asynchronously under Emacs, with matching lines
+listed in the buffer named <SAMP>`*grep*'</SAMP>.
+<DT><KBD>M-x kill-compilation</KBD>
+<DD><DT><KBD>M-x kill-grep</KBD>
+<DD>Kill the running compilation or <CODE>grep</CODE> subprocess.
+<DT><KBD>C-x `</KBD>
+<DD>Visit the locus of the next compiler error message or <CODE>grep</CODE> match.
+</DL>
+<A NAME="IDX1131"></A>
+<P>
+  To run <CODE>make</CODE> or another compilation command, do <KBD>M-x
+compile</KBD>.  This command reads a shell command line using the minibuffer,
+and then executes the command in an inferior shell, putting output in
+the buffer named <SAMP>`*compilation*'</SAMP>.  The current buffer's default
+directory is used as the working directory for the execution of the
+command; normally, therefore, the compilation happens in this
+directory.
+<A NAME="IDX1132"></A>
+<P>
+  When the shell command line is read, the minibuffer appears containing
+a default command line, which is the command you used the last time you
+did <KBD>M-x compile</KBD>.  If you type just <KBD>RET</KBD>, the same command
+line is used again.  For the first <KBD>M-x compile</KBD>, the default is
+<SAMP>`make -k'</SAMP>.
+<P>
+  The default compilation command comes from the variable
+<CODE>compile-command</CODE>; if the appropriate compilation command for a
+file is something other than <SAMP>`make -k'</SAMP>, it can be useful for the
+file to specify a local value for <CODE>compile-command</CODE> (see section <A HREF="emacs_35.html#SEC339">Local Variables in Files</A>).
+<P>
+  Starting a compilation displays the buffer <SAMP>`*compilation*'</SAMP> in
+another window but does not select it.  The buffer's mode line tells you
+whether compilation is finished, with the word <SAMP>`run'</SAMP> or <SAMP>`exit'</SAMP>
+inside the parentheses.  You do not have to keep this buffer visible;
+compilation continues in any case.  While a compilation is going on, the
+string <SAMP>`Compiling'</SAMP> appears in the mode lines of all windows.  When
+this string disappears, the compilation is finished.
+<A NAME="IDX1133"></A>
+<P>
+  To kill the compilation process, do <KBD>M-x kill-compilation</KBD>.  When
+the compiler process terminates, the mode line of the
+<SAMP>`*compilation*'</SAMP> buffer changes to say <SAMP>`signal'</SAMP> instead of
+<SAMP>`run'</SAMP>.  Starting a new compilation also kills any running
+compilation, as only one can exist at any time.  However, <KBD>M-x
+compile</KBD> asks for confirmation before actually killing a compilation
+that is running.
+<P>
+<A NAME="IDX1134"></A>
+<P>
+  The <SAMP>`*compilation*'</SAMP> buffer uses a special major mode, Compilation
+mode.  This mode provides the keys <KBD>SPC</KBD> and <KBD>DEL</KBD> to scroll by
+screenfuls, and <KBD>M-n</KBD> and <KBD>M-p</KBD> to move to the next or previous
+error message.  You can also use <KBD>M-{</KBD> and <KBD>M-}</KBD> to move up or
+down to an error message for a different source file.
+You can visit the source for any particular error message by moving
+point in <SAMP>`*compilation*'</SAMP> to that error message and typing <KBD>C-c C-c</KBD>
+(<CODE>compile-goto-error</CODE>).
+<A NAME="IDX1135"></A>
+<A NAME="IDX1136"></A>
+<P>
+  To parse the compiler error messages sequentially, type <KBD>C-x `</KBD>
+(<CODE>next-error</CODE>).  The character following the <KBD>C-x</KBD> is the
+backquote or "grave accent," not the single-quote.  This command is
+available in all buffers, not just in <SAMP>`*compilation*'</SAMP>.  It displays
+the next error message at the top of one window and source location of
+the error in another window.
+<P>
+  The first time <KBD>C-x `</KBD> is used after the start of a compilation,
+it moves to the first error's location.  Subsequent uses of <KBD>C-x `</KBD>
+advance down the data set up by the first use.  When the preparsed error
+messages are exhausted, the next <KBD>C-x `</KBD> checks for any more error
+messages that have come in; this is useful if you start editing the
+compilation errors while the compilation is still going on.  If no more
+error messages have come in, <KBD>C-x `</KBD> reports an error.
+<P>
+  <KBD>C-u C-x `</KBD> discards the preparsed error message data and parses the
+<SAMP>`*compilation*'</SAMP> buffer over again, then displaying the first error.
+This way, you can process the same set of errors again.
+<A NAME="IDX1137"></A>
+<P>
+  Instead of running a compiler, you can run <CODE>grep</CODE> and see the lines
+on which matches were found.  To do this, type <KBD>M-x grep</KBD> with an argument
+line that contains the same arguments you would give <CODE>grep</CODE> when running
+it normally: a <CODE>grep</CODE>-style regexp (usually in single-quotes to quote
+the shell's special characters) followed by file names which may use wildcards.
+The output from <CODE>grep</CODE> goes in the <SAMP>`*grep*'</SAMP> buffer and the
+lines that matched can be found with <KBD>C-x `</KBD> as if they were compilation
+errors.
+<P>
+  Note: a shell is used to run the compile command, but the shell is told
+that it should be noninteractive.  This means in particular that the shell
+starts up with no prompt.  If you find your usual shell prompt making an
+unsightly appearance in the <SAMP>`*compilation*'</SAMP> buffer, it means you have
+made a mistake in your shell's init file (<TT>`.cshrc'</TT> or <TT>`.shrc'</TT> or
+...) by setting the prompt unconditionally.  The shell init file should
+set the prompt only if there already is a prompt.  In <CODE>csh</CODE>, here is
+how to do it:
+<P>
+<PRE>
+if ($?prompt) set prompt = ...
+</PRE>
+<P>
+<A NAME="IDX1138"></A>
+<A NAME="IDX1139"></A>
+<A NAME="IDX1140"></A>
+<A NAME="IDX1141"></A>
+<A NAME="IDX1142"></A>
+<A NAME="IDX1143"></A>
+<H2><A NAME="SEC226" HREF="emacs_toc.html#SEC226">Running Debuggers Under Emacs</A></H2>
+<P>
+The GUD (Grand Unified Debugger) library provides an interface to
+various symbolic debuggers from within Emacs.  We recommend the debugger
+GDB, which is free software, but you can also run DBX, SDB or XDB if you
+have them.
+<P>
+<H3><A NAME="SEC227" HREF="emacs_toc.html#SEC227">Starting GUD</A></H3>
+<P>
+  There are four commands for starting a debugger, each corresponding
+to a particular debugger program.
+<P>
+<DL COMPACT>
+<A NAME="IDX1144"></A>
+<DT><KBD>M-x gdb <KBD>RET</KBD> <VAR>file</VAR> <KBD>RET</KBD></KBD>
+<DD>Run GDB as a subprocess of Emacs.  This command creates a buffer for
+input and output to GDB, and switches to it.  If a GDB buffer already
+exists, it just switches to that buffer.
+<P>
+<A NAME="IDX1145"></A>
+<DT><KBD>M-x dbx <KBD>RET</KBD> <VAR>file</VAR> <KBD>RET</KBD></KBD>
+<DD>Similar, but run DBX instead of GDB.
+<P>
+<A NAME="IDX1146"></A>
+<A NAME="IDX1147"></A>
+<DT><KBD>M-x xdb <KBD>RET</KBD> <VAR>file</VAR> <KBD>RET</KBD></KBD>
+<DD>Similar, but run XDB instead of GDB.  Use the variable
+<CODE>gud-xdb-directories</CODE> to specify directories to search for source
+files.
+<P>
+<A NAME="IDX1148"></A>
+<DT><KBD>M-x sdb <KBD>RET</KBD> <VAR>file</VAR> <KBD>RET</KBD></KBD>
+<DD>Similar, but run SDB instead of GDB.
+<P>
+  Some versions of SDB do not mention source file names in their
+messages.  When you use them, you need to have a valid tags table
+(see section <A HREF="emacs_26.html#SEC194">Tag Tables</A>) in order for GUD to find functions in the source code.
+If you have not visited a tags table or the tags table doesn't list one
+of the functions, you get a message saying <SAMP>`The sdb support
+requires a valid tags table to work'</SAMP>.  If this happens, generate a valid
+tags table in the working directory and try again.
+</DL>
+<P>
+  You can only run one debugger process at a time.
+<P>
+  Each of these commands takes one argument: a command line to invoke
+the debugger.  In the simplest case, specify just the name of the
+executable file you want to debug.  You may also use options that the
+debugger supports.  However, shell wild cards and variables are not
+allowed.  GUD assumes that the first argument not preceded by a <SAMP>`-'</SAMP>
+is the executable file name.
+<P>
+<H3><A NAME="SEC228" HREF="emacs_toc.html#SEC228">Debugger Operation</A></H3>
+<P>
+  When you run a debugger with GUD, the debugger uses an Emacs buffer
+for its ordinary input and output.  This is called the GUD buffer.  The
+debugger uses other Emacs buffers to display the source files of the
+program.  An arrow (<SAMP>`=&#62;'</SAMP>) in one of these buffers indicates the
+current execution line.  Moving point in this buffer does not move the
+arrow.
+<P>
+  You can start editing these source files at any time in the buffers
+that were made to display them.  The arrow is not part of the file's
+text; it appears only on the screen.  If you do modify a source file,
+keep in mind that inserting or deleting lines will throw off the arrow's
+positioning; GUD has no way of figuring out which line corresponded
+before your changes to the line number in a debugger message.  Also,
+you'll typically have to recompile and restart the program for your
+changes to be reflected in the debugger's tables.
+<P>
+If you wish, you can control your debugger process entirely through the
+debugger buffer, which uses a variant of Shell mode.  All the usual
+commands for your debugger are available, and you can use the Shell mode
+history commands to repeat them.
+<P>
+<H3><A NAME="SEC229" HREF="emacs_toc.html#SEC229">Commands of GUD</A></H3>
+<P>
+  GUD provides a command available in all buffers for setting
+breakpoints.  This command is defined globally because you need to use
+it in the source files' buffers.
+<P>
+<DL COMPACT>
+<A NAME="IDX1149"></A>
+<DT><KBD>C-x <KBD>SPC</KBD></KBD>
+<DD>Set a breakpoint on the line that point is on.
+</DL>
+<A NAME="IDX1150"></A>
+<P>
+  Here are the other commands provided by GUD.  The keys starting with
+<KBD>C-c</KBD> are available only in the GUD interaction buffer.  The
+bindings that start with <KBD>C-x C-a</KBD> are available in the GUD buffer
+and also in source files.
+<P>
+<DL COMPACT>
+<A NAME="IDX1151"></A>
+<DT><KBD>C-c C-l</KBD>
+<DD><A NAME="IDX1152"></A>
+<DT><KBD>C-x C-a C-l</KBD>
+<DD>Display in another window the last line referred to in the GUD
+buffer (that is, the line indicated in the last location message).
+This runs the command <CODE>gud-refresh</CODE>.
+<P>
+<A NAME="IDX1153"></A>
+<DT><KBD>C-c C-s</KBD>
+<DD><A NAME="IDX1154"></A>
+<DT><KBD>C-x C-a C-s</KBD>
+<DD>Execute a single line of code (<CODE>gud-step</CODE>).  If the code contains
+a function call, execution stops after entering the called function.
+<P>
+<A NAME="IDX1155"></A>
+<DT><KBD>C-c C-n</KBD>
+<DD><A NAME="IDX1156"></A>
+<DT><KBD>C-x C-a C-n</KBD>
+<DD>Execute a single line of code, stepping across entire function calls
+at full speed (<CODE>gud-next</CODE>).
+<P>
+<A NAME="IDX1157"></A>
+<DT><KBD>C-c C-i</KBD>
+<DD><A NAME="IDX1158"></A>
+<DT><KBD>C-x C-a C-i</KBD>
+<DD>Execute a single machine instruction (<CODE>gud-stepi</CODE>).
+<P>
+<A NAME="IDX1159"></A>
+<DT><KBD>C-c C-c</KBD>
+<DD><A NAME="IDX1160"></A>
+<DT><KBD>C-x C-a C-c</KBD>
+<DD>Continue execution until the next breakpoint, or other event that would
+normally stop the program (<CODE>gud-cont</CODE>).
+<P>
+<A NAME="IDX1161"></A>
+<DT><KBD>C-c C-d</KBD>
+<DD><A NAME="IDX1162"></A>
+<DT><KBD>C-x C-a C-d</KBD>
+<DD>Delete the breakpoint(s) on the current source line, if any
+(<CODE>gud-remove</CODE>).  If you use this command in the GUD interaction
+buffer, it applies to the line where the program last stopped.
+<P>
+<A NAME="IDX1163"></A>
+<DT><KBD>C-c C-t</KBD>
+<DD><A NAME="IDX1164"></A>
+<DT><KBD>C-x C-a C-t</KBD>
+<DD>Set a temporary breakpoint on the current source line, if any.
+If you use this command in the GUD interaction buffer,
+it applies to the line where the program last stopped.
+</DL>
+<P>
+  The above commands are common to all supported debuggers.  If you are
+using GDB or (some versions of) DBX, these additional commands are available:
+<P>
+<DL COMPACT>
+<A NAME="IDX1165"></A>
+<DT><KBD>C-c &#60;</KBD>
+<DD><A NAME="IDX1166"></A>
+<DT><KBD>C-x C-a &#60;</KBD>
+<DD>Select the next enclosing stack frame (<CODE>gud-up</CODE>).  This is
+equivalent to the <SAMP>`up'</SAMP> command.
+<P>
+<A NAME="IDX1167"></A>
+<DT><KBD>C-c &#62;</KBD>
+<DD><A NAME="IDX1168"></A>
+<DT><KBD>C-x C-a &#62;</KBD>
+<DD>Select the next inner stack frame (<CODE>gud-down</CODE>).  This is
+equivalent to the <SAMP>`down'</SAMP> command.
+</DL>
+<P>
+  If you are using GDB, two additional keybindings are available:
+<P>
+<DL COMPACT>
+<A NAME="IDX1169"></A>
+<DT><KBD>C-c C-f</KBD>
+<DD><A NAME="IDX1170"></A>
+<DT><KBD>C-x C-a C-f</KBD>
+<DD>Run the program until the selected stack frame returns (or until it
+stops for some other reason).
+</DL>
+<P>
+  These commands interpret a prefix argument as a repeat count, when that
+makes sense.
+<P>
+<H3><A NAME="SEC230" HREF="emacs_toc.html#SEC230">GUD Customization</A></H3>
+<A NAME="IDX1171"></A>
+<A NAME="IDX1172"></A>
+<A NAME="IDX1173"></A>
+<A NAME="IDX1174"></A>
+<P>
+  On startup, GUD runs one of the following hooks: <CODE>gdb-mode-hook</CODE>,
+if you are using GDB; <CODE>dbx-mode-hook</CODE>, if you are using DBX;
+<CODE>sdb-mode-hook</CODE>, if you are using SDB; and <CODE>xdb-mode-hook</CODE>, if
+you are using XDB.  You can use these hooks to define custom keybindings
+for the debugger interaction buffer.  See section <A HREF="emacs_35.html#SEC337">Hooks</A>.
+<P>
+  Here is a convenient way to define a command that sends a particular
+command string to the debugger, and set up a key binding for it in the
+debugger interaction buffer:
+<A NAME="IDX1175"></A>
+<P>
+<PRE>
+(gud-def <VAR>function</VAR> <VAR>cmdstring</VAR> <VAR>binding</VAR> <VAR>docstring</VAR>)
+</PRE>
+<P>
+  This defines a command named <VAR>function</VAR> which sends
+<VAR>cmdstring</VAR> to the debugger process, with documentation string
+<VAR>docstring</VAR>.  You can use the command thus defined in any buffer.
+If <VAR>binding</VAR> is non-<CODE>nil</CODE>, <CODE>gud-def</CODE> also binds the
+command to <KBD>C-c <VAR>binding</VAR></KBD> in the GUD buffer's mode and to
+<KBD>C-x C-a <VAR>binding</VAR></KBD> generally.
+<P>
+  The command string <VAR>cmdstring</VAR> may contain certain escape
+sequences that are filled in with varying data at the time
+<VAR>function</VAR> is called:
+<P>
+<DL COMPACT>
+<DT><SAMP>`%f'</SAMP>
+<DD>Name of the current source file.  If the current buffer is the GUD buffer,
+then the "current source file" is the file that the program stopped in.
+<P>
+<DT><SAMP>`%l'</SAMP>
+<DD>Number of the current source line.  If the current buffer is the GUD
+buffer, then the "current source line" is the line that the program
+stopped in.
+<P>
+<DT><SAMP>`%e'</SAMP>
+<DD>Text of the C lvalue or function-call expression surrounding point.
+<P>
+<DT><SAMP>`%a'</SAMP>
+<DD>Text of the hexadecimal address surrounding point.
+<P>
+<DT><SAMP>`%p'</SAMP>
+<DD>Prefix (numeric) argument of the called function (if any) as a number.
+(If you don't use <SAMP>`%p'</SAMP> in the command string, the command you
+define ignores any prefix argument.)
+</DL>
+<P>
+<H2><A NAME="SEC231" HREF="emacs_toc.html#SEC231">Executing Lisp Expressions</A></H2>
+<P>
+  Emacs has several different major modes for Lisp and Scheme.  They are
+the same in terms of editing commands, but differ in the commands for
+executing Lisp expressions.
+<P>
+<DL COMPACT>
+<DT>Emacs-Lisp mode
+<DD>The mode for editing source files of programs to run in Emacs Lisp.
+This mode defines <KBD>C-M-x</KBD> to evaluate the current defun.
+See section <A HREF="emacs_27.html#SEC232">Libraries of Lisp Code for Emacs</A>.
+<DT>Lisp Interaction mode
+<DD>The mode for an interactive session with Emacs Lisp.  It defines
+<KBD>LFD</KBD> to evaluate the sexp before point and insert its value in the
+buffer.  See section <A HREF="emacs_27.html#SEC234">Lisp Interaction Buffers</A>.
+<DT>Lisp mode
+<DD>The mode for editing source files of programs that run in Lisps other
+than Emacs Lisp.  This mode defines <KBD>C-M-x</KBD> to send the current defun
+to an inferior Lisp process.  See section <A HREF="emacs_27.html#SEC235">Running an External Lisp</A>.
+<DT>Inferior Lisp mode
+<DD>The mode for an interactive session with an inferior Lisp process.
+This mode combines the special features of Lisp mode and Shell mode
+(see section <A HREF="emacs_34.html#SEC317">Shell Mode</A>).
+<DT>Scheme mode
+<DD>Like Lisp mode but for Scheme programs.
+<DT>Inferior Scheme mode
+<DD>The mode for an interactive session with an inferior Scheme process.
+</DL>
+<P>
+  The editing commands for working with Lisp programs are in fact
+available globally.  See section <A HREF="emacs_26.html#SEC176">Editing Programs</A>.
+<P>
+<A NAME="IDX1176"></A>
+<A NAME="IDX1177"></A>
+<H2><A NAME="SEC232" HREF="emacs_toc.html#SEC232">Libraries of Lisp Code for Emacs</A></H2>
+<P>
+  Lisp code for Emacs editing commands is stored in files whose names
+conventionally end in <TT>`.el'</TT>.  This ending tells Emacs to edit them in
+Emacs-Lisp mode (see section <A HREF="emacs_27.html#SEC231">Executing Lisp Expressions</A>).
+<A NAME="IDX1178"></A>
+<P>
+  To execute a file of Emacs Lisp code, use <KBD>M-x load-file</KBD>.  This
+command reads a file name using the minibuffer and then executes the
+contents of that file as Lisp code.  It is not necessary to visit the
+file first; in any case, this command reads the file as found on disk,
+not text in an Emacs buffer.
+<A NAME="IDX1179"></A>
+<A NAME="IDX1180"></A>
+<P>
+  Once a file of Lisp code is installed in the Emacs Lisp library
+directories, users can load it using <KBD>M-x load-library</KBD>.  Programs can
+load it by calling <CODE>load-library</CODE>, or with <CODE>load</CODE>, a more primitive
+function that is similar but accepts some additional arguments.
+<P>
+  <KBD>M-x load-library</KBD> differs from <KBD>M-x load-file</KBD> in that it
+searches a sequence of directories and tries three file names in each
+directory.  Suppose your argument is <VAR>lib</VAR>; the three names are
+<TT>`<VAR>lib</VAR>.elc'</TT>, <TT>`<VAR>lib</VAR>.el'</TT>, and lastly just
+<TT>`<VAR>lib</VAR>'</TT>.  If <TT>`<VAR>lib</VAR>.elc'</TT> exists, it is by convention
+the result of compiling <TT>`<VAR>lib</VAR>.el'</TT>; it is better to load the
+compiled file, since it will load and run faster.
+<P>
+  If <CODE>load-library</CODE> finds that <TT>`<VAR>lib</VAR>.el'</TT> is newer than
+<TT>`<VAR>lib</VAR>.elc'</TT> file, it prints a warning, because it's likely that
+somebody made changes to the <TT>`.el'</TT> file and forgot to recompile
+it.
+<P>
+  Because the argument to <CODE>load-library</CODE> is usually not in itself
+a valid file name, file name completion is not available.  Indeed, when
+using this command, you usually do not know exactly what file name
+will be used.
+<A NAME="IDX1181"></A>
+<P>
+  The sequence of directories searched by <KBD>M-x load-library</KBD> is
+specified by the variable <CODE>load-path</CODE>, a list of strings that are
+directory names.  The default value of the list contains the directory where
+the Lisp code for Emacs itself is stored.  If you have libraries of
+your own, put them in a single directory and add that directory
+to <CODE>load-path</CODE>.  <CODE>nil</CODE> in this list stands for the current default
+directory, but it is probably not a good idea to put <CODE>nil</CODE> in the
+list.  If you find yourself wishing that <CODE>nil</CODE> were in the list,
+most likely what you really want to do is use <KBD>M-x load-file</KBD>
+this once.
+<A NAME="IDX1182"></A>
+<P>
+  Often you do not have to give any command to load a library, because the
+commands defined in the library are set up to <DFN>autoload</DFN> that library.
+Running any of those commands causes <CODE>load</CODE> to be called to load the
+library; this replaces the autoload definitions with the real ones from the
+library.
+<P>
+  If autoloading a file does not finish, either because of an error or
+because of a <KBD>C-g</KBD> quit, all function definitions made by the file are
+undone automatically.  So are any calls to <CODE>provide</CODE>.  As a consequence,
+if you use one of the autoloadable commands again, the entire file will be
+loaded a second time.  This prevents problems where the command is no
+longer autoloading but it works wrong because not all the file was loaded.
+Function definitions are undone only for autoloading; explicit calls to
+<CODE>load</CODE> do not undo anything if loading is not completed.
+<A NAME="IDX1183"></A>
+<P>
+  Emacs Lisp code can be compiled into byte-code which loads faster,
+takes up less space when loaded, and executes faster.  See section 'Byte Compilation' in <CITE>the Emacs Lisp Reference Manual</CITE>.
+<P>
+  By convention, the compiled code for a library goes in a separate file
+whose name consists of the library source file with <SAMP>`c'</SAMP> appended.
+Thus, the compiled code for <TT>`foo.el'</TT> goes in <TT>`foo.elc'</TT>.
+That's why <CODE>load-library</CODE> searches for <SAMP>`.elc'</SAMP> files first.
+<P>
+<A NAME="IDX1184"></A>
+<A NAME="IDX1185"></A>
+<H2><A NAME="SEC233" HREF="emacs_toc.html#SEC233">Evaluating Emacs-Lisp Expressions</A></H2>
+<A NAME="IDX1186"></A>
+<P>
+  Lisp programs intended to be run in Emacs should be edited in
+Emacs-Lisp mode; this happens automatically for file names ending in
+<TT>`.el'</TT>.  By contrast, Lisp mode itself is used for editing Lisp
+programs intended for other Lisp systems.  To switch to Emacs-Lisp mode
+explicitly, use the command <KBD>M-x emacs-lisp-mode</KBD>.
+<P>
+  For testing of Lisp programs to run in Emacs, it is often useful to
+evaluate part of the program as it is found in the Emacs buffer.  For
+example, after changing the text of a Lisp function definition,
+evaluating the definition installs the change for future calls to the
+function.  Evaluation of Lisp expressions is also useful in any kind of
+editing, for invoking noninteractive functions (functions that are
+not commands).
+<P>
+<DL COMPACT>
+<DT><KBD>M-<KBD>ESC</KBD></KBD>
+<DD>Read a single Lisp expression in the minibuffer, evaluate it, and print
+the value in the echo area (<CODE>eval-expression</CODE>).
+<DT><KBD>C-x C-e</KBD>
+<DD>Evaluate the Lisp expression before point, and print the value in the
+echo area (<CODE>eval-last-sexp</CODE>).
+<DT><KBD>C-M-x</KBD>
+<DD>Evaluate the defun containing or after point, and print the value in
+the echo area (<CODE>eval-defun</CODE>).
+<DT><KBD>M-x eval-region</KBD>
+<DD>Evaluate all the Lisp expressions in the region.
+<DT><KBD>M-x eval-current-buffer</KBD>
+<DD>Evaluate all the Lisp expressions in the buffer.
+</DL>
+<A NAME="IDX1187"></A>
+<A NAME="IDX1188"></A>
+<P>
+  <KBD>M-<KBD>ESC</KBD></KBD> (<CODE>eval-expression</CODE>) is the most basic command for evaluating
+a Lisp expression interactively.  It reads the expression using the
+minibuffer, so you can execute any expression on a buffer regardless of
+what the buffer contains.  When the expression is evaluated, the current
+buffer is once again the buffer that was current when <KBD>M-<KBD>ESC</KBD></KBD> was
+typed.
+<P>
+  <KBD>M-<KBD>ESC</KBD></KBD> can easily confuse users who do not understand it,
+especially on keyboards with autorepeat where it can result from holding
+down the <KBD>ESC</KBD> key for too long.  Therefore, <CODE>eval-expression</CODE> is
+normally a disabled command.  Attempting to use this command asks for
+confirmation and gives you the option of enabling it; once you enable the
+command, confirmation will no longer be required for it.
+See section <A HREF="emacs_35.html#SEC353">Disabling Commands</A>.<A NAME="IDX1189"></A>
+<A NAME="IDX1190"></A>
+<P>
+  In Emacs-Lisp mode, the key <KBD>C-M-x</KBD> is bound to the command
+<CODE>eval-defun</CODE>, which parses the defun containing or following point
+as a Lisp expression and evaluates it.  The value is printed in the echo
+area.  This command is convenient for installing in the Lisp environment
+changes that you have just made in the text of a function definition.
+<A NAME="IDX1191"></A>
+<A NAME="IDX1192"></A>
+<P>
+  The command <KBD>C-x C-e</KBD> (<CODE>eval-last-sexp</CODE>) performs a similar job
+but is available in all major modes, not just Emacs-Lisp mode.  It finds
+the sexp before point, reads it as a Lisp expression, evaluates it, and
+prints the value in the echo area.  It is sometimes useful to type in an
+expression and then, with point still after it, type <KBD>C-x C-e</KBD>.
+<P>
+  If <KBD>C-M-x</KBD> or <KBD>C-x C-e</KBD> is given a numeric argument, it prints the value
+by insertion into the current buffer at point, rather than in the echo
+area.  The argument value does not matter.
+<A NAME="IDX1193"></A>
+<A NAME="IDX1194"></A>
+<P>
+  The most general command for evaluating Lisp expressions from a buffer
+is <CODE>eval-region</CODE>.  <KBD>M-x eval-region</KBD> parses the text of the
+region as one or more Lisp expressions, evaluating them one by one.
+<KBD>M-x eval-current-buffer</KBD> is similar but evaluates the entire
+buffer.  This is a reasonable way to install the contents of a file of
+Lisp code that you are just ready to test.  After finding and fixing a
+bug, use <KBD>C-M-x</KBD> on each function that you change, to keep the Lisp
+world in step with the source file.
+<P>
+<H2><A NAME="SEC234" HREF="emacs_toc.html#SEC234">Lisp Interaction Buffers</A></H2>
+<P>
+  The buffer <SAMP>`*scratch*'</SAMP> which is selected when Emacs starts up is
+provided for evaluating Lisp expressions interactively inside Emacs.
+<P>
+  Thus, the way to use the <SAMP>`*scratch*'</SAMP> buffer is to insert Lisp
+expressions at the end, ending each one with <KBD>LFD</KBD> so that it will
+be evaluated.  This command reads the Lisp expression before point,
+evaluates it, and inserts the value in printed representation before
+point.  The result is a complete typescript of the expressions you have
+evaluated and their values.
+<P>
+  The <SAMP>`*scratch*'</SAMP> buffer's major mode is Lisp Interaction mode, which
+is the same as Emacs-Lisp mode except for the binding of <KBD>LFD</KBD>.
+<A NAME="IDX1195"></A>
+<P>
+  The rationale for this feature is that Emacs must have a buffer when
+it starts up, but that buffer is not useful for editing files since a
+new buffer is made for every file that you visit.  The Lisp interpreter
+typescript is the most useful thing I can think of for the initial
+buffer to do.  Type <KBD>M-x lisp-interaction-mode</KBD> to put the current
+buffer in Lisp Interaction mode.
+<P>
+<H2><A NAME="SEC235" HREF="emacs_toc.html#SEC235">Running an External Lisp</A></H2>
+<P>
+  Emacs has facilities for running programs in other Lisp systems.  You can
+run a Lisp process as an inferior of Emacs, and pass expressions to it to
+be evaluated.  You can also pass changed function definitions directly from
+the Emacs buffers in which you edit the Lisp programs to the inferior Lisp
+process.
+<A NAME="IDX1196"></A>
+<A NAME="IDX1197"></A>
+<P>
+  To run an inferior Lisp process, type <KBD>M-x run-lisp</KBD>.  This runs
+the program named <CODE>lisp</CODE>, the same program you would run by typing
+<CODE>lisp</CODE> as a shell command, with both input and output going through
+an Emacs buffer named <SAMP>`*lisp*'</SAMP>.  That is to say, any "terminal
+output" from Lisp will go into the buffer, advancing point, and any
+"terminal input" for Lisp comes from text in the buffer.  (You can
+change the name of the Lisp executable file by setting the variable
+<CODE>inferior-lisp-program</CODE>.)
+<P>
+  To give input to Lisp, go to the end of the buffer and type the input,
+terminated by <KBD>RET</KBD>.  The <SAMP>`*lisp*'</SAMP> buffer is in Inferior Lisp
+mode, which combines the special characteristics of Lisp mode and Shell
+mode (see section <A HREF="emacs_34.html#SEC317">Shell Mode</A>).<A NAME="IDX1198"></A>
+<P>
+  For the source files of programs to run in external Lisps, use Lisp
+mode.  This mode can be selected with <KBD>M-x lisp-mode</KBD>, and is used
+automatically for files whose names end in <TT>`.l'</TT>, <TT>`.lsp'</TT>, or
+<TT>`.lisp'</TT>, as most Lisp systems usually expect.
+<A NAME="IDX1199"></A>
+<A NAME="IDX1200"></A>
+<P>
+  When you edit a function in a Lisp program you are running, the easiest
+way to send the changed definition to the inferior Lisp process is the key
+<KBD>C-M-x</KBD>.  In Lisp mode, this runs the function <CODE>lisp-eval-defun</CODE>,
+which finds the defun around or following point and sends it as input to
+the Lisp process.  (Emacs can send input to any inferior process regardless
+of what buffer is current.)
+<P>
+  Contrast the meanings of <KBD>C-M-x</KBD> in Lisp mode (for editing programs
+to be run in another Lisp system) and Emacs-Lisp mode (for editing Lisp
+programs to be run in Emacs): in both modes it has the effect of installing
+the function definition that point is in, but the way of doing so is
+different according to where the relevant Lisp environment is found.
+See section <A HREF="emacs_27.html#SEC231">Executing Lisp Expressions</A>.
+<P>Go to the <A HREF="emacs_26.html">previous</A>, <A HREF="emacs_28.html">next</A> section.<P>

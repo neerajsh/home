@@ -1,0 +1,369 @@
+/********** Tab widget *********/
+/*******************************/
+/* This Mac-specific CSS styles tabs that are located on the top of their content,
+ * as Macintosh tabs generally are.  An example of using bottom tab images can be 
+ * found in EditorToolbar.css in classic/editor/.
+ *******************************/
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*** TAB: TOP <tab> ***/
+
+window:not([id="main-window"]) tab {
+  -moz-appearance: tab;
+  -moz-box-align: stretch;
+  color				: #000000;
+  padding: 3px;
+}
+
+window:not([id="main-window"]) .tab-text {
+  font				: menu;
+  font-weight: normal !important;
+}
+
+window:not([id="main-window"]) tabs {
+  padding			: 0px;
+  margin-bottom: -2px;
+}
+
+
+window:not([id="main-window"]) tabs.tabs-bottom {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+window:not([id="main-window"]) .tabs-left, window:not([id="main-window"]) .tabs-right  {
+	-moz-box-flex: 1 !important;
+}
+/*** TAB: BOTTOM <tab class="tab-bottom"> ***/
+/* Found in editor.xul & editorOverlay.xul 
+ * SMALL TABS FOR NOW */
+
+window:not([id="main-window"]) .tab-bottom {
+  margin-bottom: 2px;
+  margin-top: 2px;
+  -moz-box-align: center;
+}
+
+window:not([id="main-window"]) .tab-bottom > .tab-middle {
+  padding: 0 6px 0 6px;
+  margin-bottom: 2px;
+}
+  
+
+window:not([id="main-window"]) .tab-bottom > .tab-middle > .tab-text {
+  font: message-box;
+  font-weight: bold !important;
+  margin: 0 0 -1px 0 !important;
+  padding: 0 !important;
+}
+
+    /* top tabs */
+window:not([id="main-window"]) tabbox[orient="vertical"] tabs[orient="horizontal"] tab { 
+  padding: 0px;
+  margin: 0px;
+}
+
+	/* bottom tabs */
+window:not([id="main-window"]) tabbox[orient="vertical"] tabpanels + tabs[orient="horizontal"] tab { 
+  border-top: none;
+  border-bottom: 1px solid #666666;
+  border-left: 1px solid white;
+  border-right: 1px solid #666666;
+  -moz-border-radius: 0px 0px 8px 8px;
+  padding: 1px 5px 3px 5px;
+  margin: 1px 2px 1px 2px;
+}
+
+	/* left tabs */
+window:not([id="main-window"]) tabbox[orient="horizontal"] tabs[orient="vertical"] tab { 
+  border-right: none;
+  -moz-border-radius: 8px 0px 0px 8px;
+  padding-right: 1px;
+  margin: 2px 1px 2px 1px;
+}
+
+	/* right tabs */
+window:not([id="main-window"]) tabbox[orient="horizontal"] tabpanels + tabs[orient="vertical"]  tab { 
+  border-top: 1px solid white;
+  border-bottom: 1px solid #666666;
+  border-left: none;
+  border-right: 1px solid #666666;
+  -moz-border-radius: 0px 8px 8px 0px;
+  padding: 3px 5px 1px 5px;
+  margin: 2px 1px 2px 1px;
+}
+
+window:not([id="main-window"]) tabbox { 
+  border: none;
+}
+
+window:not([id="main-window"]) tabpanels {
+  -moz-appearance: tabpanels; 
+  border-top: 0px;
+  border-bottom: 2px ridge #000000;
+  border-left: 2px groove #000000;
+  border-right: 2px ridge #000000;
+  padding: 15px 5px 5px 5px;
+  background-color		: #EEEEEE;
+  margin-bottom: 10px;
+}
+
+window:not([id="main-window"]) tabstrip-box {
+	-moz-appearance: tabpanels;
+        margin-top: -1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+prefwindow tab {
+  -moz-appearance: tab;
+  -moz-box-align: stretch;
+  color				: #000000;
+  padding: 3px;
+}
+
+prefwindow .tab-text {
+  font				: menu;
+  font-weight: normal !important;
+}
+
+prefwindow tabs {
+  padding			: 0px;
+  margin-bottom: -2px;
+}
+
+
+prefwindow tabs.tabs-bottom {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+prefwindow .tabs-left, prefwindow .tabs-right  {
+	-moz-box-flex: 1 !important;
+}
+/*** TAB: BOTTOM <tab class="tab-bottom"> ***/
+/* Found in editor.xul & editorOverlay.xul 
+ * SMALL TABS FOR NOW */
+
+prefwindow .tab-bottom {
+  margin-bottom: 2px;
+  margin-top: 2px;
+  -moz-box-align: center;
+}
+
+prefwindow .tab-bottom > .tab-middle {
+  padding: 0 6px 0 6px;
+  margin-bottom: 2px;
+}
+  
+
+prefwindow .tab-bottom > .tab-middle > .tab-text {
+  font: message-box;
+  font-weight: bold !important;
+  margin: 0 0 -1px 0 !important;
+  padding: 0 !important;
+}
+
+    /* top tabs */
+prefwindow tabbox[orient="vertical"] tabs[orient="horizontal"] tab { 
+  padding: 0px;
+  margin: 0px;
+}
+
+	/* bottom tabs */
+prefwindow tabbox[orient="vertical"] tabpanels + tabs[orient="horizontal"] tab { 
+  border-top: none;
+  border-bottom: 1px solid #666666;
+  border-left: 1px solid white;
+  border-right: 1px solid #666666;
+  -moz-border-radius: 0px 0px 8px 8px;
+  padding: 1px 5px 3px 5px;
+  margin: 1px 2px 1px 2px;
+}
+
+	/* left tabs */
+prefwindow tabbox[orient="horizontal"] tabs[orient="vertical"] tab { 
+  border-right: none;
+  -moz-border-radius: 8px 0px 0px 8px;
+  padding-right: 1px;
+  margin: 2px 1px 2px 1px;
+}
+
+	/* right tabs */
+prefwindow tabbox[orient="horizontal"] tabpanels + tabs[orient="vertical"]  tab { 
+  border-top: 1px solid white;
+  border-bottom: 1px solid #666666;
+  border-left: none;
+  border-right: 1px solid #666666;
+  -moz-border-radius: 0px 8px 8px 0px;
+  padding: 3px 5px 1px 5px;
+  margin: 2px 1px 2px 1px;
+}
+
+prefwindow tabbox { 
+  border: none;
+}
+
+prefwindow tabpanels {
+  -moz-appearance: tabpanels; 
+  border-top: 0px;
+  border-bottom: 2px ridge #000000;
+  border-left: 2px groove #000000;
+  border-right: 2px ridge #000000;
+  padding: 15px 5px 5px 5px;
+  background-color		: #EEEEEE;
+  margin-bottom: 10px;
+}
+
+prefwindow tabstrip-box {
+	-moz-appearance: tabpanels;
+        margin-top: -1px;
+}
+
+
+
+
+
+
+
+
+
+/* ::::: tabs ::::: */
+
+window#main-window .tabs-left,
+window#main-window .tabs-right {
+  border-bottom: 2px solid;
+  -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
+}
+
+/* ::::: tabpanels ::::: */
+
+window#main-window tabpanels {
+  -moz-appearance: tabpanels; 
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  -moz-border-right-colors: ThreeDDarkShadow ThreeDShadow;
+  -moz-border-bottom-colors: ThreeDDarkShadow ThreeDShadow;
+  -moz-border-left-colors: ThreeDHighlight ThreeDLightShadow;
+  padding: 8px;
+  background-color: -moz-Dialog;
+  color: -moz-DialogText;
+}
+
+/* ::::: tab ::::: */
+
+window#main-window tab 
+{
+  -moz-appearance: tab;
+  margin-top: 2px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  border-left: 2px solid;
+  border-bottom: 1px solid ThreeDHighlight;
+  -moz-border-top-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-right-colors: ThreeDDarkShadow ThreeDShadow;
+  -moz-border-left-colors: ThreeDHighlight ThreeDLightShadow;
+  -moz-border-radius-topleft: 2px;
+  -moz-border-radius-topright: 2px;
+  padding: 1px 4px 2px 4px;
+  background-color: -moz-Dialog;
+  color: -moz-DialogText;
+}
+
+window#main-window tab[chromedir="rtl"] {
+  -moz-border-radius-bottomleft: 1px;
+  -moz-border-radius-bottomright: 0px;
+}
+
+window#main-window .tab-text {
+  margin: 0 !important;
+}
+
+window#main-window tab[selected="true"] {
+  -moz-user-focus: normal;
+  margin-top: 0;
+  border-bottom-color: transparent;
+  padding: 1px 6px 4px 6px;
+}
+
+window#main-window tab:focus > .tab-middle {
+  /* Don't specify the outline-color, we should always use initial value. */
+  outline: 1px dotted;
+}
+
+window#main-window tab[beforeselected="true"],
+window#main-window tab[afterselected="true"][chromedir="rtl"] {
+  -moz-appearance: tab-left-edge;
+  border-right: none;
+  -moz-border-radius-topright: 0;
+}
+
+window#main-window tab[afterselected="true"],
+window#main-window tab[beforeselected="true"][chromedir="rtl"] {
+  -moz-appearance: tab-right-edge;
+  border-left: none;
+  -moz-border-radius-topleft: 0;
+}
+
+window#main-window tab[first-tab="true"][selected="true"] {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+/* ::::: tab-bottom ::::::::::
+   :: Tabs that are attached to the bottom of a panel, but not necessarily
+   :: a tabpanels.
+   ::::: */
+
+window#main-window .tab-bottom {
+  margin-top: 0;
+  margin-bottom: 2px;
+  border-top: 1px solid;
+  border-bottom: 2px solid;
+  -moz-border-top-colors: ThreeDShadow;
+  -moz-border-bottom-colors: ThreeDShadow ThreeDLightShadow;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  padding: 2px 4px 1px 4px;
+}
+
+window#main-window .tab-bottom[selected="true"] {
+  margin-bottom: 0;
+  -moz-border-top-colors: -moz-Dialog;
+  padding: 4px 6px 1px 6px;
+}
+
+window#main-window .tab-bottom[beforeselected="true"],
+window#main-window .tab-bottom[afterselected="true"][chromedir="rtl"] {
+  -moz-border-radius-bottomright: 0;
+}
+
+window#main-window .tab-bottom[afterselected="true"],
+window#main-window .tab-bottom[beforeselected="true"][chromedir="rtl"] {
+  -moz-border-radius-bottomleft: 0;
+}
+
+/* ::::: tabs-bottom ::::: */
+
+window#main-window .tabs-bottom > .tabs-left,
+window#main-window .tabs-bottom > .tabs-right {
+  border-top: 1px solid ThreeDShadow;
+  border-bottom: none;
+}
+

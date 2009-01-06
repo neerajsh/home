@@ -1,0 +1,13 @@
+content ctrl-tab chrome/content/
+skin    ctrl-tab classic/1.0 chrome/skin/
+
+overlay chrome://browser/content/browser.xul chrome://ctrl-tab/content/browser-3.0.xul    appversion<=3.1a1
+overlay chrome://browser/content/browser.xul chrome://ctrl-tab/content/browser.xul        appversion>3.1a1
+overlay chrome://browser/content/browser.xul chrome://ctrl-tab/content/browser-win.xul    OS=WINNT
+style   chrome://browser/content/browser.xul chrome://ctrl-tab/skin/browser-base.css
+style   chrome://browser/content/browser.xul chrome://ctrl-tab/skin/browser-win-3.0.css   OS=WINNT  appversion<=3.1a1
+style   chrome://browser/content/browser.xul chrome://ctrl-tab/skin/browser-mac-3.0.css   OS=Darwin appversion<=3.1a1
+style   chrome://browser/content/browser.xul chrome://ctrl-tab/skin/browser-linux-3.0.css OS=Linux  appversion<=3.1a1
+style   chrome://browser/content/browser.xul chrome://ctrl-tab/skin/browser-win.css       OS=WINNT  appversion>3.1a1
+style   chrome://browser/content/browser.xul chrome://ctrl-tab/skin/browser-mac.css       OS=Darwin appversion>3.1a1
+style   chrome://browser/content/browser.xul chrome://ctrl-tab/skin/browser-linux.css     OS=Linux  appversion>3.1a1

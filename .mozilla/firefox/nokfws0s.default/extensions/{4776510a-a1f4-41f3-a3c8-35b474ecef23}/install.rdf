@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <Description about="urn:mozilla:install-manifest">
+		<em:creator>Filip Bozic</em:creator>
+	  <em:description>Surf the web without leaving a trace in Firefox.</em:description>
+	  <em:homepageURL>http://www.zadet.net</em:homepageURL>
+    <em:id>{4776510a-a1f4-41f3-a3c8-35b474ecef23}</em:id>
+    <em:name>Stealther</em:name>
+    <em:version>1.0.6</em:version>
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>1.0</em:minVersion>
+        <em:maxVersion>3.0.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>    
+    <em:iconURL>chrome://stealther/content/stealther.png</em:iconURL>
+    <em:optionsURL>chrome://stealther/content/options.xul</em:optionsURL>
+    <em:file>
+      <Description about="urn:mozilla:extension:file:stealther.jar">
+        <em:package>content/</em:package>
+        <em:locale>locale/en-US/</em:locale>
+        <em:locale>locale/fr-FR/</em:locale>
+        <em:skin>skin/</em:skin>
+      </Description>
+    </em:file>
+  </Description>
+</RDF>

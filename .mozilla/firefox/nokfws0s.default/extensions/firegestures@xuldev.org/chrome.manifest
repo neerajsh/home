@@ -1,0 +1,23 @@
+content	firegestures	jar:chrome/firegestures.jar!/content/firegestures/
+locale	firegestures	en-US	jar:chrome/firegestures.jar!/locale/en-US/firegestures/
+locale	firegestures	ja-JP	jar:chrome/firegestures.jar!/locale/ja-JP/firegestures/
+locale	firegestures	ru-RU	jar:chrome/firegestures.jar!/locale/ru-RU/firegestures/
+locale	firegestures	fr-FR	jar:chrome/firegestures.jar!/locale/fr-FR/firegestures/
+locale	firegestures	zh-CN	jar:chrome/firegestures.jar!/locale/zh-CN/firegestures/
+locale	firegestures	pl-PL	jar:chrome/firegestures.jar!/locale/pl-PL/firegestures/
+locale	firegestures	zh-TW	jar:chrome/firegestures.jar!/locale/zh-TW/firegestures/
+locale	firegestures	it-IT	jar:chrome/firegestures.jar!/locale/it-IT/firegestures/
+locale	firegestures	de-DE	jar:chrome/firegestures.jar!/locale/de-DE/firegestures/
+locale	firegestures	pt-BR	jar:chrome/firegestures.jar!/locale/pt-BR/firegestures/
+locale	firegestures	fi-FI	jar:chrome/firegestures.jar!/locale/fi-FI/firegestures/
+locale	firegestures	ko-KR	jar:chrome/firegestures.jar!/locale/ko-KR/firegestures/
+locale	firegestures	cs-CZ	jar:chrome/firegestures.jar!/locale/cs-CZ/firegestures/
+locale	firegestures	nb-NO	jar:chrome/firegestures.jar!/locale/nb-NO/firegestures/
+locale	firegestures	hu-HU	jar:chrome/firegestures.jar!/locale/hu-HU/firegestures/
+locale	firegestures	sk-SK	jar:chrome/firegestures.jar!/locale/sk-SK/firegestures/
+locale	firegestures	tr-TR	jar:chrome/firegestures.jar!/locale/tr-TR/firegestures/
+locale	firegestures	sr-RS	jar:chrome/firegestures.jar!/locale/sr-RS/firegestures/
+skin	firegestures	classic/1.0	jar:chrome/firegestures.jar!/skin/classic/firegestures/
+
+overlay	chrome://browser/content/browser.xul	chrome://firegestures/content/browserOverlay.xul
+

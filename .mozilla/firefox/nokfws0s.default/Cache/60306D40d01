@@ -1,0 +1,1541 @@
+<!-- This HTML file has been created by texi2html 1.27
+     from emacs.texi on 3 March 1994 -->
+
+<TITLE>GNU Emacs Manual - Customization</TITLE>
+<P>Go to the <A HREF="emacs_34.html">previous</A>, <A HREF="emacs_36.html">next</A> section.<P>
+<A NAME="IDX1946"></A>
+<H1><A NAME="SEC332" HREF="emacs_toc.html#SEC332">Customization</A></H1>
+<P>
+  This chapter talks about various topics relevant to adapting the
+behavior of Emacs in minor ways.  See <CITE>The Emacs Lisp Reference
+Manual</CITE> for how to make more far-reaching changes.
+<P>
+  All kinds of customization affect only the particular Emacs job that you
+do them in.  They are completely lost when you kill the Emacs job, and have
+no effect on other Emacs jobs you may run at the same time or later.  The
+only way an Emacs job can affect anything outside of it is by writing a
+file; in particular, the only way to make a customization `permanent' is to
+put something in your <TT>`.emacs'</TT> file or other appropriate file to do the
+customization in each session.  See section <A HREF="emacs_35.html#SEC356">The Init File, <TT>`~/.emacs'</TT></A>.
+<P>
+<A NAME="IDX1947"></A>
+<A NAME="IDX1948"></A>
+<H2><A NAME="SEC333" HREF="emacs_toc.html#SEC333">Minor Modes</A></H2>
+<P>
+  Minor modes are optional features which you can turn on or off.  For
+example, Auto Fill mode is a minor mode in which <KBD>SPC</KBD> breaks lines
+between words as you type.  All the minor modes are independent of each
+other and of the selected major mode.  Most minor modes say in the mode
+line when they are on; for example, <SAMP>`Fill'</SAMP> in the mode line means
+that Auto Fill mode is on.
+<P>
+  Append <CODE>-mode</CODE> to the name of a minor mode to get the name of a
+command function that turns the mode on or off.  Thus, the command to
+enable or disable Auto Fill mode is called <KBD>M-x auto-fill-mode</KBD>.  These
+commands are usually invoked with <KBD>M-x</KBD>, but you can bind keys to them
+if you wish.  With no argument, the function turns the mode on if it was
+off and off if it was on.  This is known as <DFN>toggling</DFN>.  A positive
+argument always turns the mode on, and an explicit zero argument or a
+negative argument always turns it off.
+<P>
+  Enabling or disabling some minor modes applies only to the current
+buffer; each buffer is independent of the other buffers.  Therefore, you
+can enable the mode in particular buffers and disable it in others.
+<P>
+  Auto Fill mode allows you to enter filled text without breaking lines
+explicitly.  Emacs inserts newlines as necessary to prevent lines from
+becoming too long.  See section <A HREF="emacs_25.html#SEC160">Filling Text</A>.
+<P>
+  Outline minor mode provides the same facilities as the major mode
+called Outline mode; but since it is a minor mode instead, you can
+combine it with any major mode.  See section <A HREF="emacs_25.html#SEC166">Outline Mode</A>.
+<A NAME="IDX1949"></A>
+<A NAME="IDX1950"></A>
+<A NAME="IDX1951"></A>
+<P>
+  Overwrite mode causes ordinary printing characters to replace existing
+text instead of shoving it over.  For example, if the point is in front of
+the <SAMP>`B'</SAMP> in <SAMP>`FOOBAR'</SAMP>, then in Overwrite mode typing a <KBD>G</KBD>
+changes it to <SAMP>`FOOGAR'</SAMP>, instead of making it <SAMP>`FOOGBAR'</SAMP> as
+usual.<P>
+  Auto Save mode causes the contents of a buffer to be saved
+periodically to reduce the amount you will lose in case of a system
+crash.  See section <A HREF="emacs_19.html#SEC106">Auto-Saving: Protection Against Disasters</A>.
+<P>
+  ISO Accents mode makes the characters <SAMP>``'</SAMP>, <SAMP>`''</SAMP>, <SAMP>`"'</SAMP>,
+<SAMP>`^'</SAMP>, <SAMP>`/'</SAMP> and <SAMP>`~'</SAMP> combined with the following letter, to
+produce an accented letter in the ISO Latin-1 character set.  
+See section <A HREF="emacs_16.html#SEC74">European Character Set Display</A>.
+<P>
+  The following minor modes normally apply to all buffers at once.
+Since each is enabled or disabled by the value of a variable, you
+<EM>can</EM> set them differently for particular buffers, by explicitly
+making the corresponding variables local in those buffers.
+See section <A HREF="emacs_35.html#SEC338">Local Variables</A>.
+<P>
+  Abbrev mode allows you to define abbreviations that automatically expand
+as you type them.  For example, <SAMP>`amd'</SAMP> might expand to <SAMP>`abbrev
+mode'</SAMP>.  See section <A HREF="emacs_28.html#SEC236">Abbrevs</A>, for full information.
+<P>
+  Line Number mode enables continuous display in the mode line of the
+line number of point.  See section <A HREF="emacs_5.html#SEC11">The Mode Line</A>.
+<P>
+  Scroll Bar mode gives each window a scroll bar (see section <A HREF="emacs_22.html#SEC144">Scroll Bars</A>).
+Menu Bar mode gives each frame a menu bar (see section <A HREF="emacs_22.html#SEC145">Menu Bars</A>).  Both of
+these modes are enabled by default when you use the X Window System.
+<P>
+  In Transient Mark mode, every change in the buffer "deactivates" the
+mark, so that commands that operate on the region will get an error.
+This means you must either set the mark, or explicitly "reactivate"
+it, before each command that uses the region.  The advantage of
+Transient Mark mode is that Emacs can display the region highlighted
+(currently only when using X).  See section <A HREF="emacs_13.html#SEC48">Setting the Mark</A>.
+<P>
+<A NAME="IDX1952"></A>
+<A NAME="IDX1953"></A>
+<H2><A NAME="SEC334" HREF="emacs_toc.html#SEC334">Variables</A></H2>
+<P>
+  A <DFN>variable</DFN> is a Lisp symbol which has a value.  The symbol's
+name is also called the name of the variable.  A variable name can
+contain any characters that can appear in a file, but conventionally
+variable names consist of words separated by hyphens.  A variable can
+have a documentation string which describes what kind of value it should
+have and how the value will be used.
+<P>
+  Lisp allows any variable to have any kind of value, but most variables
+that Emacs uses require a value of a certain type.  Often the value should
+always be a string, or should always be a number.  Sometimes we say that a
+certain feature is turned on if a variable is "non-<CODE>nil</CODE>," meaning
+that if the variable's value is <CODE>nil</CODE>, the feature is off, but the
+feature is on for <EM>any</EM> other value.  The conventional value to use to
+turn on the feature--since you have to pick one particular value when you
+set the variable--is <CODE>t</CODE>.
+<P>
+  Emacs uses many Lisp variables for internal recordkeeping, as any Lisp
+program must, but the most interesting variables for you are the ones that
+exist for the sake of customization.  Emacs does not (usually) change the
+values of these variables; instead, you set the values, and thereby alter
+and control the behavior of certain Emacs commands.  These variables are
+called <DFN>options</DFN>.  Most options are documented in this manual, and
+appear in the Variable Index (see section <A HREF="emacs_43.html#SEC402">Variable Index</A>).
+<P>
+  One example of a variable which is an option is <CODE>fill-column</CODE>, which
+specifies the position of the right margin (as a number of characters from
+the left margin) to be used by the fill commands (see section <A HREF="emacs_25.html#SEC160">Filling Text</A>).
+<P>
+<A NAME="IDX1954"></A>
+<H3><A NAME="SEC335" HREF="emacs_toc.html#SEC335">Examining and Setting Variables</A></H3>
+<P>
+<DL COMPACT>
+<DT><KBD>C-h v <VAR>var</VAR> <KBD>RET</KBD></KBD>
+<DD>Print the value and documentation of variable <VAR>var</VAR>
+(<CODE>describe-variable</CODE>).
+<DT><KBD>M-x set-variable <KBD>RET</KBD> <VAR>var</VAR> <KBD>RET</KBD> <VAR>value</VAR> <KBD>RET</KBD></KBD>
+<DD>Change the value of variable <VAR>var</VAR> to <VAR>value</VAR>.
+</DL>
+<P>
+  To examine the value of a single variable, use <KBD>C-h v</KBD>
+(<CODE>describe-variable</CODE>), which reads a variable name using the
+minibuffer, with completion.  It prints both the value and the
+documentation of the variable.  For example, 
+<P>
+<PRE>
+C-h v fill-column <KBD>RET</KBD>
+</PRE>
+<P>
+prints something like this:
+<P>
+<PRE>
+fill-column's value is 75
+
+Documentation:
+*Column beyond which automatic line-wrapping should happen.
+Automatically becomes buffer-local when set in any fashion.
+</PRE>
+<P>
+The star at the beginning of the documentation indicates that this variable
+is an option.  <KBD>C-h v</KBD> is not restricted to options; it allows any
+variable name.
+<A NAME="IDX1955"></A>
+<P>
+  The most convenient way to set a specific option is with <KBD>M-x
+set-variable</KBD>.  This reads the variable name with the minibuffer (with
+completion), and then reads a Lisp expression for the new value using
+the minibuffer a second time.  For example,
+<P>
+<PRE>
+M-x set-variable <KBD>RET</KBD> fill-column <KBD>RET</KBD> 75 <KBD>RET</KBD>
+</PRE>
+<P>
+sets <CODE>fill-column</CODE> to 75.
+<P>
+  You can set any variable with a Lisp expression using the function
+<CODE>setq</CODE>.  Here's how to use it to set <CODE>fill-column</CODE>:
+<P>
+<PRE>
+(setq fill-column 75)
+</PRE>
+<P>
+  Setting variables, like all means of customizing Emacs except where
+explicitly stated, affects only the current Emacs session.
+<P>
+<H3><A NAME="SEC336" HREF="emacs_toc.html#SEC336">Editing Variable Values</A></H3>
+<P>
+These two functions make it easy to display all the user edit options
+and change some of them.
+<P>
+<DL COMPACT>
+<DT><KBD>M-x list-options</KBD>
+<DD>Display a buffer listing names, values and documentation of all options.
+<DT><KBD>M-x edit-options</KBD>
+<DD>Change option values by editing a list of options.
+</DL>
+<A NAME="IDX1956"></A>
+<P>
+  <KBD>M-x list-options</KBD> displays a list of all Emacs option variables, in
+an Emacs buffer named <SAMP>`*List Options*'</SAMP>.  Each option is shown with its
+documentation and its current value.  Here is what a portion of it might
+look like:
+<P>
+<PRE>
+;; exec-path:
+("." "/usr/local/bin" "/usr/ucb" "/bin" "/usr/bin" "/u2/emacs/etc")
+*List of directories to search programs to run in subprocesses.
+Each element is a string (directory name)
+or nil (try the default directory).
+;;
+;; fill-column:
+75
+*Column beyond which automatic line-wrapping should happen.
+Automatically becomes buffer-local when set in any fashion.
+;;
+</PRE>
+<A NAME="IDX1957"></A>
+<P>
+  <KBD>M-x edit-options</KBD> goes one step further and immediately selects the
+<SAMP>`*List Options*'</SAMP> buffer; this buffer uses the major mode Options mode,
+which provides commands that allow you to point at an option and change its
+value:
+<P>
+<DL COMPACT>
+<DT><KBD>s</KBD>
+<DD>Set the variable point is in or near to a new value read using the
+minibuffer.
+<DT><KBD>x</KBD>
+<DD>Toggle the variable point is in or near: if the value was <CODE>nil</CODE>,
+it becomes <CODE>t</CODE>; otherwise it becomes <CODE>nil</CODE>.
+<DT><KBD>1</KBD>
+<DD>Set the variable point is in or near to <CODE>t</CODE>.
+<DT><KBD>0</KBD>
+<DD>Set the variable point is in or near to <CODE>nil</CODE>.
+<DT><KBD>n</KBD>
+<DD><DT><KBD>p</KBD>
+<DD>Move to the next or previous variable.
+</DL>
+<P>
+  Any changes take effect immediately, and last until you exit from
+Emacs.
+<P>
+<A NAME="IDX1958"></A>
+<H3><A NAME="SEC337" HREF="emacs_toc.html#SEC337">Hooks</A></H3>
+<P>
+  A <DFN>hook</DFN> is a variable where you can store a function or functions
+to be called on a particular occasion by an existing program.  Emacs
+provides a number of hooks for the sake of customization.
+<P>
+  Most of the hooks in Emacs are <DFN>normal hooks</DFN>.  These variables
+contain lists of functions to be called with no arguments.  The reason
+most hooks are normal hooks is so that you can use them in a uniform
+way.  Every variable in Emacs whose name ends in <SAMP>`-hook'</SAMP> is a
+normal hook.
+<P>
+  Most major modes run hooks as the last step of initialization.  This
+makes it easy for a user to customize the behavior of the mode, by
+overriding the local variable assignments already made by the mode.  But
+hooks may also be used in other contexts.  For example, the hook
+<CODE>suspend-hook</CODE> runs just before Emacs suspends itself
+(see section <A HREF="emacs_7.html#SEC18">Exiting Emacs</A>).
+<P>
+  The recommended way to add a hook function to a normal hook is by
+calling <CODE>add-hook</CODE>.  You can use any valid Lisp function as the
+hook function.  For example, here's how to set up a hook to turn on Auto
+Fill mode when entering Text mode and other modes based on Text mode:
+<P>
+<PRE>
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+</PRE>
+<P>
+  The next example shows how to use a hook to customize the indentation
+of C code.  (People often have strong personal preferences for one
+format compared to another.)  Here the hook function is an anonymous
+lambda expression.
+<P>
+<PRE>
+(add-hook 'c-mode-hook 
+  (function (lambda ()
+              (setq c-indent-level 4
+                    c-argdecl-indent 0
+                    c-label-offset -4
+                    c-continued-statement-indent 0
+                    c-brace-offset 0
+                    comment-column 40))))
+
+(setq c++-mode-hook c-mode-hook)
+</PRE>
+<P>
+  It is best to design your hook functions so that the order in which
+they are executed does not matter.  Any dependence on the order is
+"asking for trouble."  However, the order is predictable: the most
+recently added hook functions are executed first.
+<P>
+<H3><A NAME="SEC338" HREF="emacs_toc.html#SEC338">Local Variables</A></H3>
+<P>
+<DL COMPACT>
+<DT><KBD>M-x make-local-variable <KBD>RET</KBD> <VAR>var</VAR> <KBD>RET</KBD></KBD>
+<DD>Make variable <VAR>var</VAR> have a local value in the current buffer.
+<DT><KBD>M-x kill-local-variable <KBD>RET</KBD> <VAR>var</VAR> <KBD>RET</KBD></KBD>
+<DD>Make variable <VAR>var</VAR> use its global value in the current buffer.
+<DT><KBD>M-x make-variable-buffer-local <KBD>RET</KBD> <VAR>var</VAR> <KBD>RET</KBD></KBD>
+<DD>Mark variable <VAR>var</VAR> so that setting it will make it local to the
+buffer that is current at that time.
+</DL>
+<A NAME="IDX1959"></A>
+<P>
+  Any variable can be made <DFN>local</DFN> to a specific Emacs buffer.  This
+means that its value in that buffer is independent of its value in other
+buffers.  A few variables are always local in every buffer.  Every other
+Emacs variable has a <DFN>global</DFN> value which is in effect in all buffers
+that have not made the variable local.
+<A NAME="IDX1960"></A>
+<P>
+  <KBD>M-x make-local-variable</KBD> reads the name of a variable and makes it
+local to the current buffer.  Further changes in this buffer will not
+affect others, and further changes in the global value will not affect this
+buffer.
+<A NAME="IDX1961"></A>
+<A NAME="IDX1962"></A>
+<P>
+  <KBD>M-x make-variable-buffer-local</KBD> reads the name of a variable and
+changes the future behavior of the variable so that it will become local
+automatically when it is set.  More precisely, once a variable has been
+marked in this way, the usual ways of setting the variable automatically
+do <CODE>make-local-variable</CODE> first.  We call such variables
+<DFN>per-buffer</DFN> variables.
+<P>
+  Major modes (see section <A HREF="emacs_23.html#SEC149">Major Modes</A>) always make the variables they set
+local to the buffer.  This is why changing major modes in one buffer has
+no effect on other buffers.  Minor modes also work by setting
+variables--normally, each minor mode has one controlling variable which
+is non-<CODE>nil</CODE> when the mode is enabled (see section <A HREF="emacs_35.html#SEC333">Minor Modes</A>).
+For most minor modes, the controlling variable is per buffer.
+<P>
+  Emacs contains a number of variables that are always per-buffer.
+These include <CODE>abbrev-mode</CODE>, <CODE>auto-fill-function</CODE>,
+<CODE>case-fold-search</CODE>, <CODE>comment-column</CODE>, <CODE>ctl-arrow</CODE>,
+<CODE>fill-column</CODE>, <CODE>fill-prefix</CODE>, <CODE>indent-tabs-mode</CODE>,
+<CODE>left-margin</CODE>, <CODE>mode-line-format</CODE>, <CODE>overwrite-mode</CODE>,<BR>
+<CODE>selective-display-ellipses</CODE>, <CODE>selective-display</CODE>,
+<CODE>tab-width</CODE>, and <CODE>truncate-lines</CODE>.  Some other variables are
+always local in every buffer, but they are used for internal
+purposes.<A NAME="IDX1963"></A>
+<P>
+  <KBD>M-x kill-local-variable</KBD> reads the name of a variable and makes it
+cease to be local to the current buffer.  The global value of the variable
+henceforth is in effect in this buffer.  Setting the major mode kills all
+the local variables of the buffer except for a few specially marked
+variables that are <DFN>permanent locals</DFN>.
+<A NAME="IDX1964"></A>
+<P>
+  To set the global value of a variable, regardless of whether the
+variable has a local value in the current buffer, you can use the
+Lisp function <CODE>setq-default</CODE>.  It works like <CODE>setq</CODE>.
+If there is a local value in the current buffer, the local value is
+not affected by <CODE>setq-default</CODE>; thus, the new global value may
+not be visible until you switch to another buffer.  For example,
+<P>
+<PRE>
+(setq-default fill-column 75)
+</PRE>
+<P>
+<CODE>setq-default</CODE> is the only way to set the global value of a variable
+that has been marked with <CODE>make-variable-buffer-local</CODE>.
+<A NAME="IDX1965"></A>
+<P>
+  Lisp programs can look at a variable's default value with
+<CODE>default-value</CODE>.  This function takes a symbol as argument and
+returns its default value.  The argument is evaluated; usually you must
+quote it explicitly.  For example,
+<P>
+<PRE>
+(default-value 'fill-column)
+</PRE>
+<P>
+<A NAME="IDX1966"></A>
+<H3><A NAME="SEC339" HREF="emacs_toc.html#SEC339">Local Variables in Files</A></H3>
+<P>
+  A file can specify local variable values for use when you edit the
+file with Emacs.  Visiting the file checks for local variables
+specifications; it automatically makes these variables local to the
+buffer, and sets them to the values specified in the file.
+<P>
+  There are two ways to specify local variable values: in the first line,
+or with a local variables list.  Here's how to do this with the first
+line:
+<P>
+<PRE>
+-*- mode: <VAR>modename</VAR>; <VAR>var</VAR>: <VAR>value</VAR>; ... -*-
+</PRE>
+<P>
+You can specify any number of variables/value pairs in this way, each
+pair with a colon and semicolon as shown above.  The major mode should
+come first, if it is mentioned at all.  Here is an example that 
+specifies Lisp mode and sets two variables with numeric values:
+<P>
+<PRE>
+;; -*-Mode: Lisp; fill-column: 75; comment-column: 50; -*-
+</PRE>
+<P>
+  A <DFN>local variables list</DFN> goes near the end of the file, in the
+last page.  (It is often best to put it on a page by itself.)  The local
+variables list starts with a line containing the string <SAMP>`Local
+Variables:'</SAMP>, and ends with a line containing the string <SAMP>`End:'</SAMP>.  In
+between come the variable names and values, one set per line, as
+<SAMP>`<VAR>variable</VAR>: <VAR>value</VAR>'</SAMP>.  The <VAR>value</VAR>s are not
+evaluated; they are used literally.
+<P>
+Here is an example of a local variables list:
+<P>
+<PRE>
+;;; Local Variables: ***
+;;; mode:lisp ***
+;;; comment-column:0 ***
+;;; comment-start: ";;; "  ***
+;;; comment-end:"***" ***
+;;; End: ***
+</PRE>
+<P>
+  As you see, each line starts with the prefix <SAMP>`;;; '</SAMP> and each line
+ends with the suffix <SAMP>` ***'</SAMP>.  Emacs recognizes these as the prefix
+and suffix based on the first line of the list, by finding them
+surrounding the magic string <SAMP>`Local Variables:'</SAMP>; so it
+automatically discards them from the other lines of the list.
+<P>
+  The usual reason for using a prefix and/or suffix is to embed the
+local variables list in a comment, so it won't confuse other programs
+that the file is intended as input for.  The example above is for a
+language where comment lines start with <SAMP>`;;; '</SAMP> and end with
+<SAMP>`***'</SAMP>; the local values for <CODE>comment-start</CODE> and
+<CODE>comment-end</CODE> customize the rest of Emacs for this unusual syntax.
+Don't use a prefix (or a suffix) if you don't need one.
+<P>
+  Two "variable names" have special meanings in a local variables
+list: a value for the variable <CODE>mode</CODE> really sets the major mode,
+and a value for the variable <CODE>eval</CODE> is simply evaluated as an
+expression and the value is ignored.  <CODE>mode</CODE> and <CODE>eval</CODE> are
+not real variables; setting such variables in any other context has no
+such effect.  If <CODE>mode</CODE> is used in a local variables list, it
+should be the first entry in the list.
+<P>
+  The start of the local variables list must be no more than 3000
+characters from the end of the file, and must be in the last page if the
+file is divided into pages.  Otherwise, Emacs will not notice it is there.
+The purpose of this is so that a stray <SAMP>`Local Variables:'</SAMP> not in the
+last page does not confuse Emacs, and so that visiting a long file that is
+all one page and has no local variables list need not take the time to
+search the whole file.
+<P>
+  You may be tempted to try to turn on Auto Fill mode with a local variable
+list.  That is a mistake.  The choice of Auto Fill mode or not is a matter
+of individual taste, not a matter of the contents of particular files.
+If you want to use Auto Fill, set up major mode hooks with your <TT>`.emacs'</TT>
+file to turn it on (when appropriate) for you alone (see section <A HREF="emacs_35.html#SEC356">The Init File, <TT>`~/.emacs'</TT></A>).
+Don't try to use a local variable list that would impose your taste on
+everyone.<A NAME="IDX1967"></A>
+<P>
+  The variable <CODE>enable-local-variables</CODE> controls whether to process
+local variables lists, and thus gives you a chance to override them.
+Its default value is <CODE>t</CODE>, which means to process local variables
+lists.  If you set the value to <CODE>nil</CODE>, Emacs simply ignores local
+variables lists.  Any other value says to query you about each local
+variables list, showing you the local variables list to consider.
+<A NAME="IDX1968"></A>
+<P>
+  The <CODE>eval</CODE> "variable" creates special risks, so there is a
+separate variable <CODE>enable-local-eval</CODE> to control whether Emacs
+processes <CODE>eval</CODE> variables, as well variables with names that end
+in <SAMP>`-hook'</SAMP>, <SAMP>`-hooks'</SAMP>, <SAMP>`-function'</SAMP> or <SAMP>`-functions'</SAMP>.
+The three possibilities for the value are <CODE>t</CODE>, <CODE>nil</CODE>, and
+anything else, just as for <CODE>enable-local-variables</CODE>.  The default
+is <CODE>maybe</CODE>, which is neither <CODE>t</CODE> nor <CODE>nil</CODE>, so normally
+Emacs queries about <CODE>eval</CODE> variable settings.
+<P>
+  Use the command <CODE>normal-mode</CODE> to reset the local variables and
+major mode of a buffer according to the file name and contents,
+including the local variables list if any.  See section <A HREF="emacs_23.html#SEC150">How Major Modes are Chosen</A>.
+<P>
+<H2><A NAME="SEC340" HREF="emacs_toc.html#SEC340">Keyboard Macros</A></H2>
+<A NAME="IDX1969"></A>
+<A NAME="IDX1970"></A>
+<P>
+  A <DFN>keyboard macro</DFN> is a command defined by the user to abbreviate a
+sequence of keys.  For example, if you discover that you are about to type
+<KBD>C-n C-d</KBD> forty times, you can speed your work by defining a keyboard
+macro to do <KBD>C-n C-d</KBD> and calling it with a repeat count of forty.
+<P>
+<DL COMPACT>
+<DT><KBD>C-x (</KBD>
+<DD>Start defining a keyboard macro (<CODE>start-kbd-macro</CODE>).
+<DT><KBD>C-x )</KBD>
+<DD>End the definition of a keyboard macro (<CODE>end-kbd-macro</CODE>).
+<DT><KBD>C-x e</KBD>
+<DD>Execute the most recent keyboard macro (<CODE>call-last-kbd-macro</CODE>).
+<DT><KBD>C-u C-x (</KBD>
+<DD>Re-execute last keyboard macro, then add more keys to its definition.
+<DT><KBD>C-x q</KBD>
+<DD>When this point is reached during macro execution, ask for confirmation
+(<CODE>kbd-macro-query</CODE>).
+<DT><KBD>M-x name-last-kbd-macro</KBD>
+<DD>Give a command name (for the duration of the session) to the most
+recently defined keyboard macro.
+<DT><KBD>M-x insert-kbd-macro</KBD>
+<DD>Insert in the buffer a keyboard macro's definition, as Lisp code.
+</DL>
+<P>
+  Keyboard macros differ from ordinary Emacs commands in that they are
+written in the Emacs command language rather than in Lisp.  This makes it
+easier for the novice to write them, and makes them more convenient as
+temporary hacks.  However, the Emacs command language is not powerful
+enough as a programming language to be useful for writing anything
+intelligent or general.  For such things, Lisp must be used.
+<P>
+  You define a keyboard macro while executing the commands which are the
+definition.  Put differently, as you define a keyboard macro, the
+definition is being executed for the first time.  This way, you can see
+what the effects of your commands are, so that you don't have to figure
+them out in your head.  When you are finished, the keyboard macro is
+defined and also has been, in effect, executed once.  You can then do the
+whole thing over again by invoking the macro.
+<P>
+<H3><A NAME="SEC341" HREF="emacs_toc.html#SEC341">Basic Use</A></H3>
+<A NAME="IDX1971"></A>
+<A NAME="IDX1972"></A>
+<A NAME="IDX1973"></A>
+<A NAME="IDX1974"></A>
+<A NAME="IDX1975"></A>
+<A NAME="IDX1976"></A>
+<P>
+  To start defining a keyboard macro, type the <KBD>C-x (</KBD> command
+(<CODE>start-kbd-macro</CODE>).  From then on, your keys continue to be
+executed, but also become part of the definition of the macro.  <SAMP>`Def'</SAMP>
+appears in the mode line to remind you of what is going on.  When you are
+finished, the <KBD>C-x )</KBD> command (<CODE>end-kbd-macro</CODE>) terminates the
+definition (without becoming part of it!).  For example
+<P>
+<PRE>
+C-x ( M-f foo C-x )
+</PRE>
+<P>
+defines a macro to move forward a word and then insert <SAMP>`foo'</SAMP>.
+<P>
+  The macro thus defined can be invoked again with the <KBD>C-x e</KBD> command
+(<CODE>call-last-kbd-macro</CODE>), which may be given a repeat count as a
+numeric argument to execute the macro many times.  <KBD>C-x )</KBD> can also be
+given a repeat count as an argument, in which case it repeats the macro
+that many times right after defining it, but defining the macro counts as
+the first repetition (since it is executed as you define it).  So, giving
+<KBD>C-x )</KBD> an argument of 4 executes the macro immediately 3 additional
+times.  An argument of zero to <KBD>C-x e</KBD> or <KBD>C-x )</KBD> means repeat the
+macro indefinitely (until it gets an error or you type <KBD>C-g</KBD>).
+<P>
+  If you wish to repeat an operation at regularly spaced places in the
+text, define a macro and include as part of the macro the commands to move
+to the next place you want to use it.  For example, if you want to change
+each line, you should position point at the start of a line, and define a
+macro to change that line and leave point at the start of the next line.
+Then repeating the macro will operate on successive lines.
+<P>
+  After you have terminated the definition of a keyboard macro, you can add
+to the end of its definition by typing <KBD>C-u C-x (</KBD>.  This is equivalent
+to plain <KBD>C-x (</KBD> followed by retyping the whole definition so far.  As
+a consequence it re-executes the macro as previously defined.
+<P>
+  You can use function keys in a keyboard macro, just like keyboard
+keys.  You can even use mouse events, but be careful about that: when
+the macro replays the mouse event, it uses the original mouse position
+of that event, the position that the mouse had while you were defining
+the macro.  The effect of this may be hard to predict.  (Using the
+current mouse position would be even less predictable.)
+<P>
+  One thing that doesn't always work well in a keyboard macro is the
+command <KBD>C-M-c</KBD> (<CODE>exit-recursive-edit</CODE>).  When this command
+exits a recursive edit that started within the macro, it works as you'd
+expect.  But if it exits a recursive edit that started before you
+invoked the keyboard macro, it also necessarily exits the keyboard macro
+as part of the process.
+<P>
+<H3><A NAME="SEC342" HREF="emacs_toc.html#SEC342">Naming and Saving Keyboard Macros</A></H3>
+<A NAME="IDX1977"></A>
+<A NAME="IDX1978"></A>
+<P>
+  If you wish to save a keyboard macro for longer than until you define the
+next one, you must give it a name using <KBD>M-x name-last-kbd-macro</KBD>.
+This reads a name as an argument using the minibuffer and defines that name
+to execute the macro.  The macro name is a Lisp symbol, and defining it in
+this way makes it a valid command name for calling with <KBD>M-x</KBD> or for
+binding a key to with <CODE>global-set-key</CODE> (see section <A HREF="emacs_35.html#SEC345">Keymaps</A>).  If you
+specify a name that has a prior definition other than another keyboard
+macro, an error message is printed and nothing is changed.
+<A NAME="IDX1979"></A>
+<P>
+  Once a macro has a command name, you can save its definition in a file.
+Then it can be used in another editing session.  First, visit the file
+you want to save the definition in.  Then use this command:
+<P>
+<PRE>
+M-x insert-kbd-macro <KBD>RET</KBD> <VAR>macroname</VAR> <KBD>RET</KBD>
+</PRE>
+<P>
+This inserts some Lisp code that, when executed later, will define the
+same macro with the same definition it has now.  (You need not
+understand Lisp code to do this, because <CODE>insert-kbd-macro</CODE> writes
+the Lisp code for you.)  Then save the file.  You can load the file
+later with <CODE>load-file</CODE> (see section <A HREF="emacs_27.html#SEC232">Libraries of Lisp Code for Emacs</A>).  If the file you
+save in is your init file <TT>`~/.emacs'</TT> (see section <A HREF="emacs_35.html#SEC356">The Init File, <TT>`~/.emacs'</TT></A>) then the
+macro will be defined each time you run Emacs.
+<P>
+  If you give <CODE>insert-kbd-macro</CODE> a prefix argument, it makes
+additional Lisp code to record the keys (if any) that you have bound to the
+keyboard macro, so that the macro will be reassigned the same keys when you
+load the file.
+<P>
+<H3><A NAME="SEC343" HREF="emacs_toc.html#SEC343">Executing Macros with Variations</A></H3>
+<A NAME="IDX1980"></A>
+<A NAME="IDX1981"></A>
+<P>
+  Using <KBD>C-x q</KBD> (<CODE>kbd-macro-query</CODE>), you can get an effect
+similar to that of <CODE>query-replace</CODE>, where the macro asks you each
+time around whether to make a change.  When you are defining the macro,
+type <KBD>C-x q</KBD> at the point where you want the query to occur.  During
+macro definition, the <KBD>C-x q</KBD> does nothing, but when you run the
+macro later, <KBD>C-x q</KBD> asks you interactively whether to continue.
+<P>
+  The valid responses when <KBD>C-x q</KBD> asks are <KBD>SPC</KBD> (or <KBD>y</KBD>),
+<KBD>DEL</KBD> (or <KBD>n</KBD>), <KBD>ESC</KBD> (or <KBD>q</KBD>), <KBD>C-l</KBD> and
+<KBD>C-r</KBD>.  The answers are the same as in query replace, though not all
+of the query-replace options are meaningful.
+<P>
+  Specifically, <KBD>SPC</KBD> means to continue.  <KBD>DEL</KBD> means to skip
+the remainder of this repetition of the macro and start right away with
+the next repetition.  <KBD>ESC</KBD> means to skip the remainder of this
+repetition and cancel further repetition.  <KBD>C-l</KBD> redraws the screen
+and asks you again for a character to say what to do.
+<P>
+  <KBD>C-r</KBD> enters a recursive editing level, in which you can perform
+editing which is not part of the macro.  When you exit the recursive
+edit using <KBD>C-M-c</KBD>, you are asked again how to continue with the
+keyboard macro.  If you type a <KBD>SPC</KBD> at this time, the rest of the
+macro definition is executed.  It is up to you to leave point and the
+text in a state such that the rest of the macro will do what you
+want.<P>
+  <KBD>C-u C-x q</KBD>, which is <KBD>C-x q</KBD> with a numeric argument, performs a
+different function.  It enters a recursive edit reading input from the
+keyboard, both when you type it during the definition of the macro, and
+when it is executed from the macro.  During definition, the editing you do
+inside the recursive edit does not become part of the macro.  During macro
+execution, the recursive edit gives you a chance to do some particularized
+editing.  See section <A HREF="emacs_36.html#SEC365">Recursive Editing Levels</A>.
+<P>
+<A NAME="IDX1982"></A>
+<H2><A NAME="SEC344" HREF="emacs_toc.html#SEC344">Customizing Key Bindings</A></H2>
+<P>
+  This section describes <DFN>key bindings</DFN> which map keys to commands,
+and the <DFN>keymaps</DFN> which record key bindings.  It also explains how
+to customize key bindings.
+<P>
+  Recall that a command is a Lisp function whose definition provides for
+interactive use.  Like every Lisp function, a command has a function
+name which usually consists of lower case letters and hyphens.
+<P>
+<A NAME="IDX1983"></A>
+<H3><A NAME="SEC345" HREF="emacs_toc.html#SEC345">Keymaps</A></H3>
+<P>
+  The bindings between key sequences and command functions are recorded
+in data structures called <DFN>keymaps</DFN>.  Emacs has many of these, each
+used on particular occasions.
+<A NAME="IDX1984"></A>
+<P>
+  Recall that a <DFN>key sequence</DFN> (<DFN>key</DFN>, for short) is a sequence
+of <DFN>input events</DFN> that have a meaning as a unit.  Input events
+include characters, function keys and mouse buttons--all the inputs
+that you can send to the computer with your terminal.  A key sequence
+gets its meaning from its <DFN>binding</DFN>, which says what command it
+runs.  The function of keymaps is to record these bindings.
+<A NAME="IDX1985"></A>
+<P>
+  The <DFN>global</DFN> keymap is the most important keymap because it is
+always in effect.  The global keymap defines keys for Fundamental mode;
+most of these definitions are common to all (or most) major modes.  Each
+major or minor mode can have its own keymap which overrides the
+definitions of some keys.
+<P>
+  For example, a self-inserting character such as <KBD>g</KBD> is
+self-inserting because the global keymap binds it to the command
+<CODE>self-insert-command</CODE>.  The standard Emacs editing characters such
+as <KBD>C-a</KBD> also get their standard meanings from the global keymap.
+Commands to rebind keys, such as <KBD>M-x global-set-key</KBD>, actually work
+by storing the new binding in the proper place in the global map.
+See section <A HREF="emacs_35.html#SEC349">Changing Key Bindings Interactively</A>.
+<P>
+   Meta characters work differently; Emacs translates each Meta
+character into a pair of characters starting with <KBD>ESC</KBD>.  When you
+type the character <KBD>M-a</KBD> in a key sequence, Emacs replaces it with
+<KBD><KBD>ESC</KBD> a</KBD>.  A meta key comes in as a single input event, but
+becomes two events for purposes of key bindings.  The reason for this is
+historical, and we might change it someday.
+<A NAME="IDX1986"></A>
+<P>
+  Most modern keyboards have function keys as well as character keys.
+Function keys send input events just as character keys do, and keymaps
+can have bindings for them.
+<P>
+  On many terminals, typing a function key actually sends the computer a
+sequence of characters; the precise details of the sequence depends on
+which function key and on the model of terminal you are using.  (Often
+he sequence starts with <KBD><KBD>ESC</KBD> [</KBD>.)  If Emacs understands your
+terminal type properly, it recognizes the character sequences forming
+function keys wherever they occur in a key sequence (not just at the
+beginning).  Thus, for most purposes, you can pretend the function keys
+reach Emacs directly and ignore their encoding as character sequences.
+<A NAME="IDX1987"></A>
+<P>
+  Mouse buttons also produce input events.  These events come with other
+data--the window and position where you pressed or released the button,
+and a timestamp.  But only the choice of button matters for key
+bindings; the other data matters only if a command looks at it.
+(Commands designed for mouse invocation usually do look at the other
+data.)
+<P>
+  A keymap records definitions for single events.  Interpreting a key
+sequence of multiple events involves a chain of keymaps.  The first
+keymap gives a definition for the first event; this definition is
+another keymap, which is used to look up the second event in the
+sequence, and so on.
+<P>
+  Key sequences can mix function keys and characters.  For example,
+<KBD>C-x <KBD>SELECT</KBD></KBD> makes sense.  If you make <KBD>SELECT</KBD> a prefix
+key, then <KBD><KBD>SELECT</KBD> C-n</KBD> makes sense.  You can even mix mouse
+events with keyboard events, but we recommend against it, because such
+sequences are inconvenient to type in.
+<P>
+<H3><A NAME="SEC346" HREF="emacs_toc.html#SEC346">Prefix Keymaps</A></H3>
+<P>
+  A prefix key such as <KBD>C-x</KBD> or <KBD>ESC</KBD> has its own keymap,
+which holds the definition for the event that immediately follows
+that prefix.
+<P>
+  The definition of a prefix key is the keymap to use for looking up the
+following event.  The definition can also be a Lisp symbol whose
+function definition is the following keymap; the effect is the same, but
+it provides a command name for the prefix key that can be used as a
+description of what the prefix key is for.  Thus, the binding of
+<KBD>C-x</KBD> is the symbol <CODE>Ctl-X-Prefix</CODE>, whose function definition
+is the keymap for <KBD>C-x</KBD> commands.  The definitions of <KBD>C-c</KBD>,
+<KBD>C-x</KBD>, <KBD>C-h</KBD> and <KBD>ESC</KBD> as prefix keys appear in the global
+map, so these prefix keys are always available.
+<P>
+  Some prefix keymaps are stored in variables with names:
+<P>
+<UL>
+<A NAME="IDX1988"></A>
+<LI>
+<CODE>ctl-x-map</CODE> is the variable name for the map used for characters that
+follow <KBD>C-x</KBD>.
+<A NAME="IDX1989"></A>
+<LI>
+<CODE>help-map</CODE> is for characters that follow <KBD>C-h</KBD>.
+<A NAME="IDX1990"></A>
+<LI>
+<CODE>esc-map</CODE> is for characters that follow <KBD>ESC</KBD>.  Thus, all Meta
+characters are actually defined by this map.
+<A NAME="IDX1991"></A>
+<LI>
+<CODE>ctl-x-4-map</CODE> is for characters that follow <KBD>C-x 4</KBD>.
+<A NAME="IDX1992"></A>
+<LI>
+<CODE>mode-specific-map</CODE> is for characters that follow <KBD>C-c</KBD>.
+</UL>
+<P>
+<H3><A NAME="SEC347" HREF="emacs_toc.html#SEC347">Local Keymaps</A></H3>
+<A NAME="IDX1993"></A>
+<P>
+  So far we have explained the ins and outs of the global map.  Major
+modes customize Emacs by providing their own key bindings in <DFN>local
+keymaps</DFN>.  For example, C mode overrides <KBD>TAB</KBD> to make it indent the
+current line for C code.  Portions of text in the buffer can specify
+their own keymaps to substitute for the keymap of the buffer's major
+mode.
+<A NAME="IDX1994"></A>
+<P>
+  Minor modes can also have local keymaps.  Whenever a minor mode is
+in effect, the definitions in its keymap override both the major
+mode's local keymap and the global keymap.
+<A NAME="IDX1995"></A>
+<A NAME="IDX1996"></A>
+<P>
+  The local keymaps for Lisp mode, C mode, and several other major modes
+always exist even when not in use.  These are kept in variables named
+<CODE>lisp-mode-map</CODE>, <CODE>c-mode-map</CODE>, and so on.  For major modes
+less often used, the local keymap is normally constructed only when the
+mode is used for the first time in a session.  This is to save space.
+<P>
+  All minor mode keymaps are created in advance.  There is no way to
+defer their creation until the minor mode is enabled.
+<P>
+  A local keymap can locally redefine a key as a prefix key by defining
+it as a prefix keymap.  If the key is also defined globally as a prefix,
+then its local and global definitions (both keymaps) effectively
+combine: both of them are used to look up the event that follows the
+prefix key.  Thus, if the mode's local keymap defines <KBD>C-c</KBD> as
+another keymap, and that keymap defines <KBD>C-z</KBD> as a command, this
+provides a local meaning for <KBD>C-c C-z</KBD>.  This does not affect other
+sequences that start with <KBD>C-c</KBD>; If those sequences don't have their
+own local bindings, their global bindings remain in effect.
+<P>
+  Another way to think of this is that Emacs handles a multi-event key
+sequence by looking in several keymaps, one by one, for a binding of the
+whole key sequence.  First it checks the minor mode keymaps for minor
+modes that are enabled, then it checks the major mode's keymap, and then
+it checks the global keymap.  This is not precisely how key lookup
+works, but it's good enough for understanding ordinary circumstances.
+<P>
+<H3><A NAME="SEC348" HREF="emacs_toc.html#SEC348">Minibuffer Keymaps</A></H3>
+<A NAME="IDX1997"></A>
+<A NAME="IDX1998"></A>
+<A NAME="IDX1999"></A>
+<A NAME="IDX2000"></A>
+<A NAME="IDX2001"></A>
+<P>
+  The minibuffer has its own set of local keymaps; they contain various
+completion and exit commands.
+<P>
+<UL>
+<LI>
+<CODE>minibuffer-local-map</CODE> is used for ordinary input (no completion).
+<LI>
+<CODE>minibuffer-local-ns-map</CODE> is similar, except that <KBD>SPC</KBD> exits
+just like <KBD>RET</KBD>.  This is used mainly for Mocklisp compatibility.
+<LI>
+<CODE>minibuffer-local-completion-map</CODE> is for permissive completion.
+<LI>
+<CODE>minibuffer-local-must-match-map</CODE> is for strict completion and
+for cautious completion.
+</UL>
+<P>
+<A NAME="IDX2002"></A>
+<A NAME="IDX2003"></A>
+<A NAME="IDX2004"></A>
+<H3><A NAME="SEC349" HREF="emacs_toc.html#SEC349">Changing Key Bindings Interactively</A></H3>
+<P>
+  The way to redefine an Emacs key is to change its entry in a keymap.
+You can change the global keymap, in which case the change is effective in
+all major modes (except those that have their own overriding local
+definitions for the same key).  Or you can change the current buffer's
+local map, which affects all buffers using the same major mode.
+<A NAME="IDX2006"></A>
+<A NAME="IDX2007"></A>
+<A NAME="IDX2008"></A>
+<A NAME="IDX2005"></A>
+<P>
+<DL COMPACT>
+<DT><KBD>M-x global-set-key <KBD>RET</KBD> <VAR>key</VAR> <VAR>cmd</VAR> <KBD>RET</KBD></KBD>
+<DD>Define <VAR>key</VAR> globally to run <VAR>cmd</VAR>.
+<DT><KBD>M-x local-set-key <KBD>RET</KBD> <VAR>key</VAR> <VAR>cmd</VAR> <KBD>RET</KBD></KBD>
+<DD>Define <VAR>key</VAR> locally (in the major mode now in effect) to run
+<VAR>cmd</VAR>.
+<DT><KBD>M-x global-unset-key <KBD>RET</KBD> <VAR>key</VAR></KBD>
+<DD>Make <VAR>key</VAR> undefined in the global map.
+<DT><KBD>M-x local-unset-key <KBD>RET</KBD> <VAR>key</VAR></KBD>
+<DD>Make <VAR>key</VAR> undefined locally (in the major mode now in effect).
+</DL>
+<P>
+  For example, suppose you like to execute commands in a subshell within
+an Emacs buffer, instead of suspending Emacs and executing commands in
+your login shell.  Normally, <KBD>C-z</KBD> is bound to the function
+<CODE>suspend-emacs</CODE>, but you can change <KBD>C-z</KBD> to invoke an
+interactive subshell within Emacs, by binding it to <CODE>shell</CODE> as
+follows: <P>
+<PRE>
+M-x global-set-key <KBD>RET</KBD> C-z shell <KBD>RET</KBD>
+</PRE>
+<P>
+<CODE>global-set-key</CODE> reads the command name after the key.   After you
+press the key, a message like this appears so that you can confirm that
+you are binding the key you want:
+<P>
+<PRE>
+Set key C-z to command: 
+</PRE>
+<P>
+  You can redefine function keys and mouse events in the same way; just
+type the function key or click the mouse when it's time to specify the
+key to rebind.
+<P>
+  You can rebind a key that contains more than one event in the same
+way.  Emacs keeps reading the key to rebind until it is a complete key
+(that is, not a prefix key).  Thus, if you type <KBD>C-f</KBD> for
+<VAR>key</VAR>, that's the end; the minibuffer is entered immediately to
+read <VAR>cmd</VAR>.  But if you type <KBD>C-x</KBD>, another character is read;
+if that is <KBD>4</KBD>, another character is read, and so on.  For
+example,
+<P>
+<PRE>
+M-x global-set-key <KBD>RET</KBD> C-x 4 $ spell-other-window <KBD>RET</KBD>
+</PRE>
+<P>
+would redefine <KBD>C-x 4 $</KBD> to run the (fictitious) command
+<CODE>spell-other-window</CODE>.
+<P>
+  You can remove the global definition of a key with
+<CODE>global-unset-key</CODE>.  This makes the key <DFN>undefined</DFN>; if you
+type it, Emacs will just beep.  Similarly, <CODE>local-unset-key</CODE> makes
+a key undefined in the current major mode keymap, which makes the global
+definition (or lack of one) come back into effect in that major mode.
+<P>
+  If you have redefined (or undefined) a key and you subsequently wish
+to retract the change, undefining the key will not do the job--you need
+to redefine the key with its standard definition.  To find the name of
+the standard definition of a key, go to a Fundamental mode buffer and
+use <KBD>C-h c</KBD>.  The documentation of keys in this manual also lists
+their command names.
+<P>
+  If you want to prevent yourself from invoking a command by mistake, it
+is better to disable the command than to undefine the key.  A disabled
+command is less work to invoke when you really want to.
+See section <A HREF="emacs_35.html#SEC353">Disabling Commands</A>.
+<P>
+<H3><A NAME="SEC350" HREF="emacs_toc.html#SEC350">Rebinding Keys in Your Init File</A></H3>
+<A NAME="IDX2009"></A>
+<A NAME="IDX2010"></A>
+<P>
+  If you have a set of default definitions that you like to use all the time,
+you can put commands in your <TT>`.emacs'</TT> file by using their Lisp syntax.
+Thus, the first <CODE>global-set-key</CODE> command in this section could be put in
+an <TT>`.emacs'</TT> file in either of the two following formats:
+<P>
+<PRE>
+(global-set-key "\C-z" 'shell)
+</PRE>
+<P>
+or as:
+<P>
+<PRE>
+(global-set-key [?\C-z] 'shell)
+</PRE>
+<P>
+When the key sequence consists of characters, like this one, you can
+write it as a string or as a vector.  The first format specifies the key
+sequence as a string, <CODE>"\C-z"</CODE>.  The second format uses a vector to
+specify the key sequence.  The square brackets (<SAMP>`[...]'</SAMP>)
+delimit the contents of the vector.  The vector in this example contains
+just one element, which is the integer code corresponding to <KBD>C-z</KBD>.
+The question mark is the Lisp syntax for a character constant; the
+character must follow with no intervening spaces.
+<P>
+  The single-quote before <CODE>shell</CODE> marks it as a constant symbol
+rather than a variable.  If you omit the quote, Emacs tries to evaluate
+<CODE>shell</CODE> immediately as a variable.  This probably causes an error;
+it certainly isn't what you want.
+<P>
+  Here is another example that binds a key sequence two characters long:
+<P>
+<PRE>
+(global-set-key "\C-xl" 'make-symbolic-link)
+</PRE>
+<P>
+or:
+<P>
+<PRE>
+(global-set-key [?\C-x ?l] 'make-symbolic-link)
+</PRE>
+<P>
+<H3><A NAME="SEC351" HREF="emacs_toc.html#SEC351">Rebinding Function Keys</A></H3>
+<P>
+  Key sequences can contain function keys as well as ordinary
+characters.  Just as Lisp characters (actually integers) represent
+keyboard characters, Lisp symbols represent function keys.  If the
+function key has a word as its label, then that word is also the name of
+the corresponding Lisp symbol.  Here are the conventional Lisp names for
+other function keys:
+<P>
+<DL COMPACT>
+<DT><CODE>left</CODE>, <CODE>up</CODE>, <CODE>right</CODE>, <CODE>down</CODE>
+<DD>Cursor arrow keys.
+<P>
+<DT><CODE>begin</CODE>, <CODE>end</CODE>, <CODE>home</CODE>, <CODE>next</CODE>, <CODE>prior</CODE>
+<DD>Other cursor repositioning keys.
+<P>
+<DT><CODE>select</CODE>, <CODE>print</CODE>, <CODE>execute</CODE>, <CODE>backtab</CODE>
+<DD><DT><CODE>insert</CODE>, <CODE>undo</CODE>, <CODE>redo</CODE>, <CODE>clearline</CODE>
+<DD><DT><CODE>insertline</CODE>, <CODE>deleteline</CODE>, <CODE>insertchar</CODE>, <CODE>deletechar</CODE>,
+<DD>Miscellaneous function keys.
+<P>
+<DT><CODE>f1</CODE> ... <CODE>f35</CODE>
+<DD>Numbered function keys (across the top of the keyboard).
+<P>
+<DT><CODE>kp-add</CODE>, <CODE>kp-subtract</CODE>, <CODE>kp-multiply</CODE>, <CODE>kp-divide</CODE>
+<DD><DT><CODE>kp-backtab</CODE>, <CODE>kp-space</CODE>, <CODE>kp-tab</CODE>, <CODE>kp-enter</CODE>
+<DD><DT><CODE>kp-separator</CODE>, <CODE>kp-decimal</CODE>, <CODE>kp-equal</CODE>
+<DD>Keypad keys (to the right of the regular keyboard), with names or punctuation.
+<P>
+<DT><CODE>kp-0</CODE>, <CODE>kp-1</CODE>, ... <CODE>kp-9</CODE>
+<DD>Keypad keys with digits.
+<P>
+<DT><CODE>kp-f1</CODE>, <CODE>kp-f2</CODE>, <CODE>kp-f3</CODE>, <CODE>kp-f4</CODE>
+<DD>Keypad PF keys.
+</DL>
+<P>
+  These names are conventional, but some systems (especially when using
+X windows) may use different names.  To make certain what symbol is used
+for a given function key on your terminal, type <KBD>C-h c</KBD> followed by
+that key.
+<P>
+  A key sequence which contains non-characters must be a vector rather
+than a string.  To write a vector, write square brackets containing the
+vector elements.  Write spaces to separate the elements.  If an element
+is a symbol, simply write the symbol's name--no delimiters or
+punctuation are needed.  If an element is a character, write a Lisp
+character constant, which is <SAMP>`?'</SAMP> followed by the character as it
+would appear in a string.
+<P>
+  Thus, to bind function key <SAMP>`f1'</SAMP> to the command <CODE>rmail</CODE>, write
+the following:
+<P>
+<PRE>
+(global-set-key [f1] 'rmail)
+</PRE>
+<P>
+  To bind the right-arrow key to the command <CODE>forward-char</CODE>,
+you can use this expression:
+<P>
+<PRE>
+(global-set-key [right] 'forward-char)
+</PRE>
+<P>
+using the Lisp syntax for a vector containing the symbol <CODE>right</CODE>.
+(This binding is present in Emacs by default.)
+<P>
+  You can mix function keys and characters in a key sequence.  This
+example binds <KBD>C-x <KBD>RIGHT</KBD></KBD> to the command <CODE>forward-page</CODE>.
+<P>
+<PRE>
+(global-set-key [?\C-x right] 'forward-page)
+</PRE>
+<P>
+where <CODE>?\C-x</CODE> is the Lisp character constant for the character
+<KBD>C-x</KBD>.  The vector element <CODE>right</CODE> is a symbol and therefore
+does not take a question mark.
+<P>
+  You can use the modifier keys <KBD>CTRL</KBD>, <KBD>META</KBD>, <KBD>HYPER</KBD>,
+<KBD>SUPER</KBD>, <KBD>ALT</KBD> and <KBD>SHIFT</KBD> with function keys.  To represent
+these modifiers, prepend the strings <SAMP>`C-'</SAMP>, <SAMP>`M-'</SAMP>, <SAMP>`H-'</SAMP>,
+<SAMP>`s-'</SAMP>, <SAMP>`A-'</SAMP> and <SAMP>`S-'</SAMP> to the symbol name.  Thus, here is
+how to make <KBD>Hyper-Meta-<KBD>RIGHT</KBD></KBD> move forward a word:
+<P>
+<PRE>
+(global-set-key [H-M-right] 'forward-word)
+</PRE>
+<P>
+<A NAME="IDX2011"></A>
+<A NAME="IDX2012"></A>
+<A NAME="IDX2013"></A>
+<A NAME="IDX2014"></A>
+<A NAME="IDX2015"></A>
+<A NAME="IDX2016"></A>
+<H3><A NAME="SEC352" HREF="emacs_toc.html#SEC352">Rebinding Mouse Buttons</A></H3>
+<P>
+  Emacs uses Lisp symbols to designate mouse buttons, too.  The ordinary
+mouse events in Emacs are <DFN>click</DFN> events; these happen when you
+press a button and release it without moving the mouse.  You can also
+get <DFN>drag</DFN> events, when you move the mouse while holding the button
+down.  Drag events happen when you finally let go of the button.
+<P>
+  The symbols for basic click events are <CODE>mouse-1</CODE> for the leftmost
+button, <CODE>mouse-2</CODE> for the next, and so on.  Here is how you can
+redefine the second mouse button to split the current window:
+<P>
+<PRE>
+(global-set-key [mouse-2] 'split-window-vertically)
+</PRE>
+<P>
+  The symbols for drag events are similar, but have the prefix <SAMP>`drag-'</SAMP>
+before the word <SAMP>`mouse'</SAMP>.  For example, dragging the left button
+generates a <CODE>drag-mouse-1</CODE> event.
+<P>
+  You can also define events that occur when a mouse button is pressed
+down.  These events start with <SAMP>`down-'</SAMP> instead of <SAMP>`drag-'</SAMP>.
+Such events are generated only if they have key bindings.  When you get
+a button-down event, a corresponding click or drag event will always
+follow.
+<A NAME="IDX2017"></A>
+<A NAME="IDX2018"></A>
+<P>
+  If you wish, you can distinguish single, double, and triple clicks.  A
+double click means clicking a mouse button twice in approximately the
+same place.  The first click generates an ordinary click event.  The
+second click, if it comes soon enough, generates a double-click event
+instead.  The event type for a double click event starts with
+<SAMP>`double-'</SAMP>: for example, <SAMP>`double-mouse-3'</SAMP>.
+<P>
+  This means that you can give a special meaning to the second click at
+the same place, but it must act on the assumption that the ordinary
+single click definition has run when the first click was received.
+<P>
+  This constrains what you can do with double clicks, but user interface
+designers say that this constraint ought to be followed in any case.  A
+double click should do something similar to the single click, only
+"more so".  The command for the double-click event should perform the
+extra work for the double click.
+<P>
+  If a double-click event has no binding, it changes to the
+corresponding single-click event.  Thus, if you don't define a
+particular double click specially, it executes the single-click command
+twice.
+<P>
+  Emacs also supports triple-click events whose names start with
+<SAMP>`triple-'</SAMP>.  Emacs does not distinguish quadruple clicks as event
+types; clicks beyond the third generate additional triple-click events.
+However, the full number of clicks is recorded in the event list, so you
+can distinguish if you really want to.  We don't recommend distinct
+meanings for more than three clicks, but sometimes it is useful for
+subsequent clicks to cycle through the same set of three meanings, so
+that four clicks are equivalent to one click, five are equivalent to
+two, and six are equivalent to three.
+<P>
+  Emacs also records multiple presses in drag and button-down events.
+For example, when you press a button twice, then move the mouse while
+holding the button, Emacs gets a <SAMP>`double-drag-'</SAMP> event.  And at the
+moment when you press it down for the second time, Emacs gets a
+<SAMP>`double-down-'</SAMP> event (which is ignored, like all button-down
+events, if it has no binding).
+<A NAME="IDX2019"></A>
+<P>
+  The variable <CODE>double-click-time</CODE> specifies how long may elapse
+between clicks that are recognized as a pair.  Its value is measured
+in milliseconds.  If the value is <CODE>nil</CODE>, double clicks are not
+detected at all.  If the value is <CODE>t</CODE>, then there is no time
+limit.
+<P>
+  The symbols for mouse events also indicate the status of the modifier
+keys, with the usual prefixes <SAMP>`C-'</SAMP>, <SAMP>`M-'</SAMP>, <SAMP>`H-'</SAMP>,
+<SAMP>`s-'</SAMP>, <SAMP>`A-'</SAMP> and <SAMP>`S-'</SAMP>.  These always precede <SAMP>`double-'</SAMP>
+or <SAMP>`triple-'</SAMP>, which always precede <SAMP>`drag-'</SAMP> or <SAMP>`down-'</SAMP>.
+<P>
+  A frame includes areas that don't show text from the buffer, such as
+the mode line and the scroll bar.  You can tell whether a mouse button
+comes from a special area of the screen by means of dummy "prefix
+keys."  For example, if you click the mouse in the mode line, you get
+the prefix key <CODE>mode-line</CODE> before the ordinary mouse-button
+symbol.  Thus, here is how to define the command for clicking the left
+button in a mode line to run <CODE>scroll-up</CODE>:
+<P>
+<PRE>
+(global-set-key [mode-line mouse-1] 'scroll-up)
+</PRE>
+<P>
+  Here is the complete list of these dummy prefix keys and their
+meanings:
+<P>
+<DL COMPACT>
+<DT><CODE>mode-line</CODE>
+<DD>The mouse was in the mode line of a window.
+<DT><CODE>vertical-line</CODE>
+<DD>The mouse was in the vertical line separating side-by-side windows.
+<DT><CODE>vertical-scroll-bar</CODE>
+<DD>The mouse was in a horizontal scroll bar.  This is the kind of scroll
+bar people normally use.
+<DT><CODE>horizontal-scroll-bar</CODE>
+<DD>The mouse was in a horizontal scroll bar.  Horizontal scroll bars do
+horizontal scrolling, and people don't use them often.
+</DL>
+<P>
+  You can put more than one mouse button in a key sequence, but it isn't
+usual to do so.
+<P>
+<A NAME="IDX2020"></A>
+<H3><A NAME="SEC353" HREF="emacs_toc.html#SEC353">Disabling Commands</A></H3>
+<P>
+  Disabling a command marks the command as requiring confirmation before it
+can be executed.  The purpose of disabling a command is to prevent
+beginning users from executing it by accident and being confused.
+<P>
+  Attempting to invoke a disabled command interactively in Emacs causes the
+display of a window containing the command's name, its documentation, and
+some instructions on what to do immediately; then Emacs asks for input
+saying whether to execute the command as requested, enable it and execute,
+or cancel it.  If you decide to enable the command, you are asked whether to
+do this permanently or just for the current session.  Enabling permanently
+works by automatically editing your <TT>`.emacs'</TT> file.
+<P>
+  The direct mechanism for disabling a command is to have a
+non-<CODE>nil</CODE> <CODE>disabled</CODE> property on the Lisp symbol for the
+command.  Here is the Lisp program to do this:
+<P>
+<PRE>
+(put 'delete-region 'disabled t)
+</PRE>
+<P>
+  If the value of the <CODE>disabled</CODE> property is a string, that string
+is included in the message printed when the command is used:
+<P>
+<PRE>
+(put 'delete-region 'disabled
+     "Text deleted this way cannot be yanked back!\n")
+</PRE>
+<A NAME="IDX2021"></A>
+<A NAME="IDX2022"></A>
+<P>
+  You can make a command disabled either by editing the <TT>`.emacs'</TT>
+file directly or with the command <KBD>M-x disable-command</KBD>, which edits
+the <TT>`.emacs'</TT> file for you.  Likewise, <KBD>M-x enable-command</KBD>
+edits <TT>`.emacs'</TT> to enable a command permanently.  See section <A HREF="emacs_35.html#SEC356">The Init File, <TT>`~/.emacs'</TT></A>.
+<P>
+  Whether a command is disabled is independent of what key is used to
+invoke it; it also applies if the command is invoked using <KBD>M-x</KBD>.
+Disabling a command has no effect on calling it as a function from Lisp
+programs.
+<P>
+<H2><A NAME="SEC354" HREF="emacs_toc.html#SEC354">Keyboard Translations</A></H2>
+<P>
+  Some keyboards do not make it convenient to send all the special
+characters that Emacs uses.  The most common problem case is the
+<KBD>DEL</KBD> character.  Some keyboards provide no convenient way to type
+this very important character--usually because they were designed to
+expect the character <KBD>C-h</KBD> to be used for deletion.  On these
+keyboard, if you press the key normally used for deletion, Emacs handles
+the <KBD>C-h</KBD> as a prefix character and offers you a list of help
+options, which is not what you want.
+<A NAME="IDX2023"></A>
+<A NAME="IDX2024"></A>
+<P>
+  You can work around this problem within Emacs by setting up keyboard
+translations to turn <KBD>C-h</KBD> into <KBD>DEL</KBD> and <KBD>DEL</KBD> into
+<KBD>C-h</KBD>, as follows:
+<P>
+<PRE>
+;; Translate <KBD>C-h</KBD> to <KBD>DEL</KBD>.
+(keyboard-translate ?\C-h ?\C-?)
+;; Translate <KBD>DEL</KBD> to <KBD>C-h</KBD>.
+(keyboard-translate ?\C-? ?\C-h)
+</PRE>
+<P>
+  Keyboard translations are not the same as key bindings in keymaps
+(see section <A HREF="emacs_35.html#SEC345">Keymaps</A>).  Emacs contains numerous keymaps that apply in
+different situations, but there is only one set of keyboard
+translations, and it applies to every character that Emacs reads from
+the terminal.  Keyboard translations take place at the lowest level of
+input processing; the keys that are looked up in keymaps contain the
+characters that result from keyboard translation.
+<P>
+  For full information about how to use keyboard translations, see
+section 'Translating Input' in <CITE>The Emacs Lisp Reference Manual</CITE>.
+<P>
+<A NAME="IDX2025"></A>
+<H2><A NAME="SEC355" HREF="emacs_toc.html#SEC355">The Syntax Table</A></H2>
+<P>
+  All the Emacs commands which parse words or balance parentheses are
+controlled by the <DFN>syntax table</DFN>.  The syntax table says which
+characters are opening delimiters, which are parts of words, which are
+string quotes, and so on.  Each major mode has its own syntax
+table (though sometimes related major modes use the same one) which it
+installs in each buffer that uses that major mode.  The syntax table
+installed in the current buffer is the one that all commands use, so we
+call it "the" syntax table.  A syntax table is a Lisp object, a vector of
+length 256 whose elements are numbers.
+<A NAME="IDX2026"></A>
+<A NAME="IDX2027"></A>
+<P>
+  To display a description of the contents of the current syntax table,
+type <KBD>C-h s</KBD> (<CODE>describe-syntax</CODE>).  The description of each
+character includes both the string you would have to give to
+<CODE>modify-syntax-entry</CODE> to set up that character's current syntax,
+and some English to explain that string if necessary.
+<P>
+  For full information on the syntax table, see section 'Syntax Table' in <CITE>The Emacs Lisp Reference Manual</CITE>.
+<P>
+<A NAME="IDX2028"></A>
+<A NAME="IDX2029"></A>
+<A NAME="IDX2030"></A>
+<A NAME="IDX2031"></A>
+<H2><A NAME="SEC356" HREF="emacs_toc.html#SEC356">The Init File, <TT>`~/.emacs'</TT></A></H2>
+<P>
+  When Emacs is started, it normally loads a Lisp program from the file
+<TT>`.emacs'</TT> in your home directory.  We call this file your <DFN>init
+file</DFN> because it specifies how to initialize Emacs for you.  You can use
+the command line switches <SAMP>`-q'</SAMP> and <SAMP>`-u'</SAMP> to tell Emacs whether
+to load an init file, and which one (see section <A HREF="emacs_7.html#SEC17">Entering and Exiting Emacs</A>).
+<P>
+  There can also be a <DFN>default init file</DFN>, which is the library
+named <TT>`default.el'</TT>, found via the standard search path for
+libraries.  The Emacs distribution contains no such library; your site
+may create one for local customizations.  If this library exists, it is
+loaded whenever you start Emacs (except when you specify <SAMP>`-q'</SAMP>).
+But your init file, if any, is loaded first; if it sets
+<CODE>inhibit-default-init</CODE> non-<CODE>nil</CODE>, then <TT>`default'</TT> is not
+loaded.
+<P>
+  If you have a large amount of code in your <TT>`.emacs'</TT> file, you
+should move it into another file such as <TT>`~/<VAR>something</VAR>.el'</TT>,
+byte-compile it, and make your <TT>`.emacs'</TT> file load it with
+<CODE>(load "~/<VAR>something</VAR>")</CODE>.  See section 'Byte Compilation' in <CITE>the Emacs Lisp Reference Manual</CITE>, for more
+information about compiling Emacs Lisp programs.
+<P>
+<H3><A NAME="SEC357" HREF="emacs_toc.html#SEC357">Init File Syntax</A></H3>
+<P>
+  The <TT>`.emacs'</TT> file contains one or more Lisp function call
+expressions.  Each of these consists of a function name followed by
+arguments, all surrounded by parentheses.  For example, <CODE>(setq
+fill-column 60)</CODE> calls the function <CODE>setq</CODE> to set the variable
+<CODE>fill-column</CODE> (see section <A HREF="emacs_25.html#SEC160">Filling Text</A>) to 60.
+<P>
+  The second argument to <CODE>setq</CODE> is an expression for the new value of
+the variable.  This can be a constant, a variable, or a function call
+expression.  In <TT>`.emacs'</TT>, constants are used most of the time.  They can be:
+<P>
+<DL COMPACT>
+<DT>Numbers:
+<DD>Numbers are written in decimal, with an optional initial minus sign.
+<P>
+<A NAME="IDX2032"></A>
+<A NAME="IDX2033"></A>
+<DT>Strings:
+<DD>Lisp string syntax is the same as C string syntax with a few extra
+features.  Use a double-quote character to begin and end a string constant.
+<P>
+In a string, you can include newlines and special characters literally.
+But often it is cleaner to use backslash sequences for them: <SAMP>`\n'</SAMP>
+for newline, <SAMP>`\b'</SAMP> for backspace, <SAMP>`\r'</SAMP> for carriage return,
+<SAMP>`\t'</SAMP> for tab, <SAMP>`\f'</SAMP> for formfeed (control-L), <SAMP>`\e'</SAMP> for
+escape, <SAMP>`\\'</SAMP> for a backslash, <SAMP>`\"'</SAMP> for a double-quote, or
+<SAMP>`\<VAR>ooo</VAR>'</SAMP> for the character whose octal code is <VAR>ooo</VAR>.
+Backslash and double-quote are the only characters for which backslash
+sequences are mandatory.
+<P>
+<SAMP>`\C-'</SAMP> can be used as a prefix for a control character, as in
+<SAMP>`\C-s'</SAMP> for ASCII control-S, and <SAMP>`\M-'</SAMP> can be used as a prefix for
+a Meta character, as in <SAMP>`\M-a'</SAMP> for <KBD>Meta-A</KBD> or <SAMP>`\M-\C-a'</SAMP> for
+<KBD>Control-Meta-A</KBD>.<P>
+<DT>Characters:
+<DD>Lisp character constant syntax consists of a <SAMP>`?'</SAMP> followed by
+either a character or an escape sequence starting with <SAMP>`\'</SAMP>.
+Examples: <CODE>?x</CODE>, <CODE>?\n</CODE>, <CODE>?\"</CODE>, <CODE>?\)</CODE>.  Note that
+strings and characters are not interchangeable in Lisp; some contexts
+require one and some contexts require the other.
+<P>
+<DT>True:
+<DD><CODE>t</CODE> stands for `true'.
+<P>
+<DT>False:
+<DD><CODE>nil</CODE> stands for `false'.
+<P>
+<DT>Other Lisp objects:
+<DD>Write a single-quote (') followed by the Lisp object you want.
+</DL>
+<P>
+<H3><A NAME="SEC358" HREF="emacs_toc.html#SEC358">Init File Examples</A></H3>
+<P>
+  Here are some examples of doing certain commonly desired things with
+Lisp expressions:
+<P>
+<UL>
+<LI>
+Make <KBD>TAB</KBD> in C mode just insert a tab if point is in the middle of a
+line.
+<P>
+<PRE>
+(setq c-tab-always-indent nil)
+</PRE>
+<P>
+Here we have a variable whose value is normally <CODE>t</CODE> for `true'
+and the alternative is <CODE>nil</CODE> for `false'.
+<P>
+<LI>
+Make searches case sensitive by default (in all buffers that do not
+override this).
+<P>
+<PRE>
+(setq-default case-fold-search nil)
+</PRE>
+<P>
+This sets the default value, which is effective in all buffers that do
+not have local values for the variable.  Setting <CODE>case-fold-search</CODE>
+with <CODE>setq</CODE> affects only the current buffer's local value, which
+is not what you probably want to do in an init file.
+<P>
+<LI>
+Make Text mode the default mode for new buffers.
+<P>
+<PRE>
+(setq default-major-mode 'text-mode)
+</PRE>
+<P>
+Note that <CODE>text-mode</CODE> is used because it is the command for
+entering Text mode.  The single-quote before it makes the symbol a
+constant; otherwise, <CODE>text-mode</CODE> would be treated as a variable
+name.
+<P>
+<LI>
+Turn on Auto Fill mode automatically in Text mode and related modes.
+<P>
+<PRE>
+(add-hook 'text-mode-hook
+  '(lambda () (auto-fill-mode 1)))
+</PRE>
+<P>
+This shows how to add a hook function to a normal hook variable
+(see section <A HREF="emacs_35.html#SEC337">Hooks</A>).  The function we supply is a list starting with
+<CODE>lambda</CODE>, with a single-quote in front of it to make it a list
+constant rather than an expression.
+<P>
+It's beyond the scope of this manual to explain Lisp functions, but for
+this example it is enough to know that the effect is to execute
+<CODE>(auto-fill-mode 1)</CODE> when Text mode is entered.  You can replace it
+with any other expression that you like, or with several expressions in
+a row.
+<P>
+Emacs comes with a function named <CODE>turn-on-auto-fill</CODE> whose
+definition is <CODE>(lambda () (auto-fill-mode 1))</CODE>.  Thus, a simpler
+way to write the above example is as follows:
+<P>
+<PRE>
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+</PRE>
+<P>
+<LI>
+Load the installed Lisp library named <TT>`foo'</TT> (actually a file
+<TT>`foo.elc'</TT> or <TT>`foo.el'</TT> in a standard Emacs directory).
+<P>
+<PRE>
+(load "foo")
+</PRE>
+<P>
+When the argument to <CODE>load</CODE> is a relative file name, not starting
+with <SAMP>`/'</SAMP> or <SAMP>`~'</SAMP>, <CODE>load</CODE> searches the directories in
+<CODE>load-path</CODE> (see section <A HREF="emacs_27.html#SEC232">Libraries of Lisp Code for Emacs</A>).
+<P>
+<LI>
+Load the compiled Lisp file <TT>`foo.elc'</TT> from your home directory.
+<P>
+<PRE>
+(load "~/foo.elc")
+</PRE>
+<P>
+Here an absolute file name is used, so no searching is done.
+<P>
+<LI>
+Rebind the key <KBD>C-x l</KBD> to run the function <CODE>make-symbolic-link</CODE>.
+<P>
+<PRE>
+(global-set-key "\C-xl" 'make-symbolic-link)
+</PRE>
+<P>
+or
+<P>
+<PRE>
+(define-key global-map "\C-xl" 'make-symbolic-link)
+</PRE>
+<P>
+Note once again the single-quote used to refer to the symbol
+<CODE>make-symbolic-link</CODE> instead of its value as a variable.
+<P>
+<LI>
+Do the same thing for C mode only.
+<P>
+<PRE>
+(define-key c-mode-map "\C-xl" 'make-symbolic-link)
+</PRE>
+<P>
+<LI>
+Redefine all keys which now run <CODE>next-line</CODE> in Fundamental mode
+so that they run <CODE>forward-line</CODE> instead.
+<P>
+<PRE>
+(substitute-key-definition 'next-line 'forward-line
+                           global-map)
+</PRE>
+<P>
+<LI>
+Make <KBD>C-x C-v</KBD> undefined.
+<P>
+<PRE>
+(global-unset-key "\C-x\C-v")
+</PRE>
+<P>
+One reason to undefine a key is so that you can make it a prefix.
+Simply defining <KBD>C-x C-v <VAR>anything</VAR></KBD> will make <KBD>C-x C-v</KBD> a
+prefix, but <KBD>C-x C-v</KBD> must first be freed of its usual non-prefix
+definition.
+<P>
+<LI>
+Make <SAMP>`$'</SAMP> have the syntax of punctuation in Text mode.
+Note the use of a character constant for <SAMP>`$'</SAMP>.
+<P>
+<PRE>
+(modify-syntax-entry ?\$ "." text-mode-syntax-table)
+</PRE>
+<P>
+<LI>
+Enable the use of the command <CODE>eval-expression</CODE> without confirmation.
+<P>
+<PRE>
+(put 'eval-expression 'disabled nil)
+</PRE>
+</UL>
+<P>
+<H3><A NAME="SEC359" HREF="emacs_toc.html#SEC359">Terminal-specific Initialization</A></H3>
+<P>
+  Each terminal type can have a Lisp library to be loaded into Emacs when
+it is run on that type of terminal.  For a terminal type named
+<VAR>termtype</VAR>, the library is called <TT>`term/<VAR>termtype</VAR>'</TT> and it is
+found by searching the directories <CODE>load-path</CODE> as usual and trying the
+suffixes <SAMP>`.elc'</SAMP> and <SAMP>`.el'</SAMP>.  Normally it appears in the
+subdirectory <TT>`term'</TT> of the directory where most Emacs libraries are
+kept.<P>
+  The usual purpose of the terminal-specific library is to define the
+escape sequences used by the terminal's function keys using the library
+<TT>`keypad.el'</TT>.  See the file
+<TT>`term/vt100.el'</TT> for an example of how this is done.<P>
+  When the terminal type contains a hyphen, only the part of the name
+before the first hyphen is significant in choosing the library name.
+Thus, terminal types <SAMP>`aaa-48'</SAMP> and <SAMP>`aaa-30-rv'</SAMP> both use
+the library <TT>`term/aaa'</TT>.  The code in the library can use
+<CODE>(getenv "TERM")</CODE> to find the full terminal type name.<A NAME="IDX2034"></A>
+<P>
+  The library's name is constructed by concatenating the value of the
+variable <CODE>term-file-prefix</CODE> and the terminal type.  Your <TT>`.emacs'</TT>
+file can prevent the loading of the terminal-specific library by setting
+<CODE>term-file-prefix</CODE> to <CODE>nil</CODE>.
+<A NAME="IDX2035"></A>
+<P>
+  Emacs runs the hook <CODE>term-setup-hook</CODE> at the end of
+initialization, after both your <TT>`.emacs'</TT> file and any
+terminal-specific library have been read in.  Add hook functions to this
+hook if you wish to override part of any of the terminal-specific
+libraries and to define initializations for terminals that do not have a
+library.  See section <A HREF="emacs_35.html#SEC337">Hooks</A>.
+<P>
+<H3><A NAME="SEC360" HREF="emacs_toc.html#SEC360">How Emacs Finds Your Init File</A></H3>
+<P>
+  Normally Emacs uses the environment variable <CODE>HOME</CODE> to find
+<TT>`.emacs'</TT>; that's what <SAMP>`~'</SAMP> means in a file name.  But if you
+have done <CODE>su</CODE>, Emacs tries to find your own <TT>`.emacs'</TT>, not
+that of the user you are currently pretending to be.  The idea is
+that you should get your own editor customizations even if you are
+running as the super user.
+<P>
+  More precisely, Emacs first determines which user's init file to use.
+It gets the user name from the environment variables <CODE>USER</CODE> and
+<CODE>LOGNAME</CODE>; if neither of those exists, it uses effective user-ID.
+If that user name matches the real user-ID, then Emacs uses <CODE>HOME</CODE>;
+otherwise, it looks up the home directory corresponding to that user
+name in the system's data base of users.
+<P>Go to the <A HREF="emacs_34.html">previous</A>, <A HREF="emacs_36.html">next</A> section.<P>

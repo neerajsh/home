@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/FreeSample_Template.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Yogi Tea - Green tea, organic herbal tea, black tea and Kundalini yoga.</title>
+<!-- InstanceEndEditable -->
+<meta name="description" content="Yogi Tea offers the finest green tea, organic herbal tea, chai tea and black tea anywhere. Learn more about the herbal benefits of these healing teas.">
+<meta name="keywords" content="Yogi Tea, green tea, organic herbal tea, tea, herbal tea benefits, supreme antioxidant, green tea benefits, kundalini yoga, chai tea, black tea, earl grey tea, chamomile tea, spice tea">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style type="text/css">
+<!--
+body {
+	background-image: url(../Graphics/BkgdTile.jpg);
+}
+.yogibodytext {
+	color: #6C352B;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.Header {
+	color: #6C352B;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+.BoldYogiTeaBodyText {color: #6C352B; font-family: Geneva, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; }
+a:link {
+	color: #6C352B;
+}
+a:visited {
+	color: #6C352B;
+}
+a:hover {
+	color: #628791;
+}
+.style1 {	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #734942;
+}
+-->
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<style type="text/css">
+<!--
+.style1 {font-size: 10px}
+-->
+</style>
+<!-- InstanceEndEditable -->
+<script type="text/JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+</head>
+
+<body onload="MM_preloadImages('../Graphics/HP-OurTeas-O.gif','../Graphics/ShopOnline-O.gif','../Graphics/FreeSamples_O.gif','../Graphics/AboutUs-O.gif','../Graphics/LifeStyle/Recipes-O.gif','../Graphics/LifeStyle/SpiritualLife-O.gif','../Graphics/OurTeas-O.gif','../Graphics/StoreLocator-O.gif','../Graphics/Lifestyle-0.gif','../Graphics/AboutUs/History-O.gif','../Graphics/AboutUs/OrganicCare-O.gif','../Graphics/AboutUs/ContactUs-O.gif','../Graphics/HP-Lifestyle-O.gif')">
+<table width="818" height="650" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="107" height="42" valign="top">&nbsp;</td>
+    <td width="103" valign="top">&nbsp;</td>
+    <td width="104" valign="top">&nbsp;</td>
+    <td width="190" rowspan="2" valign="bottom"><a href="../Index.htm"><img src="../Graphics/YT-Logo.gif" alt="Welcome to Yogi Tea!" width="190" height="98" border="0" align="absbottom" /></a><br />      
+    <img src="../Graphics/12.gif" width="190" height="84" align="absbottom" /></td>
+    <td width="106" valign="top">&nbsp;</td>
+    <td width="102" valign="top">&nbsp;</td>
+    <td width="106" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="107" align="left" valign="top"><div align="left"><a href="OurTeas.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Our Teas','','../Graphics/OurTeas-O.gif',1)"><img src="../Graphics/OurTeas.gif" alt="Information on over 50 varieties of Yogi Teas." name="Our Teas" width="107" height="140" border="0" align="left" id="Our Teas" /></a></div></td>
+	
+    <td valign="top"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','../Graphics/HP-Lifestyle-O.gif',1)"></a><a href="Lifestyle.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','../Graphics/SP-Lifestyle-O.gif',1)"><img src="../Graphics/SP-Lifestyle.gif" name="Image14" width="103" height="140" border="0" id="Image14" /></a><a href="/Pages/Lifestyle.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','/Graphics/Lifestyle-0.gif',1)"></a><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image14','','../Graphics/HP-Lifestyle-O.gif',1)"></a></td>
+	
+    <td width="104" align="left" valign="top"><div align="left"><a href="../WhereToBuy/WhereToBuy.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Store Locator','','../Graphics/HP-StoreLocator-O.gif',1)"><img src="../Graphics/HP-StoreLocator.gif" alt="Find your favorite Yogi Tea at a store near you!" name="Store Locator" width="104" height="140" border="0" align="left" id="Store Locator" /></a></div></td>
+	
+    <td valign="top"><a href="FreeSamples.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Free Samples','','../Graphics/HP-FreeSamples-O.gif',1)"><img src="../Graphics/HP-FreeSamples.gif" alt="New to Yogi Tea?  Sign up to receive free samples." name="Free Samples" width="106" height="140" border="0" align="left" id="Free Samples" /></a></td>
+	
+    <td valign="top"><a href="AboutUs.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('About Us','','../Graphics/HP-AboutUs-O.gif',1)"><img src="../Graphics/HP-AboutUs.gif" alt="Find out about our company and our committment to sustainablility." name="About Us" width="102" height="140" border="0" align="left" id="About Us" /></a></td>
+	
+    <td valign="top"><a href="ShopOnline.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Shop Online','','../Graphics/HP-ShopOnline-O.gif',1)"><img src="../Graphics/HP-ShopOnline.gif" alt="Visit our on-line retailers to buy your favorite Yogi Tea products." name="Shop Online" width="106" height="140" border="0" align="left" id="Shop Online" /></a></td>
+  </tr>
+  
+  <tr>
+    <td height="138" colspan="2" valign="top"><img src="../Graphics/SP-AboveButtons.gif" width="210" height="138" align="left" /></td>
+    <td colspan="5" rowspan="5" valign="top" background="../Graphics/SP-Background.gif"><!-- InstanceBeginEditable name="Content 1" -->
+      <table width="596" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="286" class="Header">Herb Glossary </td>
+          <td width="310">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" valign="top" class="yogibodytext"><table width="576" cellpadding="5" cellspacing="5">
+            <tr>
+              <td width="596" height="126" valign="top"><span class="yogibodytext">The Yogi Tea Herb Glossary contains information on most of the herbs found in our teas. <br />
+                <br />
+                <br />
+                </span><span class="BoldYogiTeaBodyText">Alfalfa    Seed</span><span class="style1"><a name="Alfalfa" id="Alfalfa"></a><br />
+</span><span class="yogibodytext">Alfalfa Leaf is a very mild,    food-like medicinal plant. Since it is so mild, it is well tolerated by a    wide variety of people, and has many uses. Alfalfa is a rich natural source    of supplemental minerals and vitamins - a concentrated nutrient source. It&rsquo;s    a good general herb for pitta. Rich in insoluble fiber, it aids digestive    elimination. Since alfalfa is a legume, it is rich in phytoestrogens, notably    isoflavones, which have become popular from soy foods, plant substances that    have hormonal actions in the body.</span></td>
+              </tr>
+            <tr>
+              <td height="15" valign="top"><p><strong>Organic Alfalfa Leaf<br />
+              </strong>See Above Information. </p>                </td>
+              </tr>
+            <tr>
+              <td height="15" valign="top"><span class="BoldYogiTeaBodyText">Amla Fruit Extract </span><a name="Amla" id="Amla"></a><br />
+                Amla Fruit or Emblic Fruit (Amalaki) is one of the most useful Ayurvedic medicines, and a strong rejuvenative. It is an exceptionally rich source of vitamin C. Amla is used for a wide variety of conditions involving the digestive tract and its organs. It is the prime general herb for the eyes, and is said to treat premature gray hair. Amla is the basis for the famous Ayurvedic rejuvenative jam, chyavanprash, and the widely used combination herbal remedy, triphala.<br /></td>
+              </tr>
+            <tr>
+              <td height="15" valign="top"><span class="BoldYogiTeaBodyText">Organic Amla Fruit (Amalaki)</span><br />
+                See above</td>
+              </tr>
+            
+          </table></td>
+        </tr>
+      </table>
+    <!-- InstanceEndEditable --></td>
+  </tr>
+  <tr>
+    <td height="85" colspan="2" align="left"><img src="../Graphics/FreeSample/Blank2.gif" width="210" height="85" align="left" /></td>
+  </tr>
+  <tr>
+    <td height="76" colspan="2" valign="top"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Recipes','','../Graphics/LifeStyle/Recipes-O.gif',1)"></a><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image13','','../Graphics/AboutUs/OrganicCare-O.gif',1)"></a><img src="../Graphics/FreeSample/Blank4.gif" width="210" height="76" align="left" /></td>
+  </tr>
+  <tr>
+    <td height="84" colspan="2" align="left" valign="top"><div align="left"><img src="../Graphics/FreeSample/Blank3.gif" width="210" height="84" align="left" /></div></td>
+  </tr>
+  <tr>
+    <td height="84" colspan="2" align="left" valign="top"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Spiritual Life','','../Graphics/LifeStyle/SpiritualLife-O.gif',1)"></a><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','../Graphics/AboutUs/ContactUs-O.gif',1)"></a><img src="../Graphics/FreeSample/Blank5.gif" width="210" height="84" align="left" /></td>
+  </tr>
+  
+  <tr>
+    <td colspan="2" valign="top" background="../Graphics/subpage_sm_bar.gif">&nbsp;</td>
+    <td colspan="5" valign="top" background="../Graphics/subpage_lgbar.gif"><!-- InstanceBeginEditable name="Content 2" -->
+      <table width="599" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="473" valign="top"><table width="576" cellpadding="5" cellspacing="5">
+            <col width="326" />
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Acai Berry</span><a name="Acai" id="Acai"></a><br />
+                Acai is a Brazilian berry originally from the Amazon Region that is considered to be one of nature's most complete and healthy foods. The acai berry is loaded with antioxidants, anthocyanins (approximately 20 times the amount in red wine), amino acids, essential omegas, fibers and protein. Some recent studies indicate that acai may even fight cancer cells.</td>
+            </tr>
+            <tr height="0">
+              <td valign="top"><span class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Anise Seed</span><a name="Anise" id="Anise"></a><br />
+Anise Seed is a tasty culinary herb from the parsley family and is mainly known as a digestive aid. It reduces gas, and provokes efficient digestion. Like other members of this family, anise is a source of phytoestrogens. In this connection, it has a historical use as a galactagogue, an herb that promotes breast milk production. Anise is considered to be mildly energizing. It is used throughout Asia and Europe as an expectorant and antispasmodic, particularly for respiratory and throat imbalances.</span></td>
+              </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><strong>Asian Psyllium Seed</strong><a name="Psyllium" id="Psyllium"></a><br />
+Asian Psyllium Seed is a common bulk fiber laxative, with a particularly high content of insoluble fiber, making it a superior soothing laxative. It balances bowel function and relieves pain in irritable bowel syndrome (IBS). Psyllium's capacity to absorb fluids means that it is useful for treating diarrhea, a common IBS symptom. As it travels through the gut, the mucilage in psyllium creates a soothing benefit, which may relieve cramping. An English study revealed that constipation significantly improved in patients taking psyllium. Eighty-two percent of the subjects had IBS symptom relief. Psyllium seed looks especially promising for weight loss. A triple-blind experiment done in London with non-dieting subjects revealed that the participants felt much fuller than normal one hour after the meal, and ended up eating 15 grams less fat per day than usual. Psyllium is exceptionally effective in managing normal cholesterol levels in the blood.</td>
+              </tr>
+            <tr height="0">
+              <td valign="top"><span class="yogibodytext"><span class="BoldYogiTeaBodyText">Astragalus Root</span><a name="Astragalus" id="Astragalus"></a><br />
+Astragalus Root is categorized as a superior herb in Chinese medicine. It&rsquo;s called Huang Qi - &quot;yellow energy builder&quot;. This gem of Traditional Chinese medicine, astragalus, or milk vetch root, is a member of the legume family. Used as a maintenance tonic and to assist healing, astragalus boosts energy, increases stress adaptation, is particularly antiviral and amplifies the efficiency of just about every type of immune function. Chinese families regularly add astragalus to the family stewpot during the cold season, so that everyone can get a daily immune boost. Japanese herbalists use astragalus, which they call &quot;ogi&quot; for lack of appetite, fatigue, diarrhea, uterus, rectum, or stomach imbalances, loss of feeling in the arms and legs, muscle pain, and blood sugar imbalances. Unlike most Chinese herbs, astragalus actually tastes surprisingly good as a tea, with a velvety texture and a sweet, buttery taste.</span></td>
+              </tr>
+            <tr height="0">
+              <td valign="top"><span class="yogibodytext"><strong>Organic Basil Leaf</strong><a name="Basil" id="Basil"></a><br />
+Basil Leaf is a well-known culinary herb, with a delicious pungent bite, that promotes proper digestion and reduces gas. Regular use of basil helps to keep the lungs and sinuses clear. It is useful in sweating out any respiratory and nasal stuffiness due to its warming effect. A widely used antimicrobial and immune system booster, basil also strengthens nerve tissue and enhances mental clarity.</span></td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Belleric Myrobalan Fruit (Bibhitaki)</span><a name="Belleric" id="Belleric"></a><br />
+                Belleric    Myrobalan Fruit (Bibitaki) is another of the famous myrabolan fruits of    Ayurveda, and is the best single herb for generally controlling Kapha. This    herb nourishes the lungs, throat, voice, eyes, and hair. It is used for water    retention, pain, indigestion, lung congestion, and upset stomach. It excels    at removing accumulations of toxins in the digestive, urinary, and    respiratory tracts. It is unique in being both laxative and astringent, so it    purges the intestines, while simultaneously toning the tissues. The fruit has    an astringent and sour taste, and a warming energy. It is used in the    treatment of a broad array of digestive disorders.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><strong>Bilberry Leaf</strong><a name="Bilberry" id="Bilberry"></a><br />
+                Bilberry    Leaf contains powerful antioxidants that prevent free radical damage to cells    and capillaries that can weaken their membranes. The result is stronger, more    flexible capillary and cell walls. This is especially important to eye health    because the retina is one of the most capillary-rich parts of the body. If    capillaries can stretch without breaking or leaking, blood flows better    through the capillaries that feed the retina. This results in improved    vision. Bilberry also increases function of the color-sensing cones of the    eye, improving the brightness of the image and increasing visual acuity. The    nerve cells in the retina become more responsive to available light. Bilberry    is especially noted for improving night vision. Apparently, the components of    bilberry fruit responsible for its benefits are certain polyphenolic    flavonols called anthocyanosides. Bilberry is good for just about all things    ocular.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Bilberry Leaf</span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><strong>Organic Blackberry Leaf</strong><a name="Blackberry" id="Blackberry"></a><br />
+                Blackberry leaf is a source of mild astringent compounds. Astringents tighten up and dry out loose, soggy tissue. An important ingredient, ellagic acid, is a powerful cell protectant and antioxidant. </td>
+            </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><strong>Organic Cayenne </strong><a name="Cayenne" id="Cayenne"></a><br />
+                Cayenne pepper is diaphoretic and acts as a digestive stimulant. Cayenne and other chilies, especially red varieties, are excellent treatments for depression. Chilies enhance production of endorphins, the mood elevating brain chemicals responsible for the &ldquo;chili eater&rsquo;s high.&rdquo; In addition, cayenne has been proven to be useful in regulating blood pressure and cholesterol levels as well as improving circulation.</td>
+            </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><strong>Citric Acid</strong><a name="Citric" id="Citric"></a><br />
+                A form of Vitamin C. </td>
+            </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Wild    Cherry Bark</span><a name="Cherry" id="Cherry"></a><br />
+                Wild    Cherry Bark Ever wonder why all cough syrup is cherry flavored? This native    North American herb was the absolute first choice for coughs in times past.    Also called Wild Cherry Bark, this bark contains cyanogenic glycosides,    especially prunasin. These glycosides, once metabolized in the body, act to    suppress spasms in the smooth muscles lining bronchioles, providing cough    relief.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Black    Cohosh Root</span><a name="Cohosh" id="Cohosh"></a><br />
+                Black    Cohosh Root is from a tall perennial herb that grows abundantly in eastern    North America. The blackish, cylindrical root of this plant gives this herb    its name. Black cohosh has become famous in recent years as a treatment for    menopause. It seems to produce an estrogen?like effect that reduces symptoms,    such as hot flashes and vaginal dryness. Many herbalists use black cohosh for    PMS symptoms as well. According to many reports it reduces all major    symptoms, including anxiety, irritability, fluid retention, and breast pain    for many women.</td>
+              </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><strong>Cocoa Powder</strong><a name="Cocoa" id="Cocoa"></a><br />
+                Cocoa powder is created from the separation of the cocoa butter from the cocoa beans. Cocoa powder is used as a flavor, and has recently gained attention as a source of antioxidants.</td>
+            </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Cocoa Shells</span><a name="shells" id="shells"></a><br />
+                Cocoa shells are a source of chocolate, long beloved around the world for its delectable taste, and more recently have been receiving attention as a natural source of antioxidants.</td>
+            </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Black Pepper </span><a name="Pepper" id="Pepper"></a><br />
+                Black    Pepper is the foremost detoxifier and anti&#8208;aging herb in Asia. A warming    digestive remedy, it relieves gas and increases absorption of other    nutrients. Increasing circulation, regulating blood pressure and easing joint    movement, black pepper is also antioxidant, reducing free radicals. It    prevents the destruction of vitamin A and other antioxidants. Black Pepper    reduces respiratory mucus, easing sinus congestion. As a diuretic, it    balances water in the body and regulates eye pressure.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Burdock Root </span><a name="Burdock" id="Burdock"></a><br />
+                Burdock    Root, a member of the daisy family originating in Eurasia, is now firmly    established in North America. Few herbs are better known for detoxifying the    liver. Herbalists value burdock in treating all manner of liver toxicity    conditions, including skin disorders especially those around the head, face    and neck. The root is served as a food in Japan, where it is known as gobo.    Resembling a long brown carrot, it can be prepared in the same way you might    enjoy a carrot, such as fresh juice or in a stir-fry dish.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Burdock Root </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Cardamom    Seed </span><a name="Cardamom" id="Cardamom"></a><br />
+                Cardamom    Seed helps digest cold and sweet food. This safe herb benefits stomachache,    balances urination, reduces phlegm, and helps with indigestion and gas. It    also relieves minor pain and muscle spasm. Its warming, anti-mucus action    makes it a common ingredient in lung preparations. Particularly nourishing    for the spleen, cardamom also relieves temporary vaginal yeast.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Carob    Pod</span><a name="Carob" id="Carob"></a><br />
+                Carob    Pod tastes a lot like chocolate and is often used as a substitute. Carob    soothes the digestive tract and helps with diarrhea. The main ingredients of    carob are large carbohydrates. These make carob gummy so it acts as a    thickener to absorb water and bind loose stools.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Cat&rsquo;s    Claw Bark</span><a name="Cats" id="Cats"></a><br />
+                Cat&rsquo;s    Claw Bark is a general stamina-enhancing tonic from South America. It    enhances immunity, increasing immunoglobin counts and helping protect the    cells from damage. This valuable herb regulates normal blood pressure,    balances cholesterol, relaxes blood vessel walls and opens up peripheral    circulation making it helpful for the skin and joints. A relaxing herb, it    balances the heart rate. It supports the health of the digestive tract lining    and relieves symptoms of coughs, sneezing and congestion. Cat&rsquo;s claw benefits    PMS, and its diuretic effect balances water in the body.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><strong>Celery    Seed</strong><br />
+                Celery    Seed, a member of the parsley family, is a widely used food herb. The seeds    are used to treat kidney and bladder problems. In folk medicine, celery seeds    have a reputation for use in obesity, flatulence, respiratory mucus, delayed    menses and impotence.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><strong>Organic Celery    Seed</strong><a name="Celery" id="Celery"></a><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><strong>Organic Chamomile    Flower</strong><a name="Chamomile" id="Chamomile"></a><br />
+                Chamomile    Flower is a mild relaxant useful for nervousness, stress and anxiety. As an    antispasmodic, it is used for cramps of all types. As a diaphoretic, it    promotes perspiration, a time honored method of &ldquo;sweating it out.&rdquo; It is    frequently used for digestive complaints, particularly gas. This gentle herb    is basically good for all constitutional types. A cup of tea with chamomile    in it is a time-honored remedy for inducing sleep.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Chaste    Tree Berry</span><a name="Chaste" id="Chaste"></a><br />
+                Chaste    Tree Berry is found growing on riverbanks and nearby foothills around the    Mediterranean. With a dark brown, peppercorn-size fruit, it has a pleasant    peppermint-like odor. It is a widely used European treatment for all types of    PMS symptoms and menstrual irregularities, especially breast tenderness. This    herb is sedative and relieves muscle spasms, so women experience significant    improvements in irritability, depression and headache.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><strong>Chebulic    Myrobalan Fruit (Haritaki) </strong><a name="Chebulic" id="Chebulic"></a><br />
+                Chebulic    Myrobalan Fruit (Haritaki) is the best single herb for generally controlling    Vata, and is considered by some to be the single most important Ayurvedic    herb. Widely used in Tibetan medicine, it is called the &quot;king of    herbs&quot; there. Since Vata promotes constipation, the gentle laxative    qualities of haritaki are perfect for balancing that dosha. It nourishes the    brain and nerves. It is strongly astringent, contracting tissues, and is    therefore used for various skin imbalances and fluid discharges. In Ayurveda,    haritaki is called &quot;the mother,&quot; and is thought to increase    mental/spiritual awareness.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Chinese    Amur Cork Tree Bark</span><a name="Amur" id="Amur"></a><br />
+                Chinese    Amur Cork Tree Bark is rich in berberine, the natural chemical making it    appear yellow. It is a commonly used cold and bitter Chinese herb to reduce    inflammation. It is also used to treat abdominal pain, diarrhea, vaginal or    urinary tract swelling, pain in the knees and feet and skin sores.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Chinese    Goldenthread Root</span><a name="Goldenthread" id="Goldenthread"></a><br />
+                Chinese    Goldenthread Root is one of, if not the bitterest herb used in Chinese    medicine. Goldenthread is a close relative of an extremely bitter and very    useful American herb, the well-known goldenseal. It is rich in berberine, the    same active ingredient in goldenseal. In Chinese medicine, goldenthread is    used to inhibit infections and calm nervous agitation. Its many uses include    treatment of skin disorders, intestinal irregularity, tension, and insomnia.    It is effective in stimulating bile flow and helps digestion.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Cinnamon    Bark </span><a name="Cinnamon" id="Cinnamon"></a><br />
+                Cinnamon    Bark is a very mild herb that is well tolerated by a broad variety of people.    It is a pungent, sweet and hot tonic that increases general vitality, warms    and energizes the body as a whole, counteracts congestion, stops diarrhea,    improves digestion and relieves abdominal spasms. It increases circulation to    the joints and kills bacteria and viruses. It has been shown to regulate    blood sugar and insulin. Cinnamon relieves minor pain and encourages    menstruation, while reducing monthly cramps.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Clove Bud </span><a name="Clove" id="Clove"></a><br />
+                Clove    Bud add a delicious zing to tea, and are widely used as medicine in Asian    herbalism. With a warming quality, they promote circulation in the stomach,    enhancing digestion and reducing gas. By warming the lungs, they thin mucus    to ease cough. Cloves promote lymph function and balance triglycerides and    blood sugar. Cloves contain an essential oil that is a powerful pain    reliever.</td>
+              </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><strong>Coffee Berry&reg;</strong><a name="Coffee" id="Coffee"></a><br />
+                Coffee Berry&reg;, the outer layer of the coffee fruit, are a rich source of antioxidants, with research reporting that 400 mg of concentrate has a radical scavenging activity equal to 9.6 grams of fresh blueberries, 6.2 grams of strawberries, or 4.9 grams of raspberries. Coffee berries contain polyphenols, which act to help reduce free oxygen radicals in the body. Chlorogenic acid is the compound present in coffee which has been long known as for its beneficial properties. This active ingredient makes coffee berries an excellent agent to absorb free oxygen radicals&mdash;helping to avert hydroxyl radicals, which both contribute to degradation of cells in the body.</td>
+            </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Coriander    Seed</span><a name="Coriander" id="Coriander"></a><br />
+                Coriander    Seed                Coriander    Seed is specific for strengthening the urinary tract, according to Ayurveda.    Both the seeds and the leaves may be used in infusion for urinary tract    irregularities. It also is used for stomach upset, indigestion and gas. New    research shows that coriander has antioxidant effects in fats.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Cornsilk Stem </span><a name="Cornsilk" id="Cornsilk"></a><br />
+                Cornsilk    Stem is the actual silk from the corn. It is a soothing diuretic promoting    easy urination, which allows for the elimination of excess water in the body.    The soothing action of this herb can help ease bladder and prostate    irritation.</td>
+              </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Chrysanthemum Flower</span><a name="Chryanthemum" id="Chryanthemum"></a><br />
+                Medicinally, Chrysanthemum Flower is a cooling herb treats fever and red, dry, swollen eyes, and strengthens the lungs. This herb also has immune enhancing properties. Chrysanthemum also kills many pathogenic bacteria, including strep. In Traditional Chinese Medicine, Chrysanthemum is often combined with honeysuckle for a delicious, effective drink, especially for inflammation.</td>
+            </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Dandelion Root</span><a name="Dandelion" id="Dandelion"></a><br />
+                Dandelion    Root is a celebrated liver cleanser and one of the best remedies for a    sluggish, congested, and toxic liver. A clean liver supports the health of    the skin. Dandelion root can increase bile flow, causing the liver to produce    more bile to send to the gall bladder. It also acts directly on the gall    bladder, causing it to contract and release stored bile, benefiting liver    congestion, bile duct imbalances, and gallstones.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><strong>Devil&rsquo;s    Claw Root</strong><a name="Devils" id="Devils"></a><br />
+                Devil&rsquo;s    Claw Root is from a plant, native to southern Africa, whose fruits look like    a hooked, gnarled claw. Historically, African people have employed devil's    claw for a wide range of conditions, from digestive difficulties to joint    conditions. It has also been widely used by Europeans for the same reasons.    Harpagoside and other iridoid glycosides in the tuber may be responsible for    the anti-inflammatory and analgesic benefits.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Dong    Quai Root</span><a name="Dong" id="Dong"></a><br />
+                Dong    Quai Root is the most respected general tonic in Chinese medicine. Women use    it to strengthen their reproductive organs, regulate the menstrual cycle and    regulate the blood throughout the body, but especially in the pelvic area.    Dong quai balances PMS symptoms including breast tenderness, constipation and    dizziness. For menopausal symptoms, women use dong quai for hot flashes,    pelvic pain, insomnia, mood changes, and vaginal dryness. Chinese medicine    also uses this herb for balancing blood pressure, cholesterol levels and lung    function.&nbsp;</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Dong Quai Root Extract</span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Dong Quai Root </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Echinacea Extract </span><a name="Echinacea" id="Echinacea"></a><br />
+                Echinacea    Root stimulates the body's immune system against all manner of irregular    conditions. It increases white blood cell production, making it one of the    most powerful and effective remedies against all kinds of bacterial and viral    conditions. Echinacea is a tissue detoxifier that also stimulates digestion    and acts to promote perspiration to sweat out toxins. . The three echinacea    roots, purpurea, pallida and angustifolia are considered to be clinically    identical and interchangeable.&nbsp;</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Echinacea Purpurea Root Extract </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Echinacea Root</span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Elder Berry </span><a name="Elder" id="Elder"></a><br />
+                Elder    Berry has been used in European folk medicine since antiquity for a host of    maladies, ranging from joint discomfort and constipation to respiratory    problems. Elder berries are high in anthocyanidins, powerful purple pigment    compounds that act as potent antioxidants, and includes vitamin C. The    berries anthocyanidins help ease the joints by its antioxidant activity. It    also detoxifies tissues and promotes better digestion. Elderberry eases    respiratory symptoms from excess mucous, cough, throat strain or discomfort    to muscle strain.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">European Elder berry Extract </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Elecampane Root </span><a name="Elecampane" id="Elecampane"></a><br />
+                Elecampane    Root is a very popular herb among European herbalists, where it is probably    the most widely used respiratory herb. In fact, the ancient Greeks and    Romans, recommended it for treating such diverse problems as indigestion,    melancholy and all manners of respiratory ailments. Today, this herb is used    widely for its expectorant and cough suppressive qualities. It also has    diaphoretic, hepatic and anti-microbial properties. Elecampane is specific    for irritating bronchial coughs, especially in children. Ayurveda reveres it    as a rejuvenative tonic for the lungs.&nbsp;</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic English    Hawthorn Berry</span><a name="Hawthorn" id="Hawthorn"></a><br />
+                English    Hawthorn Berry is the most famous herb in modern Europe for safe and    effective support for a variety of cardiovascular functions. The actions come    from an assortment of potent antioxidant, bioflavonoid-like complexes in the    leaves, flowers and berries. Hawthorn has various favorable effects on the    heart and blood vessels. It seems to improve coronary artery blood flow and    heart muscle contractions, reduce resistance in arteries and improve    circulation throughout the body. The net benefit is that it normalizes blood    pressure, cholesterol and heart rhythm.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic English Lavender Flower </span><a name="Lavender" id="Lavender"></a><br />
+                English    Lavender Flower is a beautiful, delightful smelling herb with many uses. As a    gentle strengthening nervous system tonic, it is used for fatigue and    exhaustion. It reduces intestinal gas and normalizes blood pressure. Fragrant    lavender lifts the mood, energizes the body, helps with stress and promotes    natural sleep.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Eucalyptus Leaf </span><a name="Eucalyptus" id="Eucalyptus"></a><br />
+                Eucalyptus    Leaf is used primarily as an expectorant to release mucus congestion. It has    a powerful action of opening respiratory passages. It is also broadly    antimicrobial, benefiting a wide variety of conditions, including those of    the digestive and urinary tracts. A folklore use is for fever. Modern    research shows it prevents free radicals in fatty compounds in the body, and    also appears to protect the liver from damage.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Fennel Seed </span><a name="Fennel" id="Fennel"></a><br />
+                Fennel    Seed increases digestive fire. It is the premiere carminative (relieves gas)    in the world, especially for adults. Fennel is a cooling spice that calms the    nerves and promotes mental alertness. It loosens lung mucus and helps clear    the chest. Fennel also balances blood pressure, promotes lactation, will    hasten a menstrual period and increases libido.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Fenugreek Seed </span><a name="Fenugreek" id="Fenugreek"></a><br />
+                Fenugreek    Seed, an ancient herbal medicine has shown some remarkable benefits in    normalizing blood sugar. A legume found in southeastern Europe, northern    Africa and western Asia, fenugreek seeds contain iron, vitamin A, vitamin B1,    vitamin C and phosphates. The seed is also high in fiber and protein.    Historically, fenugreek has been used for many kinds of digestive complaints    such as gas. Recent scientific evidence shows that it increases the    production of pancreas enzymes. It also soothes the throat. Fenugreek helps    increase breast milk production.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Forsythia Fruit </span><a name="Forsythia" id="Forsythia"></a><br />
+                Forsythia    Fruit is a detoxifying Chinese remedy for excess heat, head discomfort and    thirst. A bitter, cold herb, it is often combined with honeysuckle. It finds    its way into formulas for the kidneys and skin.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Fo-Ti Root </span><a name="FoTi" id="FoTi"></a><br />
+                Fo-Ti    Root is native to China, where it continues to be widely grown. Once it has    been boiled in a special black bean liquid, it is considered a superior tonic    medicine, according to traditional Chinese medicine. The Chinese common name,    he-shou-wu, is from the name of a famous herbalist whose infertility and    general weakness was supposedly cured by the herb. Traditional Chinese    medicine uses fo-ti to treat premature aging, weakness, vaginal discharges,    angina pectoris, premature hair loss and graying and impotence. Scientific    evidence shows that it is a potent protector of oxidation damage to the    heart, normalizes cholesterol levels and decreases joint discomfort.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Garcinia Cambogia Fruit Extract </span><a name="Garcinia" id="Garcinia"></a><br />
+                Garcinia    Fruit contains the active ingredient hydroxyciteic acid (HCA), which promotes    weight loss. A placebo-controlled study in 1999 combined guggul extract with    Garcinia cambogia extract and tyrosine. Over six weeks, twenty overweight    persons experienced a significant decrease in body fat mass and average body    weight. The subjects lost body fat, but not lean mass. Fatigue went down, and    there were no adverse effects.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Gardenia    Flower</span><a name="Gardenia" id="Gardenia"></a><br />
+                Gardenia    Flower is a bitter, cold herb that is used for excessive heat and swelling.    It is calming, and especially known to relieve restlessness.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Ginger Root </span><a name="Ginger" id="Ginger"></a><br />
+                Ginger    Root is known as the universal medicine in Ayurveda. It aids digestion and,    and is one of the best herbs for nausea. It relieves spasms and menstrual    cramps, and promotes menstruation. Ginger helps to regulate blood sugar both    by stimulating pancreas cells and by lowering lipids (cholesterol,    triglycerides) in the blood. Historically, it was one of the most respected    herbs for joint health, especially for aging joints. It has relatively high    calcium and iron content. Ginger increases peripheral circulation, so is used    clinically for cold hands and feet. Being diaphoretic, it treats some    symptoms by promoting sweating.&nbsp;</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Ginkgo Leaf Extract </span><a name="Ginkgo" id="Ginkgo"></a><br />
+                Ginkgo    Leaf benefits a very wide array of brain, nerve, and circulatory conditions,    including age related memory loss. Primarily, it increases blood flow to the    brain and central nervous system and promotes peripheral circulation. It is    powerfully antioxidant and protects nerve cells, leading to the conclusion    that it may help with diseases of aging, especially in the central nervous    and cardiovascular systems. Ginkgo is a mood elevator, especially for those    with reduced brain circulation, particularly elderly people. It relieves PMS    symptoms.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Ginkgo Leaf </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Asian (Panax) Ginseng Root </span><a name="Gingseng" id="Gingseng"></a><br />
+                Ginseng    is the most respected tonic herb in the world. It has a long-term anti-stress    effect and improves physical and mental performance, memory, and reaction    time. It enhances mood, relieves hangover symptoms and improves alcohol    clearance. Ginseng improves short-term stamina, blood circulation to the    heart, and balances cholesterol and blood sugar. It can even lessen the    symptoms of menopause, including vaginal atrophy. Oriental (Panax ginseng)    and American (Panax quinquefolius) are almost identical species that happen    to grow on different continents and are therapeutically equivalent. Eleuthero    (Eleutherococcus senticosus), commonly know as Siberian ginseng, is not    really a ginseng and has a long-term stimulant effect.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Ginseng (Panax) Root </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Gingseng-Eleuthero Extract </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Siberian Ginseng </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Goji Berry </span><a name="Goji" id="Goji"></a><br />
+                The    Goji Berry is found in more than 40 different varieties and may be the most    nutritionally rich fruit on the planet. Long revered by Traditional Chinese    Medicine for their longevity&#8208;enhancing benefits, these berries contain    vitamins C, B1, B2, B6, and E, plus more beta carotene than carrots and    stronger antioxidant power than blueberries. The flavor of Goji has been    described as a cross between a cranberry and a cherry.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Gotu Kola</span><a name="Gotu" id="Gotu"></a><br />
+                Gotu    Kola or Bacopa Leaf is a superior herb for the nervous system. Known as    &quot;brahmi&quot; which means &quot;godlike&quot; in the Ayurvedic    tradition, it is used for its anti-aging properties and as an aid to    meditation. It is the most spiritually oriented of all herbs. With bitter    taste and cooling energy, it treats any of the doshas. It boosts circulation    to the blood vessels of the skin, mucous membranes, nerves and brain.    Strengthening memory, concentration and intelligence, it promotes longevity,    improves physical strength, and the complexion and benefits age related    problems such as hair loss, skin conditions, cellulite and decreased    circulation. This herb stimulates the growth of hair and nails, and increases    the blood supply to connective tissue.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Grapeseed Extract </span><a name="Grapeseed" id="Grapeseed"></a><br />
+                Grapeseed    is rich in procyanidins and gallates, antioxidants that combine to scavenge    free radical and protect proteins and DNA from damage. According to    scientists, procyanidins found in grapeseed are 20 times more efficient than    vitamin C and 50 times more efficient than vitamin E at scavenging free    radicals. Procyanidins also enhance the activity of vitamin C as an    antioxidant. Grapeseed contains the highest concentration of procyanidins yet    discovered.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Green Tea Leaf Extract </span><a name="GreenTea" id="GreenTea"></a><br />
+                Green    Tea enhances immune function. The active ingredients (polyphenols) promote    immunity from many different pathogens, including protozoa, viruses and    bacteria. Green tea fights free radicals, the chemicals now thought to be the    most important cause of cell damage and aging. It is a more potent    antioxidant than broccoli, carrots, spinach, or strawberries. Green tea    strongly benefits oral health- it kills the bacteria responsible for tooth    decay and blocks the attachment of the bacteria associated with dental caries    to the teeth. With a host of beneficial effects for the cardiovascular    system, it has been shown to balance total cholesterol and LDL, as well as    triglycerides, and to support a healthy ratio of LDL cholesterol to HDL    cholesterol.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic China Chun Mee Green Tea Leaf </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Decaffeinated Green Tea Leaf </span><br />
+                See above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Green Matcha Tea Leaf </span><br />
+                See above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Green Tea Leaf </span><br />
+                See above</td>
+              </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Essential Oils</span><a name="Oil" id="Oil"></a><br />
+Essential oils are natural oils extracted from plants by distillation.</td>
+            </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Hibiscus Flower </span><a name="Hibiscus" id="Hibiscus"></a><br />
+                Hibiscus    Flower grows on a bushy annual that is found in the tropics and is now    cultivated in Europe. In addition to being delicious in cold drinks, the    flower has mild laxative properties, increases appetite and promotes    urination. Use hibiscus for mild nausea. In Chinese medicine preparations,    hibiscus aids skin irritations.</td>
+              </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><strong>Organic Honeybush </strong><a name="Honeybush" id="Honeybush"></a><br />
+                Honeybush grows in a small area in the southwest of South Africa, and is so named because the flowers smell of honey. Honeybush is commonly used to make tea. The flavor of honeybush tea is similar to that of rooibos but a little sweeter.</td>
+            </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Indian Sarsaparilla Root </span><a name="Indian" id="Indian"></a><br />
+                Indian    Sarsaparilla Root is the herb that gives the delicious taste to root beer.    The root is a &quot;spring tonic&quot; known for its blood purifying and    detoxifying features. Sarsaparilla contains plant hormones that help to    normalize inflammation, so it has a long history of use for joint support. It    is a famous skin conditioner and respiratory and digestive remedy.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Irish Moss Powder </span><a name="Irish" id="Irish"></a><br />
+                Irish    Moss is a seaweed commonly found on the Atlantic coast of Europe and North    America. Irish Moss contains large carbohydrates that absorb water and become    slimy. This quality makes it a standout as a soother for the lungs and    digestive tract.&nbsp;</td>
+              </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><strong>Jiao Gu Lan</strong><a name="Jiao" id="Jiao"></a><br />
+                Jiaogulan grows in the wilds of China and throughout Asia, where it has been used as a beverage and medicine in the southeastern provinces of China for many centuries. As a folk medicine, it was used to treat jaundice, common cold and chronic bronchitis. In Chinese herbal medicine terms, it &ldquo;clears heat and toxins.&rdquo; In contemporary practice, herbalists use jiaogulan for enhancing the immune system, obesity, poor digestion, promoting strength and endurance, lowering cholesterol and blood pressure, reducing stress and as an anti-aging remedy.</td>
+            </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><strong>Jasmine Green Tea Leaf</strong><a name="Jasmine" id="Jasmine"></a><br />
+                Jasmine is an astringent, antibacterial, antiviral, cooling and bitter herb (used for fever). It helps to calm nerves and is reportedly an aphrodisiac for women. Jasmine flowers are often brewed as an herbal infusion, but are more often combined with green tea or sometimes an oolong tea. Jasmine's mystic properties include bringing luck in wealth and love.</td>
+            </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Japanese Honeysuckle Flower </span><a name="Japanese" id="Japanese"></a><br />
+                Japanese    Honeysuckle Flower, a sweet tasting and smelling honeysuckle herb, is used in    Chinese herbalism to treat excessive heat and throat discomfort. This cooling    herb also strengthens the lungs. Honeysuckle is strongly antimicrobial.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Juniper Berry Extract </span><a name="Juniper" id="Juniper"></a><br />
+                Juniper    Berry is an antiseptic for the urinary tract. The essential oil is    stimulating to the kidneys, acting as a diuretic. The warming and bitter    properties aid digestion and ease intestinal gas. It is also warming for the    joints.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Kava Root Extract </span><a name="Kava" id="Kava"></a><br />
+                Kava    Root is one of the herbs in the world that has been thoroughly studied as a    muscle relaxant. As a relaxant, it will produce a state of &ldquo;relaxed    unconcern&rdquo;. This mild, effective herb helps with daily anxiety and will    induce sleep at bedtime. As a pain reliever, it treats minor pain    effectively. Kava excels at treating menopause symptoms, bringing substantial    reductions in hot flashes and balancing mood.&nbsp;</td>
+              </tr>
+            <tr height="0">
+              <td width="0" height="100" valign="top" class="yogibodytext"><p><span class="BoldYogiTeaBodyText">Kombucha</span><a name="Kombucha" id="Kombucha"></a><br />
+                Kombucha    is very ancient and comes from north central Asia. It is a strain of one    bacterium and three or four different yeasts. When grown properly, the    culture produces glucuronic acid, latic acid, many vitamins, amino acids and    other antibiotic substances, which help strengthen the immune system. It is    valued for its ability to stimulate intestinal action and provide nutrients    for balanced intestinal flora and its ability to enhance and circulate the    energy in the body. It is detoxifying to the entire body, improving    elimination and metabolic harmony.</p>                </td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Lemon Grass</span><a name="LemonGrass" id="LemonGrass"></a><br />
+                Lemon    Grass is a tropical herb that is popular in Thai cooking. Its warming    properties support mucous membrane function and lend it to use as a    diaphoretic in respiratory disorders. Lemon grass tastes great and is a    warming herb that speeds digestion, reduces gas and nausea.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Lemon Peel </span><a name="LemonPeel" id="LemonPeel"></a><br />
+                Lemon    Peel is a digestive aid. It is used for abdominal bloating, nausea and poor    appetite. Cough, profuse sputum and discomfort in the chest and diaphragmatic    region are also indications for citrus peel. Citrus peel is pungent, bitter    and warm.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Lemon Peel </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText"> Licorice Root</span><a name="Licorice" id="Licorice"></a><br />
+                  Licorice    Root is one of the most widely used remedies in all herbal systems. It is    used to improve eyesight, physical strength, sexual potency and libido.    Licorice calms down sensitive tissues and helps to reduce seasonal sneezing    and congestion. It preserves the effect of the body&rsquo;s hormone, cortisol,    allowing it to maintain longer anti&#8208;inflammatory action. It is a major for    skin health, and it protects the liver. A blood sugar balancer, it soothes    indigestion and heartburn, or a sore throat.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Licorice Root</span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td height="42" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Lemon Myrtle<a name="Lemon" id="Lemon"></a></span><br />
+                A flowering plant native to Australia. The leaves have a very strong lemon fragrance; thus lemon myrtle is often used as a flavoring.</td>
+            </tr>
+            <tr height="0">
+              <td width="0" height="100" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Long Pepper Berry </span><a name="Long" id="Long"></a><br />
+                Long    Pepper Berry (Pipali) is a peppercorn approximately one to two inches in    length, used in Ayurvedic and Chinese herbalism. Ayurveda considers pippali    to be a powerful blood cleanser. It is also renowned as a beneficial herb for    both the digestive and respiratory systems. Unlike black pepper, to which it    is related, it is a rejuvenative. Long pepper enhances turmeric    bioavailability. Adding 10% long pepper to turmeric increased the    bioavailability of the turmeric by 17 times.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Mullein Leaf </span><a name="Mullein" id="Mullein"></a><br />
+                Mullein    Leaf is a common wildflower that grows almost anywhere. Mullein leaf and    flower is an expectorant and demulcent (soothing) herb. Using mullein in a    tea for coughs and respiratory irritations is approved in Europe. The actions    are from mucus loosening saponins and this can bring relief. Mullein is an    immune enhancer, active against respiratory disorders. Mullein is most    effective when combined with herbs with similar qualities, such as slippery    elm bark and elecampane root.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Nettle Leaf </span><a name="Nettle" id="Nettle"></a><br />
+                Nettle    Leaf is a food-like medicine that functions as a general tonic and nutrition    source. It is a general remedy for mucous membranes, including the digestive    tract, the respiratory system and the urinary system. It opens breathing and    reduces mucous conditions of the lungs. People have used it for diarrhea,    regularity and elimination problems. In recent years, it has become popular    for difficulties associated with the spring and summer season.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Orange Peel </span><a name="OrangePeel" id="OrangePeel"></a><br />
+                Orange    Peel is a digestive aid. It is used for abdominal bloating, nausea and poor    appetite.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Orange Peel </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Natural Flavors </span><a name="Flavor" id="Flavor"></a><br />
+                Natural flavors are derived from natural sources such as spices, fruit, herbs, roots, or many other plants or foods, whose significant function in food is flavoring.</td>
+            </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Oregano Leaf </span><a name="Oregano" id="Oregano"></a><br />
+                Oregano    Leaf is a world-class germ buster. It is a close botanical and chemical    cousin to thyme and savory. All are in the mint family, and contain the major    constituents thymol and carvacrol, both highly antiseptic. Compared to the    antibacterial drug phenol, carvacrol is 1.5 times more potent, while thymol    is 20 times more powerful. In scientific tests, it was the only tested spice    that inhibited all fungi. It also treats indigestion, relieves minor head    pain and promotes sweating. Historically Oregano was known to loosen    respiratory phlegm, so it was targeted for lung and sinus support.&nbsp;</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Parsley Leaf </span><a name="Parsley" id="Parsley"></a><br />
+                Parsley    Leaf has been used since antiquity for the urinary system. It is diuretic,    has a long history of herbal use in treating bladder imbalances and helps    with water retention as well. Parsley is a source of phytoestrogens, so it    benefits normal menstruation, menopause and promotes lactation. It aids and    works as a digestive when combined with turmeric. Rich in boron and fluorine,    critical minerals for bone health, it also contains 3.5 times as much vitamin    C as oranges, and twice as much calcium as broccoli.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Passion Flower Extract </span><a name="Passion" id="Passion"></a><br />
+                Passion    Flower has a relaxing effect on central nervous system activity. This    American plant&rsquo;s leaves are used to relax mood, ease stress and tension and    to support proper sleep. The relaxing effects help to normalize blood    pressure and stabilize heart rhythm. Many of the active flavonoids are known    for anti-spasmodic and anti-inflammatory action.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Peppermint Leaf </span><a name="Peppermint" id="Peppermint"></a><br />
+                Peppermint    Leaf, a popular flavor with deodorant properties, is a cooling diaphoretic,    used for respiratory ailments. Peppermint is also widely used as a digestive    aid that reduces gas and eases an upset stomach. Peppermint is considered a    general stimulant, cleansing and strengthening the entire body. Recent    research has highlighted this herb as an aid for the bowels.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Pomegranate Juice Powder </span><a name="Pomegranate" id="Pomegranate"></a><br />
+                The    Pomegranate is native from Iran to the Himalayas in northern India and has    been cultivated across the entire Mediterranean region since ancient times.    The Pomegranate tree is long-lived, with some specimens in Europe known to be    more than 200 years old. Brought to California by Spanish settlers in the    1700s, in the United States the fruit is now grown in the drier parts of    California and Arizona. As delicious as it is exotic, this delectable fruit    packs a powerful nutritional punch, particularly when it comes to antioxidant    ability. Pomegranate contains unusually high levels of naturally occurring    polyphenols, which are well known as antioxidants: the agents that bind with    and neutralize damaging free radicals.&nbsp;</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Raspberry Leaf </span><a name="Raspberry" id="Raspberry"></a><br />
+                Raspberry    Leaf is a source of mild astringent compounds. Astringents tighten up and dry    out loose, soggy tissue. Raspberry leaf is used for excessive menstruation    and diarrhea, and is a good hemostatic for bleeding. An important ingredient,    ellagic acid, is a powerful cell protectant and antioxidant. Raspbery leaf is    widely recommended for a healthy uterus and is considered to be not only safe    but an excellent help during pregnancy.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Red Clover</span><a name="RedClover" id="RedClover"></a><br />
+                Red    Clover Flower is a general detoxifying (blood cleanser) herb. A source of    phytoestrogens, it helps with hot flashes and general menopause support. It    has a pleasant sweet taste.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Rhubarb Root </span><a name="Rhubarb" id="Rhubarb"></a><br />
+                Rhubarb    Root is a famous laxative in Chinese medicine. This cold herb increases    intestinal peristalsis and promotes proper bowel elimination. It is    detoxifying for the entire body.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Roasted Chicory Root </span><a name="Chicory" id="Chicory"></a><br />
+                Roasted    Chicory Root has a robust, earthy flavor. The root has a general benefit for    the liver. It has been used as a coffee substitute.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Rooibos Leaf </span><a name="Rooibos" id="Rooibos"></a><br />
+                Rooibos    Leaf is a shrubby African legume that is a bedtime favorite among South    African herbalists, consumers and even physicians. South Africans also use it    to improve appetite, calm the digestive tract and reduce nervous tension.    They regard it as safe enough to give infants. This sweet, relaxing tea    enhances immune response, reduces seasonal sneezing, balances blood sugar and    blood fats and helps with heartburn.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Rooibos Leaf (Redbush) </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Rose Hip </span><a name="RoseHip" id="RoseHip"></a><br />
+                Rose    Hips have a delicious tart taste and astringent action. Very high in vitamin    C, they act as antioxidants and support immune function. Herbalists use them    for general debility and exhaustion, as a mild nutritive for kidney, bladder    and gallbladder, and as a digestive aid. They have a mildly laxative affect.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Rose Petal </span><a name="RosePetal" id="RosePetal"></a><br />
+                Rose    Petals are a popular medicine in the Middle East and India. They are    especially good for reducing heat in the body and soothing inflamed surfaces.    Rose petals also act as a mild laxative and regulate menstruation.</td>
+              </tr>
+            <tr height="0">
+              <td valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Safflower Flower</span><a name="Safflower" id="Safflower"></a><br />
+                An herbaceous, thistle-like annual with many long sharp spines on the leaves that has been used in herbal medicine as a diaphoretic and diuretic. When prepared as tea, safflower produces strong perspiration and has thus been used for colds and related ailments.</td>
+            </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Saffron Stamen </span><a name="Saffron" id="Saffron"></a><br />
+                Saffron    Stamen is considered to be one of the finest blood revitalizers in Ayurveda.    Saffron is a potent herb, which enhances circulation throughout the body, but    particularly in the female reproductive tract. Even though it has pungent    taste, the overall energy is cold, making it a favored herb for combating    pitta. Recent evidence has shown that saffron may reduce cell damage when    included in the diet. The effects of saffron may have been at least partially    due to its high content of carotenoids.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Senna Leaf<a name="Senna" id="Senna"></a> </span><br />
+                Senna    Leaf is a strong anthraquinone-containing purgative that is used in acute    constipation. This East Indian promotes bile flow in liver. Long a favorite    in Europe, senna will promote a bowel movement in about 4-6 hours.&nbsp;</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Skullcap Leaf</span><a name="Skullcap" id="Skullcap"></a><br />
+                Skullcap    Leaf is a mild relaxant that is particularly good for reducing pitta. It    renews the tissues of the nervous system, benefiting mood issues and PMS.    Ayurveda says that it enhances meditation and awareness and reduces anger,    jealousy and hatred. It is emotionally, as well as physically, calming.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Slippery Elm Bark</span><a name="Slippery" id="Slippery"></a><br />
+                  Slippery    Elm Bark is native to North America. Slippery elm, a soothing, slimy herb, is    used internally for irritated digestive conditions and diarrhea. The slimy    consistency comes from a high content of soluble fiber, which makes it    valuable as a fiber laxative. As a poultice, it is a useful remedy for skin    conditions. Slippery elm bark is another mucilage&#8208;containing, throat soothing    medicine. The Food and Drug Administration has deemed the herb a safe,    effective cough soother.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Spearmint Leaf </span><a name="Spearmint" id="Spearmint"></a><br />
+                Spearmint    Leaf is mildly soothing when used for digestive disorders, and slightly    relaxing overall. Ayurveda says that this herb clears the mind and senses,    and that it is superior to peppermint as a relaxant and as a diuretic. As are    all mints, spearmint is a mild diaphoretic that is employed to aid    respiratory issues during the cold season.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic St. John's Wort Leaf and Flower</span><a name="StJohns" id="StJohns"></a><br />
+                St.    John's Wort is a mild mood elevator. It is used for its sedative effect and    as a general restorative remedy for nerve tissue. It is also thought to    benefit mild painful conditions. Studies show that it helps with    sleeplessness and reduces menopause symptoms, including promoting    postmenopausal sexual well-being. It supports immune function and reduces    fatigue over time.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">St. John's Wort Extract</span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Stevia Leaf </span><a name="Stevia" id="Stevia"></a><br />
+                Stevia    Leaf is used in South America, primarily as a sweetener. Locals there use it    as a substitute for sugar for those who can&rsquo;t use sugar. Various glycosides,    including stevoside, which is about 100 to 200 times sweeter than sugar,    provide the sweetness. It is widely used as a non-sugar sweetener in other    areas of the world, particularly in Japan.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Stevia Leaf</span> <br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Thyme Leaf </span><a name="Thyme" id="Thyme"></a><br />
+                Thyme    is a noted and powerful herbal antiseptic. It&rsquo;s also an expectorant,    loosening the phlegm, and antispasmodic. Thyme tops contain an essential oil    composed mainly of the active ingredients thymol and carvacrol. Thymol is one    of the most powerful antimicrobial substances known- far more so than some of    the strongest antibiotics. The ancient Greeks used thyme for its antiseptic    properties and later Europeans employed it for coughs and shortness of    breath. Today, natural healing practitioners use it for upper respiratory    infections, especially with dry hacking coughs. Use thyme tea as a gargle or    mouthwash for sore throats. The German Commission E lists thyme for symptoms    of bronchitis and whooping cough and mucus infections of the upper    respiratory tract. With its large margin of safety, thyme is a respected    medicine for children&rsquo;s cough.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Turmeric Root</span><a name="Turmeric" id="Turmeric"></a><br />
+                Turmeric    Root is one of the most widely used herbs for joint support in India, where    it is commonly combined with ginger. Studies have shown that turmeric has    strong antioxidant activity. It is more potent than either vitamin C or    vitamin E. One component, dimethylbenzyl alcohol, normalizes cholesterol in    the blood, while curcumin removes accumulation of cholesterol in the liver.    Turmeric normalizes arterial health. Turmeric is also called for when    indigestion, gas, and eliminatory issues imbalance the body. In Asia,    turmeric is a major skin support herb.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Valerian Root </span><a name="Valerian" id="Valerian"></a><br />
+                Valerian    Root is a relaxant herb widely used in Europe, which has a calming effect on    the autonomic nervous system. It is a good short-term sedative that works    quickly, offering a healthy, nontoxic alternative to prescription drugs. For    insomnia, valerian works best when taken right at bedtime to help induce    sleep quickly. Ayurveda uses valerian for vata problems of the colon.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Valerian Root Extract </span><br />
+                See    above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Wax Gourd </span><a name="Gourd" id="Gourd"></a><br />
+                Wax    Gourd Seed is used in Chinese medicine to reduce heat and inflammation,    particularly in the large intestine. It also helps to expel mucus from the    lungs and fight respiratory imbalances. It also promotes urination.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Yarrow Flower </span><a name="Yarrow" id="Yarrow"></a><br />
+                Yarrow Flower is a very well known, popular herb in Western herbalism. It has a    unique ability to promote perspiration and urination. It is astringent, so it    is used to tighten tissues and reduce unwanted secretions. Yarrow is a cold,    bitter herb that is used to treat respiratory issues during the cold season.    It reduces mucus in the lungs and lowers excessive heat in the    body.&lt;br&gt;&lt;br&gt;</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Organic Yellow Dock Root </span><a name="YellowDock" id="YellowDock"></a><br />
+                Yellow Dock Root has a long history of use as an alterative- a detoxifying herb. It    is used to treat skin conditions and to cleanse the liver. For those    purposes, it is often combined with dandelion. A mild laxative, it contains    anthraquinone glycosides, these active ingredients are also found in senna    leaf. A rich source of iron, it has been traditionally taken to add iron to    the diet.</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Yellow Dock Root </span><br />
+                See above</td>
+              </tr>
+            <tr height="0">
+              <td width="0" valign="top" class="yogibodytext"><span class="BoldYogiTeaBodyText">Yucca Root Extract </span><a name="Yucca" id="Yucca"></a><br />
+                Yucca Root, a Native American remedy, is used for irritation of all sorts, such as    joint or skin discomfort. The main medicinal agents are saponins, which have    a soapy consistency. Native Americans used yucca as a soap as it had a    lathering effect. Yucca is also used as a blood cleanser.</td>
+              </tr>
+          </table></td>
+        </tr>
+      </table>
+    <span class="yogibodytext"> </span><!-- InstanceEndEditable --></td>
+  </tr>
+  <tr>
+    <td colspan="7" valign="top"><img src="../Graphics/SP-BottomeDisplay.gif" width="818" height="44" /></td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td colspan="5" valign="top"><div align="center"><span class="style1">|&nbsp;&nbsp;<a href="../Index.htm">Home</a>&nbsp;|&nbsp;&nbsp;<a href="OurTeas.html">Our Teas</a> &nbsp;|&nbsp;&nbsp;<a href="Lifestyle.html">Lifestyle</a>&nbsp;|&nbsp;&nbsp;<a href="../WhereToBuy/WhereToBuy.asp">Store Locator</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="FreeSamples.html">Free Samples</a> &nbsp;|&nbsp;&nbsp;<a href="AboutUs.html">About Us</a> &nbsp;|&nbsp;&nbsp;<a href="ShopOnline.html">Shop Online</a> &nbsp;&nbsp;|<br />
+    Yogi Tea &copy; 2008. All Rights Reserved. <a href="PrivacyStatment.html">Privacy Statement</a>. <a href="Disclaimer.html">Disclaimer</a>. </span></div></td>
+  </tr>
+</table>
+</body>
+<!-- InstanceEnd --></html>

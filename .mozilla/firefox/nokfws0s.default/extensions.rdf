@@ -1,0 +1,650 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:NS1="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$v6vjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0"
+                   NS1:maxVersion="3.1a2pre" />
+  <RDF:Description RDF:about="urn:mozilla:item:{de5809e0-2b07-11dd-bd0b-0800200c9a66}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.0.5"
+                   NS1:internalName="gradient_icool"
+                   NS1:name="Gradient iCool"
+                   NS1:description="A mordern glassy dark theme with unique animated interface. A perfect mixture of black and blue for your ultimate Firefox browser."
+                   NS1:creator="Edward Mak"
+                   NS1:homepageURL="http://gradientstudio.blogspot.com/"
+                   NS1:contributor="Edward Mak">
+    <NS1:type NC:parseType="Integer">4</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$h4vjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$BWxZW2"
+                   NS1:id="toolkit@mozilla.org"
+                   NS1:minVersion="1.9"
+                   NS1:maxVersion="1.9.0.*" />
+  <RDF:Description RDF:about="rdf:#$R5vjh1"
+                   NS1:id="{3db10fab-e461-4c80-8b97-957ad5f8ea47}"
+                   NS1:minVersion="8.0"
+                   NS1:maxVersion="9.0.*" />
+  <RDF:Description RDF:about="rdf:#$1cvjh1"
+                   NS1:id="{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}"
+                   NS1:minVersion="1.1"
+                   NS1:maxVersion="2.0a2" />
+  <RDF:Description RDF:about="rdf:#$vavjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="2.0"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="rdf:#$W9vjh1"
+                   NS1:locale="ja-JP"
+                   NS1:name="Fire.fm"
+                   NS1:description="Last.fm から日々の音楽習慣を聴こう。"
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/"
+                   NS1:translator="drry (Babelzilla)">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$T9vjh1"
+                   NS1:locale="es-ES"
+                   NS1:name="Fire.fm"
+                   NS1:description="Escucha la música que quieres de Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$8cvjh1"
+                   NS1:id="prism@developer.mozilla.org"
+                   NS1:minVersion="0.9"
+                   NS1:maxVersion="0.9.*" />
+  <RDF:Description RDF:about="rdf:#$P9vjh1"
+                   NS1:locale="de-DE"
+                   NS1:name="Fire.fm"
+                   NS1:description="Holen Sie sich Ihre tägliche Musik von Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/"
+                   NS1:translator="/usr/bin/tux (Babelzilla)">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$.9vjh1"
+                   NS1:locale="sr-RS"
+                   NS1:name="Fire.fm"
+                   NS1:description="Узмите своју дневну дозу музике са Last.fm-а."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/"
+                   NS1:translator="3kornepenal (Babelzilla)">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$rcvjh1"
+                   NS1:id="{a463f10c-3994-11da-9945-000d60ca027b}"
+                   NS1:minVersion="0.5"
+                   NS1:maxVersion="1.0.*" />
+  <RDF:Description RDF:about="rdf:#$cXxZW2"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0.5"
+                   NS1:maxVersion="3.0.5" />
+  <RDF:Description RDF:about="rdf:#$8bvjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="1.5"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="rdf:#$Q4vjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="1.5"
+                   NS1:maxVersion="3.1b3pre" />
+  <RDF:Description RDF:about="urn:mozilla:item:langpack-en-GB@firefox-3.0.ubuntu.com"
+                   NS1:installLocation="app-global"
+                   NS1:version="3.0.3"
+                   NS1:name="Firefox (en-GB)"
+                   NS1:creator="http://translations.launchpad.net">
+    <NS1:type NC:parseType="Integer">8</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$IWxZW2"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$6cvjh1"
+                   NS1:id="dlm@emusic.com"
+                   NS1:minVersion="1.0"
+                   NS1:maxVersion="1.0.0.*" />
+  <RDF:Description RDF:about="urn:mozilla:item:filtersetg@updater"
+                   NS1:installLocation="app-profile"
+                   NS1:version="0.3.1.3"
+                   NS1:optionsURL="chrome://fgupdater/content/settings.xul"
+                   NS1:aboutURL="chrome://fgupdater/content/settings.xul"
+                   NS1:iconURL="chrome://fgupdater/skin/icon.png"
+                   NS1:name="Adblock Filterset.G Updater"
+                   NS1:description="Synchronizes Adblock with Filterset.G"
+                   NS1:creator="Reid Rankin, Michael McDonald"
+                   NS1:homepageURL="http://www.pierceive.com/">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:contributor>--TRANSLATIONS BY--</NS1:contributor>
+    <NS1:contributor>Luana Di Muzio (it-IT)</NS1:contributor>
+    <NS1:contributor>Stefan Pukallus (de-DE)</NS1:contributor>
+    <NS1:contributor>KAMI (hu-HU)</NS1:contributor>
+    <NS1:contributor>jojaba (fr-FR)</NS1:contributor>
+    <NS1:contributor>Jose Sun (zh-TW)</NS1:contributor>
+    <NS1:contributor>Blackdire and rickcart(zh-CN)</NS1:contributor>
+    <NS1:contributor>Victory and Premier (ja)</NS1:contributor>
+    <NS1:contributor>zefranc (pt-PT)</NS1:contributor>
+    <NS1:contributor>urko (es-ES)</NS1:contributor>
+    <NS1:contributor>Akilles (fi-FI)</NS1:contributor>
+    <NS1:contributor>Ge0rge (cs-CZ)</NS1:contributor>
+    <NS1:contributor>Marius (nb-NO)</NS1:contributor>
+    <NS1:contributor>fernph (pt-BR)</NS1:contributor>
+    <NS1:contributor>Zaffo (nl-NL)</NS1:contributor>
+    <NS1:contributor>Leszek(teo) (pl-PL)</NS1:contributor>
+    <NS1:contributor>jorsal (da-DK)</NS1:contributor>
+    <NS1:contributor>Viper (ru-RU)</NS1:contributor>
+    <NS1:contributor>Jacen (sk-SK)</NS1:contributor>
+    <NS1:contributor>RaCMaX (ca-AD)</NS1:contributor>
+    <NS1:contributor>jameka (sv-SE)</NS1:contributor>
+    <NS1:contributor>Q8Bond007 (ar)</NS1:contributor>
+    <NS1:contributor>Andrew O. Shadoura (be-BY)</NS1:contributor>
+    <NS1:contributor>emz (bg-BG)</NS1:contributor>
+    <NS1:contributor>Nameless (es-AR, es-CL)</NS1:contributor>
+    <NS1:contributor>navid, bahramm (fa-IR)</NS1:contributor>
+    <NS1:contributor>Krcko (hr-HR)</NS1:contributor>
+    <NS1:contributor>Andrei (ro-RO)</NS1:contributor>
+    <NS1:targetApplication RDF:resource="rdf:#$P5vjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$Q5vjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$R5vjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$S5vjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$T5vjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$0cvjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="2.0"
+                   NS1:maxVersion="3.2a1pre" />
+  <RDF:Description RDF:about="rdf:#$R4vjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="2.0"
+                   NS1:maxVersion="3.1b2pre" />
+  <RDF:Description RDF:about="rdf:#$X9vjh1"
+                   NS1:locale="pl-PL"
+                   NS1:name="Fire.fm"
+                   NS1:description="Twoja dzienna dawka muzyki z Last.fm w przeglądarce."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/"
+                   NS1:translator="Wacław Jacek (Babelzilla)">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:ctrl-tab@design-noir.de"
+                   NS1:installLocation="app-profile"
+                   NS1:version="0.19.3"
+                   NS1:iconURL="chrome://ctrl-tab/content/icon.png"
+                   NS1:name="Ctrl-Tab"
+                   NS1:description="Ctrl+Tab navigation for tabs similar to Alt+Tab on various operating systems. Shift+Ctrl+A / Shift+Cmd+A shows all tabs in a grid."
+                   NS1:creator="Dão Gottwald"
+                   NS1:homepageURL="http://en.design-noir.de/mozilla/ctrl-tab/">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$eavjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:{a0d7ccb3-214d-498b-b4aa-0e8fda9a7bf7}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="20081111"
+                   NS1:iconURL="chrome://wot/skin/fusion/32_32/new_trusted.png"
+                   NS1:name="WOT"
+                   NS1:description="Web of trust."
+                   NS1:creator="Against Intuition Oy"
+                   NS1:homepageURL="http://www.mywot.com/">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$qcvjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$rcvjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$R9vjh1"
+                   NS1:locale="es-AR"
+                   NS1:name="Fire.fm"
+                   NS1:description="Escucha la música que quieres de Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:{6F0976E6-26F3-4AFE-BBEC-9E99E27E4DF3}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.1.3"
+                   NS1:optionsURL="chrome://firefm/content/fmPreferencesWindow.xul"
+                   NS1:iconURL="chrome://firefm/skin/logo32.png"
+                   NS1:name="Fire.fm"
+                   NS1:description="Get your daily music fix from Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://firefm.sourceforge.net"
+                   NS1:contributor="Entropiou[S]">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:localized RDF:resource="rdf:#$O9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$P9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$Q9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$R9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$S9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$T9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$U9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$V9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$W9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$X9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$Y9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$Z9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$.9vjh1"/>
+    <NS1:localized RDF:resource="rdf:#$+9vjh1"/>
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+    <NS1:targetApplication RDF:resource="rdf:#$0avjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$1avjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:langpack-en-GB@xulrunner-1.9.ubuntu.com"
+                   NS1:installLocation="gre-global"
+                   NS1:version="1.9.0.3"
+                   NS1:name="Xulrunner (en-GB)"
+                   NS1:creator="http://translations.launchpad.net">
+    <NS1:type NC:parseType="Integer">8</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$BWxZW2"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$qcvjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="1.5"
+                   NS1:maxVersion="3.2a1pre" />
+  <RDF:Description RDF:about="urn:mozilla:item:{e4a8a97b-f2ed-450b-b12d-ee082ba24781}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="0.8.20080609.0"
+                   NS1:optionsURL="chrome://greasemonkey/content/manage.xul"
+                   NS1:iconURL="chrome://greasemonkey/content/icon_medium.png"
+                   NS1:name="Greasemonkey"
+                   NS1:description="A User Script Manager for Firefox"
+                   NS1:creator="Aaron Boodman; http://youngpup.net/"
+                   NS1:homepageURL="http://www.greasespot.net/">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:contributor>Anthony Lieuallen; http://arantius.com</NS1:contributor>
+    <NS1:contributor>Chris Feldmann; http://axlotl.net</NS1:contributor>
+    <NS1:contributor>David Schontzler; http://stilleye.com/</NS1:contributor>
+    <NS1:contributor>Gareth Andrew; http://freegarethandrew.org</NS1:contributor>
+    <NS1:contributor>Hisateru Tanaka</NS1:contributor>
+    <NS1:contributor>Jeremy Dunck; http://dunck.us/anabasis/</NS1:contributor>
+    <NS1:contributor>Jesper Kristensen &lt;mail@jesperkristensen.dk&gt;</NS1:contributor>
+    <NS1:contributor>Johan Sundström; http://ecmanaut.blogspot.com/</NS1:contributor>
+    <NS1:contributor>JP Sugarbroad</NS1:contributor>
+    <NS1:contributor>Juan Pablo Guereca Alonso</NS1:contributor>
+    <NS1:contributor>Manpreet Singh</NS1:contributor>
+    <NS1:contributor>Mark Pilgrim; http://diveintomark.org</NS1:contributor>
+    <NS1:contributor>Marti Martz</NS1:contributor>
+    <NS1:contributor>Matthias Bauer; http://moeffju.net/</NS1:contributor>
+    <NS1:contributor>Matthew Gray; http://mkgray.com:8000/</NS1:contributor>
+    <NS1:contributor>Nikolas Coukouma; http://atrus.org/</NS1:contributor>
+    <NS1:contributor>Ori Avtallon</NS1:contributor>
+    <NS1:contributor>Pak Kei (logo); http://arkidect.com/</NS1:contributor>
+    <NS1:contributor>Sergio Abreu; http://sitedosergio.sitesbr.net</NS1:contributor>
+    <NS1:contributor>Tommi Rautava</NS1:contributor>
+    <NS1:targetApplication RDF:resource="rdf:#$8bvjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$9bvjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$1avjh1"
+                   NS1:id="{a463f10c-3994-11da-9945-000d60ca027b}"
+                   NS1:minVersion="2.0b1"
+                   NS1:maxVersion="2.0pre" />
+  <RDF:Seq RDF:about="urn:mozilla:item:root">
+    <RDF:li RDF:resource="urn:mozilla:item:filtersetg@updater"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:chromifox@altmusictv.com"/>
+    <RDF:li RDF:resource="urn:mozilla:item:ctrl-tab@design-noir.de"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{972ce4c6-7e08-4474-a285-3208198ce6fd}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{2fa4ed95-0317-4c6a-a74c-5f3e3912c1f9}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:fastdial@telega.phpnet.us"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{6F0976E6-26F3-4AFE-BBEC-9E99E27E4DF3}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:firebug@software.joehewitt.com"/>
+    <RDF:li RDF:resource="urn:mozilla:item:langpack-en-GB@firefox-3.0.ubuntu.com"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{a7c6cf7f-112c-4500-a7ea-39801a327e5f}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:firegestures@xuldev.org"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{de5809e0-2b07-11dd-bd0b-0800200c9a66}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{e4a8a97b-f2ed-450b-b12d-ee082ba24781}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{4776510a-a1f4-41f3-a3c8-35b474ecef23}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:ubufox@ubuntu.com"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{a0d7ccb3-214d-498b-b4aa-0e8fda9a7bf7}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{fc76dc89-03b7-47fe-ab1d-b317b062bba8}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:langpack-en-GB@xulrunner-1.9.ubuntu.com"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="rdf:#$V9vjh1"
+                   NS1:locale="gl-ES"
+                   NS1:name="Fire.fm"
+                   NS1:description="Consegue a túa dose cotián de música de Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/"
+                   NS1:translator="lois (Babelzilla)">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$Q5vjh1"
+                   NS1:id="{86c18b42-e466-45a9-ae7a-9b95ba6f5640}"
+                   NS1:minVersion="1.4"
+                   NS1:maxVersion="1.8" />
+  <RDF:Description RDF:about="rdf:#$Z9vjh1"
+                   NS1:locale="ru-RU"
+                   NS1:name="Fire.fm"
+                   NS1:description="Получи свою ежедневную дозу музыки с Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/"
+                   NS1:translator="Quicksilver tears (Babelzilla)">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$Y9vjh1"
+                   NS1:locale="pt-BR"
+                   NS1:name="Fire.fm"
+                   NS1:description="Get your daily music fix from Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/"
+                   NS1:translator="Alberto Eidh (Babelzilla)">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$ZWxZW2"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="1.5"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="rdf:#$U9vjh1"
+                   NS1:locale="fr-FR"
+                   NS1:name="Fire.fm"
+                   NS1:description="Prenez votre dose de musique quotidienne en écoutant Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/"
+                   NS1:translator="jojaba (Babelzilla)">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$D4vjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="1.0"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="rdf:#$3cvjh1"
+                   NS1:id="{a463f10c-3994-11da-9945-000d60ca027b}"
+                   NS1:minVersion="1.0"
+                   NS1:maxVersion="2.0.*" />
+  <RDF:Description RDF:about="urn:mozilla:item:{972ce4c6-7e08-4474-a285-3208198ce6fd}"
+                   NS1:installLocation="gre-global"
+                   NS1:version="3.0.5"
+                   NS1:internalName="classic/1.0"
+                   NS1:locked="true"
+                   NS1:appManaged="true"
+                   NS1:name="Default"
+                   NS1:description="The default theme."
+                   NS1:creator="Mozilla"
+                   NS1:contributor="Mozilla Contributors">
+    <NS1:type NC:parseType="Integer">4</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$cXxZW2"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$Q9vjh1"
+                   NS1:locale="en-GB"
+                   NS1:name="Fire.fm"
+                   NS1:description="Get your daily music fix from Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:{2fa4ed95-0317-4c6a-a74c-5f3e3912c1f9}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="2.1.018"
+                   NS1:optionsURL="chrome://ybookmarks/content/options.xul"
+                   NS1:iconURL="chrome://ybookmarks/skin/deliciousIconBig.gif"
+                   NS1:name="Delicious Bookmarks"
+                   NS1:description="Access your bookmarks wherever you go and keep them organized no matter how many you have."
+                   NS1:creator="Yahoo!"
+                   NS1:homepageURL="http://delicious.com">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$R4vjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:firebug@software.joehewitt.com"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.2.1"
+                   NS1:iconURL="chrome://firebug/content/firebug.png"
+                   NS1:name="Firebug"
+                   NS1:description="Web Development Evolved."
+                   NS1:creator="Joe Hewitt"
+                   NS1:homepageURL="http://www.getfirebug.com/">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:contributor>1.1 and 1.2 enhancements: John J. Barton (IBM Almaden)</NS1:contributor>
+    <NS1:contributor>Jan Odvarko (All Peers Inc.)</NS1:contributor>
+    <NS1:contributor>Max Stepanov (Aptana Inc.)</NS1:contributor>
+    <NS1:targetApplication RDF:resource="rdf:#$vavjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:firegestures@xuldev.org"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.1.6"
+                   NS1:optionsURL="chrome://firegestures/content/prefs.xul"
+                   NS1:iconURL="chrome://firegestures/skin/icon.png"
+                   NS1:name="FireGestures"
+                   NS1:description="Executes various commands with mouse gestures."
+                   NS1:creator="Gomita"
+                   NS1:homepageURL="http://www.xuldev.org/firegestures/"
+                   NS1:contributor="tsukkee (testing with Mac OS X)">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:translator>Quicksilver tears (ru-RU)</NS1:translator>
+    <NS1:translator>myahoo (fr-FR)</NS1:translator>
+    <NS1:translator>Cye3s (zh-CN)</NS1:translator>
+    <NS1:translator>teo, Wacław Jacek (pl-PL)</NS1:translator>
+    <NS1:translator>josesun, Nelson (zh-TW)</NS1:translator>
+    <NS1:translator>Indigo (it-IT)</NS1:translator>
+    <NS1:translator>PAB (de-DE)</NS1:translator>
+    <NS1:translator>Alberto Eidh (pt-BR)</NS1:translator>
+    <NS1:translator>villepyry (fi-FI)</NS1:translator>
+    <NS1:translator>wtspout (ko-KR)</NS1:translator>
+    <NS1:translator>MartinZubek (cs-CZ)</NS1:translator>
+    <NS1:translator>gandhi2 (nb-NO)</NS1:translator>
+    <NS1:translator>kami (hu-HU)</NS1:translator>
+    <NS1:translator>headshrinker (sk-SK)</NS1:translator>
+    <NS1:translator>efecan (tr-TR)</NS1:translator>
+    <NS1:translator>DakSrbija (sr-RS)</NS1:translator>
+    <NS1:targetApplication RDF:resource="rdf:#$+6vjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$9bvjh1"
+                   NS1:id="songbird@songbirdnest.com"
+                   NS1:minVersion="0.3pre"
+                   NS1:maxVersion="0.3.*" />
+  <RDF:Description RDF:about="rdf:#$aEa2C"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="rdf:#$j7vjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0"
+                   NS1:maxVersion="3.1b2" />
+  <RDF:Description RDF:about="rdf:#$P5vjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="1.0"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="rdf:#$T5vjh1"
+                   NS1:id="{a463f10c-3994-11da-9945-000d60ca027b}"
+                   NS1:minVersion="1.0"
+                   NS1:maxVersion="1.0.*" />
+  <RDF:Description RDF:about="rdf:#$4cvjh1"
+                   NS1:id="songbird@songbirdnest.com"
+                   NS1:minVersion="0.7"
+                   NS1:maxVersion="1.0.*" />
+  <RDF:Description RDF:about="urn:mozilla:item:{4776510a-a1f4-41f3-a3c8-35b474ecef23}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.0.6"
+                   NS1:optionsURL="chrome://stealther/content/options.xul"
+                   NS1:iconURL="chrome://stealther/content/stealther.png"
+                   NS1:name="Stealther"
+                   NS1:description="Surf the web without leaving a trace in Firefox."
+                   NS1:creator="Filip Bozic"
+                   NS1:homepageURL="http://www.zadet.net">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$D4vjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.0"
+                   NS1:optionsURL="chrome://adblockplus/content/settings.xul"
+                   NS1:aboutURL="chrome://adblockplus/content/about.xul"
+                   NS1:iconURL="chrome://adblockplus/skin/adblockplus.png"
+                   NS1:name="Adblock Plus"
+                   NS1:description="Ads were yesterday!"
+                   NS1:creator="Wladimir Palant"
+                   NS1:homepageURL="http://adblockplus.org/">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$0cvjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$1cvjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$2cvjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$3cvjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$4cvjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$5cvjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$6cvjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$7cvjh1"/>
+    <NS1:targetApplication RDF:resource="rdf:#$8cvjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$+6vjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="2.0"
+                   NS1:maxVersion="3.1b3pre" />
+  <RDF:Description RDF:about="rdf:#$5cvjh1"
+                   NS1:id="{aa5ca914-c309-495d-91cf-3141bbb04115}"
+                   NS1:minVersion="0.2"
+                   NS1:maxVersion="0.3" />
+  <RDF:Description RDF:about="rdf:#$h4vjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="rdf:#$O9vjh1"
+                   NS1:locale="bg-BG"
+                   NS1:name="Fire.fm"
+                   NS1:description="Вашата дневна доза музика от Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/"
+                   NS1:translator="Fingli (Babelzilla)">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:{a7c6cf7f-112c-4500-a7ea-39801a327e5f}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.0.3"
+                   NS1:optionsURL="chrome://fireftp/content/preferences.xul"
+                   NS1:iconURL="chrome://fireftp/skin/icons/logo32.png"
+                   NS1:name="FireFTP"
+                   NS1:description="FTP client for Mozilla Firefox."
+                   NS1:creator="Mime Čuvalo"
+                   NS1:homepageURL="http://fireftp.mozdev.org">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:contributor>Devin Pohly</NS1:contributor>
+    <NS1:contributor>Scott Bentley</NS1:contributor>
+    <NS1:targetApplication RDF:resource="rdf:#$j7vjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:ubufox@ubuntu.com"
+                   NS1:installLocation="app-global"
+                   NS1:version="0.6"
+                   NS1:iconURL="chrome://ubufox/content/ubuntulogo32.png"
+                   NS1:name="Ubuntu Firefox Modifications"
+                   NS1:description="Ubuntu configuration defaults and apt support for firefox extensions/plugins."
+                   NS1:creator="Canonical Ltd.">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:contributor>Alexander Sack &lt;asac@ubuntu.com&gt;</NS1:contributor>
+    <NS1:contributor>Sasa Bodiroza &lt;jazzva@gmail.com&gt;</NS1:contributor>
+    <NS1:contributor>Daniel Abramov &lt;ex@vingrad.ru&gt;</NS1:contributor>
+    <NS1:contributor>Arzhel Younsi &lt;xionox@gmail.com&gt;</NS1:contributor>
+    <NS1:contributor>Saïvann Carignan &lt;oxmosys@gmail.com&gt;</NS1:contributor>
+    <NS1:targetApplication RDF:resource="rdf:#$ZWxZW2"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$S5vjh1"
+                   NS1:id="{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}"
+                   NS1:minVersion="1.0"
+                   NS1:maxVersion="2.0a1" />
+  <RDF:Description RDF:about="rdf:#$2cvjh1"
+                   NS1:id="{3550f703-e582-4d05-9a08-453d09bdfdc6}"
+                   NS1:minVersion="2.0"
+                   NS1:maxVersion="3.0b1pre" />
+  <RDF:Description RDF:about="rdf:#$+9vjh1"
+                   NS1:locale="tr-TR"
+                   NS1:name="Fire.fm"
+                   NS1:description="Get your daily music fix from Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/"
+                   NS1:translator="smg (Babelzilla)">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$IWxZW2"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="urn:mozilla:item:fastdial@telega.phpnet.us"
+                   NS1:installLocation="app-profile"
+                   NS1:version="2.9"
+                   NS1:optionsURL="chrome://fastdial/content/preferences.xul"
+                   NS1:iconURL="chrome://fastdial/skin/logo.png"
+                   NS1:name="Fast Dial"
+                   NS1:creator="telega"
+                   NS1:availableUpdateInfo="https://addons.mozilla.org/versions/updateInfo/60215/%APP_LOCALE%/"
+                   NS1:availableUpdateURL="http://releases.mozilla.org/pub/mozilla.org/addons/5721/fast_dial-2.15-fx.xpi"
+                   NS1:availableUpdateHash="sha1:9fb24c040580e35c4f6be578a90f28f02a691c3e"
+                   NS1:availableUpdateVersion="2.15">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:translator>soham_chatterjee (bn-IN)</NS1:translator>
+    <NS1:translator>ellibre (ca-AD)</NS1:translator>
+    <NS1:translator>PetrTwo (cs-CZ)</NS1:translator>
+    <NS1:translator>typh (da-DK)</NS1:translator>
+    <NS1:translator>Gulp21 (de-DE)</NS1:translator>
+    <NS1:translator>Johnbo (es-ES)</NS1:translator>
+    <NS1:translator>MiK546 (fi-FI)</NS1:translator>
+    <NS1:translator>myahoo (fr-FR)</NS1:translator>
+    <NS1:translator>Godai71 (it-IT)</NS1:translator>
+    <NS1:translator>Haebaru (ja-JP)</NS1:translator>
+    <NS1:translator>gandhi2 (nb-NO)</NS1:translator>
+    <NS1:translator>simonnam (pl-PL)</NS1:translator>
+    <NS1:translator>humbertosartini (pt-BR)</NS1:translator>
+    <NS1:translator>Sosie (sk-SK)</NS1:translator>
+    <NS1:translator>3kornepenal (sr-RS)</NS1:translator>
+    <NS1:translator>rserdar (tr-TR)</NS1:translator>
+    <NS1:translator>Sappa (uk-UA)</NS1:translator>
+    <NS1:translator>loveleeyoungae (vi-VN)</NS1:translator>
+    <NS1:translator>xmoke (zh-CN)</NS1:translator>
+    <NS1:translator>josesun (zh-TW)</NS1:translator>
+    <NS1:contributor>mafi0z</NS1:contributor>
+    <NS1:contributor>Lain_13</NS1:contributor>
+    <NS1:contributor>Sid</NS1:contributor>
+    <NS1:contributor>Philip</NS1:contributor>
+    <NS1:contributor>z645</NS1:contributor>
+    <NS1:contributor>Leszek(teo)Życzkowski</NS1:contributor>
+    <NS1:contributor>k-dash</NS1:contributor>
+    <NS1:targetApplication RDF:resource="rdf:#$v6vjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:chromifox@altmusictv.com"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.0"
+                   NS1:internalName="Chromifox"
+                   NS1:name="Chromifox"
+                   NS1:description="A coat of Chrome for Firefox."
+                   NS1:creator="falconer"
+                   NS1:homepageURL="https://addons.mozilla.org/en-US/firefox/addon/8782">
+    <NS1:type NC:parseType="Integer">4</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$aEa2C"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:{fc76dc89-03b7-47fe-ab1d-b317b062bba8}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="1.0.12658"
+                   NS1:iconURL="chrome://xoopitforgmail/skin/xoopit_32x32.png"
+                   NS1:name="Xoopit for Gmail"
+                   NS1:description="Adds fast photo, video and file browsing to Gmail."
+                   NS1:creator="Xoopit Inc"
+                   NS1:homepageURL="http://www.xoopit.com">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$Q4vjh1"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$S9vjh1"
+                   NS1:locale="es-CL"
+                   NS1:name="Fire.fm"
+                   NS1:description="Escucha la música que quieres de Last.fm."
+                   NS1:creator="Jose Enrique Bolaños &amp; Jorge Villalobos"
+                   NS1:homepageURL="http://sourceforge.net/projects/firefm/">
+    <NS1:developer>Jose Enrique Bolaños</NS1:developer>
+    <NS1:developer>Jorge Villalobos</NS1:developer>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$0avjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0"
+                   NS1:maxVersion="3.1b1" />
+  <RDF:Description RDF:about="rdf:#$7cvjh1"
+                   NS1:id="{a79fe89b-6662-4ff4-8e88-09950ad4dfde}"
+                   NS1:minVersion="0.1"
+                   NS1:maxVersion="100.0" />
+  <RDF:Description RDF:about="rdf:#$eavjh1"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0pre"
+                   NS1:maxVersion="3.1b1pre" />
+</RDF:RDF>

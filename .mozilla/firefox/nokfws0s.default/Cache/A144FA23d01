@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- We need to have a hidden <base href /> tag here for wget to work properly - DO NOT REMOVE (nlroth)-->
+
+    <title>Michigan Engineering  | How do I begin programming in C and/or C++ on CAEN Linux computers?</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    
+    <link rel="shortcut icon" href="/caen/favicon.ico" />
+<!-- Style Sheets -->
+    <link rel="stylesheet" media="screen"
+          href="/css/eng.css" />
+    <link rel="stylesheet" media="screen"
+          href="/css/colors.css" />
+    <!--[if lte IE 7 ]><link rel="stylesheet" href="/css/eng-ie7.css" media="screen" /><![endif]-->
+          <!--[if lte IE 6 ]><link rel="stylesheet" href="/css/eng-ie6.css" media="screen" />
+          <script src="/js/ADxMenu.js" type="text/javascript"></script><![endif]-->
+    
+    <link rel="stylesheet" media="print" type="text/css"
+          href="/css/print.css" />
+    <link rel="stylesheet" media="screen" href="/local.css" />
+    
+    <!-- Local Styles -->
+    <style type="text/css"></style>
+    
+    <script type="text/javascript" src="/js/new_core.js"></script>
+    
+    
+</head>
+<body >
+
+
+<!-- Start Gshare Header -->
+<div id="bottomShadowWrap">
+<!-- Main nav menu -->
+<div id="topNav">
+	<ul class="accessibilityLink"><li><a href="#maincontent" accesskey="S">Skip to Main Content</a></li><li><a
+    accesskey="1" href="/#maincontent">Go to the Website's Home</a></li><li><a
+    accesskey="2" href="/newscenter/#maincontent">Go to Website News</a></li><li><a
+    accesskey="5" href="/about/#maincontent">Go to About this site</a></li><li><a href="#audNav" accesskey="6">Skip to Audience Navigation Menu</a></li></ul>
+    <ul class="adxm menu">
+        <li><a href="/links/about.html">About</a>
+            <ul id="menuAbout">
+                <li><a href="/about/">Welcome to the College</a></li>
+                <li><a href="/about/ataglance.html">Facts and Figures</a></li>
+                <li><a href="/admin/dean/">Message from the Dean</a></li>
+                <li><a href="/students/visit/">Visit Us</a></li>
+                <li><a href="/admin/">College Administration</a></li>                                             
+                <li><a href="/newscenter/">News Center</a></li>                                             
+                <li class="adxmbottom"><a
+    href="/links/about.html">More...</a></li>
+            </ul></li>
+        <li><a href="/research/">Research</a>
+            <ul id="menuResearch">
+                <li><a href="/research/">Research</a></li>
+                <li><a href="/departments/">Departments</a></li>
+                <li class="adxmbottom"><a
+    href="/faculty/index.html">Faculty Directory</a></li>
+            </ul></li>
+        <li><a href="/links/admissions.html">Admissions</a>
+            <ul id="menuAdmissions">
+                <li><a href="/admissions/undergraduate/">Undergraduate Admissions</a></li>
+                <li><a href="/gradadmissions/">Graduate Admissions</a></li>
+                <li><a href="/admissions/undergraduate/">Undergraduate Recruiting</a></li>
+                <li><a href="/gradadmissions/">Graduate Recruiting</a></li>                               
+                <li class="adxmbottom"><a
+    href="/links/admissions.html">More...</a></li>
+            </ul></li>
+        <li><a title="Education related links"
+               href="/links/academics.html">Academics</a>
+            <ul id="menuEducation">
+                <li><a href="/students/bulletin/">Course Guide/Bulletin</a></li>
+                <li><a href="/departments/">Departments</a></li>
+                <li><a href="/teaching/">Teaching</a></li>
+                <li><a href="/students/academics/undergrad/degreeoptions.html">Programs and Degrees</a></li>
+                <li><a href="/students/services/">Support Services</a></li>
+                <li class="adxmbottom"><a
+    href="/links/academics.html">More...</a></li>
+            </ul></li>  
+        <li><a title="Links to departmental websites"
+               href="/departments/">Departments</a>
+            <ul id="menuDepartments">
+                <li><a href="http://aerospace.engin.umich.edu/">Aerospace Engineering </a></li>
+                <li><a href="http://aoss.engin.umich.edu/">Atmospheric, Oceanic and Space Sciences</a></li>
+                <li><a href="http://www.bme.umich.edu/">Biomedical Engineering</a></li>
+                <li><a href="http://www.engin.umich.edu/dept/cheme/">Chemical Engineering</a></li>
+                <li><a href="http://cee.engin.umich.edu/">Civil and Environmental Engineering </a></li>
+                <li><a href="https://www.eecs.umich.edu/">Electrical Engineering and Computer Science</a></li>
+                <li><a href="http://ioe.engin.umich.edu/">Industrial and Operations Engineering</a></li>
+                <li><a href="http://www.mse.engin.umich.edu/">Materials Science and Engineering</a></li>
+                <li><a href="http://me.engin.umich.edu/">Mechanical Engineering</a></li>
+                <li><a href="http://www.engin.umich.edu/dept/name/">Naval Architecture and Marine Engineering</a></li>
+                <li class="adxmbottom"><a href="http://www-ners.engin.umich.edu/">Nuclear Engineering and Radiological Sciences</a></li>
+            </ul></li>  
+        <li><a class="adxmbottom"
+               title="Supporting the college links"
+               href="/links/support.html">Support the College</a>
+            <ul id="menuSupport">
+                <li><a href="/giving/">Giving</a></li>
+                <li><a href="/students/mentoring/">Involve Yourself</a></li>
+                <li><a href="/relations/corporate/">Corporate Relationships</a></li>                
+                <li class="adxmbottom"><a
+    href="/links/support.html">More...</a></li>
+            </ul></li>
+    </ul>
+    <div class="clearer" style="background: #ffffff"></div>
+</div>
+<div id="printMENG"><img src="/meng.jpg" alt="" /></div>
+<div id="header">
+<div id="logoBlock">
+	<div id="logo"><a href="/"></a></div>
+                <!-- Search -->
+	<div id="search">
+		<form method="get" action="http://www.engin.umich.edu/search/query" id="bannerSearch_menu">
+			<fieldset>
+				<!--<legend>Search Michigan Engineering:</legend>This text is redundant-->
+				<input type="hidden" name="restrict" id="restrict" value='CoE-CAEN' />
+				<label for="q" id="searchLabel">Search</label>
+				<input class="bannerSearchInputBox" accesskey="4" type="text" name="q" id="q" size="15" maxlength="255" tabindex="1" value="" />
+				<input type="submit" class="btn" value="GO" alt="search" id="bannerSearchButton" />
+			</fieldset>
+		</form>
+	</div>
+        <!-- End Search -->
+	<div id="audNav">
+		
+<ul class="adxm menu">
+			<li class="nolink">Information for:&nbsp;&nbsp;</li>
+			<li><a title="Links for Alumni" href="/links/alumni.html">Alumni</a>
+				<ul id="menuAlumni">
+					<li><a href="/alumni/">Alumni Website</a></li>
+					<li><a href="/alumni/groups/alumnisociety/">Alumni Society</a></li>
+					<li class="adxmbottom"><a href="/alumni/getinvolved/">Get Involved</a></li>
+				</ul></li>
+			<li><a title="Links for Students" href="/students/">Students</a>
+				<ul id="menuStudents">
+				        <li><a href="http://www.finaid.umich.edu/">Financial Aid</a></li>
+					<li><a href="/students/academics/calendar.html">Academic Calendar</a></li>
+					<li><a href="/students/bulletin/">Course Guide/Bulletin</a></li>
+					<li><a href="/students/services/jobs/index.html">Career Resources</a></li>
+					<li><a href="/students/advising/">Advising Center</a></li>
+					<li class="adxmbottom"><a href="/students/">More...</a></li>
+				</ul></li>
+			<li><a title="Links for Faculty"
+          href="/links/faculty.html">Faculty</a>
+				<ul id="menuFaculty">
+					<li><a href="/faculty/meetings/">College Faculty Meetings</a></li>
+					<li><a href="/admin/adr/researchfunding/">Getting Research Funding</a></li>
+					<li><a href="/admin/adaa/facultypositions/index.html">Employment Opportunities</a></li>
+					<li class="adxmbottom"><a href="/links/faculty.html">More...</a></li>
+				</ul></li>
+			<li><a title="Links for Staff" href="/staff/">Staff</a>
+				<ul id="menuStaff">
+					<li><a href="/departments/">Department Listing</a></li>
+					<li><a href="/admin/">College Administration</a></li>
+					<li><a href="/contact/quick.html">Contacts</a></li>
+					<li><a href="/faculty/index.html">Faculty Directory</a></li>
+					<li><a href="http://www.hr.umich.edu/staffhandbook/">Staff Handbook</a></li>
+					<li><a href="/employment.html">Employment Opportunities</a></li>
+					<li class="adxmbottom"><a href="/staff/">More...</a></li>
+				</ul></li>
+			<li><a title="Links for Parents, Teachers and Other Friends"
+          href="/friends/">Friends</a>
+				<ul id="menuFriends">
+					<li><a href="/outreach/">K-12 Outreach</a></li>
+					<li><a href="http://www.umich.edu/parents/important/important3.html">Parents Weekend</a></li>
+					<li><a href="http://www.umich.edu/~govrel/community_guide/commun_serv.html">Community Service Projects</a></li>
+                    <li class="adxmbottom"><a
+    href="/contact/quick.html">Contacts</a></li>
+                    
+				</ul></li>
+			<li><a class="adxmbottom"
+          title="Links for corporate visitors"
+          href="/links/corporations.html">Corporations</a>
+				<ul id="menuCorps">
+					<li><a href="/relations/corporate/about/">Corporate Relations</a></li>
+					<li><a href="/research/">Sponsoring Research</a></li>
+					<li><a href="/relations/corporate/ops/">Opportunties for Interaction</a></li>
+					<li><a href="http://interpro.engin.umich.edu">Professional Education</a></li>
+					<li><a href="/relations/corporate/techtransferandcomm/">Technology Transfer and Licensing</a></li>
+					<li class="adxmbottom"><a
+    href="/links/corporations.html">More...</a></li>
+				</ul></li>
+		</ul>
+
+	</div>
+	<div id="logoBase"></div>
+</div>
+</div>
+<div id="banner">
+        <div id="bannerLeft"></div>
+	<div id="bannerRight">
+	  <h1><span>CAEN</span></h1>
+	</div>
+</div>
+
+<div id="rightbody">
+<div id="leftbody">
+<div id="container" class="twoCol breadcrumbson">
+
+<!-- begin main content area -->
+
+
+
+    <div id="leftcol">
+        
+ 	<div id="leftMenu">
+          <!-- beginning sidebar_menu script -->
+<h1><a href="/caen/index.html" title="caen">CAEN </a></h1>
+<div id="navMenu"><ul>
+<li>
+<a href="/caen/intro/index.html" title="">About CAEN 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/intro/index.html" title="">Introduction </a>
+</li>
+<li>
+<a href="/caen/intro/students/index.html" title="">A Student Guide to CAEN 
+</a>
+</li>
+<li>
+<a href="/caen/intro/policies/index.html" title="">Policies 
+</a>
+</li>
+<li>
+<a href="/caen/intro/orgchart.html" title="">Organizational Chart </a>
+</li>
+<li>
+<a href="/caen/intro/employment/index.html" title="">Employment 
+</a>
+</li>
+<li class="firstitem lastitem">
+<a href="/caen/intro/hours.html" title="">Hours of Operation </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/computers/index.html" title="">Computer Labs 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/computers/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/computers/guidelines.html" title="">Guidelines </a>
+</li>
+<li>
+<a href="/caen/computers/labchart.html" title="">Comparison Chart </a>
+</li>
+<li>
+<a href="/caen/computers/labs/index.html" title="">Lab Descriptions 
+</a>
+</li>
+<li>
+<a href="/caen/computers/map.html" title="">Lab Map </a>
+</li>
+<li>
+<a href="http://www.engin.umich.edu/htbin/wwwhostinfo" title="">Realtime Lab Monitor <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+<li>
+<a href="/caen/computers/reservations.html" title="">Reserving a Lab </a>
+</li>
+<li>
+<a href="/caen/computers/scanners.html" title="">Document Scanners </a>
+</li>
+<li class="firstitem lastitem">
+<a href="/caen/computers/virtual.html" title="">Virtual CAEN Labs </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/accounts/index.html" title="">Computing Accounts 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/accounts/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/accounts/access.html" title="">Obtaining an Account </a>
+</li>
+<li>
+<a href="/caen/accounts/eligible.html" title="">Account Eligibility &amp; Fees </a>
+</li>
+<li>
+<a href="/caen/accounts/expirations.html" title="">Expiration of CAEN Accounts </a>
+</li>
+<li>
+<a href="/caen/accounts/backups.html" title="">Backups &amp; Restorations </a>
+</li>
+<li class="firstitem lastitem">
+<a href="/caen/accounts/passwords.html" title="">Passwords at U-M </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/connect/index.html" title="">Connecting to CAEN 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/connect/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/connect/login.html" title="">Login Servers </a>
+</li>
+<li>
+<a href="/caen/connect/sftp.html" title="">SFTP </a>
+</li>
+<li>
+<a href="/caen/connect/ssh.html" title="">SSH </a>
+</li>
+<li>
+<a href="/caen/connect/virtuallabs.html" title="">Virtual CAEN Labs </a>
+</li>
+<li>
+<a href="/caen/connect/vnc.html" title="Using the CAEN VNC Client">VNC </a>
+</li>
+<li>
+<a href="/caen/connect/vpn.html" title="">VPN </a>
+</li>
+<li class="firstitem lastitem">
+<a href="/caen/connect/x11.html" title="">X11 </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/departmental/index.html" title="">Departmental Services 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/departmental/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/departmental/coe/index.html" title="">CAEN Operating Environment (COE) 
+</a>
+</li>
+<li>
+<a href="/caen/departmental/courses/index.html" title="">Course Support 
+</a>
+</li>
+<li>
+<a href="/caen/departmental/filespace.html" title="">Data Storage </a>
+</li>
+<li>
+<a href="/caen/departmental/tech.html" title="">Instructional Technology </a>
+</li>
+<li>
+<a href="/caen/departmental/netservices.html" title="">Network Support </a>
+</li>
+<li>
+<a href="/caen/departmental/esf/index.html" title="">Ordering &amp; Purchasing 
+</a>
+</li>
+<li class="firstitem lastitem">
+<a href="/caen/departmental/deptlicense.html" title="">Software Licensing </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/email/index.html" title="">Email 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/email/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/email/exchange.html" title="">U-M Exchange Accounts </a>
+</li>
+<li>
+<a href="/caen/email/distribution.html" title="">Group Email Distribution </a>
+</li>
+<li>
+<a href="/caen/email/coeemaillists/index.html" title="">CoE Email Lists 
+</a>
+</li>
+<li>
+<a href="/caen/email/changes.html" title="">Recent Service Changes </a>
+</li>
+<li class="firstitem lastitem">
+<a href="/caen/faqs/Email/">Frequently Asked Questions </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/support/index.html" title="">Help &amp; Support 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/support/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/hotline/" title="">The CAEN Hotline <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+<li>
+<a href="/caen/csc/" title="">The CAEN Service Center <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+<li>
+<a href="/caen/docs/" title="">Search Documentation <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+<li>
+<a href="/caen/faqs/" title="">Frequently Asked Questions <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+<li class="firstitem lastitem">
+<a href="/caen/forms/" title="">Administrative Forms <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/security/index.html" title="">Information Security 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/security/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/security/tips.html" title="">IT Security Recommendations </a>
+</li>
+<li>
+<a href="/caen/news/archive/view/security.html" title="">Recent Announcements <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+<li class="firstitem lastitem">
+<a href="http://safecomputing.umich.edu/" title="">U-M Information Technology Sercurity Services (ITSS) <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/network/index.html" title="">Network &amp; Wireless 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/network/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/network/services.html" title="">Departmental Services </a>
+</li>
+<li>
+<a href="/caen/network/ethernet.html" title="">Ethernet Connections </a>
+</li>
+<li>
+<a href="/caen/network/nameservice.html" title="">Name Service (DNS) Requests </a>
+</li>
+<li>
+<a href="/caen/status/outages/" title="">Network Status <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+<li class="firstitem lastitem">
+<a href="/caen/network/wireless/index.html" title="">Wireless Networking 
+</a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/printing/index.html" title="">Printing 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/printing/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/printing/quotas.html" title="">Page Allocations &amp; Costs </a>
+</li>
+<li>
+<a href="/caen/printing/locations.html" title="">Printer Names &amp; Locations </a>
+</li>
+<li>
+<a href="/caen/printing/xerox/index.html" title="Information on how to use the Xerox printers at CAEN">Using the Xerox Printers 
+</a>
+</li>
+<li>
+<a href="/caen/printing/webprint.html" title="Instructions on printing to CAEN printers through the web from laptops and desktops">Web Printing </a>
+</li>
+<li class="firstitem lastitem">
+<a href="/caen/faqs/Printing/" title="">Frequently Asked Questions <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/software/index.html" title="">Software &amp; Licensing 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/software/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/software/listing/index.html">Software Listing </a>
+</li>
+<li>
+<a href="/caen/software/coursesw.html" title="">Course Software Requests </a>
+</li>
+<li>
+<a href="/caen/software/deptlicense.html" title="">Departmental Licensing </a>
+</li>
+<li>
+<a href="/caen/software/listing/documentation/titles.html">Online Documentation </a>
+</li>
+<li>
+<a href="/caen/software/usercontrib.html" title="">User-Contributed Software </a>
+</li>
+<li class="firstitem lastitem">
+<a href="/caen/software/utility.html" title="">Linux Utility Programs </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li>
+<a href="/caen/web/index.html" title="">Web Services 
+<!--[if IE 7]><!--></a><!--<![endif]--><!--[if lte IE 6]><table><tr><td><![endif]--><ul>
+<li class="firstitem">
+<a href="/caen/web/index.html" title="">Overview </a>
+</li>
+<li>
+<a href="/caen/web/cms/index.html" title="">Content Management System 
+</a>
+</li>
+<li>
+<a href="/caen/web/forms/index.html" title="">Online Forms 
+</a>
+</li>
+<li>
+<a href="/caen/web/gsa/index.html" title="">Google Search Appliance 
+</a>
+</li>
+<li>
+<a href="/caen/web/groups.html" title="">Group Web Space </a>
+</li>
+<li>
+<a href="/caen/web/digphotoclass/index.html" title="">Tips on Web Photos 
+</a>
+</li>
+<li class="firstitem lastitem">
+<a href="http://www.engin.umich.edu/stats/" title="">Statistics <img title="External Link" alt="(external link)" src="/images/templates/offsite_arrow.gif"/> </a>
+</li>
+
+</ul><!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+
+</ul>
+</div>
+ 
+
+             </div> 
+        
+         
+        
+        
+        <style type="text/css">
+#menuBottom #ContactCaenLink, #menuBottom #ContactCaenLink:hover {
+border-bottom: none;
+}
+</style>
+
+<div id="menuBottom" align=center>
+<a id="ContactCaenLink" href="/caen/contact-caen/"><img src="/caen/images/caenlogolink.gif" alt="Contact CAEN Support"></a>
+</div>
+        <div class="lcg">
+          <div class="indented">
+            
+            <div class="externalLinkWarning"><em><img
+    alt="(external link warning)"
+    src="/images/templates/offsite_arrow.gif" /> Link goes to external page</em></div>
+          </div>
+        </div>
+
+    </div>
+    
+<!--End Menu Column-->
+
+<div id="breadcrumbs">
+	<p><!-- beginning breadcrumbs script -->
+<a href="/" title="Michigan Engineering Home">Home</a>
+&nbsp;/&nbsp;
+<a href="/caen/" title="">CAEN</a>
+&nbsp;/&nbsp;
+<a href="/caen/faqs/" title="">Frequently Asked Questions</a>
+&nbsp;/&nbsp;
+<a href="/caen/faqs/Linux/" title="">Linux</a>
+&nbsp;/&nbsp;
+<a href="/caen/faqs/Linux/Scripts/" title="">Scripting &amp; Programming</a>
+&nbsp;/&nbsp;
+<span>How do I begin programming in C and/or C++ on CAEN Linux computers?</span>
+</p>
+</div>
+<div id="content">
+
+<div id="maincontent">
+
+
+
+    <ul class="tabs">
+</ul>
+<div class="tabContent">
+ 
+    
+
+
+
+     
+
+
+
+      <h1>
+       How do I begin programming in C and/or C++ on CAEN Linux computers?
+    </h1>
+    
+
+    
+
+    
+
+
+<div class="nofeatureimg" id="bodycontent">
+
+<!-- validated as 4.01 Transitional on 8-24-06 -->
+     <p class="MsoNormal">
+There are a number of different utilities available for <strong>C</strong> and <strong>C++</strong> programming on CAEN Linux workstations. In comparison to the <strong>GUI</strong> environments of the PCs, which are very simple to operate with pull down menus and point and click operations, the programming utilities, though primarily text based, are extremely powerful and versatile.
+</p>
+<h4>Compilers</h4>
+<p class="MsoNormal">
+The <strong>gcc</strong> and <strong>cc<em> </em></strong>compilers are available for C source code, and the <strong>g++</strong><em> </em>and <strong>CC </strong>are available for C++ code. First, develop your source code as an ASCII text file. You can use any text editor such as <strong>vi</strong>, <strong>nedit</strong>, <strong>nano </strong>or <strong>emacs</strong>. At the command line, enter the compiler name followed by the name of the file containing your source code. For example, to compile the source file <strong>mathcruncher.c</strong>, type <strong>gcc mathcruncher.c</strong> at the prompt. This will compile the object file for mathcruncher, link it with the standard libraries, and then produce an output file called <strong>a.out</strong> which is a binary executable file. To run the executable, type <strong>a.out</strong> at the shell prompt.
+</p>
+<p class="MsoNormal">
+Common command line options are available for all of the compilers. Some of these options are described below.
+</p>
+<ul>
+	<li class="MsoNormal">To change the name of the executable file, use the <strong>-o</strong> switch followed by the desired filename. For example, type <strong>gcc -o mathcrunch mathcruncher<u>.c</u></strong>. 
+	</li>
+	<li class="MsoNormal">To include a library during the link cycle, append the <strong>-l</strong> switch followed by the base library name. For example, to link the math library into your code, type <strong>gcc mathcruncher.c -lm</strong>. The name of the library in the <strong>lib</strong> directory for math is <strong>libm.a</strong> with the base name being just <strong>m</strong>. Another example of this is the sockets library named <strong>libsocket.a</strong> which would just take <strong>-lsocket</strong> to link it. 
+	</li>
+	<li class="MsoNormal">To enable debugging code so that you can use the <strong>gdb</strong> debugger to watch variables, step through code, set breakpoints and so on, include the <strong>-g</strong> switch. 
+	</li>
+	<li class="MsoNormal">To disable the automatic linking step and force the compiler to create object files, use the <strong>-c</strong> switch. 
+	</li>
+	<li class="MsoNormal">To enable optimizations, use the <strong>-O</strong> switch. This will make the compiled code more efficient. There are other options to this switch. </li>
+</ul>
+<p class="MsoNormal">
+For more detailed information about available options, consult the man pages for the compiler you are using. The gcc and g++ compilers are <strong>GNU</strong> utilities; you will need to run <strong>swselect</strong> to enable them in your shell environment. Choose <strong>GNU Compilers/Utils</strong>. After you exit swselect, be sure to type <strong>source ~/.software</strong> to make the change immediate.
+</p>
+<h4>Emacs Programming Environment</h4>
+<p class="MsoNormal">
+Emacs provides a powerful editing environment for C/C++ programming. A complete description of how Emacs works is beyond the scope of this tutorial, however, a brief overview of some of its capabilities is included here. Most of these features also apply to <strong>Xemacs.</strong>
+</p>
+<p>
+<strong>Basic Emacs Commands</strong>
+</p>
+<p class="MsoNormal">
+Here is a list of some of the most common Emacs commands:
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	<strong>Ctrl-x Ctrl-f</strong>                Open file
+	</p>
+	<p class="MsoNormal">
+	<strong>Ctrl-x Ctrl-s</strong>               Save file
+	</p>
+	<p class="MsoNormal">
+	<strong>Ctrl-x Ctrl-c</strong>               Exit file
+	</p>
+	<p class="MsoNormal">
+	<strong>Ctrl-a</strong>                          Move to beginning of line
+	</p>
+	<p class="MsoNormal">
+	<strong>Ctrl-e</strong>                          Move to end of line
+	</p>
+	<p class="MsoNormal">
+	<strong>Ctrl-v</strong>                          Page down
+	</p>
+	<p class="MsoNormal">
+	<strong>Esc-v</strong>                          Page up
+	</p>
+	<p class="MsoNormal">
+	<strong>Ctrl-g</strong>                          Quit current command and go back to editing mode
+	</p>
+	<p class="MsoNormal">
+	<strong>Esc-x-help</strong>                 Go to help menu
+	</p>
+</blockquote>
+<p class="MsoNormal">
+For more information on Emacs, you can take a look at our introduction to Emacs:
+</p>
+<ul>
+	<li>
+	<div align="left" class="MsoNormal">
+	<strong><a href="/caen/faqs/Linux/Text/emacs/">http://www.engin.umich.edu/caen/faqs/Linux/Text/emacs/</a></strong>
+	</div>
+	</li>
+</ul>
+<h4>C Mode</h4>
+<p class="MsoNormal">
+Emacs automatically enters C mode when you edit a file with a <strong>.c</strong><em> </em>or<em> </em><strong>.h</strong><em> </em>suffix. You can also put any file in C mode manually by typing <strong>ESC-X c-mode Return</strong>. (Use <strong>c++<u>-</u>mode</strong> for C++ mode). In C mode, Emacs understands the C/C++ programming syntax and some special features are invoked. For example, proper indentation is provided and matching brackets <strong>{}</strong> are signaled.
+</p>
+<h4>Color</h4>
+<p class="MsoNormal">
+With Emacs, you can see color and font style variations for the constructs of the C language by creating an <strong>.emacs </strong>file in your home directory with the following lines:
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	<strong>(if (eq window-system 'x)</strong>
+	</p>
+	<p class="MsoNormal">
+	(require 'hilit19))
+	</p>
+</blockquote>
+<p class="MsoNormal">
+<em>Note: Adding the above lines will result in an error if you use Xemacs.</em>
+</p>
+<p class="MsoNormal">
+These colors and font styles make reading code much easier. The colors take effect each time Emacs has a chance to reread your file; press <strong>Ctrl-l</strong> to recolor the lines in the editor once you've made additions and adjustments to your code. Note that you do not need to save your code first. Each time Ctrl-l is entered, Emacs will write a file called <strong>filename~</strong>. 
+</p>
+<p class="MsoNormal">
+Also, the tab key will indent a line to the correct position as indicated by the previous braces and other commands. This is configured by Emacs, and you may press tab anywhere on the line to indent the entire line to its correct position. The spacing of this indentation can be adjusted by setting an Emacs variable. 
+</p>
+<h4>Code Support</h4>
+<p class="MsoNormal">
+Other helpful key presses include <strong>Esc-j</strong> which continues a series of comments, and <strong>Esc-a</strong> and <strong>Esc-e</strong> which will move to the beginning and ending of a statement, not just a line. <strong>Esc-x</strong> <strong>compile</strong> will compile your code after you type in the needed command line compile statement such as <strong>make</strong><em>.</em> <strong>C-x, </strong>while in the &quot;compile output errors&quot; window, will put your cursor right on the line of that error message in your code buffer. This feature makes it easy to correct errors in your code.
+</p>
+<p class="MsoNormal">
+Finally, Emacs will allow you to debug your code with a code window open. This handy feature will place a pointer next to the code line that the debugger is currently on, so you can follow your code a little more visually than with a normal debugger.
+</p>
+<h4>Debugging</h4>
+<p class="MsoNormal">
+The <strong>gdb</strong> and <strong>dbx</strong> utilities are available for debugging your code. These two debuggers are text based, but get slightly easier to use when invoked within Emacs. Before you can use gdb or dbx on your executable file, the executable must have been compiled with debugging enabled (-g). If it has, you run gdb or dbx on the executable to start your debugging session like <strong>gdb a.out</strong>. From there, a command prompt appears and you can do the following in either program:
+</p>
+<p class="MsoNormal">
+<strong>list</strong>
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	Lists your program. This command can be followed by line numbers to list a  series of lines of code.
+	</p>
+</blockquote>
+<p class="MsoNormal">
+<strong>run</strong>
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	Executes your program from the beginning or restarts the program upon confirmation if entered while program is running.
+	</p>
+</blockquote>
+<p class="MsoNormal">
+<strong>break</strong>
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	Followed by a line number or function name, sets the break point at that line. Once the program is run, it stops at the given line number, and here you can check variable values and memory allocation. Using dbx the command is &quot;stop at&quot;, press <strong>Ctrl-c</strong> to stop your program from executing and return to the debugging command prompt.
+	</p>
+</blockquote>
+<p class="MsoNormal">
+<strong>clear</strong>
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	Followed by a line number, clears a break point set at that line. 
+	</p>
+</blockquote>
+<p class="MsoNormal">
+<strong>step</strong>
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	Moves to the next instruction in the program and executes it, stopping at completion; this call also single steps through functions. You can also use the <strong>=s</strong> shortcut for step.
+	</p>
+</blockquote>
+<p class="MsoNormal">
+<strong>next</strong> 
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	Moves to the next instruction in the program and executes it, stopping at completion; this call will treat function calls as single steps and will not trace through them. You can also use the <strong>=n</strong> shortcut for next.
+	</p>
+</blockquote>
+<p class="MsoNormal">
+<strong>cont</strong>
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	Continues execution of the program without pausing further from the current execution point. You can also use the <strong>=c</strong> shortcut for cont.
+	</p>
+</blockquote>
+<p class="MsoNormal">
+<strong>print</strong>
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	Displays the value of a specified variable. 
+	</p>
+</blockquote>
+<p class="MsoNormal">
+<strong>info</strong>
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	Gives various information about this debugging session; common use of info is &quot;info breakpoints&quot; which displays the lines of the current break points; under dbx the command is &quot;status&quot;.
+	</p>
+</blockquote>
+<p class="MsoNormal">
+<strong>quit</strong>
+</p>
+<blockquote dir="ltr" style="margin-right: 0px">
+	<p class="MsoNormal">
+	Exits the debugging session.
+	</p>
+</blockquote>
+<p class="MsoNormal">
+In Emacs, the debugging window opens below your code window. As you step through your program, the gdb debugger will move a pointer to the current execution line. It's a small advantage, but it helps to make the debugging session a little more visual. To do this, press <strong>Esc-x</strong> followed by either <strong>dbx a.out </strong>or <strong>gdb a.out</strong> (or substitute the name of your executable file for a.out).
+</p>
+<p class="MsoNormal">
+The <strong>ddd</strong> utility adds a graphical overlay to the two standard debuggers, dbx and gdb. Type <strong>ddd</strong> <strong><em>executable</em>.out </strong>to invoke this utility. You can choose between the dbx and the gdb debugger by using the --dbx or --gdb command line options. Your code will be displayed in a window. A separate tool window contains buttons for the common debugging commands listed above. There is also a separate command line window into which debugging commands can be typed. A program data window can also be opened where you can choose to view program variables in graphical or table style format. 
+</p>
+<br><br>
+
+    
+
+
+    
+    
+    
+        </div>
+    
+    
+<!-- Begin Footer -->
+    </div>
+    </div>
+    </div>
+   <div id="push" />
+    </div>
+
+    <div id="footer">
+      <div id="nonPrintFooter">
+        <div id="validation">
+<img src="/images/css.png" alt="CSS 2.1 Valid" />
+</div>
+
+	<a href="http://www.umich.edu"><img
+    alt="University of Michigan"
+    src="/images/templates/um_wordmark.gif" /></a>
+	<ul><li><a accesskey="7" href="/contact/quick.html">Contact Us</a> </li>
+            <li>    <a accesskey="3" href="/sitemap/">Site Map</a> </li>
+                <li><a accesskey="9" href="/feedback.html">Site Feedback</a> </li>
+                <li><a accesskey="0"
+                       href="/accessibility.html">Accessibility</a></li> 
+                <li><a class="style1"
+                       id="emergencyProcedures"
+                       href="/safety/emerg/">Emergency Procedures</a></li>
+   <li class="accessibilityLink"><a href="#topNav" accesskey="8">Jump to top of the page</a></li></ul>
+    </div>
+    <div id="printFooter">
+        &copy; 2008 College of Engineering, University of Michigan<br />
+        <span id="printOnlyFooter">Last edited on: 1/1/2008</span>
+     </div>
+	<div class="clearer"></div>
+    </div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2932296-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</div></div></div></body></html>
+<!-- End Footer -->

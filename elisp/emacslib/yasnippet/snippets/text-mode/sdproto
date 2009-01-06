@@ -1,0 +1,5 @@
+#name : sdproto 
+# --
+C:\Windows\system32\cmd.exe /k set inetroot=c:\depot\wave14\avalanche&set corextbranch=avalanche&c:\depot\wave14\avalanche\tools\path1st\myenv.cmd
+cd c:/depot/wave14/avalanche/sources/proto
+sd sync ...

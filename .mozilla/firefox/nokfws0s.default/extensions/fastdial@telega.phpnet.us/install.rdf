@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>fastdial@telega.phpnet.us</em:id>
+    <em:version>2.9</em:version>
+    <em:type>2</em:type>
+   
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>3.0</em:minVersion>
+        <em:maxVersion>3.1a2pre</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+
+    <em:name>Fast Dial</em:name>
+    <em:creator>telega</em:creator>
+    <em:contributor>mafi0z</em:contributor>
+    <em:contributor>Lain_13</em:contributor>
+    <em:contributor>Sid</em:contributor>
+    <em:contributor>Philip</em:contributor>
+    <em:contributor>z645</em:contributor>
+    <em:contributor>Leszek(teo)Życzkowski</em:contributor>
+    <em:contributor>k-dash</em:contributor>
+
+    <em:translator>soham_chatterjee (bn-IN)</em:translator>
+    <em:translator>ellibre (ca-AD)</em:translator>
+    <em:translator>PetrTwo (cs-CZ)</em:translator>
+    <em:translator>typh (da-DK)</em:translator>
+    <em:translator>Gulp21 (de-DE)</em:translator>
+    <em:translator>Johnbo (es-ES)</em:translator>
+    <em:translator>MiK546 (fi-FI)</em:translator>
+    <em:translator>myahoo (fr-FR)</em:translator>
+    <em:translator>Godai71 (it-IT)</em:translator>
+    <em:translator>Haebaru (ja-JP)</em:translator>
+    <em:translator>gandhi2 (nb-NO)</em:translator>
+    <em:translator>simonnam (pl-PL)</em:translator>
+    <em:translator>humbertosartini (pt-BR)</em:translator>
+    <em:translator>Sosie (sk-SK)</em:translator>
+    <em:translator>3kornepenal (sr-RS)</em:translator>
+    <em:translator>rserdar (tr-TR)</em:translator>
+    <em:translator>Sappa (uk-UA)</em:translator>
+    <em:translator>loveleeyoungae (vi-VN)</em:translator>
+    <em:translator>xmoke (zh-CN)</em:translator>
+    <em:translator>josesun (zh-TW)</em:translator>
+
+    <em:iconURL>chrome://fastdial/skin/logo.png</em:iconURL>
+    <em:optionsURL>chrome://fastdial/content/preferences.xul</em:optionsURL>
+  </Description>      
+</RDF>

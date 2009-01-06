@@ -1,0 +1,56 @@
+<!ENTITY open "Åpne">
+<!ENTITY openAll "Åpne alle">
+<!ENTITY refresh "Oppdater">
+<!ENTITY refreshAll "Oppdater alle">
+<!ENTITY properties "Egenskaper">
+<!ENTITY remove "Fjern">
+<!ENTITY preferences "Innstillinger">
+<!ENTITY close "Lukk">
+<!ENTITY applyToAll "Bruk på alle mapper">
+<!ENTITY defaults "Standardinnstillinger">
+<!ENTITY general "Generelt">
+<!ENTITY appearance "Utseende">
+<!ENTITY folder "Mappe">
+<!ENTITY quantity "Antall">
+<!ENTITY size "Størrelse">
+<!ENTITY fixed "Fast">
+<!ENTITY shortcutKey "Hurtigtast">
+<!ENTITY openIn "Åpne i">
+<!ENTITY newTab "ny fane">
+<!ENTITY backgroundTab "bakgrunnsfane">
+<!ENTITY newWindow "nytt vindu">
+<!ENTITY useJava "Bruk Java til bildeskalering">
+<!ENTITY showRefreshAll "Vis «Oppdater alle» i sprettoppmenyen">
+<!ENTITY showInNewTabs "Vis hurtigvalg i nye faner">
+<!ENTITY showEmpty "Vis tomme celler">
+<!ENTITY page "Side">
+<!ENTITY thumbnail "Celle">
+<!ENTITY activeThumbnail "Aktiv celle">
+<!ENTITY load "Åpne">
+<!ENTITY save "Lagre">
+<!ENTITY font "Skrift">
+<!ENTITY image "Bilde">
+<!ENTITY center "Midtstill">
+<!ENTITY background "Bakgrunn">
+<!ENTITY spacing "Mellomrom">
+<!ENTITY border "Ramme">
+<!ENTITY titleBackground "Tittelbakgrunn">
+<!ENTITY titleBorder "Tittelramme">
+<!ENTITY titleColor "Tittelfarge">
+<!ENTITY opacity "Gjennomsiktighet">
+<!ENTITY clear "Tøm">
+<!ENTITY url "URL">
+<!ENTITY customImage "Selvvalgt bilde">
+<!ENTITY title "Tittel">
+<!ENTITY refreshEvery "Oppdater hvert">
+<!ENTITY minutes "minutt">
+<!ENTITY help "Hjelp">
+<!ENTITY homePage "Hjemmeside">
+<!ENTITY addToFastDial "Legg til i hurtigvalg">
+<!ENTITY slowSite "Slow site">
+<!ENTITY add "Add">
+<!ENTITY currentTab "current tab">
+<!ENTITY restartIsNeeded "(restart is needed)">
+<!ENTITY support "Support">
+<!ENTITY contact "Contact">
+<!ENTITY requestLogo "Request a logo">

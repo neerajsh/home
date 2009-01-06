@@ -1,0 +1,111 @@
+@import url("chrome://global/skin/");
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace svg url("http://www.w3.org/2000/svg");
+
+/* ::::: Keyboard UI Panel ::::: */
+.KUI-panel {
+  -moz-appearance: none;
+  background: rgba(68, 68, 68, .8) url(texture.png) repeat-x;
+  color: white;
+  border: 1px solid #888;
+  -moz-border-radius: 10px;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.KUI-panel-closebutton {
+  list-style-image: url(close.png);
+  -moz-appearance: none;
+  border: none !important;
+}
+
+.KUI-panel-closebutton:not(:hover) {
+  opacity: .6;
+}
+
+/* ::::: Ctrl-Tab Panel ::::: */
+#ctrlTab-panel {
+  margin-top: -20px;
+  border-bottom-width: 9px;
+  -moz-border-bottom-colors: #888 #444 #444 #444 #444 #444 #444 #444 #444;
+}
+
+#ctrlTab-label {
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+svg|*.ctrlTab-thumbnailborder {
+  stroke: white;
+  stroke-width: 1px;
+  fill: transparent;
+}
+
+svg|*.ctrlTab-icon {
+  filter: url(chrome://browser/content/browser.xul#ctrlTab-iconShadow);
+}
+
+svg|*#ctrlTab-fadeGradientTop {
+  stop-color: #333;
+  stop-opacity: .5;
+}
+
+svg|*#ctrlTab-fadeGradientBottom {
+  stop-color: #444;
+  stop-opacity: 1;
+}
+
+
+/* ::::: All Tabs Panel ::::: */
+
+.tabs-alltabs-button > .toolbarbutton-icon {
+  display: -moz-box;
+  margin: 6px 0 4px;
+  list-style-image: url(allTabs.png) !important;
+  -moz-image-region: auto !important;
+}
+
+#allTabs-panel {
+  margin-top: -35px;
+  margin-left: -8px;
+  padding: 5px 5px 15px;
+}
+
+#allTabs-filter {
+  width: 14em;
+  font-size: 1.4em;
+  -moz-appearance: none;
+  background: rgba(0, 0, 0, .5);
+  border: none;
+  -moz-box-shadow: 0 0 5px white;
+  color: inherit;
+}
+
+#allTabs-filter[empty="true"] {
+  color: #aaa;
+}
+
+.allTabs-box > .button-box {
+  border: none;
+}
+
+.allTabs-box:focus {
+  outline: 1px dotted white;
+}
+
+.allTabs-thumbnail {
+  -moz-box-shadow: 1px 2px 3px black;
+  -moz-outline-radius: 7px;
+}
+
+.allTabs-box[selected="true"] > .allTabs-thumbnail {
+  -moz-box-shadow: 0 0 5px rgb(50, 170, 255), 0 0 5px rgb(50, 170, 255);
+}
+
+.allTabs-box:focus > .allTabs-thumbnail ,
+.allTabs-box:hover > .allTabs-thumbnail {
+  -moz-box-shadow: 0 0 5px rgb(50, 170, 255), 0 0 7px rgb(50, 170, 255), 0 0 9px rgb(50, 170, 255);
+}

@@ -1,0 +1,56 @@
+<!ENTITY open "Открыть">
+<!ENTITY openAll "Открыть Все">
+<!ENTITY refresh "Обновить">
+<!ENTITY refreshAll "Обновить Все">
+<!ENTITY properties "Свойства">
+<!ENTITY remove "Удалить">
+<!ENTITY preferences "Настройки">
+<!ENTITY close "Закрыть">
+<!ENTITY applyToAll "Применить ко всем папкам">
+<!ENTITY defaults "По умолчанию">
+<!ENTITY general "Общие">
+<!ENTITY appearance "Внешний вид">
+<!ENTITY folder "Папка">
+<!ENTITY quantity "Количество">
+<!ENTITY size "Размер">
+<!ENTITY fixed "Фикс.">
+<!ENTITY shortcutKey "Быстрый вызов">
+<!ENTITY openIn "Открывать в">
+<!ENTITY newTab "новой вкладке">
+<!ENTITY backgroundTab "фоновой вкладке">
+<!ENTITY newWindow "новом окне">
+<!ENTITY useJava "Использовать Java для масштабирования изображений">
+<!ENTITY showRefreshAll "Показывать пункт меню Обновить Все">
+<!ENTITY showInNewTabs "Показывать Fast Dial в новых вкладках">
+<!ENTITY showEmpty "Показывать пустые ячейки">
+<!ENTITY page "Страница">
+<!ENTITY thumbnail "Изображение">
+<!ENTITY activeThumbnail "Активное изображение">
+<!ENTITY load "Загрузить">
+<!ENTITY save "Сохранить">
+<!ENTITY font "Шрифт">
+<!ENTITY image "Изображение">
+<!ENTITY center "По центру">
+<!ENTITY background "Фон">
+<!ENTITY spacing "Расстояние">
+<!ENTITY border "Рамка">
+<!ENTITY titleBackground "Фон заголовка">
+<!ENTITY titleBorder "Рамка заголовка">
+<!ENTITY titleColor "Цвет заголовка">
+<!ENTITY opacity "Прозрачность">
+<!ENTITY clear "Очистить">
+<!ENTITY url "Адрес">
+<!ENTITY customImage "Свое изображение">
+<!ENTITY title "Заголовок">
+<!ENTITY refreshEvery "Обновлять каждые">
+<!ENTITY minutes "минут">
+<!ENTITY help "Помощь">
+<!ENTITY homePage "Домашняя страница">
+<!ENTITY addToFastDial "Добавить в Fast Dial">
+<!ENTITY slowSite "Медленный сайт">
+<!ENTITY add "Добавить">
+<!ENTITY currentTab "текущей вкладке">
+<!ENTITY restartIsNeeded "(нужен перезапуск)">
+<!ENTITY support "Поддержка">
+<!ENTITY contact "Контакт">
+<!ENTITY requestLogo "Создание лого">

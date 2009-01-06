@@ -1,0 +1,56 @@
+<!ENTITY open "Öffnen">
+<!ENTITY openAll "Alle öffnen">
+<!ENTITY refresh "Neu laden">
+<!ENTITY refreshAll "Alle neu laden">
+<!ENTITY properties "Eigenschaften">
+<!ENTITY remove "Löschen">
+<!ENTITY preferences "Einstellungen">
+<!ENTITY close "Schließen">
+<!ENTITY applyToAll "Auf alle Ordner anwenden">
+<!ENTITY defaults "Zurücksetzen">
+<!ENTITY general "Allgemein">
+<!ENTITY appearance "Erscheinungsbild">
+<!ENTITY folder "Ordner">
+<!ENTITY quantity "Quantität">
+<!ENTITY size "Größe">
+<!ENTITY fixed "fest">
+<!ENTITY shortcutKey "Tastenkombination">
+<!ENTITY openIn "Öffne in">
+<!ENTITY newTab "neuem Tab">
+<!ENTITY backgroundTab "Tab im Hintergrund">
+<!ENTITY newWindow "neuem Fenster">
+<!ENTITY useJava "Java zur Bildskalierung verwenden">
+<!ENTITY showRefreshAll "Alle neu laden Menüeintrag anzeigen">
+<!ENTITY showInNewTabs "Zeige Fast Dial in neuen Tabs">
+<!ENTITY showEmpty "Leere Zellen zeigen">
+<!ENTITY page "Seite">
+<!ENTITY thumbnail "Vorschau">
+<!ENTITY activeThumbnail "Aktive Vorschau">
+<!ENTITY load "Laden">
+<!ENTITY save "Speichern">
+<!ENTITY font "Schriftart">
+<!ENTITY image "Bild">
+<!ENTITY center "Zentriert">
+<!ENTITY background "Hintergrund">
+<!ENTITY spacing "Abstand">
+<!ENTITY border "Rand">
+<!ENTITY titleBackground "Titelhintergrund">
+<!ENTITY titleBorder "Titelrand">
+<!ENTITY titleColor "Titelfarbe">
+<!ENTITY opacity "Deckkraft">
+<!ENTITY clear "Löschen">
+<!ENTITY url "URL">
+<!ENTITY customImage "Bild bearbeiten">
+<!ENTITY title "Titel">
+<!ENTITY refreshEvery "Neu laden alle">
+<!ENTITY minutes "Minuten">
+<!ENTITY help "Hilfe">
+<!ENTITY homePage "Homepage">
+<!ENTITY addToFastDial "Zu Fast Dial hinzufügen">
+<!ENTITY slowSite "Slow site">
+<!ENTITY add "Add">
+<!ENTITY currentTab "current tab">
+<!ENTITY restartIsNeeded "(restart is needed)">
+<!ENTITY support "Support">
+<!ENTITY contact "Contact">
+<!ENTITY requestLogo "Request a logo">

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>Ubuntu</name>
+    <filename>/usr/share/backgrounds/warty-final-ubuntu.png</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#68684b4b3333</pcolor>
+    <scolor>#68684b4b3333</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>No Wallpaper</name>
+    <filename>(none)</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#68684b4b3333</pcolor>
+    <scolor>#68684b4b3333</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>computer_0023.jpg</name>
+    <filename>/home/neeraj/Pictures/computer_0023.jpg</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#68684b4b3333</pcolor>
+    <scolor>#68684b4b3333</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>computer_0047.jpg</name>
+    <filename>/home/neeraj/Pictures/computer_0047.jpg</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#68684b4b3333</pcolor>
+    <scolor>#68684b4b3333</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>computer_0012.jpg</name>
+    <filename>/home/neeraj/Pictures/computer_0012.jpg</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#68684b4b3333</pcolor>
+    <scolor>#68684b4b3333</scolor>
+  </wallpaper>
+</wallpapers>

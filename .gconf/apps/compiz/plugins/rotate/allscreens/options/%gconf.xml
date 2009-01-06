@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="flip_time" mtime="1231130134" type="int" value="512">
+        </entry>
+</gconf>

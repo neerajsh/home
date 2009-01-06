@@ -1,0 +1,295 @@
+
+;; Below are changes taken from the tutor .emacs file
+
+(add-to-list 'load-path
+             "/usr/share/emacs/lisp/python-mode/")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;; This provides customized support for writing programs in different kinds
+;;;; of programming languages.
+;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Load the C++ and C editing modes and specify which file extensions
+;; correspond to which modes.
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+    (setq auto-mode-alist
+           (cons '("\\.py$" . python-mode) auto-mode-alist))
+     (setq interpreter-mode-alist
+           (cons '("python" . python-mode) interpreter-mode-alist))
+
+; Load the pymacs
+
+;;(require 'pymacs)
+;;(pymacs-load "ropemacs" "rope-")
+
+(autoload 'c++-mode "cc-mode" "C++ Editing Mode" t)
+(autoload 'c-mode "c-mode" "C Editing Mode"   t)
+(setq auto-mode-alist
+      (append '(("\\.C\\'" . c++-mode)
+                ("\\.cc\\'" . c++-mode)
+		("\\.c\\'" . c-mode)
+                ("\\.h\\'"  . c++-mode))
+	      auto-mode-alist))
+
+;; set tab distance to something, so it doesn't change randomly and confuse people
+(setq c-basic-offset 4)
+
+;; This function is used in various programming language mode hooks below.  It
+;; does indentation after every newline when writing a program.
+
+(defun newline-indents ()
+  "Bind Return to `newline-and-indent' in the local keymap."
+  (local-set-key "\C-m" 'newline-and-indent))
+
+
+;; Tell Emacs to use the function above in certain editing modes.
+
+(add-hook 'lisp-mode-hook             (function newline-indents))
+(add-hook 'emacs-lisp-mode-hook       (function newline-indents))
+(add-hook 'lisp-interaction-mode-hook (function newline-indents))
+(add-hook 'scheme-mode-hook           (function newline-indents))
+(add-hook 'c-mode-hook                (function newline-indents))
+(add-hook 'c++-mode-hook              (function newline-indents))
+
+
+;; Fortran mode provides a special newline-and-indent function.
+
+;; (add-hook 'fortran-mode-hook
+;; 	  (function (lambda ()
+;; 		      (local-set-key "\C-m" 'fortran-indent-new-line))))
+
+
+;; Text-based modes (including mail, TeX, and LaTeX modes) are auto-filled.
+
+(add-hook 'text-mode-hook (function turn-on-auto-fill))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;; This makes "M-x compile" smarter by trying to guess what the compilation
+;;;; command should be for the C, C++, and Fortran language modes.
+;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; By requiring `compile' at this point, we help to ensure that the global
+;; value of compile-command is set properly.  If `compile' is autoloaded when
+;; the current buffer has a buffer-local copy of compile-command, then the
+;; global value doesn't get set properly.
+
+(require 'compile)
+
+
+;; This gives the form of the default compilation command for C++, C, and
+;; Fortran programs.  Specifying the "-lm" option for C and C++  eliminates a
+;; lot of potential confusion.
+
+(defvar compile-guess-command-table
+  '((c-mode       . "gcc -Wall -g %s -o %s -lm"); Doesn't work for ".h" files.
+    (c++-mode     . "g++ -g %s -o %s -lm")	; Doesn't work for ".h" files.
+    (fortran-mode . "f77 -C %s -o %s")
+    )
+  "*Association list of major modes to compilation command descriptions, used
+by the function `compile-guess-command'.  For each major mode, the compilation
+command may be described by either:
+
+  + A string, which is used as a format string.  The format string must accept
+    two arguments: the simple (non-directory) name of the file to be compiled,
+    and the name of the program to be produced.
+
+  + A function.  In this case, the function is called with the two arguments
+    described above and must return the compilation command.")
+
+
+;; This code guesses the right compilation command when Emacs is asked
+;; to compile the contents of a buffer.  It bases this guess upon the
+;; filename extension of the file in the buffer.
+
+(defun compile-guess-command ()
+
+  (let ((command-for-mode (cdr (assq major-mode
+				     compile-guess-command-table))))
+    (if (and command-for-mode
+	     (stringp buffer-file-name))
+	(let* ((file-name (file-name-nondirectory buffer-file-name))
+	       (file-name-sans-suffix (if (and (string-match "\\.[^.]*\\'"
+							     file-name)
+					       (> (match-beginning 0) 0))
+					  (substring file-name
+						     0 (match-beginning 0))
+					nil)))
+	  (if file-name-sans-suffix
+	      (progn
+		(make-local-variable 'compile-command)
+		(setq compile-command
+		      (if (stringp command-for-mode)
+			  ;; Optimize the common case.
+			  (format command-for-mode
+				  file-name file-name-sans-suffix)
+			(funcall command-for-mode
+				 file-name file-name-sans-suffix)))
+		compile-command)
+	    nil))
+      nil)))
+
+
+;; Add the appropriate mode hooks.
+
+(add-hook 'c-mode-hook       (function compile-guess-command))
+(add-hook 'c++-mode-hook     (function compile-guess-command))
+(add-hook 'fortran-mode-hook (function compile-guess-command))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;; This creates and adds a "Compile" menu to the compiled language modes.
+;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defvar compile-menu nil
+  "The \"Compile\" menu keymap.")
+
+(defvar check-option-modes nil
+  "The list of major modes in which the \"Check\" option in the \"Compile\"
+menu should be used.")
+
+(defvar compile-menu-modes nil
+  "The list of major modes in which the \"Compile\" menu has been installed.
+This list used by the function `add-compile-menu-to-mode', which is called by
+various major mode hooks.")
+
+
+;; Create the "Compile" menu.
+
+(if compile-menu
+    nil
+  (setq compile-menu (make-sparse-keymap "Compile"))
+  ;; Define the menu from the bottom up.
+  (define-key compile-menu [first-error] '("    First Compilation Error" .
+					   first-compilation-error))
+  (define-key compile-menu [prev-error]  '("    Previous Compilation Error" .
+					   previous-compilation-error))
+  (define-key compile-menu [next-error]  '("    Next Compilation Error" .
+					   next-error))
+  (define-key compile-menu [goto-line]   '("    Line Number..." .
+					   goto-line))
+
+  (define-key compile-menu [goto]        '("Goto:" . nil))
+  ;;
+  (define-key compile-menu [indent-region] '("Indent Selection" .
+					     indent-region))
+
+  (define-key compile-menu [make]         '("Make..." . make))
+
+  (define-key compile-menu [check-file]   '("Check This File..." . 
+					    check-file))
+
+  (define-key compile-menu [compile]     '("Compile This File..." . compile))
+  )
+
+
+;;; Enable check-file only in Fortran mode buffers
+
+(put 'check-file 'menu-enable '(eq major-mode 'fortran-mode))
+
+
+;;; Here are the new commands that are invoked by the "Compile" menu.
+
+(defun previous-compilation-error ()
+  "Visit previous compilation error message and corresponding source code.
+See the documentation for the command `next-error' for more information."
+  (interactive)
+  (next-error -1))
+
+(defun first-compilation-error ()
+  "Visit the first compilation error message and corresponding source code.
+See the documentation for the command `next-error' for more information."
+  (interactive)
+  (next-error '(4)))
+
+(defvar check-history nil)
+
+(defun check-file ()
+  "Run ftnchek on the file contained in the current buffer"
+  (interactive)
+  (let* ((file-name (file-name-nondirectory buffer-file-name))
+	 (check-command (read-from-minibuffer
+			 "Check command: "
+			 (format "ftnchek %s" file-name) nil nil
+			 '(check-history . 1))))
+    (save-some-buffers nil nil)
+    (compile-internal check-command "Can't find next/previous error"
+		      "Checking" nil nil nil)))
+
+(defun make ()
+  "Run make in the directory of the file contained in the current buffer"
+  (interactive)
+  (save-some-buffers nil nil)
+  (compile-internal (read-from-minibuffer "Make command: " "make ")
+		    "Can't find next/previous error" "Make"
+		    nil nil nil))
+
+
+;;; Define a function to be called by the compiled language mode hooks.
+
+(defun add-compile-menu-to-mode ()
+  "If the current major mode doesn't already have access to the \"Compile\"
+menu, add it to the menu bar."
+  (if (memq major-mode compile-menu-modes)
+      nil
+    (local-set-key [menu-bar compile] (cons "Compile" compile-menu))
+    (setq compile-menu-modes (cons major-mode compile-menu-modes))
+    ))
+
+
+;; And finally, make sure that the "Compile" menu is available in C, C++, and
+;; Fortran modes.
+(add-hook 'c-mode-hook       (function add-compile-menu-to-mode))
+(add-hook 'c++-c-mode-hook   (function add-compile-menu-to-mode))
+(add-hook 'c++-mode-hook     (function add-compile-menu-to-mode))
+(add-hook 'fortran-mode-hook (function add-compile-menu-to-mode))
+(add-hook 'c-mode-hook 'turn-on-font-lock)
+
+;(require 'cpp-font-lock)
+
+
+;; To make emacs use spaces instead of tabs (Added by Art Lee on 2/19/2008)
+(setq-default indent-tabs-mode nil)
+
+;; This is how emacs tells the file type by the file suffix.
+(setq auto-mode-alist
+      (append '(("\\.mss$" . scribe-mode))
+	      '(("\\.bib$" . bibtex-mode))
+	      '(("\\.tex$" . latex-mode))
+	      '(("\\.obj$" . lisp-mode))
+	      '(("\\.st$"  . smalltalk-mode))
+	      '(("\\.Z$"   . uncompress-while-visiting))
+	      '(("\\.cs$"  . indented-text-mode))
+	      '(("\\.C$"   . c++-mode))
+	      '(("\\.cc$"  . c++-mode))
+	      '(("\\.icc$" . c++-mode))
+	      '(("\\.c$"   . c-mode))
+	      '(("\\.y$"   . c-mode))
+	      '(("\\.h$"   . c++-mode))
+	      auto-mode-alist))
+
+
+;; Import C# mode
+
+(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+(setq auto-mode-alist
+(append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
+(add-hook 'csharp-mode 'turn-on-font-lock)
+
+
+;; Haskell Mode
+(load "/usr/share/emacs/lisp/haskell-mode/haskell-site-file")
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+

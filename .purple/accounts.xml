@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<account version='1.0'>
+	<account>
+		<protocol>prpl-jabber</protocol>
+		<name>neeraj.dl@gmail.com/Home</name>
+		<password>wwgobb2008</password>
+		<alias>neeraj@gmail</alias>
+		<statuses>
+			<status type='available' name='Available' active='true'>
+				<attributes/>
+			</status>
+			<status type='freeforchat' name='Chatty' active='false'>
+				<attributes/>
+			</status>
+			<status type='away' name='Away' active='false'>
+				<attributes>
+					<attribute id='message' value='I&apos;m not here right now'/>
+				</attributes>
+			</status>
+			<status type='extended_away' name='Extended away' active='false'>
+				<attributes/>
+			</status>
+			<status type='dnd' name='Do Not Disturb' active='false'>
+				<attributes/>
+			</status>
+			<status type='offline' name='Offline' active='false'>
+				<attributes/>
+			</status>
+			<status type='tune' name='Listening to music' active='false'>
+				<attributes/>
+			</status>
+		</statuses>
+		<userinfo>&lt;vCard xmlns=&apos;vcard-temp&apos;&gt;&lt;FN&gt;Neeraj Sharma&lt;/FN&gt;&lt;/vCard&gt;</userinfo>
+		<settings>
+			<setting name='use-global-buddyicon' type='bool'>1</setting>
+			<setting name='require_tls' type='bool'>0</setting>
+			<setting name='ft_proxies' type='string'>proxy.jabber.org</setting>
+			<setting name='check-mail' type='bool'>1</setting>
+			<setting name='buddy_icon'/>
+			<setting name='connect_server' type='string'></setting>
+			<setting name='old_ssl' type='bool'>0</setting>
+			<setting name='auth_plain_in_clear' type='bool'>0</setting>
+			<setting name='buddy_icon_timestamp' type='int'>0</setting>
+			<setting name='port' type='int'>5222</setting>
+			<setting name='custom_smileys' type='bool'>1</setting>
+		</settings>
+		<settings ui='gtk-gaim'>
+			<setting name='auto-login' type='bool'>0</setting>
+		</settings>
+		<current_error/>
+	</account>
+	<account>
+		<protocol>prpl-msn</protocol>
+		<name>neeraj_dl@hotmail.com</name>
+		<password>naresh123+</password>
+		<alias>neeraj@msn</alias>
+		<statuses>
+			<status type='available' name='Available' active='true'>
+				<attributes/>
+			</status>
+			<status type='away' name='Away' active='false'>
+				<attributes>
+					<attribute id='message' value='I&apos;m not here right now'/>
+				</attributes>
+			</status>
+			<status type='brb' name='Be Right Back' active='false'>
+				<attributes/>
+			</status>
+			<status type='busy' name='Busy' active='false'>
+				<attributes/>
+			</status>
+			<status type='phone' name='On the Phone' active='false'>
+				<attributes/>
+			</status>
+			<status type='lunch' name='Out to Lunch' active='false'>
+				<attributes/>
+			</status>
+			<status type='invisible' name='Invisible' active='false'>
+				<attributes/>
+			</status>
+			<status type='offline' name='Offline' active='false'>
+				<attributes/>
+			</status>
+			<status type='mobile' name='Mobile' active='false'>
+				<attributes/>
+			</status>
+			<status type='tune' name='Listening to music' active='false'>
+				<attributes/>
+			</status>
+		</statuses>
+		<settings>
+			<setting name='use-global-buddyicon' type='bool'>1</setting>
+			<setting name='check-mail' type='bool'>1</setting>
+			<setting name='buddy_icon'/>
+			<setting name='http_method_server' type='string'>gateway.messenger.hotmail.com</setting>
+			<setting name='server' type='string'>messenger.hotmail.com</setting>
+			<setting name='ablastChange' type='string'>2008-12-31T11:00:57.833-08:00</setting>
+			<setting name='DynamicItemLastChanged' type='string'>0001-01-01T00:00:00</setting>
+			<setting name='http_method' type='bool'>0</setting>
+			<setting name='CLLastChange' type='string'>2008-11-13T14:20:01.89-08:00</setting>
+			<setting name='buddy_icon_timestamp' type='int'>0</setting>
+			<setting name='port' type='int'>1863</setting>
+			<setting name='custom_smileys' type='bool'>1</setting>
+		</settings>
+		<settings ui='gtk-gaim'>
+			<setting name='auto-login' type='bool'>1</setting>
+		</settings>
+		<current_error/>
+	</account>
+	<account>
+		<protocol>prpl-yahoo</protocol>
+		<name>neeraj_dl</name>
+		<password>iwgmmi07</password>
+		<alias>neeraj@yahoo</alias>
+		<statuses>
+			<status type='available' name='Available' active='true'>
+				<attributes/>
+			</status>
+			<status type='away' name='Away' active='false'>
+				<attributes>
+					<attribute id='message' value='I&apos;m not here right now'/>
+				</attributes>
+			</status>
+			<status type='brb' name='Be Right Back' active='false'>
+				<attributes/>
+			</status>
+			<status type='busy' name='Busy' active='false'>
+				<attributes/>
+			</status>
+			<status type='notathome' name='Not at Home' active='false'>
+				<attributes/>
+			</status>
+			<status type='notatdesk' name='Not at Desk' active='false'>
+				<attributes/>
+			</status>
+			<status type='notinoffice' name='Not in Office' active='false'>
+				<attributes/>
+			</status>
+			<status type='onphone' name='On the Phone' active='false'>
+				<attributes/>
+			</status>
+			<status type='onvacation' name='On Vacation' active='false'>
+				<attributes/>
+			</status>
+			<status type='outtolunch' name='Out to Lunch' active='false'>
+				<attributes/>
+			</status>
+			<status type='steppedout' name='Stepped Out' active='false'>
+				<attributes/>
+			</status>
+			<status type='invisible' name='Invisible' active='false'>
+				<attributes/>
+			</status>
+			<status type='offline' name='Offline' active='false'>
+				<attributes/>
+			</status>
+			<status type='mobile' name='Mobile' active='false'>
+				<attributes/>
+			</status>
+		</statuses>
+		<settings>
+			<setting name='use-global-buddyicon' type='bool'>1</setting>
+			<setting name='check-mail' type='bool'>1</setting>
+			<setting name='buddy_icon'/>
+			<setting name='xfer_port' type='int'>80</setting>
+			<setting name='picture_url'/>
+			<setting name='picture_checksum' type='int'>0</setting>
+			<setting name='local_charset' type='string'>ISO-8859-1</setting>
+			<setting name='server' type='string'>scs.msg.yahoo.com</setting>
+			<setting name='ignore_invites' type='bool'>0</setting>
+			<setting name='room_list_locale' type='string'>us</setting>
+			<setting name='yahoojp' type='bool'>0</setting>
+			<setting name='picture_expire' type='int'>0</setting>
+			<setting name='buddy_icon_timestamp' type='int'>0</setting>
+			<setting name='serverjp' type='string'>cs.yahoo.co.jp</setting>
+			<setting name='port' type='int'>5050</setting>
+			<setting name='xferjp_host' type='string'>filetransfer.msg.yahoo.co.jp</setting>
+			<setting name='xfer_host' type='string'>filetransfer.msg.yahoo.com</setting>
+		</settings>
+		<settings ui='gtk-gaim'>
+			<setting name='auto-login' type='bool'>1</setting>
+		</settings>
+		<current_error/>
+	</account>
+</account>

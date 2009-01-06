@@ -1,0 +1,56 @@
+<!ENTITY open "Apri">
+<!ENTITY openAll "Apri tutte">
+<!ENTITY refresh "Aggiorna">
+<!ENTITY refreshAll "Aggiorna tutte">
+<!ENTITY properties "Proprietà...">
+<!ENTITY remove "Rimuovi">
+<!ENTITY preferences "Opzioni...">
+<!ENTITY close "Chiudi">
+<!ENTITY applyToAll "Applica a tutte le cartelle">
+<!ENTITY defaults "Ripristina predefiniti">
+<!ENTITY general "Generale">
+<!ENTITY appearance "Aspetto">
+<!ENTITY folder "Cartella">
+<!ENTITY quantity "Quantità">
+<!ENTITY size "Dimensioni">
+<!ENTITY fixed "Fisse">
+<!ENTITY shortcutKey "Scorciatoia da tastiera">
+<!ENTITY openIn "Apri in">
+<!ENTITY newTab "una nuova scheda">
+<!ENTITY backgroundTab "una nuova scheda in secondo piano">
+<!ENTITY newWindow "una nuova finestra">
+<!ENTITY useJava "Utilizza Java per il ridimensionamento delle immagini">
+<!ENTITY showRefreshAll "Visualizza la voce di menu Aggiorna tutte">
+<!ENTITY showInNewTabs "Visualizza Fast Dial nelle nuove schede">
+<!ENTITY showEmpty "Visualizza celle vuote">
+<!ENTITY page "Pagina">
+<!ENTITY thumbnail "Miniatura">
+<!ENTITY activeThumbnail "Miniatura attiva">
+<!ENTITY load "Carica">
+<!ENTITY save "Salva">
+<!ENTITY font "Font">
+<!ENTITY image "Immagine">
+<!ENTITY center "Centrata">
+<!ENTITY background "Sfondo">
+<!ENTITY spacing "Spaziatura">
+<!ENTITY border "Bordo">
+<!ENTITY titleBackground "Sfondo del titolo">
+<!ENTITY titleBorder "Bordo del titolo">
+<!ENTITY titleColor "Colore del titolo">
+<!ENTITY opacity "Opacità">
+<!ENTITY clear "Svuota">
+<!ENTITY url "Indirizzo">
+<!ENTITY customImage "Immagine personalizzata">
+<!ENTITY title "Titolo">
+<!ENTITY refreshEvery "Aggiorna ogni">
+<!ENTITY minutes "minuti">
+<!ENTITY help "Aiuto">
+<!ENTITY homePage "Sito web">
+<!ENTITY addToFastDial "Aggiungi a Fast Dial">
+<!ENTITY slowSite "Slow site">
+<!ENTITY add "Add">
+<!ENTITY currentTab "current tab">
+<!ENTITY restartIsNeeded "(restart is needed)">
+<!ENTITY support "Support">
+<!ENTITY contact "Contact">
+<!ENTITY requestLogo "Request a logo">

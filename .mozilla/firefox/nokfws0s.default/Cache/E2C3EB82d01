@@ -1,0 +1,529 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Parse a command line string into tokens (in C, C++, &amp; Lisp)</TITLE>
+<META NAME="description" CONTENT="Parse a command line string into tokens (in C, C++, &amp; Lisp)">
+<META NAME="keywords" CONTENT="pcm">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="pcm.css">
+
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<IMG WIDTH="81" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next_inactive"
+ SRC="../img/latex2html/nx_grp_g.png"> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../img/latex2html/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../img/latex2html/prev_g.png">   
+  <A NAME="tex2html1"
+  HREF="../"><IMG
+ ALIGN="BOTTOM" SRC="../img/latex2html/root.png"
+ ALT="root">
+  </A>
+
+<BR>
+<BR><BR></DIV>
+<!--End of Navigation Panel-->
+
+<P>
+
+<H1 ALIGN="CENTER">Parse a command line string into tokens (in C, C++, &amp; Lisp)</H1><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG><A NAME="tex2html2"
+  HREF="../contacting/">Gene Michael Stover</A></STRONG></P>
+<P ALIGN="CENTER"><STRONG>created Monday, 2006 November 6
+<BR>updated Wednesday, 2007 February 28</STRONG></P>
+</DIV>
+
+<P>
+
+  <EM><SMALL CLASS="SMALL">    Copyright &#169; 2006 Gene Michael Stover.
+    All rights reserved. Permission to copy, store, &amp;
+    view this document unmodified &amp; in its entirety is granted.</SMALL></EM>
+
+<P>
+<BR>
+
+<H2><A NAME="SECTION00010000000000000000">
+Contents</A>
+</H2>
+<!--Table of Contents-->
+
+<UL CLASS="TofC">
+<LI><A NAME="tex2html20"
+  HREF="pcm.html#SECTION00020000000000000000">1 What is this?</A>
+<LI><A NAME="tex2html21"
+  HREF="pcm.html#SECTION00030000000000000000">2 What the functions do</A>
+<LI><A NAME="tex2html22"
+  HREF="pcm.html#SECTION00040000000000000000">3 Examples</A>
+<LI><A NAME="tex2html23"
+  HREF="pcm.html#SECTION00050000000000000000">4 License</A>
+<LI><A NAME="tex2html24"
+  HREF="pcm.html#SECTION00060000000000000000">5 The Lisp source code</A>
+<LI><A NAME="tex2html25"
+  HREF="pcm.html#SECTION00070000000000000000">6 The C source code</A>
+<LI><A NAME="tex2html26"
+  HREF="pcm.html#SECTION00080000000000000000">A. parse.lisp</A>
+<LI><A NAME="tex2html27"
+  HREF="pcm.html#SECTION00090000000000000000">B. Other File Formats</A>
+<LI><A NAME="tex2html28"
+  HREF="pcm.html#SECTION000100000000000000000">Bibliography</A>
+</UL>
+<!--End of Table of Contents-->
+<P>
+
+<H1><A NAME="SECTION00020000000000000000">
+<SPAN CLASS="arabic">1</SPAN> What is this?</A>
+</H1>
+
+<P>
+This is how you obtain the values for your own <TT>char
+*argv<code>[]</code></TT> when the run-time system doesn't do it for
+you.  The run-time of unix<A NAME="tex2html3"
+  HREF="footnode.html#foot293"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A> parse the command line into <TT>argv</TT> for you,
+but Microsloth Windows does not do so if your program's
+entry point is <TT>WinMain</TT>.  When the run-time does not
+parse them for you, you can use the functions here to do it
+yourself.  Then you can send the <TT>argv</TT> to <TT>getopt</TT>
+for standardized option processing.
+
+<P>
+I needed a C or C++ function which would parse a command
+line string into tokens which were suitable for <TT>getopt</TT>
+or some similar function.  Normally, a command line
+processor such as <TT>/bin/sh</TT> does this work before your
+program's <TT>main</TT> function starts, but in this case, I
+was working in a limited environment in which there was a
+command line of sorts but no command line processor to parse
+the command line string into tokens.  So I had to write one.
+
+<P>
+While I was at it, I also implemented it in
+Lisp.  Actually, the algorithm in plain C was
+difficult enough that I implemented it in Lisp first so I
+could see how to do it.  Then I used my Lisp code as a
+pattern for writing the C &amp; C++ functions.
+
+<P>
+
+<H1><A NAME="SECTION00030000000000000000">
+<SPAN CLASS="arabic">2</SPAN> What the functions do</A>
+</H1>
+
+<P>
+The functions take a single string as an argument &amp; return
+a list<A NAME="tex2html4"
+  HREF="footnode.html#foot250"><SUP><SPAN CLASS="arabic">2</SPAN></SUP></A> of the tokens in that string.  The parsing algorithm
+resembles that used by the usual command line interpreters
+such as <TT>/bin/sh</TT> on unix<A NAME="tex2html5"
+  HREF="footnode.html#foot252"><SUP><SPAN CLASS="arabic">3</SPAN></SUP></A> or <TT>cmd</TT> on Windows, but the algorithm is <EM>not
+identical to those command line interpreters</EM>.
+
+<P>
+The grammar rules for my parser are:
+
+<P>
+
+<OL>
+<LI>The functions are aware of a quote character &amp; an
+  escape character which can be defined at run-time.  The
+  quote character defaults to double-quote (<TT>"</TT>).  The escape
+  character defaults to back-slash (<code>\</code>).
+
+<P>
+</LI>
+<LI>In general, tokens are separated by one or more
+  white-space characters.  Multiple consecutive white-space
+  characters are treated as a single separator.
+
+<P>
+</LI>
+<LI>White-space characters inside a pair of quotes are
+  literals, not dividers.
+
+<P>
+</LI>
+<LI>A quote character preceeded by an escape character is
+  a literal, not a token-encloser.
+
+<P>
+</LI>
+<LI>An escape character which precedes anything other than
+  a quote is a literal, not an escape.  In other words, an
+  escape only escapes quotes.
+
+<P>
+</LI>
+</OL>
+
+<P>
+I don't like that syntax, but it was a requirement imposed
+on me.  It'd be simpler if an escape was always an escape,
+but the values which these functions will parse will
+themselves be embedded in another string &amp; will need to be
+escaped or quoted.  That, <EM>and</EM> it's a DOS-like
+enviroment where back-slashes separate subdirectory names in
+pathnames.  So I'm stuck with this syntax.
+
+<P>
+
+<H1><A NAME="SECTION00040000000000000000">
+<SPAN CLASS="arabic">3</SPAN> Examples</A>
+</H1>
+
+<P>
+Here are some examples.  The <EM>input</EM> column is literal,
+what you'd type on the command line.  The <EM>output</EM>
+column is in Lisp notation, which I chose because C &amp; C++
+don't have a good notation for this type of thing.  Also,
+I'm using dots (<TT>.</TT>)  to show space characters in the
+examples which demonstrate how consecutive multiple spaces
+are parsed.
+
+<P>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="RIGHT"><B>input</B></TD>
+<TD ALIGN="LEFT"><B>output</B></TD>
+</TR>
+<TR><TD ALIGN="RIGHT"><TT>word</TT></TD>
+<TD ALIGN="LEFT"><TT>("word")</TT></TD>
+</TR>
+<TR><TD ALIGN="RIGHT"><TT>blue shoes</TT></TD>
+<TD ALIGN="LEFT"><TT>("blue" "shoes")</TT></TD>
+</TR>
+<TR><TD ALIGN="RIGHT"><TT>"blue shoes"</TT></TD>
+<TD ALIGN="LEFT"><TT>("blue shoes")</TT></TD>
+</TR>
+<TR><TD ALIGN="RIGHT"><TT>"blue...shoes"</TT></TD>
+<TD ALIGN="LEFT"><TT>("blue...shoes")</TT></TD>
+</TR>
+<TR><TD ALIGN="RIGHT"><TT>"blue shoes" red rum</TT></TD>
+<TD ALIGN="LEFT"><TT>("blue shoes" red rum)</TT></TD>
+</TR>
+<TR><TD ALIGN="RIGHT"><TT>quoted <code>\</code>"quote<code>\</code>"</TT></TD>
+<TD ALIGN="LEFT"><TT>("quoted" "<code>\</code>"quote<code>\</code>"")</TT></TD>
+</TR>
+<TR><TD ALIGN="RIGHT"><TT>embedded q<code>\</code>"uot<code>\</code>"es</TT></TD>
+<TD ALIGN="LEFT"><TT>("embedded" "q<code>\</code>"uot<code>\</code>"es")</TT></TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H1><A NAME="SECTION00050000000000000000">
+<SPAN CLASS="arabic">4</SPAN> License</A>
+</H1>
+
+<P>
+All files, both source &amp; compiled, are copyrighted by Gene
+Michael Stover &amp; released under the terms of the GNU
+General Public License [<A
+ HREF="pcm.html#gnu:gpl">1</A>].  Here's a copy of the
+copyright notice &amp; license agreement at the beginning of
+each source file:
+
+<P>
+<BLOCKQUOTE><EM>Copyright (c) 2006 Gene Michael Stover.  All rights reserved.
+</EM></BLOCKQUOTE>
+<P>
+<BLOCKQUOTE><EM>This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of the
+ License, or (at your option) any later version.
+</EM></BLOCKQUOTE>
+<P>
+<BLOCKQUOTE><EM>This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+</EM></BLOCKQUOTE>
+<P>
+<BLOCKQUOTE><EM>You should have received a copy of the GNU General Public
+ License along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301
+ USA
+</EM></BLOCKQUOTE>
+
+<P>
+
+<H1><A NAME="SECTION00060000000000000000">
+<SPAN CLASS="arabic">5</SPAN> The Lisp source code</A>
+</H1>
+
+<P>
+There's only one Lisp source file.
+It's online at
+<A NAME="tex2html6"
+  HREF="http://cybertiggyr.com/gene/pcm/src/parse.lisp">http://cybertiggyr.com/gene/pcm/src/parse.lisp</A>.
+
+<H1><A NAME="SECTION00070000000000000000">
+<SPAN CLASS="arabic">6</SPAN> The C source code</A>
+</H1>
+
+<P>
+
+<P>
+
+<H1><A NAME="SECTION00080000000000000000"></A>
+<A NAME="parse.lisp"></A><BR>
+A. parse.lisp
+</H1>
+
+<P>
+<PRE>
+;;; -*- Mode: Lisp -*-
+;;;
+;;; $Header: /home/gene/library/website/docsrc/pcm/src/RCS/parse.lisp,v 395.1 2008/04/20 17:25:47 gene Exp $
+;;;
+;;; Copyright (c) 2006 Gene Michael Stover.  All rights reserved.
+;;;
+;;; This program is free software; you can redistribute it and/or modify
+;;; it under the terms of the GNU General Public License as
+;;; published by the Free Software Foundation; either version 2 of the
+;;; License, or (at your option) any later version.
+;;;
+;;; This program is distributed in the hope that it will be useful,
+;;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;; GNU General Public License for more details.
+;;;
+;;; You should have received a copy of the GNU General Public
+;;; License along with this program; if not, write to the Free Software
+;;; Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301
+;;; USA
+;;;
+
+(defvar *quote* #\")
+(defvar *escape* #\\)
+(defvar *spaces* '(#\Space #\Tab #\Newline))
+
+(defun is-space (x) (member x *spaces*))
+
+(defun discard-space (lst)
+  (do ()
+      ((not (is-space (first lst))) lst)
+      (pop lst)))
+
+(defun lex0 (seq)
+  "Perform level-0 lexical analysis on the sequence of characters.
+Return list of tokens.  Most characters become themselves as tokens.
+Quotes become :QUOTE unless escaped.  Contiguous spaces become
+:SPACE.  Escape character is itself unless it was used to escape a
+quote."
+  (let ((x nil)
+        (is-quoted nil))
+    (do ((lst (coerce seq 'list) (rest lst)))
+        ((endp lst) (nreverse x))
+        (cond ((equal *quote* (first lst))
+               ;; An un-escaped quote character becomes a :QUOTE token.
+               (setq is-quoted (not is-quoted))
+               (push :quote x))
+              ((and (equal *escape* (first lst))
+                    (equal *quote* (second lst)))
+               ;; An escaped quote becomes a quote character.
+               (push #\" x);
+               (pop lst)) ; discard the escape
+              ((and (not is-quoted) (is-space (first lst)))
+               ;; The sequence begins with a white-space character.
+               ;; So we push :SPACE onto the tokens, then discard all
+               ;; of the spaces.
+               (push :space x)
+               (setq lst (cons :will-be-discarded (discard-space lst))))
+              (t
+               ;; Most characters are literals.
+               (push (first lst) x))))))
+
+(defun next-quoted-token (lst0)
+  (assert (eq :quote (first lst0)))
+  (pop lst0)                            ; discard :QUOTE
+  (do ((token nil (cons (first lst) token))
+       (lst lst0 (rest lst)))
+      ((eq :quote (first lst)) (coerce (nreverse token) 'string))))
+
+(defun after-quoted-token (lst)
+  (assert (eq :quote (first lst)))
+  (pop lst)                             ; discard beginning :QUOTE
+  (loop until (member (first lst) '(:quote nil))
+        do (pop lst))
+  (pop lst)                             ; discard ending :QUOTE
+  lst)
+
+(defun next-raw-token (lst0)
+  (do ((token nil (cons (first lst) token))
+       (lst lst0 (rest lst)))
+      ((member (first lst) '(:space nil))
+       (coerce (nreverse token) 'string))))
+
+(defun after-raw-token (lst)
+  (loop until (member (first lst) '(:space nil))
+        do (pop lst))
+  (pop lst)                             ; discard the :SPACE
+  lst)
+
+(defun next-token (lst)
+  "Return the next token as a string."
+  (setq lst (discard-space lst))
+  (cond ((endp lst) nil)
+        ((eq :quote (first lst)) (next-quoted-token lst))
+        (t (next-raw-token lst))))
+
+(defun after-token (lst)
+  (setq lst (discard-space lst))
+  (cond ((endp lst) nil)
+        ((eq :quote (first lst)) (after-quoted-token lst))
+        (t (after-raw-token lst))))
+
+(defun lex1 (seq0)
+  "Given a sequence as returned by LEX0, produce a list of
+tokens.  These tokens are strings."
+  (do ((lst nil (cons (next-token seq) lst))
+       (seq (coerce seq0 'list) (after-token seq)))
+      ((endp seq) (nreverse lst))))
+
+(defun parse (string)
+  (lex1 (lex0 (coerce string 'list))))
+
+;;;
+;;;
+;;;
+
+(defun test0000 () 'test0000)
+
+(defun test0002 ()
+  "Test IS-SPACE on some hard-coded inputs."
+  (and (is-space #\Space)
+       (is-space #\Tab)
+       (is-space #\Newline)
+       (not (is-space #\a))
+       (not (is-space nil))
+       (not (is-space 32))))
+
+(defun test0005 ()
+  "Test LEX0 on a simple hard-coded input."
+  (equal (lex0 "abc") '(#\a #\b #\c)))
+
+(defun test0007 ()
+  "Test LEX0 on a hard-coded input that contains a single space
+between two non-space characters."
+  (equal (lex0 "a c") '(#\a :space #\c)))
+
+(defun test0008 ()
+  "Test LEX0 on a hard-coded input that contains contiguous
+spaces between two non-space characters."
+  (equal (lex0 "a      c") '(#\a :space #\c)))
+
+(defun test0009 ()
+  "Test LEX0 on a hard-coded input that contains leading &amp;
+trailing spaces."
+  (equal (lex0 "  a c ") '(:space #\a :space #\c :space)))
+
+(defun test0013 ()
+  "Test LEX0 on a hard-coded input that contains a quoted token.
+That token contains an embedded space."
+  (equal (lex0 "\"a c\"") '(:quote #\a #\Space #\c :quote)))
+
+(defun test0015 ()
+  "Test LEX0 on a hard-coded input that contains some spaced
+which are quoted, some which are not, &amp; some escaped quotes."
+  (equal (lex0 " \"\\\" \"")
+         '(:space :quote #\" #\Space :quote)))
+
+(defun test0051 ()
+  "Test LEX1 on a simple input.  This input has one token, no
+quotes, no spaces, not escapes."
+  (equal (lex1 '(#\w #\o #\r #\d)) '("word")))
+
+(defun test0053 ()
+  "Test LEX1 on a two-token input.  The tokens are plain, have no
+quotes, escapes, or embedded spaces."
+  (equal (lex1 '(#\b #\l #\u #\e :SPACE #\s #\h #\o #\e))
+         '("blue" "shoe")))
+
+(defun test0055 ()
+  "Test LEX1 on a one-token input.  The token contains a space.
+The token is quoted so it should include the space."
+  (equal (lex1 (lex0 "\"a c\"")) '("a c")))
+
+(defun test0056 ()
+  "Test LEX1 on a one-token input which contains an escaped
+quote."
+  (equal (lex1 (lex0 "\\\"a")) '("\"a")))
+
+;;; --- end of file ---
+</PRE>
+
+<P>
+
+<H1><A NAME="SECTION00090000000000000000">
+B. Other File Formats</A>
+</H1>
+
+<P>
+
+<UL>
+<LI>This document is available in multi-file HTML format
+  at 
+<BR>  <A NAME="tex2html7"
+  HREF="./">http://cybertiggyr.com/gene/pcm/</A>.
+
+<P>
+</LI>
+<LI>This document is available in Pointless Document
+  Format (PDF) at 
+<BR>  <A NAME="tex2html8"
+  HREF="pcm.pdf">http://cybertiggyr.com/gene/pcm/pcm.pdf</A>.
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION000100000000000000000">
+Bibliography</A>
+</H2><DL COMPACT><DD><P></P><DT><A NAME="gnu:gpl">1</A>
+<DD>
+Free&nbsp;Software Foundation.
+<BR>General public license.
+<BR>world wide web.
+<BR>
+  <A NAME="tex2html9"
+  HREF="http://www.gnu.org/licenses/licenses.html#GPL">http://www.gnu.org/licenses/licenses.html#GPL</A>.
+</DL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<IMG WIDTH="81" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next_inactive"
+ SRC="../img/latex2html/nx_grp_g.png"> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="../img/latex2html/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="../img/latex2html/prev_g.png">   
+  <A NAME="tex2html1"
+  HREF="../"><IMG
+ ALIGN="BOTTOM" SRC="../img/latex2html/root.png"
+ ALT="root">
+  </A>
+
+<BR></DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Gene Michael Stover
+2008-04-20
+</ADDRESS>
+</BODY>
+</HTML>

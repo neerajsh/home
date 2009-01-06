@@ -1,0 +1,109 @@
+/etc/gdm/Xsession: Beginning session setup...
+Setting IM through im-switch for locale=en_US.
+Start IM through /etc/X11/xinit/xinput.d/all_ALL linked to /etc/X11/xinit/xinput.d/default.
+Checking for Xgl: not present. 
+Detected PCI ID for VGA: 
+Checking for texture_from_pixmap: present. 
+Checking for non power of two support: present. 
+Checking for Composite extension: present. 
+Comparing resolution (1920x1200) to maximum 3D texture size (4096): Passed.
+Checking for Software Rasterizer: Not present. 
+Checking for nVidia: present. 
+Checking for FBConfig: present. 
+Checking for Xgl: not present. 
+/usr/bin/compiz.real (video) - Warn: No 8 bit GLX pixmap format, disabling YV12 image format
+Starting gtk-window-decorator
+x-session-manager[5892]: WARNING: Application 'gnome-wm.desktop' failed to register before timeout
+Initializing nautilus-share extension
+seahorse nautilus module initialized
+
+** (nautilus:6122): WARNING **: Unable to add monitor: Not supported
+E: thread-posix.c: Assertion 'pthread_setspecific(t->key, userdata) == 0' failed at pulsecore/thread-posix.c:194, function pa_tls_set(). Aborting.
+x-session-manager[5892]: WARNING: Application 'libcanberra-login-sound.desktop' failed to register before timeout
+Failure: Module initalization failed
+
+
+Tracker version 0.6.6 Copyright (c) 2005-2007 by Jamie McCracken (jamiemcc@gnome.org)
+
+This program is free software and comes without any warranty.
+It is licensed under version 2 or later of the General Public License which can be viewed at http://www.gnu.org/licenses/gpl.txt
+
+Initialising tracker...
+starting HAL detection for ac adaptors...found /org/freedesktop/Hal/devices/computer_power_supply_ac_adapter_AC
+Throttle level is 5
+evolution-alarm-notify-Message: Setting timeout for 63280 1231200000 1231136720
+evolution-alarm-notify-Message:  Mon Jan  5 16:00:00 2009
+
+evolution-alarm-notify-Message:  Sun Jan  4 22:25:20 2009
+
+
+(gnome-terminal:8045): Vte-WARNING **: No handler for control sequence `device-control-string' defined.
+
+(gnome-terminal:8045): Vte-WARNING **: No handler for control sequence `device-control-string' defined.
+gdmsetup[9997]: Gtk-WARNING: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+gdmsetup[9997]: Gtk-WARNING: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+gdmsetup[9997]: Gtk-WARNING: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+gdmsetup[9997]: Gtk-WARNING: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+gdmsetup[9997]: Gtk-WARNING: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+gdmsetup[9997]: Gtk-WARNING: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+gdmsetup[9997]: GLib-GObject-CRITICAL: g_value_set_boolean: assertion `G_VALUE_HOLDS_BOOLEAN (value)' failed
+gdmsetup[9997]: GLib-GObject-CRITICAL: g_value_get_boolean: assertion `G_VALUE_HOLDS_BOOLEAN (value)' failed
+gdmsetup[9997]: GLib-GObject-CRITICAL: g_value_unset: assertion `G_IS_VALUE (value)' failed
+gdmsetup[9997]: GLib-GObject-CRITICAL: g_value_set_boolean: assertion `G_VALUE_HOLDS_BOOLEAN (value)' failed
+gdmsetup[9997]: GLib-GObject-CRITICAL: g_value_get_boolean: assertion `G_VALUE_HOLDS_BOOLEAN (value)' failed
+gdmsetup[9997]: GLib-GObject-CRITICAL: g_value_unset: assertion `G_IS_VALUE (value)' failed
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(users-admin:10064): Gtk-WARNING **: GtkSpinButton: setting an adjustment with non-zero page size is deprecated
+
+(gnome-terminal:8045): Vte-WARNING **: No handler for control sequence `device-control-string' defined.
+
+(synaptic:12914): Gtk-CRITICAL **: gtk_tree_view_unref_tree_helper: assertion `node != NULL' failed
+SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+(synaptic:12914): Gtk-CRITICAL **: gtk_tree_view_unref_tree_helper: assertion `node != NULL' failed
+
+(synaptic:12914): Gtk-CRITICAL **: gtk_tree_view_unref_tree_helper: assertion `node != NULL' failed
+
+(synaptic:12914): Gtk-CRITICAL **: gtk_tree_view_unref_tree_helper: assertion `node != NULL' failed
+
+No fonts match `Monospace-7'
+No fonts match `Monospace-7'
+No fonts match `Monospace-7'
+
+(gnome-terminal:8045): Vte-WARNING **: No handler for control sequence `device-control-string' defined.
+
+(synaptic:18644): Gtk-CRITICAL **: gtk_tree_view_unref_tree_helper: assertion `node != NULL' failed
+SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSevolution-alarm-notify-Message: Alarm callback!
+evolution-alarm-notify-Message: Process alarm with trigger 1231200000
+evolution-alarm-notify-Message: alarm.c:249: Requested removal of nonexistent alarm!
+evolution-alarm-notify-Message: Setting timeout for 86400 1231286400 1231200000
+evolution-alarm-notify-Message:  Tue Jan  6 16:00:00 2009
+
+evolution-alarm-notify-Message:  Mon Jan  5 16:00:00 2009
+
+evolution-alarm-notify-Message: Setting timeout for 86400 1231286400 1231200000
+evolution-alarm-notify-Message:  Tue Jan  6 16:00:00 2009
+
+evolution-alarm-notify-Message:  Mon Jan  5 16:00:00 2009
+

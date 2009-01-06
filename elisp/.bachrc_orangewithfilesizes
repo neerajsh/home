@@ -1,0 +1,48 @@
+# -----------------------------------------
+#
+#
+# Alias info
+#
+# tarx - extracts tar archives
+# tarc - creates tar archives
+# ls - long, human readable, no groups, and dir/file indicators.
+# gunzip - decompresses gzip'd
+#
+################################################################
+
+
+
+# User specific aliases and functions
+alias ls='ls -l -G -h -p --color=always'
+alias rpm='rpm -i -v -h'
+alias gunzip='gunzip -d'
+alias tarx='tar -x -f'
+alias tarc='tar -c'
+#alias rmr='rm -r'
+alias conf='./configure'
+alias shutdown='shutdown now -h'
+alias cp='cp -i'
+alias mv='mv'
+alias setiathome='setiview ./setiathome -nice 20'
+alias motd='clear | cat /etc/motd'
+alias kill='kill -9'
+
+# Prompt String 
+# 
+
+case $TERM in
+    xterm*|rxvt*)
+    TITLEBAR='\[\033]0;\u@\h:\w\007\]'
+    ;;
+    *)
+    TITLEBAR=""
+    ;;
+esac;
+PS1="${TITLEBAR}\T\[\033[0m\]\[\033[0;33m\]::\[\033[0m\]\[\033[1;30m\]\[\033[0m\]\[\033[0;37m\]\u\[\033[0m\]\[\033[0;33m\]@\[\033[0m\]\[\033[0;37m\]\h\[\033[0m\]\[\033[0;33m\]::\[\033[0m\]\[\033[1;33m\]\w\[\033[0m\]\[\033[0;33m\] \[\033[0m\]\[\033[0;32m\]\[\033[0m\]\[\033[1;37m\]\[\033[0m\]\[\033[1;37m\](\[\033[0m\]\[\033[0;33m\]\$(ls -l | grep \"^-\" | wc -l | tr -d \" \")\[\033[0m\]\[\033[1;37m\] \[\033[0m\]\[\033[1;30m\]\[\033[0m\]\[\033[0;37m\]files\[\033[0m\]\[\033[1;37m\], \[\033[0m\]\[\033[0;33m\]\$(ls --si -s | head -1 | awk '{print \$2}') \[\033[0m\]\[\033[0;37m\]total\[\033[0m\]\[\033[0;37m\])\n\[\033[0m\]\[\033[1;37m\]%\[\033[0;0m\]"
+
+
+
+
+
+
+

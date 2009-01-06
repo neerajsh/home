@@ -1,0 +1,29 @@
+
+makefile,184
+CC=gccCC2,1
+CFLAGS=-c -WallCFLAGS3,8
+LDFLAGS=LDFLAGS4,24
+SOURCES=binarytree.c queue.cSOURCES5,33
+OBJECTS = $(SOURCES:.c=.o)OBJECTS6,62
+EXECUTABLE=binarytree	EXECUTABLE7,89
+
+binarytree.c,293
+typedef struct nodenode9,276
+    int data;data11,300
+    struct node * left;left12,315
+    struct node * right;right13,340
+}node;node15,372
+void build123(node ** pproot)build12318,384
+void insert(node ** pproot, int data)insert23,425
+int main(int argc, char *argv[])main45,767
+
+queue.h,192
+typedef struct queue_nodequeue_node3,14
+    queue_node * next;next5,42
+    int data;data6,65
+} queue_node;queue_node7,79
+queue_node * first;first10,95
+queue_node * last;last11,115
+
+queue.c,40
+void enqueue(node** queue)enqueue3,22

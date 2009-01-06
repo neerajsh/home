@@ -1,0 +1,76 @@
+
+;; ----- ido-last-directory-list -----
+(
+ ("/" . "home/")
+ ("c:/src/eo/prototypes/PDC/PDC/Microsoft.EventsOnline.Data/DataAccess/" . "Sql/")
+ ("c:/src/eo/prototypes/PDC/PDC/Microsoft.EventsOnline.Data/" . "DataAccess/")
+ ("c:/src/eo/prototypes/PDC/PDC/" . "Microsoft.EventsOnline.Data/")
+ ("c:/src/eo/prototypes/PDC/" . "PDC/")
+ ("c:/src/eo/prototypes/" . "PDC/")
+ ("c:/src/eo/" . "prototypes/")
+ ("c:/src/" . "EOProtos/")
+ ("c:/" . "src/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/"
+ "/home/elisp/"
+ "c:/src/eo/prototypes/PDC/PDC/Microsoft.EventsOnline.Data/DataAccess/Sql/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ ".emacs"
+ "prefs.el"
+ "SqlAccountRepository.cs"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/" (18613 1187) "_viminfo" "vimfiles/" "templates/" "tags" "tagfiles/" "set-font-and-frame.reg" "semantic.cache~" "semantic.cache" "notes/" "macros.txt" "elisp/" "desktop.ini" "books/" "banners/" "backups/" ".VirtualBox/" ".viper~" ".viper" ".vimrc" ".viminfo" ".terminfo/" ".terminator/" ".shrc" ".recentf~" ".recentf" ".projects.ede" ".profile" ".links/" ".inputrc" ".ido.last" ".emacs~" ".emacs.files" ".emacs.d/" ".emacs" ".bash_profile~" ".bash_profile" ".bash_history" ".bashrc~" ".bashrc_clockwitherror" ".bashrc" ".bachrc_orangewithfilesizes" "#.emacs#" "../" "./")
+
+ ("/home/elisp/" (18612 62697) "window.elc" "window.el" "svn.elc" "svn.el" "subdirs.elc" "subdirs.el" "start.elc" "start.el" "semantic.cache" "prefs.elc" "prefs.el" "modes.el~" "modes.el" "make.elc" "make.el" "lisp/" "linux.elc" "linux.el" "emacslisp_back" "emacslib/" "added.elc" "added.el" "abtags.elc" "abtags.el" "22.elc" "22.el" "#start.el#" "#prefs.el#" "../" "./")
+
+ ("c:/Users/" (18413 26362) "Public/" "neerajsh/" "neeraj/" "desktop.ini" "Default User/" "Default/" "All Users/" "Administrator/" "../" "./")
+
+ ("c:/Users/neerajsh/" (18612 54822) "Videos/" "tracing/" "Templates/" "Start Menu/" "SendTo/" "Searches/" "Saved Games/" "Recent/" "PrintHood/" "Pictures/" "ntuser.pol" "ntuser.ini" "NTUSER.DAT{42133cf1-6a70-11db-bbc9-fdca8d8bcc9d}.TMContainer00000000000000000002.regtrans-ms" "NTUSER.DAT{42133cf1-6a70-11db-bbc9-fdca8d8bcc9d}.TMContainer00000000000000000001.regtrans-ms" "NTUSER.DAT{42133cf1-6a70-11db-bbc9-fdca8d8bcc9d}.TM.blf" "ntuser.dat.LOG2" "ntuser.dat.LOG1" "NTUSER.DAT" "NetHood/" "My Documents/" "Music/" "Local Settings/" "Links/" "gsview32.ini" "Favorites/" "Downloads/" "Documents/" "Desktop/" "Cookies/" "Contacts/" "Application Data/" "AppData/" ".thumbnails/" ".recently-used.xbel" ".gimp-2.4/" "../" "./")
+
+ ("c:/sys/tools/" (18612 60176) "vim/" "gnuwin32/" "emacs/" "ctrl2cap/" "ctags/" "../" "./")
+
+ ("c:/sys/tools/emacs/" (18612 61420) "site-lisp/" "README.W32" "README" "lisp/" "leim/" "INSTALL" "info/" "etc/" "COPYING" "BUGS" "bin/" "../" "./")
+
+ ("c:/sys/tools/emacs/bin/" (18612 60200) "sorted-doc.exe" "runemacs.exe" "movemail.exe" "libXpm.dll" "libXpm.COPYING" "hexl.exe" "etags.exe" "emacsclientw.exe" "emacsclient.exe" "emacs.exe" "ebrowse.exe" "dump.bat" "digest-doc.exe" "ddeclient.exe" "ctags.html" "ctags.exe" "COPYING" "cmdproxy.exe" "addpm.exe" "../" "./")
+
+ ("c:/home/" (18612 62690) "_viminfo" "vimfiles/" "templates/" "tags" "tagfiles/" "set-font-and-frame.reg" "semantic.cache~" "semantic.cache" "notes/" "macros.txt" "elisp/" "desktop.ini" "books/" "banners/" "backups/" ".VirtualBox/" ".viper~" ".viper" ".vimrc" ".viminfo" ".terminfo/" ".terminator/" ".shrc" ".recentf~" ".recentf" ".projects.ede" ".profile" ".links/" ".inputrc" ".ido.last" ".emacs~" ".emacs.files" ".emacs.d/" ".emacs" ".bash_profile~" ".bash_profile" ".bash_history" ".bashrc~" ".bashrc_clockwitherror" ".bashrc" ".bachrc_orangewithfilesizes" "../" "./")
+
+ ("c:/home/elisp/" (18612 62697) "window.elc" "window.el" "svn.elc" "svn.el" "subdirs.elc" "subdirs.el" "start.elc" "start.el" "semantic.cache" "prefs.elc" "prefs.el" "modes.el~" "modes.el" "make.elc" "make.el" "lisp/" "linux.elc" "linux.el" "emacslisp_back" "emacslib/" "added.elc" "added.el" "abtags.elc" "abtags.el" "22.elc" "22.el" "#start.el#" "#prefs.el#" "../" "./")
+
+ ("c:/src/eo/prototypes/PDC/PDC/Microsoft.EventsOnline.Data/DataAccess/Sql/" (18610 25958) "SqlAccountRepository.cs" "EventsOnlineSql.designer.cs" "EventsOnlineSql.dbml.layout" "EventsOnlineSql.dbml" "../" "./")
+
+ ("c:/src/eo/prototypes/PDC/PDC/Microsoft.EventsOnline.Data/DataAccess/" (18610 25302) "Sql/" "Interfaces/" "../" "./")
+
+ ("c:/src/eo/prototypes/PDC/PDC/Microsoft.EventsOnline.Data/" (18611 51001) "Utility/" "Properties/" "obj/" "Model/" "Microsoft.EventsOnline.Data.csproj" "Filters/" "Diagrams/" "DataAccess/" "Class1.cs" "bin/" "app.config" "../" "./")
+
+ ("c:/src/eo/prototypes/PDC/PDC/" (18611 50998) "TestResults/" "PDCTests/" "PDC.suo" "PDC.sln" "PDC/" "Microsoft.EventsOnline.Services/" "Microsoft.EventsOnline.Data/" "../" "./")
+
+ ("c:/src/eo/prototypes/PDC/" (18611 50992) "tags" "PDC/" "../" "./")
+
+ ("c:/src/eo/prototypes/" (18611 50994) "tags" "PDC/" "../" "./")
+
+ ("c:/src/eo/" (18611 46326) "prototypes/" "../" "./")
+
+ ("c:/src/EOProtos/" (18610 30382) "SIPEPS.dll" "Properties/" "Program.cs" "OCSLogger_2008_03_11_17_25.txt" "obj/" "Microsoft.Rtc.Collaboration.pdb.old" "Microsoft.Rtc.Collaboration.dll.old" "Microsoft.Rtc.Collaboration.dll.MOD" "Microsoft.Rtc.Collaboration.dll.almostlatest" "Microsoft.Rtc.Collaboration.dll" "EOProtoServerLogs.txt" "EOProtoClientLogs.txt" "CreateAndJoinConference.suo" "CreateAndJoinConference.sln" "CreateAndJoinConference.csproj.user" "CreateAndJoinConference.csproj" "bin/" "../" "./")
+
+ ("c:/src/" (18611 46324) "windbg/" "pvt/" "lmperf/" "EOProtos/" "eo/" "ConferenceXP/" "../" "./")
+
+ ("c:/sys/" (18611 51585) "tools/" "desktop.ini" "bin/" "bak/" "../" "./")
+
+ ("c:/sys/tools/emacs/emacs/" (18612 53789) "site-lisp/" "lisp/" "leim/" "info/" "etc/" "COPYING" "bin/" "../" "./")
+
+ ("c:/sys/tools/emacs/emacs/bin/" (18612 53805) "zlib1.dll" "xpm4.dll" "usethis.exe" "systemexec.exe" "sorted-doc.exe" "runemacs.exe" "movemail.exe" "libungif.dll" "libtiff3.dll" "libpng13.dll" "libimage.dll" "jpeg62.dll" "hexl.exe" "etags.exe" "emacsclientw.exe" "emacsclient.exe" "emacs.exe" "ebrowse.exe" "digest-doc.exe" "ddeclient.exe" "ctags.exe" "COPYING" "cmdproxy.exe" "addpm.exe" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
+

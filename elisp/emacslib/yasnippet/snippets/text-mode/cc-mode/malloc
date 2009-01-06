@@ -1,0 +1,9 @@
+
+#name: curr =(...) malloc (...)
+# --
+${1: curr} = ( ${2: node} *)malloc( sizeof( $2 ) );
+if( $1 == NULL) {
+      fprintf (stderr, "\ndynamic memory allocation failed\n");
+      exit (EXI_FAILURE);
+}
+

@@ -1,0 +1,56 @@
+<!ENTITY open "Otwórz">
+<!ENTITY openAll "Otwórz wszystkie">
+<!ENTITY refresh "Odśwież">
+<!ENTITY refreshAll "Odśwież wszystko">
+<!ENTITY properties "Właściwości obiektu">
+<!ENTITY remove "Usuń">
+<!ENTITY preferences "Ustawienia">
+<!ENTITY close "Zamknij">
+<!ENTITY applyToAll "Zastosuj">
+<!ENTITY defaults "Domyślne">
+<!ENTITY general "Ogólne">
+<!ENTITY appearance "Wygląd">
+<!ENTITY folder "Folder">
+<!ENTITY quantity "Ilość">
+<!ENTITY size "Wielkość">
+<!ENTITY fixed "Stała wielkość">
+<!ENTITY shortcutKey "Skrót klawiaturowy">
+<!ENTITY openIn "Otwórz w">
+<!ENTITY newTab "nowej karcie">
+<!ENTITY backgroundTab "nowej karcie w tle">
+<!ENTITY newWindow "nowym oknie">
+<!ENTITY useJava "Użyj Javy jako metody skalowania">
+<!ENTITY showRefreshAll "Pokaż &quot;Odśwież wszystkie&quot; w menu kontekstowym">
+<!ENTITY showInNewTabs "Pokazuj Fast Dial w nowo otwartej karcie">
+<!ENTITY showEmpty "Pokazuj puste pola">
+<!ENTITY page "Strona">
+<!ENTITY thumbnail "Miniatura">
+<!ENTITY activeThumbnail "Aktywna miniatura">
+<!ENTITY load "Ładuj wygląd">
+<!ENTITY save "Zapisz wygląd">
+<!ENTITY font "Czcionka">
+<!ENTITY image "Obraz">
+<!ENTITY center "Wyśrodkuj">
+<!ENTITY background "Tło">
+<!ENTITY spacing "Przerwa pomiędzy obiektami">
+<!ENTITY border "Ramka">
+<!ENTITY titleBackground "Tło tytułu">
+<!ENTITY titleBorder "Ramka tytułowa">
+<!ENTITY titleColor "Kolor czcionki tytułowej">
+<!ENTITY opacity "Przeźroczystość">
+<!ENTITY clear "Wyczyść">
+<!ENTITY url "URL">
+<!ENTITY customImage "Obraz domyślny">
+<!ENTITY title "Tytuł">
+<!ENTITY refreshEvery "Odśwież co">
+<!ENTITY minutes "minut">
+<!ENTITY help "Pomoc">
+<!ENTITY homePage "Strona domowa">
+<!ENTITY addToFastDial "Dodaj do Fast Dial">
+<!ENTITY slowSite "Slow site">
+<!ENTITY add "Add">
+<!ENTITY currentTab "current tab">
+<!ENTITY restartIsNeeded "(restart is needed)">
+<!ENTITY support "Support">
+<!ENTITY contact "Contact">
+<!ENTITY requestLogo "Request a logo">

@@ -1,0 +1,56 @@
+<!ENTITY open "Obre">
+<!ENTITY openAll "Obre tot">
+<!ENTITY refresh "Actualitza">
+<!ENTITY refreshAll "Actualitza-ho tot">
+<!ENTITY properties "Propietats">
+<!ENTITY remove "Esborra">
+<!ENTITY preferences "Preferències">
+<!ENTITY close "Tanca">
+<!ENTITY applyToAll "Aplica a tots els directoris">
+<!ENTITY defaults "per defecte">
+<!ENTITY general "General">
+<!ENTITY appearance "Apariència">
+<!ENTITY folder "Directori">
+<!ENTITY quantity "Quantitat">
+<!ENTITY size "Tamany">
+<!ENTITY fixed "Arreglat">
+<!ENTITY shortcutKey "Drecera de teclat">
+<!ENTITY openIn "Obre a">
+<!ENTITY newTab "nova pestanya">
+<!ENTITY backgroundTab "pestanya al fons">
+<!ENTITY newWindow "nova finestra">
+<!ENTITY useJava "Usa Java per a l&apos;escalat d&apos;imatges">
+<!ENTITY showRefreshAll "Mostra actualitza tots els ítems de menú">
+<!ENTITY showInNewTabs "Mostra Fast Dial a noves pestanyes">
+<!ENTITY showEmpty "Mostra cel·les buides">
+<!ENTITY page "Pàgina">
+<!ENTITY thumbnail "Miniatura">
+<!ENTITY activeThumbnail "Activa Miniatura">
+<!ENTITY load "Carrega">
+<!ENTITY save "Salva">
+<!ENTITY font "Font">
+<!ENTITY image "Imatge">
+<!ENTITY center "Centre">
+<!ENTITY background "Fons">
+<!ENTITY spacing "Espaiat">
+<!ENTITY border "Vora">
+<!ENTITY titleBackground "Títol del fons">
+<!ENTITY titleBorder "Títol de la vora">
+<!ENTITY titleColor "Color del títol">
+<!ENTITY opacity "Opacitat">
+<!ENTITY clear "Neteja">
+<!ENTITY url "Adreça URL">
+<!ENTITY customImage "Imatge personalitzada">
+<!ENTITY title "Títol">
+<!ENTITY refreshEvery "Actualitza cada">
+<!ENTITY minutes "minuts">
+<!ENTITY help "Ajuda">
+<!ENTITY homePage "Pàgina d&apos;inici">
+<!ENTITY addToFastDial "Afegeix a FastDial">
+<!ENTITY slowSite "Slow site">
+<!ENTITY add "Add">
+<!ENTITY currentTab "current tab">
+<!ENTITY restartIsNeeded "(restart is needed)">
+<!ENTITY support "Support">
+<!ENTITY contact "Contact">
+<!ENTITY requestLogo "Request a logo">

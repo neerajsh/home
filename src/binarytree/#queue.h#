@@ -1,0 +1,21 @@
+#pragma once
+
+
+typedef struct queue_node
+{
+    queue_node * next;
+    queue_node * prev;
+    int data;
+} queue_node;
+
+typedef struct queue
+{
+queue_node * first;
+queue_node * last;
+    
+}queue;
+
+void enqueue(queue_node**  queue);
+queue_node * dequeue(queue_node ** queue);
+
+void print_queue(queue_node * queue);

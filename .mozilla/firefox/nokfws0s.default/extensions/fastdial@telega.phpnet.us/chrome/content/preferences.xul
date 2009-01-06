@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://fastdial/skin/preferences.css" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://fastdial/locale/fastdial.dtd">
+<prefwindow id="preferences"
+        buttons="accept, extra1, extra2"
+        buttonlabelaccept="&close;"
+        buttonlabelextra1="&applyToAll;"
+        buttonlabelextra2="&defaults;"
+        onload="initialize();"
+        ondialogextra1="applyToAll();"
+        ondialogextra2="defaults();"
+        persist="screenX screenY"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <prefpane id="general" label="&general;">
+    <groupbox>
+      <caption label="&folder;"/>
+      <grid>
+        <rows>
+          <row align="center">
+            <label control="width" value="&quantity;:"/>
+            <hbox align="center">
+              <menulist id="width" editable="true" width="65"
+                        oncommand="update();" oninput="update();">
+                <menupopup>
+                  <menuitem label="1"/>
+                  <menuitem label="2"/>
+                  <menuitem label="3"/>
+                  <menuitem label="4"/>
+                  <menuitem label="5"/>
+                  <menuitem label="6"/>
+                  <menuitem label="7"/>
+                  <menuitem label="8"/>
+                  <menuitem label="9"/>
+                  <menuitem label="10"/>
+                </menupopup>
+              </menulist>
+              <label value="x"/>
+              <menulist id="height" editable="true" width="65"
+                        oncommand="update();" oninput="update();">
+                <menupopup>
+                  <menuitem label="1"/>
+                  <menuitem label="2"/>
+                  <menuitem label="3"/>
+                  <menuitem label="4"/>
+                  <menuitem label="5"/>
+                  <menuitem label="6"/>
+                  <menuitem label="7"/>
+                  <menuitem label="8"/>
+                  <menuitem label="9"/>
+                  <menuitem label="10"/>
+                </menupopup>
+              </menulist>
+            </hbox>
+          </row>
+          <row align="center">
+            <label control="thumbWidth" value="&size;:"/>
+            <hbox align="center">
+              <menulist id="thumbWidth" editable="true" width="65"
+                        oncommand="update();" oninput="update();">
+                <menupopup>
+                  <menuitem label="400"/>
+                  <menuitem label="300"/>
+                  <menuitem label="200"/>
+                  <menuitem label="100"/>
+                </menupopup>
+              </menulist>
+              <label value="x"/>
+              <textbox id="thumbHeight" readonly="true" width="65"/>
+              <checkbox id="fixed" label="&fixed;" oncommand="update();"/>
+            </hbox>
+          </row>
+          <row align="center">
+            <label value="&shortcutKey;:"/>
+            <hbox align="center">
+              <textbox id="shortcutKey" onkeypress="onShortcutKey(event);"/>
+              <label id="restartIsNeeded" value="&restartIsNeeded;"/>
+            </hbox>
+          </row>
+          <row align="center">
+            <label control="openIn" value="&openIn;:"/>
+            <hbox>
+              <menulist id="openIn" oncommand="save();">
+                <menupopup>
+                  <menuitem label="" value=""/>
+                  <menuitem label="&currentTab;" value="current"/>
+                  <menuitem label="&newTab;" value="tab"/>
+                  <menuitem label="&backgroundTab;" value="tabshifted"/>
+                  <menuitem label="&newWindow;" value="window"/>
+                </menupopup>
+              </menulist>
+            </hbox>
+          </row>
+        </rows>
+      </grid>
+    </groupbox>
+    <checkbox id="useJava" label="&useJava;"
+              oncommand="FdPrefs.setBool('useJava', this.checked);"/>
+    <checkbox id="showInNewTabs" label="&showInNewTabs;"
+              oncommand="FdPrefs.setBool('showInNewTabs', this.checked);"/>
+    <checkbox id="showRefreshAll" label="&showRefreshAll;"
+              oncommand="FdPrefs.setBool('showRefreshAll', this.checked);"/>
+    <checkbox id="showEmpty" label="&showEmpty;"
+              oncommand="FdPrefs.setBool('showEmpty', this.checked); reload();"/>
+  </prefpane>
+  <prefpane id="appearance" label="&appearance;">
+    <tabbox>
+      <tabs>
+        <tab label="&page;"/>
+        <tab label="&thumbnail;"/>
+        <tab label="&activeThumbnail;"/>
+      </tabs>
+      <tabpanels>
+        <tabpanel>
+          <grid flex="1">
+            <columns>
+              <column/>
+              <column flex="1"/>
+            </columns>
+            <rows>
+              <row align="center">
+                <label control="font-family" value="&font;:"/>
+                <menulist id="font-family" oncommand="update();">
+                  <menupopup/>
+                </menulist>
+                <menulist id="font-size" oncommand="update();">
+                  <menupopup>
+                    <menuitem label=""/>
+                    <menuitem label="9"/>
+                    <menuitem label="10"/>
+                    <menuitem label="11"/>
+                    <menuitem label="12"/>
+                    <menuitem label="13"/>
+                    <menuitem label="14"/>
+                    <menuitem label="15"/>
+                    <menuitem label="16"/>
+                    <menuitem label="17"/>
+                    <menuitem label="18"/>
+                    <menuitem label="20"/>
+                    <menuitem label="22"/>
+                    <menuitem label="24"/>
+                  </menupopup>
+                </menulist>
+              </row>
+              <row align="center">
+                <label control="image" value="&image;:"/>
+                <textbox id="image" onchange="update();"/>
+                <hbox>
+                  <button id="browse" label="&#x2026;" oncommand="browseImage();"/>
+                  <button id="clear" label=" x" oncommand="clearImage();"/>
+                </hbox>
+              </row>
+              <row align="center">
+                <spacer/>
+                <hbox>
+                  <checkbox id="center" label="&center;" oncommand="update();"/>
+                </hbox>
+              </row>
+              <row align="center">
+                <label control="background" value="&background;:"/>
+                <hbox>
+                  <textbox id="background" class="color" onchange="updateColor(this);"/>
+                  <colorpicker type="button" onchange="updateColor(this);"/>
+                </hbox>
+              </row>
+              <row align="center">
+                <label control="spacing" value="&spacing;:"/>
+                <hbox>
+                  <textbox id="spacing" type="number" onchange="update();"/>
+                </hbox>
+              </row>
+              <row align="right">
+                <spacer/>
+                <spacer/>
+                <button type="menu" label="&load;">
+                  <menupopup>
+                    <menuitem label="&load;" oncommand="loadStyle();"/>
+                    <menuitem label="&save;" oncommand="saveStyle();"/>
+                  </menupopup>
+                </button>
+              </row>
+            </rows>
+          </grid>
+        </tabpanel>
+        <tabpanel>
+          <grid>
+            <rows>
+              <row align="center">
+                <label control="thumbnail.background" value="&background;:"/>
+                <textbox id="thumbnail.background" class="color"
+                         onchange="updateColor(this);"/>
+                <colorpicker type="button" onchange="updateColor(this);"/>
+              </row>
+              <row align="center">
+                <label control="thumbnail.border" value="&border;:"/>
+                <textbox id="thumbnail.border" class="color"
+                         onchange="updateColor(this);"/>
+                <colorpicker type="button" onchange="updateColor(this);"/>
+              </row>
+              <row align="center">
+                <label control="thumbnail.title.background" value="&titleBackground;:"/>
+                <textbox id="thumbnail.title.background" class="color"
+                         onchange="updateColor(this);"/>
+                <colorpicker type="button" onchange="updateColor(this);"/>
+              </row>
+              <row align="center">
+                <label control="thumbnail.title.border" value="&titleBorder;:"/>
+                <textbox id="thumbnail.title.border" class="color"
+                         onchange="updateColor(this);"/>
+                <colorpicker type="button" onchange="updateColor(this);"/>
+              </row>
+              <row align="center">
+                <label control="thumbnail.title.color" value="&titleColor;:"/>
+                <textbox id="thumbnail.title.color" class="color"
+                         onchange="updateColor(this);"/>
+                <colorpicker type="button" onchange="updateColor(this);"/>
+              </row>
+              <row align="center">
+                <label control="thumbnail.opacity" value="&opacity;:"/>
+                <hbox>
+                  <textbox id="thumbnail.opacity"
+                           type="number" max="10" onchange="update();"/>
+                </hbox>
+              </row>
+            </rows>
+          </grid>
+        </tabpanel>
+        <tabpanel>
+          <grid>
+            <rows>
+              <row align="center">
+                <label control="hover.background" value="&background;:"/>
+                <textbox id="hover.background" class="color"
+                         onchange="updateColor(this);"/>
+                <colorpicker type="button" onchange="updateColor(this);"/>
+              </row>
+              <row align="center">
+                <label control="hover.border" value="&border;:"/>
+                <textbox id="hover.border" class="color"
+                         onchange="updateColor(this);"/>
+                <colorpicker type="button" onchange="updateColor(this);"/>
+              </row>
+              <row align="center">
+                <label control="hover.title.background" value="&titleBackground;:"/>
+                <textbox id="hover.title.background" class="color"
+                         onchange="updateColor(this);"/>
+                <colorpicker type="button" onchange="updateColor(this);"/>
+              </row>
+              <row align="center">
+                <label control="hover.title.border" value="&titleBorder;:"/>
+                <textbox id="hover.title.border" class="color"
+                         onchange="updateColor(this);"/>
+                <colorpicker type="button" onchange="updateColor(this);"/>
+              </row>
+              <row align="center">
+                <label control="hover.title.color" value="&titleColor;:"/>
+                <textbox id="hover.title.color" class="color"
+                         onchange="updateColor(this);"/>
+                <colorpicker type="button" onchange="updateColor(this);"/>
+              </row>
+              <row align="center">
+                <label control="hover.opacity" value="&opacity;:"/>
+                <hbox>
+                  <textbox id="hover.opacity"
+                           type="number" max="10" onchange="update();"/>
+                </hbox>
+              </row>
+            </rows>
+          </grid>
+        </tabpanel>
+      </tabpanels>
+    </tabbox>
+  </prefpane>
+  <prefpane id="help" label="&help;">
+    <grid>
+      <rows>
+        <row align="center">
+          <label value="&homePage;:"/>
+          <hbox>
+            <label class="text-link"
+                   value="http://userlogos.org/extensions/fastdial"
+                   onclick="openLink(this.value);"/>
+          </hbox>
+        </row>
+        <row align="center">
+          <label value="&support;:"/>
+          <hbox>
+            <label class="text-link"
+                   value="http://userlogos.org/forum/fastdial"
+                   onclick="openLink(this.value);"/>
+          </hbox>
+        </row>
+        <row align="center">
+          <label value="&contact;:"/>
+          <hbox>
+            <label class="text-link"
+                   value="http://userlogos.org/contact"
+                   onclick="openLink(this.value);"/>
+          </hbox>
+        </row>
+        <row align="center">
+          <label value="&requestLogo;:"/>
+          <hbox>
+            <label class="text-link"
+                   value="http://userlogos.org/forum/12"
+                   onclick="openLink(this.value);"/>
+          </hbox>
+        </row>
+      </rows>
+    </grid>
+  </prefpane>
+
+  <script src="utils.js"/>
+  <script src="dom.js"/>
+  <script src="file.js"/>
+  <script src="bookmark.js"/>
+  <script src="storage.js"/>
+  <script src="template/template.js"/>
+  <script src="thumbnail/thumbnail.js"/>
+  <script>
+    <![CDATA[
+      var browserWindow = FdUtils.getBrowserWindow();
+      var wnd, folder;
+
+      function initialize() {
+        if (!folder) {
+          wnd = browserWindow.content.wrappedJSObject;
+          folder = wnd.folder;
+        }
+        if (!folder) {
+          browserWindow.openUILinkIn(FdInfo.URL, "tab");
+          return setTimeout(initialize, 500);
+        }
+        moveButtons();
+        document.title = FdBundle.getString("preferences", [folder.title]);
+
+        FdUtils.selectItem("width", folder.width);
+        FdDom.get("width").value = folder.width;
+        FdUtils.selectItem("height", folder.height);
+        FdDom.get("height").value = folder.height;
+        FdUtils.selectItem("thumbWidth", folder.thumbWidth);
+        FdDom.get("thumbWidth").value = folder.thumbWidth;
+        updateThumbHeight();
+        FdDom.get("fixed").checked = folder.fixed;
+        FdUtils.selectItem("openIn", folder.openIn);
+        FdDom.get("shortcutKey").value = folder.shortcutKey || "";
+
+        FdUtils.isJavaAvailable()
+          ? FdDom.get("useJava").checked = FdPrefs.getBool("useJava")
+          : FdDom.get("useJava").disabled = true;
+
+        FdDom.get("showInNewTabs").checked = FdPrefs.getBool("showInNewTabs");
+        FdDom.get("showRefreshAll").checked = FdPrefs.getBool("showRefreshAll");
+        FdDom.get("showEmpty").checked = FdPrefs.getBool("showEmpty");
+
+        populatePageTab();
+        populateTab("thumbnail");
+        populateTab("hover");
+      }
+
+      function moveButtons() {
+        var dialog = FdDom.get("preferences");
+        var accept = dialog.getButton("accept");
+        var box = accept.parentNode;
+        box.removeChild(accept);
+        box.appendChild(accept);
+      }        
+
+      function updateThumbHeight() {
+        var width = FdDom.get("thumbWidth").value;
+        FdDom.get("thumbHeight").value = width * FdThumbnail.RATIO;
+      }
+
+      function save() {
+        folder.width = FdDom.get("width").value;
+        folder.height = FdDom.get("height").value;
+        folder.thumbWidth = FdDom.get("thumbWidth").value;
+        updateThumbHeight();
+        folder.fixed = FdDom.get("fixed").checked;
+        folder.openIn = FdDom.get("openIn").value;
+        folder.shortcutKey = FdDom.get("shortcutKey").value;
+        folder.style = getStyle();
+        FdStorage.saveItem(folder);
+      }
+
+      function update() {
+        save();
+        reload();
+      }
+
+      function reload() {
+        FdUtils.forEachBrowser(function(browser) {
+          var location = browser.contentDocument.location;
+          if (location.href.match(FdInfo.URL)) location.reload();
+        });
+      }
+
+      function applyToAll() {
+        var items = FdStorage.getAllItems();
+        for(var i in items) {
+          var item = items[i];
+          if (!item.isFolder) {
+            item.width = folder.width;
+            item.height = folder.height;
+            item.thumbWidth = folder.thumbWidth;
+            item.fixed = folder.fixed;
+            item.openIn = folder.openIn;
+            item.style = folder.style;
+            FdStorage.saveItem(item);
+          }
+        }
+        reload();
+      }
+
+      function defaults() {
+        FdUtils.merge(folder, FdStorage.defaultFolder);
+        FdStorage.saveItem(folder);
+        reload();
+        setTimeout(initialize, 100);
+      }
+
+      function browseImage() {
+        var file = FdFile.chooseFile("open", ["images"]);
+        if (file) {
+          var url = FdFile.getFileURL(file);
+          FdDom.get("image").value = url;
+          update();
+        }
+      }
+
+      function clearImage() {
+        FdDom.get("image").value = "";
+        update();
+      }
+
+      function populateFontFamily() {
+        var menupopup = FdDom.get("font-family").menupopup;
+        if (menupopup.childNodes.length) return;
+
+        var fonts = FdUtils.getFontList();
+        for(var i = 0; i < fonts.length; i++) {
+          var menuitem = document.createElement("menuitem");
+          menuitem.setAttribute("label", fonts[i]);
+          menupopup.appendChild(menuitem);
+        }
+      }
+
+      function convertColor(color) {
+        var match = color.match(/rgb\((\d+), (\d+), (\d+)\)/);
+        if (match) {
+          function toHex(value) {
+            value = parseInt(value).toString(16);
+            return value.length == 1 ? "0" + value : value;
+          }
+          color = "#" + toHex(match[1]) + toHex(match[2]) + toHex(match[3]);
+        }
+        return color;
+      }
+
+      function setColor(id, value) {
+        var value = convertColor(value);
+        var textbox = FdDom.get(id);
+        textbox.value = value;
+        textbox.nextSibling.color = value;
+      }
+
+      function populatePageTab() {
+        populateFontFamily();
+
+        var body = wnd.document.body;
+        var image = FdDom.css(body, "background-image");
+        var url = image.match(/url\((.*)\)/i);
+        FdDom.get("image").value = url ? url[1] : "";
+
+        var repeat = FdDom.css(body, "background-repeat");
+        FdDom.get("center").checked = repeat != "repeat";
+
+        var fontFamily = FdDom.css(body, "font-family");
+        FdUtils.selectItem("font-family", fontFamily.match(/[^'"]+/));
+        var fontSize = FdDom.css(body, "font-size");
+        FdUtils.selectItem("font-size", parseInt(fontSize));
+
+        var background = FdDom.css(body, "background-color");
+        setColor("background", background);
+
+        var grid = wnd.document.getElementById("grid");
+        var spacing = FdDom.css(grid, "border-spacing");
+        FdDom.get("spacing").value = parseInt(spacing);
+      }
+
+      function populateTab(name) {
+        var thumbnail = wnd.document.getElementById(0);
+        if (name == "hover") FdDom.addClass(thumbnail, "hover");
+
+        var background = FdDom.css(thumbnail, "background-color");
+        setColor(name + ".background", background);
+        var border = FdDom.css(thumbnail, "border-left-color");
+        setColor(name + ".border", border);
+        var opacity = FdDom.css(thumbnail, "opacity");
+        FdDom.get(name + ".opacity").value = opacity * 10;
+
+        var title = FdDom.child(thumbnail, "title");
+        var titleBackground = FdDom.css(title, "background-color");
+        setColor(name + ".title.background", titleBackground);
+        var titleBorder = FdDom.css(title, "border-top-color");
+        setColor(name + ".title.border", titleBorder);
+        var titleColor = FdDom.css(title, "color");
+        setColor(name + ".title.color", titleColor);
+
+        FdDom.removeClass(thumbnail, "hover");
+      }
+
+      function updateColor(element) {
+        if (element.nodeName == "colorpicker") {
+          element.previousSibling.value = element.color;
+        } else {
+          element.nextSibling.color = element.value;
+        }
+        update();
+      }
+
+      function getColor(id) {
+        return FdDom.get(id).value || "transparent";
+      }
+
+      function getStyle() {
+        var style = [];
+        var image = FdDom.get("image").value;
+
+        var center = FdDom.get("center").checked;
+        style["body"] = {
+          "background-image"    : image ? "url(" + image + ")" : "none",
+          "background-repeat"   : center ? "no-repeat" : "repeat",
+          "background-position" : center ? "center" : "top left",
+          "font-family"         : "'" + FdDom.get("font-family").label + "'",
+          "font-size"           : FdDom.get("font-size").label,
+          "background-color"    : FdDom.get("background").value
+        }
+        style["#grid"] = {
+          "border-spacing": FdDom.get("spacing").value
+        }
+        style[".thumbnail"] = {
+          "background-color"   : getColor("thumbnail.background"),
+          "border"             : "1px solid " + getColor("thumbnail.border"),
+          "opacity"            : FdDom.get("thumbnail.opacity").value / 10,
+        }
+        style[".title"] = {
+          "background-color"   : getColor("thumbnail.title.background"),
+          "border-top"         : "1px solid " + getColor("thumbnail.title.border"),
+          "color"              : getColor("thumbnail.title.color")
+        }
+        style["div.thumbnail:hover, .hover"] = {
+          "background-color" : getColor("hover.background"),
+          "border"           : "1px solid " + getColor("hover.border"),
+          "opacity"          : FdDom.get("hover.opacity").value / 10
+        }
+        style["div.thumbnail:hover .title, .hover .title"] = {
+          "background-color" : getColor("hover.title.background"),
+          "border-top"       : "1px solid " + getColor("hover.title.border"),
+          "color"            : getColor("hover.title.color")
+        }
+        var data = FdURL.readURL("chrome://fastdial/content/template/style.html");
+        var template = new JsTemplate.Template(data);
+        return template.run({ style: style });
+      }
+
+      function loadStyle() {
+        var file = FdFile.chooseFile("open", ["*.css"]);
+        if (file) {
+          var url = FdFile.getFileURL(file);
+          folder.style = FdURL.readURL(url);
+          FdStorage.saveItem(folder);
+          reload();
+          setTimeout(initialize, 100);
+        }
+      }
+
+      function saveStyle() {
+        var file = FdFile.chooseFile("save", ["*.css"]);
+        if (file) {
+          if (!file.leafName.match(/\.css/)) {
+            file.leafName += ".css";
+          }
+          FdFile.writeFile(file, getStyle());
+        }
+      }
+
+      function onShortcutKey(e) {
+        var key = FdUtils.getShortcutKey(e);
+        FdDom.get("restartIsNeeded").style.visibility = key ? "visible" : "hidden";
+        FdDom.get("shortcutKey").value = key;
+        e.preventDefault();
+        save();
+      }
+
+      function openLink(url) {
+        browserWindow.openUILinkIn(url, "tab");
+      }
+    ]]>
+  </script>
+</prefwindow>

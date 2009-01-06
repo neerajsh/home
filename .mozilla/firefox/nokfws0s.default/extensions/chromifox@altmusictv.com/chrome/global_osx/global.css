@@ -1,0 +1,337 @@
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Mozilla Communicator client code, released
+ * March 31, 1998.
+ *
+ * The Initial Developer of the Original Code is
+ * Netscape Communications Corporation.
+ * Portions created by the Initial Developer are Copyright (C) 1998-1999
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+/* ===== global.css =====================================================
+  == Styles that apply everywhere.
+  ======================================================================= */
+
+/* all localizable skin settings shall live here */
+@import url("chrome://global/locale/intl.css");
+
+@import url("chrome://global/skin/formatting.css");
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* ::::: XBL bindings ::::: 
+
+window#main-window[windowtype="navigator:browser"] {
+    -moz-binding: url("chrome://communicator/skin/globalBindings.xml#unifiedWindow") !important;
+}    */           
+
+radio {
+  -moz-binding: url("chrome://global/skin/globalBindings.xml#radio");
+}
+
+menulist > menupopup,
+.menulist-menupopup {
+  -moz-binding: url("chrome://global/content/bindings/popup.xml#popup-scrollbars");
+}
+
+.menulist-compact {
+  -moz-binding: url("chrome://global/skin/globalBindings.xml#menulist-compact");
+}
+
+progressmeter[mode="undetermined"] {
+  -moz-binding: url("chrome://global/content/bindings/progressmeter.xml#progressmeter-undetermined");
+}
+
+/* ::::: root elements ::::: */
+
+window,
+page,
+dialog,
+wizard,
+prefwindow {
+  -moz-appearance: window;
+  background-color: #dfeaf8;
+  color: #000;
+  font: message-box;
+}
+editor {
+	background-color: #fff;
+}
+
+window.dialog {
+  padding-top: 8px;
+  padding-bottom: 10px;
+  -moz-padding-start: 8px;
+  -moz-padding-end: 10px;
+}
+
+[wait-cursor] {
+  cursor: wait !important;
+}
+
+/* ::::: alert icons :::::*/
+
+.message-icon,
+.alert-icon,
+.error-icon,
+.question-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.message-icon {
+  list-style-image: url("chrome://global/skin/icons/Message.png");
+}
+
+.alert-icon {
+  list-style-image: url("chrome://global/skin/icons/Warning.png");
+}
+
+.error-icon {
+  list-style-image: url("chrome://global/skin/icons/Error.png");
+}
+
+.question-icon {
+  list-style-image: url("chrome://global/skin/icons/Question.png");
+}
+
+/* ::::: iframe ::::: */
+
+iframe {
+  border: none;
+  width: 100px;
+  height: 100px;
+  min-width: 10px;
+  min-height: 10px;
+}
+
+/* ::::: statusbar ::::: */
+
+statusbar {
+  -moz-appearance: none;
+  background: #ebf2fb url("chrome://communicator/skin/status-bg.png");
+  border-top: 1px solid #b2b2b2 !important;
+  min-height: 22px;
+  
+  min-width: 1px; /* DON'T DELETE!
+  Prevents hiding of scrollbars in browser when window is made smaller.*/
+}
+statusbar:-moz-system-metric(windows-default-theme) {
+  padding-right: 1px;
+}
+
+statusbarpanel {
+  -moz-appearance: none;
+  -moz-box-align: center;
+  -moz-box-pack: center;
+  padding: 0 4px 1px 5px;
+}
+
+statusbar .statusbarpanel-text {
+padding-left: 2px !important;
+}
+
+.statusbar-resizerpanel {
+  -moz-box-align: end;
+  -moz-box-pack: end;
+  -moz-appearance: none;
+  padding: 0px;
+  border: none;
+  background: none;
+}
+
+.statusbarpanel-iconic,  .statusbarpanel-iconic-text, .statusbarpanel-menu-iconic {
+  padding: 0px 1px 0px 1px;
+}
+
+resizer[dir="bottomright"] {
+  -moz-appearance: resizer;
+  cursor: se-resize;
+  background: inherit !important;
+}
+
+/* XXXBlake yeah, shoot me -- these don't belong here.  I'll move them later. */
+
+sidebarheader {
+  height: 25px;
+  background: #ebf2fb url("chrome://communicator/skin/status-bg.png") repeat-x;
+  -moz-appearance: none;
+  border-top: 1px solid ThreeDHighlight;
+}
+
+sidebarheader > label {
+  -moz-padding-start: 4px;
+}
+
+/* ::::: miscellaneous ::::: */
+
+.toolbar-focustarget {
+  -moz-user-focus: ignore !important;
+}
+
+/* :::::: autoscroll popup ::::: */
+
+#autoscroller {
+  height: 28px;
+  width: 28px;
+  border: none;
+  margin: -14px;
+  padding: 0;
+  background-image: url("chrome://global/skin/icons/autoscroll.png");
+  background-color: transparent;
+  background-position: right top;
+  -moz-appearance: none;
+}
+
+#autoscroller[scrolldir="NS"] {
+  background-position: right center;
+}
+
+#autoscroller[scrolldir="EW"] {
+  background-position: right bottom;
+}
+
+
+/* CHROMIFOX */
+#main-window #sidebar-box { 
+  border-top: 1px solid;
+  -moz-border-top-colors: #b2b2b2 #fff;
+}
+#main-window #sidebar-box sidebarheader {
+  border-bottom: 2px solid;
+  -moz-border-bottom-colors: #fff #b2b2b2;
+}
+#main-window #sidebar-box sidebarheader, 
+page#bookmarksPanel popup#placesContext + hbox[align="center"], 
+page#history-panel popup#placesContext  + hbox[align="center"] {
+   padding-left: 2px !important;
+}
+page#bookmarksPanel textbox#search-box, 
+page#history-panel textbox#search-box {
+  -moz-appearance: none !important;
+  border: 1px solid #c5cde2 !important;
+  -moz-border-radius: 5px !important;
+  -moz-border-top-colors: #c5cde2;
+  -moz-border-right-colors: #c5cde2;
+  -moz-border-bottom-colors: #c5cde2;
+  -moz-border-left-colors: #c5cde2;
+}
+/* CHROMIFOX OS X */
+#downloadManager #clearListButton {
+	margin-top: 8px !important;
+}
+window#main-window #feed-button {
+	margin-right: -11px !important;
+}
+.spinbuttons-button {
+	width: 14px;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.textbox-input[readonly="true"] {
+	background-color: #dfeaf8 !important;
+}
+window#places #editBMPanel_namePicker {
+	background-color: #dfeaf8 !important;
+}
+
+/* CHROMIFOX OS X BEGIN EDITBOOKMARKOVERLAY.CSS */
+#editBMPanel_folderTree {
+   margin: 6px 0 !important;
+}
+.expander-up,
+.expander-down {
+  -moz-appearance: none !important;
+  margin-left: 8px !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  padding-left: 10px !important;
+  padding-right: 0px !important;
+}
+.expander-up {
+	list-style-image: url("chrome://global/skin/places/expander-open.png") !important;
+}
+.expander-down {
+	list-style-image: url("chrome://global/skin/places/expander-closed.png") !important;
+}
+.expander-down:hover:active {
+	list-style-image: url("chrome://global/skin/places/expander-closed-active.png") !important;
+}
+.expander-up:hover:active {
+	list-style-image: url("chrome://global/skin/places/expander-open-active.png") !important;
+}
+#editBMPanel_namePicker[droppable="false"] {
+  -moz-appearance: none !important;
+  margin: 0px !important;
+  border: none !important;
+  padding: 0px !important;
+  height: auto !important;
+}
+#editBMPanel_namePicker[droppable="false"] > .menulist-dropmarker {
+  display: none !important;
+}
+#editBMPanel_namePicker[droppable="false"] > .menulist-editable-box {
+  -moz-appearance: textfield !important;
+  cursor: text !important;
+  margin: 4px 4px !important;
+  border: 3px solid !important;
+  -moz-border-top-colors: transparent #888888 #000000 !important;
+  -moz-border-right-colors: transparent #FFFFFF #000000 !important;
+  -moz-border-bottom-colors: transparent #FFFFFF #000000 !important;
+  -moz-border-left-colors: transparent #888888 #000000 !important;
+  -moz-border-radius-topright: 2px !important;
+  -moz-border-radius-bottomleft: 2px !important;
+  padding: 0 !important;
+  background-color: -moz-Field !important;
+  color: -moz-FieldText !important;
+}
+#editBMPanel_namePicker[droppable="false"][disabled="true"] > .menulist-editable-box {
+  cursor: default;
+  -moz-border-top-colors: transparent ThreeDShadow -moz-Dialog !important;
+  -moz-border-right-colors: transparent ThreeDShadow -moz-Dialog !important;
+  -moz-border-bottom-colors: transparent ThreeDShadow -moz-Dialog !important;
+  -moz-border-left-colors: transparent ThreeDShadow -moz-Dialog !important;
+  color: GrayText !important;
+}
+#editBMPanel_namePicker[droppable="false"] > .menulist-editable-box > html|*.textbox-input {
+  margin: 0px !important;
+  border: none !important;
+  padding: 0px !important;
+  background-color: inherit !important;
+  color: inherit !important;
+  font: inherit !important;
+}
+#editBMPanel_namePicker[droppable="false"] > .menulist-dropmarker {
+  display: none !important;
+}
+#editBMPanel_namePicker[droppable="false"] > menupopup {
+  display: none !important;
+}
+/* CHROMIFOX OS X END EDITBOOKMARKOVERLAY.CSS */

@@ -1,0 +1,14 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+build123	binarytree.c	/^void build123(node ** pproot)$/;"	f
+data	binarytree.c	/^    int data;$/;"	m	struct:node	file:
+insert	binarytree.c	/^void insert(node ** pproot, int data)$/;"	f
+left	binarytree.c	/^    struct node * left;$/;"	m	struct:node	typeref:struct:node::node	file:
+main	binarytree.c	/^int main(int argc, char *argv[])$/;"	f
+node	binarytree.c	/^typedef struct node$/;"	s	file:
+node	binarytree.c	/^}node;$/;"	t	typeref:struct:node	file:
+right	binarytree.c	/^    struct node * right;$/;"	m	struct:node	typeref:struct:node::node	file:

@@ -1,0 +1,56 @@
+<!ENTITY open "Відкрити">
+<!ENTITY openAll "Відкрити усі">
+<!ENTITY refresh "Оновити">
+<!ENTITY refreshAll "Оновити усі">
+<!ENTITY properties "Властивості">
+<!ENTITY remove "Видалити">
+<!ENTITY preferences "Вподобання">
+<!ENTITY close "Закрити">
+<!ENTITY applyToAll "Застосувати до усіх папок">
+<!ENTITY defaults "Типові">
+<!ENTITY general "Загальні">
+<!ENTITY appearance "Вигляд">
+<!ENTITY folder "Папка">
+<!ENTITY quantity "Кількість">
+<!ENTITY size "Розмір">
+<!ENTITY fixed "фіксований">
+<!ENTITY shortcutKey "Кнопка швидкого виклику">
+<!ENTITY openIn "Відкривати у">
+<!ENTITY newTab "новій вкладці">
+<!ENTITY backgroundTab "фоновій вкладці">
+<!ENTITY newWindow "новому вікні">
+<!ENTITY useJava "Використовувати Java для масштабування зображень">
+<!ENTITY showRefreshAll "Показувати пункт меню &quot;Оновити усі&quot;">
+<!ENTITY showInNewTabs "Показувати Fast Dial у нових вкладках">
+<!ENTITY showEmpty "Показувати порожні клітинки">
+<!ENTITY page "Сторінка">
+<!ENTITY thumbnail "Клітинка">
+<!ENTITY activeThumbnail "Активна клітинка">
+<!ENTITY load "Завантажити">
+<!ENTITY save "Зберегти">
+<!ENTITY font "Шрифт">
+<!ENTITY image "Зображення">
+<!ENTITY center "У центрі">
+<!ENTITY background "Фон">
+<!ENTITY spacing "Інтервал">
+<!ENTITY border "Границя">
+<!ENTITY titleBackground "Фон заголовку">
+<!ENTITY titleBorder "Границя заголовку">
+<!ENTITY titleColor "Колір заголовку">
+<!ENTITY opacity "Прозорість">
+<!ENTITY clear "Очистити">
+<!ENTITY url "URL">
+<!ENTITY customImage "Вибрати зображення">
+<!ENTITY title "Заголовок">
+<!ENTITY refreshEvery "Оновити усі">
+<!ENTITY minutes "хвилин">
+<!ENTITY help "Допомога">
+<!ENTITY homePage "Домашня сторінка">
+<!ENTITY addToFastDial "Додати до Fast Dial">
+<!ENTITY slowSite "Slow site">
+<!ENTITY add "Add">
+<!ENTITY currentTab "current tab">
+<!ENTITY restartIsNeeded "(restart is needed)">
+<!ENTITY support "Support">
+<!ENTITY contact "Contact">
+<!ENTITY requestLogo "Request a logo">

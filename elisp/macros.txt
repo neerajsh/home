@@ -1,0 +1,12 @@
+date=date /t
+pwd=cd
+ll=ls --color -l
+ls=ls --color
+c=cls
+clear=cls
+man=help
+ifconfig=ipconfig
+alias=doskey /m
+pcyg=putty -cygterm -
+pash=putty -cygterm -
+

@@ -1,0 +1,536 @@
+<!-- This HTML file has been created by texi2html 1.27
+     from emacs.texi on 3 March 1994 -->
+
+<TITLE>GNU Emacs Manual - Command Line Options and Arguments</TITLE>
+<P>Go to the <A HREF="emacs_36.html">previous</A>, <A HREF="emacs_38.html">next</A> section.<P>
+<A NAME="IDX2064"></A>
+<A NAME="IDX2065"></A>
+<H1><A NAME="SEC377" HREF="emacs_toc.html#SEC377">Command Line Options and Arguments</A></H1>
+<P>
+  GNU Emacs supports command line arguments to request various actions
+when invoking Emacs.  These are for compatibility with other editors and
+for sophisticated activities.  We don't recommend using them for
+ordinary editing.
+<P>
+  Arguments that are not options specify files to visit.  Emacs visits
+the specified files while it starts up.  (The last file name on your
+command line is the one you see displayed, but the rest are all there in
+other buffers.)
+<P>
+  You can use options to specify other things, such as the size and
+position of the Emacs window if you are running it under the X Window
+System.  A few arguments support advanced usage, like running Lisp
+functions on files in batch mode.
+<P>
+  There are two kinds of options: <DFN>ordinary options</DFN> and
+<DFN>initial options</DFN>.  Ordinary options can appear in any order and can
+be intermixed with file names to visit.  These and file names are called
+<DFN>ordinary arguments</DFN>.  Emacs processes all of these in the order
+they are written.  Initial options must come at the beginning of the
+command line.
+<P>
+<H2><A NAME="SEC378" HREF="emacs_toc.html#SEC378">Ordinary Arguments</A></H2>
+<P>
+  Here is a table of the ordinary arguments and options:
+<P>
+<DL COMPACT>
+<DT><SAMP>`<VAR>file</VAR>'</SAMP>
+<DD>Visit <VAR>file</VAR> using <CODE>find-file</CODE>.  See section <A HREF="emacs_19.html#SEC98">Visiting Files</A>.
+<P>
+<DT><SAMP>`+<VAR>linenum</VAR> <VAR>file</VAR>'</SAMP>
+<DD>Visit <VAR>file</VAR> using <CODE>find-file</CODE>, then go to line number
+<VAR>linenum</VAR> in it.
+<P>
+<DT><SAMP>`-l <VAR>file</VAR>'</SAMP>
+<DD><DT><SAMP>`-load <VAR>file</VAR>'</SAMP>
+<DD>Load a file <VAR>file</VAR> of Lisp code with the function <CODE>load</CODE>.
+See section <A HREF="emacs_27.html#SEC232">Libraries of Lisp Code for Emacs</A>.
+<P>
+<DT><SAMP>`-f <VAR>function</VAR>'</SAMP>
+<DD><DT><SAMP>`-funcall <VAR>function</VAR>'</SAMP>
+<DD>Call Lisp function <VAR>function</VAR> with no arguments.
+<P>
+<DT><SAMP>`-insert <VAR>file</VAR>'</SAMP>
+<DD>Insert the contents of <VAR>file</VAR> into the current buffer.
+This is like what <KBD>M-x insert-buffer</KBD> does; See section <A HREF="emacs_19.html#SEC126">Miscellaneous File Operations</A>.
+<P>
+<DT><SAMP>`-kill'</SAMP>
+<DD>Exit from Emacs without asking for confirmation.
+</DL>
+<P>
+<H2><A NAME="SEC379" HREF="emacs_toc.html#SEC379">Initial Options</A></H2>
+<P>
+  The initial options are recognized only at the beginning of the
+command line.  If you use more than one of them, they must appear in the
+order that they appear in this table.
+<P>
+<DL COMPACT>
+<DT><SAMP>`-t <VAR>device</VAR>'</SAMP>
+<DD>Use <VAR>device</VAR> as the device for terminal input and output.
+<P>
+<DT><SAMP>`-d <VAR>display</VAR>'</SAMP>
+<DD>When running with the X Window System, use the display named <VAR>display</VAR>
+to make the window that serves as Emacs's terminal.
+<P>
+<DT><SAMP>`-nw'</SAMP>
+<DD>Don't communicate directly with X, disregarding the <CODE>DISPLAY</CODE>
+environment variable even if it is set.  <SAMP>`-nw'</SAMP> stands for
+"non-window."
+<A NAME="IDX2066"></A>
+<P>
+<DT><SAMP>`-batch'</SAMP>
+<DD>Run Emacs in <DFN>batch mode</DFN>, which means that the text being edited is
+not displayed and the standard Unix interrupt characters such as <KBD>C-z</KBD>
+and <KBD>C-c</KBD> continue to have their normal effect.  Emacs in batch mode
+outputs to <CODE>stdout</CODE> only what would normally be printed in the echo
+area under program control.
+<P>
+Batch mode is used for running programs written in Emacs Lisp from
+shell scripts, makefiles, and so on.  Normally the <SAMP>`-l'</SAMP> option
+or <SAMP>`-f'</SAMP> option will be used as well, to invoke a Lisp program
+to do the batch processing.
+<P>
+<SAMP>`-batch'</SAMP> implies <SAMP>`-q'</SAMP> (do not load an init file).  It also causes
+Emacs to kill itself after all command options have been processed.  In
+addition, auto-saving is not done except in buffers for which it has been
+explicitly requested.
+<P>
+<DT><SAMP>`-q'</SAMP>
+<DD><DT><SAMP>`-no-init-file'</SAMP>
+<DD>Do not load your Emacs init file <TT>`~/.emacs'</TT>.
+<P>
+<DT><SAMP>`-u <VAR>user</VAR>'</SAMP>
+<DD><DT><SAMP>`-user <VAR>user</VAR>'</SAMP>
+<DD>Load <VAR>user</VAR>'s Emacs init file <TT>`~<VAR>user</VAR>/.emacs'</TT> instead of
+your own.
+</DL>
+<A NAME="IDX2067"></A>
+<P>
+  The init file can get access to the values of the command line arguments as
+the elements of a list in the variable <CODE>command-line-args</CODE>.  (The list
+contains only the arguments from the first table above.  Emacs processes the
+arguments from the second table before building the list.)  The init file can
+override the normal processing of the other arguments by setting this
+variable.
+<P>
+<H2><A NAME="SEC380" HREF="emacs_toc.html#SEC380">Command Argument Example</A></H2>
+<P>
+  Here is an example of using Emacs with arguments and options.  It
+assumes you have a Lisp program file called <TT>`hack-c.el'</TT> which, when
+loaded, performs some useful operation on current buffer, expected to be
+a C program.
+<P>
+<PRE>
+emacs -batch foo.c -l hack-c -f save-buffer -kill &#62; log
+</PRE>
+<P>
+This says to visit <TT>`foo.c'</TT>, load <TT>`hack-c.el'</TT> (which makes
+changes in the visited file), save <TT>`foo.c'</TT> (note that
+<CODE>save-buffer</CODE> is the function that <KBD>C-x C-s</KBD> is bound to), and
+then exit to the shell that this command was done with.  The initial
+option <SAMP>`-batch'</SAMP> guarantees there will be no problem redirecting
+output to <TT>`log'</TT>, because Emacs will not assume that it has a
+display terminal to work with.
+<P>
+<H2><A NAME="SEC381" HREF="emacs_toc.html#SEC381">Resuming Emacs with Arguments</A></H2>
+<P>
+  You can specify ordinary arguments for Emacs when you resume it after
+a suspension.  To prepare for this, put the following code in your
+<TT>`.emacs'</TT> file (see section <A HREF="emacs_35.html#SEC337">Hooks</A>):
+<P>
+<PRE>
+(add-hook 'suspend-hook 'resume-suspend-hook)
+</PRE>
+<P>
+  As further preparation, you must execute the shell script
+<TT>`emacs.csh'</TT> (if you use CSH as your shell) or <TT>`emacs.bash'</TT> (if
+you use BASH as your shell).  These scripts define an alias named
+<CODE>edit</CODE>, which will resume Emacs giving it new command line
+arguments such as files to visit.
+<P>
+  Only ordinary arguments work properly when you resume Emacs.  Initial
+arguments are not recognized.  It's too late to execute them anyway.
+<P>
+  Note that resuming Emacs (with or without arguments) must be done from
+within the shell that is the parent of the Emacs job.  This is why
+<CODE>edit</CODE> is an alias rather than a program or a shell script.  It is
+not possible to implement a resumption command that could be run from
+other subjobs of the shell; no way to define a command that could be
+made the value of <CODE>EDITOR</CODE>, for example.  Therefore, this feature
+does not take the place of the the Emacs Server feature.  See section <A HREF="emacs_34.html#SEC327">Using Emacs as a Server</A>.
+<P>
+  The aliases use the Emacs Server feature if you appear to have a
+server Emacs running.  However, they cannot determine this with complete
+accuracy.  They may think that a server is still running when in
+actuality you have killed that Emacs, because the file
+<TT>`/tmp/.esrv...'</TT> still exists.  If this happens, find that
+file and delete it.
+<P>
+<A NAME="IDX2068"></A>
+<A NAME="IDX2069"></A>
+<H2><A NAME="SEC382" HREF="emacs_toc.html#SEC382">Specifying the Display Name</A></H2>
+<P>
+  The environment variable <CODE>DISPLAY</CODE> tells all X clients where to
+display their windows.  Its value is set up by default in ordinary
+circumstances, when you start an X server and run jobs locally.
+Occasionally you may need to specify the display yourself; for example,
+if you do a remote login and want to run a client program remotely,
+displaying on your local screen.
+<P>
+  With Emacs, the main reason people change the default display is to
+let them log into another system, run Emacs on that system, but have the
+window displayed at their local terminal.  You might need to use login
+to another system because the files you want to edit are there, or
+because the Emacs executable file you want to run is there.
+<P>
+  The syntax of the <CODE>DISPLAY</CODE> environment variable is:
+<P>
+<PRE>
+<VAR>host</VAR>:<VAR>display</VAR>.<VAR>screen</VAR>
+</PRE>
+<P>
+where <VAR>host</VAR> is the host name of the X Window System server machine,
+<VAR>display</VAR> is an arbitrarily-assigned number that distinguishes your
+server (X terminal) from other servers on the same machine, and
+<VAR>screen</VAR> is a rarely-used field that allows an X server to control
+multiple terminal screens.  The period and the <VAR>screen</VAR> field are
+optional.  If included, <VAR>screen</VAR> is usually zero.
+<P>
+  If your host is named <SAMP>`glasperle'</SAMP> and your server is the first
+(or perhaps the only) server listed in the configuration, your
+<CODE>DISPLAY</CODE> is <SAMP>`glasperle:0.0'</SAMP>.
+<P>
+  You can specify the display name explicitly when you run Emacs, either
+by changing the <CODE>DISPLAY</CODE> variable, or with the option <SAMP>`-d
+<VAR>display</VAR>'</SAMP> or <SAMP>`-display <VAR>display</VAR>'</SAMP>.  These are initial
+options; they must come at the beginning of the command line.
+See section <A HREF="emacs_37.html#SEC379">Initial Options</A>.  Here is an example:
+<P>
+<PRE>
+emacs -display glasperle:0 &#38;
+</PRE>
+<P>
+  You can inhibit the direct use of X with the <SAMP>`-nw'</SAMP> option.  This
+is also an initial option.  This option tells Emacs to display using
+ordinary ASCII on its controlling terminal.
+<P>
+  Sometimes, security arrangements prevent a program on a remote system
+from displaying on your local system.  In this case, trying to run Emacs
+produces messages like:
+<P>
+<PRE>
+Xlib:  connection to "glasperle:0.0" refused by server
+</PRE>
+<P>
+  You might be able to overcome this problem by using the <CODE>xhost</CODE>
+command on the local system to give permission for access from your
+remote machine.
+<P>
+<A NAME="IDX2070"></A>
+<H2><A NAME="SEC383" HREF="emacs_toc.html#SEC383">Font Specification Options</A></H2>
+<P>
+  By default, Emacs displays text in the font named <SAMP>`9x15'</SAMP>, which
+makes each character nine pixels wide and fifteen pixels high.  You can
+specify a different font on your command line through the option
+<SAMP>`-fn <VAR>name</VAR>'</SAMP>.  The <SAMP>`-font'</SAMP> option is a synonym for
+<SAMP>`-fn'</SAMP>.
+<P>
+  Here is how to specify the font <SAMP>`6x13'</SAMP>:
+<P>
+<PRE>
+emacs -fn 6x13 &#38;
+</PRE>
+<P>
+You can also do this in your <TT>`.Xdefaults'</TT> file:
+<P>
+<PRE>
+emacs.font:      6x13
+</PRE>
+<P>
+  Use only fixed width fonts--that is, fonts in which all characters
+have the same width.  Emacs cannot yet handle display properly for
+variable width fonts.  Fixed width fonts include the one named
+<SAMP>`fixed'</SAMP>, and fonts with names in the form <VAR>n</VAR>x<VAR>n</VAR>, such as
+<SAMP>`6x13'</SAMP>, <SAMP>`8x13'</SAMP>, and <SAMP>`9x15'</SAMP>.  Under the font-naming
+conventions in X11 Release 4 or later, any font with <SAMP>`m'</SAMP> or
+<SAMP>`c'</SAMP> in the eleventh field of the name is a fixed width font.
+<P>
+  Here's how to use the <CODE>xlsfonts</CODE> program to list all the fixed
+width fonts available on your system:
+<P>
+<PRE>
+xlsfonts -fn '*x*'
+xlsfonts -fn '*-*-*-*-*-*-*-*-*-*-*-m*'
+xlsfonts -fn '*-*-*-*-*-*-*-*-*-*-*-c*'
+</PRE>
+<P>
+To see what a particular font looks like, use the <CODE>xfd</CODE> command.
+For example:
+<P>
+<PRE>
+xfd -fn 6x13
+</PRE>
+<P>
+displays the entire font <SAMP>`6x13'</SAMP>.
+<P>
+  While running Emacs, you can set the font of the current frame
+(see section <A HREF="emacs_22.html#SEC143">Setting Frame Parameters</A>) or for a specific kind of text
+(see section <A HREF="emacs_22.html#SEC146">Using Multiple Typefaces</A>).
+<P>
+<A NAME="IDX2071"></A>
+<H2><A NAME="SEC384" HREF="emacs_toc.html#SEC384">Window Color Options</A></H2>
+<P>
+  On a color display, you can specify which color to use for various
+parts of the Emacs display.  To find out what colors are available on
+your system, look at the <TT>`/usr/lib/X11/rgb.txt'</TT> file.  If you do
+not specify colors, the default for the background is white and the
+default for all other colors is black.
+<P>
+  On a monochrome (black and white) display, the foreground is black, the
+background is white, and the border is grey.  You can reverse the foreground
+and background colors through the <SAMP>`-r'</SAMP> option or the <SAMP>`reverseVideo'</SAMP>
+resource.
+<P>
+  Here is a list of the options for specifying colors:
+<P>
+<DL COMPACT>
+<DT><SAMP>`-fg <VAR>color</VAR>'</SAMP>
+<DD>Specify the foreground color.
+<DT><SAMP>`-bg <VAR>color</VAR>'</SAMP>
+<DD>Specify the background color.
+<DT><SAMP>`-bd <VAR>color</VAR>'</SAMP>
+<DD>Specify the color of the border of the X window.
+<DT><SAMP>`-cr <VAR>color</VAR>'</SAMP>
+<DD>Specify the color of the Emacs cursor which indicates where point is.
+<DT><SAMP>`-ms <VAR>color</VAR>'</SAMP>
+<DD>Specify the color for the mouse cursor when the mouse is in the Emacs window.
+</DL>
+<P>
+  For example, to use a coral mouse cursor and a slate blue text cursor,
+enter:
+<P>
+<PRE>
+emacs -ms coral -cr 'slate blue' &#38;
+</PRE>
+<P>
+<A NAME="IDX2072"></A>
+<H2><A NAME="SEC385" HREF="emacs_toc.html#SEC385">Options for Window Geometry</A></H2>
+<P>
+  The <SAMP>`-geometry'</SAMP> option controls the size and position of the
+initial Emacs frame.  Here is the format for specifying the window
+geometry:
+<P>
+<PRE>
+<VAR>width</VAR>x<VAR>height</VAR>{+-}<VAR>xoffset</VAR>{+-}<VAR>yoffset</VAR>
+</PRE>
+<P>
+where <VAR>width</VAR> specifies the number of characters displayed on a
+line, <VAR>height</VAR> specifies the number of lines displayed, a positive
+<VAR>xoffset</VAR> specifies the distance from the left side of the screen, a
+negative <VAR>xoffset</VAR> specifies the distance from the right side of the
+screen, a positive <VAR>yoffset</VAR> specifies the distance from the top of
+the screen, and a negative <VAR>yoffset</VAR> specifies the distance from the
+bottom of the screen.
+<P>
+  Emacs uses the same units as <CODE>xterm</CODE> does to interpret the geometry.
+The <VAR>width</VAR> and <VAR>height</VAR> are measured in characters, so a large font
+creates a larger frame than a small font.  The <VAR>xoffset</VAR> and
+<VAR>yoffset</VAR> are measured in pixels.
+<P>
+  Since the mode line and the echo area occupy the last 2 lines of the
+frame, the height of the initial text window is 2 less than the height
+specified in your geometry.
+<P>
+  You do not have to specify all of the fields in the geometry
+specification.  The default width for Emacs is 80 characters and the
+default height is 24 characters.  You can omit either the width or the
+height or both.
+<P>
+  If you omit both <VAR>xoffset</VAR> nor <VAR>yoffset</VAR>, the window manager
+decides where to put the Emacs frame, possibly by letting you place
+it with the mouse.  For example, <SAMP>`164x55'</SAMP> specifies a window 164
+columns wide, enough for two ordinary width windows side by side, and 55
+lines tall.
+<P>
+  If you start the geometry with an integer, Emacs interprets it as the
+width.  If you start with an <SAMP>`x'</SAMP> followed by an integer, Emacs
+interprets it as the height.  Thus, <SAMP>`81'</SAMP> specifies just the width;
+<SAMP>`x45'</SAMP> specifies just the height.
+<P>
+  If you start with <SAMP>`+'</SAMP> or <SAMP>`-'</SAMP>, that introduces an offset,
+which means both sizes are omitted.  Thus, <SAMP>`-3'</SAMP> specifies the
+<VAR>xoffset</VAR> only.  (If you give just one offset, it is always
+<VAR>xoffset</VAR>.)  <SAMP>`+3-3'</SAMP> specifies both the <VAR>xoffset</VAR> and the
+<VAR>yoffset</VAR>, placing the frame near the bottom left of the screen.
+<P>
+  You can specify a default for any or all of the fields in
+<TT>`.Xdefaults'</TT> file, and then override selected fields through a
+<SAMP>`-geometry'</SAMP> option.
+<P>
+<A NAME="IDX2073"></A>
+<H2><A NAME="SEC386" HREF="emacs_toc.html#SEC386">Internal and External Borders</A></H2>
+<P>
+  An Emacs frame has an internal border and an external border.  The
+internal border is an extra strip of the background color around all
+four edges of the frame.  Emacs itself adds the internal border.  The
+external border is added by the window manager outside the internal
+border; it may contain various boxes you can click on to move or iconify
+the window.
+<P>
+  When you specify the size of the frame, that does not count the
+borders.  The frame's position is measured from the outside edge of the
+external border.
+<P>
+  Use the <SAMP>`-ib <VAR>n</VAR>'</SAMP> option to specify an internal border
+<VAR>n</VAR> pixels wide.  The default is 1.  Use <SAMP>`-bw <VAR>n</VAR>'</SAMP> to
+specify the width of the external border (though the window manager may
+not pay attention to what you specify).  The default width of the
+external border is 2.
+<P>
+<A NAME="IDX2074"></A>
+<H2><A NAME="SEC387" HREF="emacs_toc.html#SEC387">Icons</A></H2>
+<P>
+  Most window managers allow the user to "iconify" a frame, removing
+it from sight, and leaving a small, distinctive "icon" window in its
+place.  Clicking on the icon window will make the original frame visible
+again.  If a user has many clients running at once, they can avoid
+cluttering up their screen by iconifying all but the clients currently
+in use.
+<P>
+  The <SAMP>`-i'</SAMP> and <SAMP>`-itype'</SAMP> option tells Emacs to use an icon
+window containing a picture of the GNU gnu.  If omitted, Emacs lets the
+window manager choose what sort of icon to use -- usually just a small
+rectangle containing the frame's title.
+<P>
+  The <SAMP>`-iconic'</SAMP> option tells Emacs to begin running as an icon,
+rather than opening a frame right away.  In this situation, the icon
+window provides only indication that Emacs has started; the usual text
+frame doesn't appear until you de-iconify it.
+<P>
+<H2><A NAME="SEC388" HREF="emacs_toc.html#SEC388">X Resources</A></H2>
+<P>
+  Programs running under the X Window System organize their user options
+under a hierarchy of classes and resources.  You can specify default
+values for these options in your X resources file, usually named
+<TT>`~/.Xdefaults'</TT>.
+<P>
+  Each line in the file specifies a value for one option or for a
+collection of related options, for one program or for several programs
+(perhaps even all programs).
+<P>
+  Programs define named resources with particular meanings.  They also
+define how to group resources into named classes.  For instance, in
+Emacs, the <SAMP>`internalBorder'</SAMP> resource controls the width of the
+internal border, and the <SAMP>`borderWidth'</SAMP> resource controls the width
+of the external border.  Both of these resources are part of the
+<SAMP>`BorderWidth'</SAMP> class.  Case distinctions are significant in these
+names.
+<P>
+  In <TT>`~/.Xdefaults'</TT>, you can specify a value for a single resource
+on one line, like this:
+<P>
+<PRE>
+emacs.borderWidth: 2
+</PRE>
+<P>
+Or you can use a class name to specify the same value for all resources
+in that class.  Here's an example:
+<P>
+<PRE>
+emacs.BorderWidth: 2
+</PRE>
+<P>
+  If you specify a value for a class, it becomes the default for all
+resources in that class.  You can specify values for individual
+resources as well; these override the class value, for those particular
+resources.  Thus, this example specifies 2 as the default width for all
+borders, but overrides this value with 4 for the external border:
+<P>
+<PRE>
+emacs.Borderwidth: 2
+emacs.borderwidth: 4
+</PRE>
+<P>
+  The order in which the lines appear in the file does not matter.
+Also, command-line options always override the X resources file.
+<P>
+  The string <SAMP>`emacs'</SAMP> in the examples above is also a resource
+name.  It actually represents the name of the executable file that you
+invoke to run Emacs.  If Emacs is installed under a different name, it
+look for resources under that name instead of <SAMP>`emacs'</SAMP>.
+<P>
+  You can tell Emacs to use a different name instead of the name of the
+executable file, with the option <SAMP>`-name <VAR>name</VAR>'</SAMP>.  Then that Emacs
+job uses <VAR>name</VAR> instead of <SAMP>`Emacs'</SAMP> to look up all of its option
+values in the X resource file.  This option also specifies the title for
+the initial frame.
+<P>
+  The resources that name Emacs invocations also belong to a class; its
+name is <SAMP>`Emacs'</SAMP>.  To specify options for all Emacs jobs, no matter
+what name is used to run them, write <SAMP>`Emacs'</SAMP> instead of
+<SAMP>`emacs'</SAMP>, like this:
+<P>
+<PRE>
+Emacs.BorderWidth: 2
+Emacs.borderWidth: 4
+</PRE>
+<P>
+  You can specify a string of additional resource values for Emacs to
+use with the command line option <SAMP>`-xrm <VAR>data</VAR>'</SAMP>.  The text
+<VAR>data</VAR> should have the same format that you would use inside a
+file of X resources.  Resources specified this way take precedence
+over all others. 
+<P>
+  The following table lists the resource names that designate options
+for Emacs, each with the class that it belongs to:
+<P>
+<DL COMPACT>
+<DT><CODE>background</CODE> (class <CODE>Background</CODE>)
+<DD>Background color name.
+<P>
+<DT><CODE>bitmapIcon</CODE> (class <CODE>BitmapIcon</CODE>)
+<DD>Use a bitmap icon (a picture of a GNU) if <SAMP>`on'</SAMP>, let the window
+manager choose an icon if <SAMP>`off'</SAMP>.
+<P>
+<DT><CODE>borderColor</CODE> (class <CODE>BorderColor</CODE>)
+<DD>Color name for external border.
+<P>
+<DT><CODE>borderWidth</CODE> (class <CODE>BorderWidth</CODE>)
+<DD>Width in pixels of external border.
+<P>
+<DT><CODE>cursorColor</CODE> (class <CODE>Foreground</CODE>)
+<DD>Color name for text cursor (point).
+<P>
+<DT><CODE>font</CODE> (class <CODE>Font</CODE>)
+<DD>Font name for text.
+<P>
+<DT><CODE>foreground</CODE> (class <CODE>Foreground</CODE>)
+<DD>Color name for text.
+<P>
+<DT><CODE>geometry</CODE> (class <CODE>Geometry</CODE>)
+<DD>Window size and position.
+<P>
+<DT><CODE>iconName</CODE> (class <CODE>Title</CODE>)
+<DD>Name to display in icon.
+<P>
+<DT><CODE>internalBorder</CODE> (class <CODE>BorderWidth</CODE>)
+<DD>Width in pixels of internal border.
+<P>
+<DT><CODE>paneFont</CODE> (class <CODE>Font</CODE>)
+<DD>Font name for menu pane titles.
+<P>
+<DT><CODE>pointerColor</CODE> (class <CODE>Foreground</CODE>)
+<DD>Color of mouse cursor.
+<P>
+<DT><CODE>reverseVideo</CODE> (class <CODE>ReverseVideo</CODE>)
+<DD>Switch foreground and background default colors if <SAMP>`on'</SAMP>, use colors as
+specified if <SAMP>`off'</SAMP>.
+<P>
+<DT><CODE>selectionFont</CODE> (class <CODE>Font</CODE>)
+<DD>Font name for menu items.
+<P>
+<DT><CODE>title</CODE> (class <CODE>Title</CODE>)
+<DD>Name to display in title bar of initial Emacs frame.
+</DL>
+<P>
+<P>Go to the <A HREF="emacs_36.html">previous</A>, <A HREF="emacs_38.html">next</A> section.<P>

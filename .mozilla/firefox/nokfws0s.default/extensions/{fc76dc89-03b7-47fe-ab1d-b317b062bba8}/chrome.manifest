@@ -1,0 +1,3 @@
+content    xoopitforgmail    content/
+overlay    chrome://browser/content/browser.xul    chrome://xoopitforgmail/content/script-compiler-overlay.xul
+skin       xoopitforgmail chrome chrome/

@@ -1,0 +1,13 @@
+
+overlay	chrome://browser/content/browser.xul	chrome://stealther/content/stealther.xul
+overlay	chrome://navigator/content/navigator.xul	chrome://stealther/content/stealther.xul
+content	stealther	jar:chrome/stealther.jar!/content/
+
+skin	stealther	classic/1.0	jar:chrome/stealther.jar!/skin/
+style	chrome://browser/content/browser.xul	chrome://stealther/skin/stealther.css
+style	chrome://global/content/customizeToolbar.xul	chrome://stealther/skin/stealther.css
+style	chrome://navigator/content/navigator.xul	chrome://stealther/skin/stealther.css
+
+locale	stealther	en-US	jar:chrome/stealther.jar!/locale/en-US/
+
+locale	stealther	fr-FR	jar:chrome/stealther.jar!/locale/fr-FR/

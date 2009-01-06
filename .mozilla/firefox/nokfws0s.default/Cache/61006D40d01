@@ -1,0 +1,2186 @@
+<!-- This HTML file has been created by texi2html 1.27
+     from emacs.texi on 3 March 1994 -->
+
+<TITLE>GNU Emacs Manual - Editing Programs</TITLE>
+<P>Go to the <A HREF="emacs_25.html">previous</A>, <A HREF="emacs_27.html">next</A> section.<P>
+<A NAME="IDX915"></A>
+<A NAME="IDX916"></A>
+<A NAME="IDX917"></A>
+<H1><A NAME="SEC176" HREF="emacs_toc.html#SEC176">Editing Programs</A></H1>
+<P>
+  Emacs has many commands designed to understand the syntax of programming
+languages such as Lisp and C.  These commands can
+<P>
+<UL>
+<LI>
+Move over or kill balanced expressions or <DFN>sexps</DFN> (see section <A HREF="emacs_26.html#SEC178">Lists and Sexps</A>).
+<LI>
+Move over or mark top-level expressions---<DFN>defuns</DFN>, in Lisp;
+functions, in C (see section <A HREF="emacs_26.html#SEC180">Defuns</A>).
+<LI>
+Show how parentheses balance (see section <A HREF="emacs_26.html#SEC186">Automatic Display Of Matching Parentheses</A>).
+<LI>
+Insert, kill or align comments (see section <A HREF="emacs_26.html#SEC187">Manipulating Comments</A>).
+<LI>
+Follow the usual indentation conventions of the language
+(see section <A HREF="emacs_26.html#SEC181">Indentation for Programs</A>).
+</UL>
+<P>
+  The commands for words, sentences and paragraphs are very useful in
+editing code even though their canonical application is for editing
+human language text.  Most symbols contain words (see section <A HREF="emacs_25.html#SEC156">Words</A>);
+sentences can be found in strings and comments (see section <A HREF="emacs_25.html#SEC157">Sentences</A>).
+Paragraphs per se don't exist in code, but the paragraph commands are
+useful anyway, because programming language major modes define
+paragraphs to begin and end at blank lines (see section <A HREF="emacs_25.html#SEC158">Paragraphs</A>).
+Judicious use of blank lines to make the program clearer will also
+provide interesting chunks of text for the paragraph commands to work
+on.
+<P>
+  The selective display feature is useful for looking at the overall
+structure of a function (see section <A HREF="emacs_16.html#SEC73">Selective Display</A>).  This feature causes
+only the lines that are indented less than a specified amount to appear
+on the screen.
+<P>
+<H2><A NAME="SEC177" HREF="emacs_toc.html#SEC177">Major Modes for Programming Languages</A></H2>
+<A NAME="IDX918"></A>
+<A NAME="IDX919"></A>
+<A NAME="IDX920"></A>
+<A NAME="IDX921"></A>
+<A NAME="IDX922"></A>
+<A NAME="IDX923"></A>
+<A NAME="IDX924"></A>
+<A NAME="IDX925"></A>
+<P>
+  Emacs also has major modes for the programming languages Lisp, Scheme
+(a variant of Lisp), Awk, C, C++, Perl, Icon, Fortran and Muddle (another
+variant of Lisp).  There is also a major mode for makefiles, called 
+Makefile mode.
+<P>
+  Ideally, a major mode should be implemented for each programming
+language that you might want to edit with Emacs; but often the mode for
+one language can serve for other syntactically similar languages.  The
+language modes that exist are those that someone decided to take the
+trouble to write.
+<P>
+  There are several forms of Lisp mode, which differ in the way they
+interface to Lisp execution.  See section <A HREF="emacs_27.html#SEC231">Executing Lisp Expressions</A>.
+<P>
+  Each of the programming language modes defines the <KBD>TAB</KBD> key to run
+an indentation function that knows the indentation conventions of that
+language and updates the current line's indentation accordingly.  For
+example, in C mode <KBD>TAB</KBD> is bound to <CODE>c-indent-line</CODE>.  <KBD>LFD</KBD>
+is normally defined to do <KBD>RET</KBD> followed by <KBD>TAB</KBD>; thus, it too
+indents in a mode-specific fashion.
+<A NAME="IDX926"></A>
+<A NAME="IDX927"></A>
+<P>
+  In most programming languages, indentation is likely to vary from line to
+line.  So the major modes for those languages rebind <KBD>DEL</KBD> to treat a
+tab as if it were the equivalent number of spaces (using the command
+<CODE>backward-delete-char-untabify</CODE>).  This makes it possible to rub out
+indentation one column at a time without worrying whether it is made up of
+spaces or tabs.  Use <KBD>C-b C-d</KBD> to delete a tab character before point,
+in these modes.
+<P>
+  Programming language modes define paragraphs to be separated only by
+blank lines, so that the paragraph commands remain useful.  Auto Fill mode,
+if enabled in a programming language major mode, indents the new lines
+which it creates.
+<A NAME="IDX928"></A>
+<A NAME="IDX929"></A>
+<A NAME="IDX930"></A>
+<A NAME="IDX931"></A>
+<A NAME="IDX932"></A>
+<A NAME="IDX933"></A>
+<A NAME="IDX934"></A>
+<P>
+  Turning on a major mode runs a normal hook called the <DFN>mode hook</DFN>,
+which is the value of a Lisp variable.  For example, turning on C mode
+runs the hook <CODE>c-mode-hook</CODE>.  Mode hook variables for other
+programming language modes include <CODE>lisp-mode-hook</CODE>,
+<CODE>emacs-lisp-mode-hook</CODE>, <CODE>lisp-interaction-mode-hook</CODE>,
+<CODE>scheme-mode-hook</CODE> and <CODE>muddle-mode-hook</CODE>.  See section <A HREF="emacs_35.html#SEC337">Hooks</A>.
+<P>
+<H2><A NAME="SEC178" HREF="emacs_toc.html#SEC178">Lists and Sexps</A></H2>
+<A NAME="IDX935"></A>
+<P>
+  By convention, Emacs keys for dealing with balanced expressions are
+usually Control-Meta characters.  They tend to be analogous in
+function to their Control and Meta equivalents.  These commands are
+usually thought of as pertaining to expressions in programming
+languages, but can be useful with any language in which some sort of
+parentheses exist (including human languages).
+<A NAME="IDX936"></A>
+<A NAME="IDX937"></A>
+<A NAME="IDX938"></A>
+<P>
+  These commands fall into two classes.  Some deal only with <DFN>lists</DFN>
+(parenthetical groupings).  They see nothing except parentheses, brackets,
+braces (whichever ones must balance in the language you are working with),
+and escape characters that might be used to quote those.
+<P>
+  The other commands deal with expressions or <DFN>sexps</DFN>.  The word `sexp'
+is derived from <DFN>s-expression</DFN>, the ancient term for an expression in
+Lisp.  But in Emacs, the notion of `sexp' is not limited to Lisp.  It
+refers to an expression in whatever language your program is written in.
+Each programming language has its own major mode, which customizes the
+syntax tables so that expressions in that language count as sexps.
+<P>
+  Sexps typically include symbols, numbers, and string constants, as well
+as anything contained in parentheses, brackets or braces.
+<P>
+  In languages that use prefix and infix operators, such as C, it is not
+possible for all expressions to be sexps.  For example, C mode does not
+recognize <SAMP>`foo + bar'</SAMP> as a sexp, even though it <EM>is</EM> a C expression;
+it recognizes <SAMP>`foo'</SAMP> as one sexp and <SAMP>`bar'</SAMP> as another, with the
+<SAMP>`+'</SAMP> as punctuation between them.  This is a fundamental ambiguity:
+both <SAMP>`foo + bar'</SAMP> and <SAMP>`foo'</SAMP> are legitimate choices for the sexp to
+move over if point is at the <SAMP>`f'</SAMP>.  Note that <SAMP>`(foo + bar)'</SAMP> is a
+single sexp in C mode.
+<P>
+  Some languages have obscure forms of syntax for expressions that nobody
+has bothered to make Emacs understand properly.
+<P>
+<H2><A NAME="SEC179" HREF="emacs_toc.html#SEC179">List And Sexp Commands</A></H2>
+<P>
+<DL COMPACT>
+<DT><KBD>C-M-f</KBD>
+<DD>Move forward over a sexp (<CODE>forward-sexp</CODE>).
+<DT><KBD>C-M-b</KBD>
+<DD>Move backward over a sexp (<CODE>backward-sexp</CODE>).
+<DT><KBD>C-M-k</KBD>
+<DD>Kill sexp forward (<CODE>kill-sexp</CODE>).
+<DT><KBD>C-M-u</KBD>
+<DD>Move up and backward in list structure (<CODE>backward-up-list</CODE>).
+<DT><KBD>C-M-d</KBD>
+<DD>Move down and forward in list structure (<CODE>down-list</CODE>).
+<DT><KBD>C-M-n</KBD>
+<DD>Move forward over a list (<CODE>forward-list</CODE>).
+<DT><KBD>C-M-p</KBD>
+<DD>Move backward over a list (<CODE>backward-list</CODE>).
+<DT><KBD>C-M-t</KBD>
+<DD>Transpose expressions (<CODE>transpose-sexps</CODE>).
+<DT><KBD>C-M-@</KBD>
+<DD>Put mark after following expression (<CODE>mark-sexp</CODE>).
+</DL>
+<A NAME="IDX939"></A>
+<A NAME="IDX940"></A>
+<A NAME="IDX941"></A>
+<A NAME="IDX942"></A>
+<P>
+  To move forward over a sexp, use <KBD>C-M-f</KBD> (<CODE>forward-sexp</CODE>).  If
+the first significant character after point is an opening delimiter
+(<SAMP>`('</SAMP> in Lisp; <SAMP>`('</SAMP>, <SAMP>`['</SAMP> or <SAMP>`{'</SAMP> in C), <KBD>C-M-f</KBD>
+moves past the matching closing delimiter.  If the character begins a
+symbol, string, or number, <KBD>C-M-f</KBD> moves over that.
+<P>
+  The command <KBD>C-M-b</KBD> (<CODE>backward-sexp</CODE>) moves backward over a
+sexp.  The detailed rules are like those above for <KBD>C-M-f</KBD>, but with
+directions reversed.  If there are any prefix characters (single-quote,
+backquote and comma, in Lisp) preceding the sexp, <KBD>C-M-b</KBD> moves back
+over them as well.  The sexp commands move across comments as if they
+were whitespace in most modes.
+<P>
+  <KBD>C-M-f</KBD> or <KBD>C-M-b</KBD> with an argument repeats that operation the
+specified number of times; with a negative argument, it moves in the
+opposite direction.
+<A NAME="IDX943"></A>
+<A NAME="IDX944"></A>
+<P>
+  Killing a sexp at a time can be done with <KBD>C-M-k</KBD> (<CODE>kill-sexp</CODE>).
+<KBD>C-M-k</KBD> kills the characters that <KBD>C-M-f</KBD> would move over.
+<A NAME="IDX945"></A>
+<A NAME="IDX946"></A>
+<A NAME="IDX947"></A>
+<A NAME="IDX948"></A>
+<P>
+  The <DFN>list commands</DFN> move over lists like the sexp commands but skip
+blithely over any number of other kinds of sexps (symbols, strings, etc).
+They are <KBD>C-M-n</KBD> (<CODE>forward-list</CODE>) and <KBD>C-M-p</KBD>
+(<CODE>backward-list</CODE>).  The main reason they are useful is that they
+usually ignore comments (since the comments usually do not contain any
+lists).<A NAME="IDX949"></A>
+<A NAME="IDX950"></A>
+<A NAME="IDX951"></A>
+<A NAME="IDX952"></A>
+<P>
+  <KBD>C-M-n</KBD> and <KBD>C-M-p</KBD> stay at the same level in parentheses, when
+that's possible.  To move <EM>up</EM> one (or <VAR>n</VAR>) levels, use <KBD>C-M-u</KBD>
+(<CODE>backward-up-list</CODE>).
+<KBD>C-M-u</KBD> moves backward up past one unmatched opening delimiter.  A
+positive argument serves as a repeat count; a negative argument reverses
+direction of motion and also requests repetition, so it moves forward and
+up one or more levels.<P>
+  To move <EM>down</EM> in list structure, use <KBD>C-M-d</KBD> (<CODE>down-list</CODE>).  In Lisp mode,
+where <SAMP>`('</SAMP> is the only opening delimiter, this is nearly the same as
+searching for a <SAMP>`('</SAMP>.  An argument specifies the number of levels
+of parentheses to go down.
+<A NAME="IDX953"></A>
+<A NAME="IDX954"></A>
+<A NAME="IDX955"></A>
+<P>
+  A somewhat random-sounding command which is nevertheless handy is
+<KBD>C-M-t</KBD> (<CODE>transpose-sexps</CODE>), which drags the previous sexp
+across the next one.  An argument serves as a repeat count, and a
+negative argument drags backwards (thus canceling out the effect of
+<KBD>C-M-t</KBD> with a positive argument).  An argument of zero, rather than
+doing nothing, transposes the sexps ending after point and the mark.
+<A NAME="IDX956"></A>
+<A NAME="IDX957"></A>
+<P>
+  To make the region be the next sexp in the buffer, use <KBD>C-M-@</KBD>
+(<CODE>mark-sexp</CODE>) which sets mark at the same place that <KBD>C-M-f</KBD> would
+move to.  <KBD>C-M-@</KBD> takes arguments like <KBD>C-M-f</KBD>.  In particular, a
+negative argument is useful for putting the mark at the beginning of the
+previous sexp.
+<P>
+  The list and sexp commands' understanding of syntax is completely
+controlled by the syntax table.  Any character can, for example, be
+declared to be an opening delimiter and act like an open parenthesis.
+See section <A HREF="emacs_35.html#SEC355">The Syntax Table</A>.
+<P>
+<A NAME="IDX958"></A>
+<H2><A NAME="SEC180" HREF="emacs_toc.html#SEC180">Defuns</A></H2>
+<P>
+  In Emacs, a parenthetical grouping at the top level in the buffer is
+called a <DFN>defun</DFN>.  The name derives from the fact that most top-level
+lists in a Lisp file are instances of the special form <CODE>defun</CODE>, but
+any top-level parenthetical grouping counts as a defun in Emacs parlance
+regardless of what its contents are, and regardless of the programming
+language in use.  For example, in C, the body of a function definition is a
+defun.
+<P>
+<DL COMPACT>
+<DT><KBD>C-M-a</KBD>
+<DD>Move to beginning of current or preceding defun
+(<CODE>beginning-of-defun</CODE>).
+<DT><KBD>C-M-e</KBD>
+<DD>Move to end of current or following defun (<CODE>end-of-defun</CODE>).
+<DT><KBD>C-M-h</KBD>
+<DD>Put region around whole current or following defun (<CODE>mark-defun</CODE>).
+</DL>
+<A NAME="IDX959"></A>
+<A NAME="IDX960"></A>
+<A NAME="IDX961"></A>
+<A NAME="IDX962"></A>
+<A NAME="IDX963"></A>
+<A NAME="IDX964"></A>
+<P>
+  The commands to move to the beginning and end of the current defun are
+<KBD>C-M-a</KBD> (<CODE>beginning-of-defun</CODE>) and <KBD>C-M-e</KBD> (<CODE>end-of-defun</CODE>).
+<P>
+  If you wish to operate on the current defun, use <KBD>C-M-h</KBD>
+(<CODE>mark-defun</CODE>) which puts point at the beginning and mark at the end
+of the current or next defun.  For example, this is the easiest way to get
+ready to move the defun to a different place in the text.  In C mode,
+<KBD>C-M-h</KBD> runs the function <CODE>mark-c-function</CODE>, which is almost the
+same as <CODE>mark-defun</CODE>; the difference is that it backs up over the
+argument declarations, function name and returned data type so that the
+entire C function is inside the region.  See section <A HREF="emacs_13.html#SEC51">Commands to Mark Textual Objects</A>.
+<P>
+  Emacs assumes that any open-parenthesis found in the leftmost column
+is the start of a defun.  Therefore, <STRONG>never put an
+open-parenthesis at the left margin in a Lisp file unless it is the
+start of a top level list.  Never put an open-brace or other opening
+delimiter at the beginning of a line of C code unless it starts the body
+of a function.</STRONG>  The most likely problem case is when you want an
+opening delimiter at the start of a line inside a string.  To avoid
+trouble, put an escape character (<SAMP>`\'</SAMP>, in C and Emacs Lisp,
+<SAMP>`/'</SAMP> in some other Lisp dialects) before the opening delimiter.  It
+will not affect the contents of the string.
+<P>
+  In the remotest past, the original Emacs found defuns by moving upward a
+level of parentheses until there were no more levels to go up.  This always
+required scanning all the way back to the beginning of the buffer, even for
+a small function.  To speed up the operation, Emacs was changed to assume
+that any <SAMP>`('</SAMP> (or other character assigned the syntactic class of
+opening-delimiter) at the left margin is the start of a defun.  This
+heuristic is nearly always right and avoids the costly scan; however,
+it mandates the convention described above.
+<P>
+<A NAME="IDX965"></A>
+<H2><A NAME="SEC181" HREF="emacs_toc.html#SEC181">Indentation for Programs</A></H2>
+<P>
+  The best way to keep a program properly indented is to use Emacs to
+re-indent it as you change it.  Emacs has commands to indent properly
+either a single line, a specified number of lines, or all of the lines
+inside a single parenthetical grouping.
+<P>
+<H3><A NAME="SEC182" HREF="emacs_toc.html#SEC182">Basic Program Indentation Commands</A></H3>
+<P>
+<DL COMPACT>
+<DT><KBD><KBD>TAB</KBD></KBD>
+<DD>Adjust indentation of current line.
+<DT><KBD><KBD>LFD</KBD></KBD>
+<DD>Equivalent to <KBD>RET</KBD> followed by <KBD>TAB</KBD> (<CODE>newline-and-indent</CODE>).
+</DL>
+<A NAME="IDX966"></A>
+<A NAME="IDX967"></A>
+<A NAME="IDX968"></A>
+<P>
+  The basic indentation command is <KBD>TAB</KBD>, which gives the current line
+the correct indentation as determined from the previous lines.  The
+function that <KBD>TAB</KBD> runs depends on the major mode; it is <CODE>lisp-indent-line</CODE>
+in Lisp mode, <CODE>c-indent-line</CODE> in C mode, etc.  These functions
+understand different syntaxes for different languages, but they all do
+about the same thing.  <KBD>TAB</KBD> in any programming language major mode
+inserts or deletes whitespace at the beginning of the current line,
+independent of where point is in the line.  If point is inside the
+whitespace at the beginning of the line, <KBD>TAB</KBD> leaves it at the end of
+that whitespace; otherwise, <KBD>TAB</KBD> leaves point fixed with respect to
+the characters around it.
+<P>
+  Use <KBD>C-q <KBD>TAB</KBD></KBD> to insert a tab at point.
+<A NAME="IDX969"></A>
+<A NAME="IDX970"></A>
+<P>
+  When entering a large amount of new code, use <KBD>LFD</KBD> (<CODE>newline-and-indent</CODE>),
+which is equivalent to a <KBD>RET</KBD> followed by a <KBD>TAB</KBD>.  <KBD>LFD</KBD> creates
+a blank line, and then gives it the appropriate indentation.
+<P>
+  <KBD>TAB</KBD> indents the second and following lines of the body of a
+parenthetical grouping each under the preceding one; therefore, if you
+alter one line's indentation to be nonstandard, the lines below will tend
+to follow it.  This is the right behavior in cases where the standard
+result of <KBD>TAB</KBD> is unaesthetic.
+<P>
+  Remember that an open-parenthesis, open-brace or other opening delimiter
+at the left margin is assumed by Emacs (including the indentation routines)
+to be the start of a function.  Therefore, you must never have an opening
+delimiter in column zero that is not the beginning of a function, not even
+inside a string.  This restriction is vital for making the indentation
+commands fast; you must simply accept it.  See section <A HREF="emacs_26.html#SEC180">Defuns</A>, for more
+information on this.
+<P>
+<H3><A NAME="SEC183" HREF="emacs_toc.html#SEC183">Indenting Several Lines</A></H3>
+<P>
+  When you wish to re-indent several lines of code which have been altered
+or moved to a different level in the list structure, you have several
+commands available.
+<P>
+<DL COMPACT>
+<DT><KBD>C-M-q</KBD>
+<DD>Re-indent all the lines within one list (<CODE>indent-sexp</CODE>).
+<DT><KBD>C-u <KBD>TAB</KBD></KBD>
+<DD>Shift an entire list rigidly sideways so that its first line
+is properly indented.
+<DT><KBD>C-M-\</KBD>
+<DD>Re-indent all lines in the region (<CODE>indent-region</CODE>).
+</DL>
+<A NAME="IDX971"></A>
+<A NAME="IDX972"></A>
+<A NAME="IDX973"></A>
+<P>
+  You can re-indent the contents of a single list by positioning point
+before the beginning of it and typing <KBD>C-M-q</KBD> (<CODE>indent-sexp</CODE> in
+Lisp mode, <CODE>indent-c-exp</CODE> in C mode; also bound to other suitable
+commands in other modes).  The indentation of the line the sexp starts on
+is not changed; therefore, only the relative indentation within the list,
+and not its position, is changed.  To correct the position as well, type a
+<KBD>TAB</KBD> before the <KBD>C-M-q</KBD>.
+<A NAME="IDX974"></A>
+<P>
+  If the relative indentation within a list is correct but the indentation
+of its beginning is not, go to the line the list begins on and type
+<KBD>C-u <KBD>TAB</KBD></KBD>.  When <KBD>TAB</KBD> is given a numeric argument, it moves all the
+lines in the grouping starting on the current line sideways the same amount
+that the current line moves.  It is clever, though, and does not move lines
+that start inside strings, or C preprocessor lines when in C mode.
+<P>
+  Another way to specify the range to be re-indented is with point and
+mark.  The command <KBD>C-M-\</KBD> (<CODE>indent-region</CODE>) applies <KBD>TAB</KBD>
+to every line whose first character is between point and mark.
+<P>
+<A NAME="IDX975"></A>
+<H3><A NAME="SEC184" HREF="emacs_toc.html#SEC184">Customizing Lisp Indentation</A></H3>
+<P>
+  The indentation pattern for a Lisp expression can depend on the function
+called by the expression.  For each Lisp function, you can choose among
+several predefined patterns of indentation, or define an arbitrary one with
+a Lisp program.
+<P>
+  The standard pattern of indentation is as follows: the second line of the
+expression is indented under the first argument, if that is on the same
+line as the beginning of the expression; otherwise, the second line is
+indented underneath the function name.  Each following line is indented
+under the previous line whose nesting depth is the same.
+<A NAME="IDX976"></A>
+<P>
+  If the variable <CODE>lisp-indent-offset</CODE> is non-<CODE>nil</CODE>, it overrides
+the usual indentation pattern for the second line of an expression, so that
+such lines are always indented <CODE>lisp-indent-offset</CODE> more columns than
+the containing list.
+<A NAME="IDX977"></A>
+<P>
+  The standard pattern is overridden for certain functions.  Functions
+whose names start with <CODE>def</CODE> always indent the second line by
+<CODE>lisp-body-indent</CODE> extra columns beyond the open-parenthesis
+starting the expression.
+<P>
+  The standard pattern can be overridden in various ways for individual
+functions, according to the <CODE>lisp-indent-hook</CODE> property of the
+function name.  There are four possibilities for this property:
+<P>
+<DL COMPACT>
+<DT><CODE>nil</CODE>
+<DD>This is the same as no property; the standard indentation pattern is used.
+<DT><CODE>defun</CODE>
+<DD>The pattern used for function names that start with <CODE>def</CODE> is used for
+this function also.
+<DT>a number, <VAR>number</VAR>
+<DD>The first <VAR>number</VAR> arguments of the function are
+<DFN>distinguished</DFN> arguments; the rest are considered the <DFN>body</DFN>
+of the expression.  A line in the expression is indented according to
+whether the first argument on it is distinguished or not.  If the
+argument is part of the body, the line is indented <CODE>lisp-body-indent</CODE>
+more columns than the open-parenthesis starting the containing
+expression.  If the argument is distinguished and is either the first
+or second argument, it is indented <EM>twice</EM> that many extra columns.
+If the argument is distinguished and not the first or second argument,
+the standard pattern is followed for that line.
+<DT>a symbol, <VAR>symbol</VAR>
+<DD><VAR>symbol</VAR> should be a function name; that function is called to
+calculate the indentation of a line within this expression.  The
+function receives two arguments:
+<DL COMPACT>
+<DT><VAR>state</VAR>
+<DD>The value returned by <CODE>parse-partial-sexp</CODE> (a Lisp primitive for
+indentation and nesting computation) when it parses up to the
+beginning of this line.
+<DT><VAR>pos</VAR>
+<DD>The position at which the line being indented begins.
+</DL>
+It should return either a number, which is the number of columns of
+indentation for that line, or a list whose car is such a number.  The
+difference between returning a number and returning a list is that a
+number says that all following lines at the same nesting level should
+be indented just like this one; a list says that following lines might
+call for different indentations.  This makes a difference when the
+indentation is being computed by <KBD>C-M-q</KBD>; if the value is a
+number, <KBD>C-M-q</KBD> need not recalculate indentation for the following
+lines until the end of the list.
+</DL>
+<P>
+<H3><A NAME="SEC185" HREF="emacs_toc.html#SEC185">Customizing C Indentation</A></H3>
+<P>
+  Two variables control which commands perform C indentation and when.
+<A NAME="IDX978"></A>
+<P>
+  If <CODE>c-auto-newline</CODE> is non-<CODE>nil</CODE>, newlines are inserted both
+before and after braces that you insert, and after colons and semicolons.
+Correct C indentation is done on all the lines that are made this way.
+<A NAME="IDX979"></A>
+<P>
+  If <CODE>c-tab-always-indent</CODE> is <CODE>nil</CODE>, the <KBD>TAB</KBD> command in
+C mode does indentation only if point is at the left margin or within
+the line's indentation.  If there is non-whitespace to the left of
+point, then <KBD>TAB</KBD> just inserts a tab character in the buffer.
+Normally, this variable is <CODE>t</CODE>, and <KBD>TAB</KBD> always reindents the
+current line.  The default behavior means that to insert a real tab
+character you must quote it by typing <KBD>C-q</KBD> <KBD>TAB</KBD>.
+<P>
+  C does not have anything analogous to particular function names for which
+special forms of indentation are desirable.  However, it has a different
+need for customization facilities: many different styles of C indentation
+are in common use.
+<P>
+  There are six variables you can set to control the style that Emacs C
+mode uses.
+<P>
+<DL COMPACT>
+<DT><CODE>c-indent-level</CODE>
+<DD>Indentation of C statements within surrounding block.  The surrounding
+block's indentation is the indentation of the line on which the
+open-brace appears.
+<DT><CODE>c-continued-statement-offset</CODE>
+<DD>Extra indentation given to a substatement, such as the then-clause of
+an if or body of a while.
+<DT><CODE>c-brace-offset</CODE>
+<DD>Extra indentation for line if it starts with an open brace.
+<DT><CODE>c-brace-imaginary-offset</CODE>
+<DD>An open brace following other text is treated as if it were this far
+to the right of the start of its line.
+<DT><CODE>c-argdecl-indent</CODE>
+<DD>Indentation level of declarations of C function arguments.
+<DT><CODE>c-label-offset</CODE>
+<DD>Extra indentation for line that is a label, or case or default.
+</DL>
+<A NAME="IDX980"></A>
+<P>
+  The variable <CODE>c-indent-level</CODE> controls the indentation for C
+statements with respect to the surrounding block.  In the example
+<P>
+<PRE>
+    {
+      foo ();
+</PRE>
+<P>
+the difference in indentation between the lines is <CODE>c-indent-level</CODE>.
+Its standard value is 2.
+<P>
+If the open-brace beginning the compound statement is not at the beginning
+of its line, the <CODE>c-indent-level</CODE> is added to the indentation of the
+line, not the column of the open-brace.  For example,
+<P>
+<PRE>
+if (losing) {
+  do_this ();
+</PRE>
+<P>
+One popular indentation style is that which results from setting
+<CODE>c-indent-level</CODE> to 8 and putting open-braces at the end of a line in
+this way.  I prefer to put the open-brace on a separate line.
+<A NAME="IDX981"></A>
+<P>
+  In fact, the value of the variable <CODE>c-brace-imaginary-offset</CODE> is
+also added to the indentation of such a statement.  Normally this variable
+is zero.  Think of this variable as the imaginary position of the open
+brace, relative to the first nonblank character on the line.  By setting
+this variable to 4 and <CODE>c-indent-level</CODE> to 0, you can get this style:
+<P>
+<PRE>
+if (x == y) {
+    do_it ();
+    }
+</PRE>
+<P>
+  When <CODE>c-indent-level</CODE> is zero, the statements inside most braces
+will line up right under the open brace.  But there is an exception made
+for braces in column zero, such as surrounding a function's body.  The
+statements just inside it do not go at column zero.  Instead,
+<CODE>c-brace-offset</CODE> and <CODE>c-continued-statement-offset</CODE> (see below)
+are added to produce a typical offset between brace levels, and the
+statements are indented that far.
+<A NAME="IDX982"></A>
+<P>
+  <CODE>c-continued-statement-offset</CODE> controls the extra indentation for a
+line that starts within a statement (but not within parentheses or
+brackets).  These lines are usually statements that are within other
+statements, such as the then-clauses of <CODE>if</CODE> statements and the bodies
+of <CODE>while</CODE> statements.  This parameter is the difference in
+indentation between the two lines in
+<P>
+<PRE>
+if (x == y)
+  do_it ();
+</PRE>
+<P>
+Its standard value is 2.  Some popular indentation styles correspond to a
+value of zero for <CODE>c-continued-statement-offset</CODE>.
+<A NAME="IDX983"></A>
+<P>
+  <CODE>c-brace-offset</CODE> is the extra indentation given to a line that
+starts with an open-brace.  Its standard value is zero;
+compare
+<P>
+<PRE>
+if (x == y)
+  {
+</PRE>
+<P>
+with
+<P>
+<PRE>
+if (x == y)
+  do_it ();
+</PRE>
+<P>
+if <CODE>c-brace-offset</CODE> were set to 4, the first example would become
+<P>
+<PRE>
+if (x == y)
+      {
+</PRE>
+<A NAME="IDX984"></A>
+<P>
+  <CODE>c-argdecl-indent</CODE> controls the indentation of declarations of the
+arguments of a C function.  It is absolute: argument declarations receive
+exactly <CODE>c-argdecl-indent</CODE> spaces.  The standard value is 5, resulting
+in code like this:
+<P>
+<PRE>
+char *
+index (string, c)
+     char *string;
+     int c;
+</PRE>
+<A NAME="IDX985"></A>
+<P>
+  <CODE>c-label-offset</CODE> is the extra indentation given to a line that
+contains a label, a case statement, or a <CODE>default:</CODE> statement.  Its
+standard value is -2, resulting in code like this
+<P>
+<PRE>
+switch (c)
+  {
+  case 'x':
+</PRE>
+<P>
+If <CODE>c-label-offset</CODE> were zero, the same code would be indented as
+<P>
+<PRE>
+switch (c)
+  {
+    case 'x':
+</PRE>
+<P>
+This example assumes that the other variables above also have their
+standard values.
+<P>
+  I strongly recommend that you try out the indentation style produced by
+the standard settings of these variables, together with putting open braces
+on separate lines.  You can see how it looks in all the C source files of
+GNU Emacs.
+<P>
+<A NAME="IDX986"></A>
+<A NAME="IDX987"></A>
+<H2><A NAME="SEC186" HREF="emacs_toc.html#SEC186">Automatic Display Of Matching Parentheses</A></H2>
+<P>
+  The Emacs parenthesis-matching feature is designed to show
+automatically how parentheses match in the text.  Whenever you type a
+self-inserting character that is a closing delimiter, the cursor moves
+momentarily to the location of the matching opening delimiter, provided
+that is on the screen.  If it is not on the screen, some text near it is
+displayed in the echo area.  Either way, you can tell what grouping is
+being closed off.
+<P>
+  In Lisp, automatic matching applies only to parentheses.  In C, it
+applies to braces and brackets too.  Emacs knows which characters to regard
+as matching delimiters based on the syntax table, which is set by the major
+mode.  See section <A HREF="emacs_35.html#SEC355">The Syntax Table</A>.
+<P>
+  If the opening delimiter and closing delimiter are mismatched--such as
+in <SAMP>`[x)'</SAMP>---a warning message is displayed in the echo area.  The
+correct matches are specified in the syntax table.
+<A NAME="IDX988"></A>
+<A NAME="IDX989"></A>
+<P>
+  Two variables control parenthesis match display.  <CODE>blink-matching-paren</CODE>
+turns the feature on or off; <CODE>nil</CODE> turns it off, but the default is
+<CODE>t</CODE> to turn match display on.  <CODE>blink-matching-paren-distance</CODE>
+specifies how many characters back to search to find the matching opening
+delimiter.  If the match is not found in that far, scanning stops, and
+nothing is displayed.  This is to prevent scanning for the matching
+delimiter from wasting lots of time when there is no match.  The default
+is 12,000.
+<A NAME="IDX990"></A>
+<P>
+  When using X Windows, you can request a more powerful kind of
+automatic parenthesis matching by loading the <CODE>paren</CODE> library.
+To load it, type <KBD>M-x load-library <KBD>RET</KBD> paren <KBD>RET</KBD></KBD>.
+This library turns off the usual kind of matching parenthesis display
+and substitutes another: whenever point is after a close parenthesis,
+the close parenthesis and its matching open parenthesis are both
+highlighted; otherwise, if point is before an open parenthesis, the
+matching close parenthesis is highlighted.  (There is no need to
+highlight the open parenthesis after point because the cursor appears on
+top of that character.)
+<P>
+<A NAME="IDX991"></A>
+<A NAME="IDX992"></A>
+<A NAME="IDX993"></A>
+<A NAME="IDX994"></A>
+<H2><A NAME="SEC187" HREF="emacs_toc.html#SEC187">Manipulating Comments</A></H2>
+<P>
+  The comment commands insert, kill and align comments.
+<P>
+<DL COMPACT>
+<DT><KBD>M-;</KBD>
+<DD>Insert or align comment (<CODE>indent-for-comment</CODE>).
+<DT><KBD>C-x ;</KBD>
+<DD>Set comment column (<CODE>set-comment-column</CODE>).
+<DT><KBD>C-u - C-x ;</KBD>
+<DD>Kill comment on current line (<CODE>kill-comment</CODE>).
+<DT><KBD>M-<KBD>LFD</KBD></KBD>
+<DD>Like <KBD>RET</KBD> followed by inserting and aligning a comment
+(<CODE>indent-new-comment-line</CODE>).
+<DT><KBD>M-x comment-region</KBD>
+<DD>Add or remove comment delimiters on all the lines in the region.
+</DL>
+<P>
+  The command that creates a comment is <KBD>M-;</KBD> (<CODE>indent-for-comment</CODE>).
+If there is no comment already on the line, a new comment is created,
+aligned at a specific column called the <DFN>comment column</DFN>.  The comment
+is created by inserting the string Emacs thinks comments should start with
+(the value of <CODE>comment-start</CODE>; see below).  Point is left after that
+string.  If the text of the line extends past the comment column, then the
+indentation is done to a suitable boundary (usually, at least one space is
+inserted).  If the major mode has specified a string to terminate comments,
+that is inserted after point, to keep the syntax valid.
+<P>
+  <KBD>M-;</KBD> can also be used to align an existing comment.  If a line
+already contains the string that starts comments, then <KBD>M-;</KBD> just moves
+point after it and re-indents it to the conventional place.  Exception:
+comments starting in column 0 are not moved.
+<P>
+  Some major modes have special rules for indenting certain kinds of
+comments in certain contexts.  For example, in Lisp code, comments which
+start with two semicolons are indented as if they were lines of code,
+instead of at the comment column.  Comments which start with three
+semicolons are supposed to start at the left margin.  Emacs understands
+these conventions by indenting a double-semicolon comment using <KBD>TAB</KBD>,
+and by not changing the indentation of a triple-semicolon comment at all.
+<P>
+<PRE>
+;; This function is just an example
+;;; Here either two or three semicolons are appropriate.
+(defun foo (x)
+;;; And now, the first part of the function:
+  ;; The following line adds one.
+  (1+ x))           ; This line adds one.
+</PRE>
+<P>
+  In C code, a comment preceded on its line by nothing but whitespace
+is indented like a line of code.
+<P>
+  Even when an existing comment is properly aligned, <KBD>M-;</KBD> is still
+useful for moving directly to the start of the comment.
+<A NAME="IDX995"></A>
+<A NAME="IDX996"></A>
+<P>
+  <KBD>C-u - C-x ;</KBD> (<CODE>kill-comment</CODE>) kills the comment on the current line,
+if there is one.  The indentation before the start of the comment is killed
+as well.  If there does not appear to be a comment in the line, nothing is
+done.  To reinsert the comment on another line, move to the end of that
+line, do <KBD>C-y</KBD>, and then do <KBD>M-;</KBD> to realign it.  Note that
+<KBD>C-u - C-x ;</KBD> is not a distinct key; it is <KBD>C-x ;</KBD> (<CODE>set-comment-column</CODE>)
+with a negative argument.  That command is programmed so that when it
+receives a negative argument it calls <CODE>kill-comment</CODE>.  However,
+<CODE>kill-comment</CODE> is a valid command which you could bind directly to a
+key if you wanted to.
+<A NAME="IDX997"></A>
+<P>
+  The <KBD>M-x comment-region</KBD> command adds comment delimiters to the
+lines that start in the region, thus commenting them out.  With a
+negative argument, it does the opposite--it deletes comment delimiters
+from the lines in the region.
+<P>
+  With a positive argument, <CODE>comment-region</CODE> adds comment delimiters
+and duplicates the last character of the comment start sequence as many
+times as the argument specifies.  Thus, in Lisp mode, <KBD>C-u 2 M-x
+comment-region</KBD> adds <SAMP>`;;'</SAMP> to each line.
+<P>
+  Duplicating the comment delimiter is a way of calling attention to the
+comment.  It can also affect how the comment is indented.  In Lisp, for
+proper indentation, you should use an argument of two, if between
+defuns, and three, if within a defun.
+<P>
+<H3><A NAME="SEC188" HREF="emacs_toc.html#SEC188">Multiple Lines of Comments</A></H3>
+<A NAME="IDX998"></A>
+<A NAME="IDX999"></A>
+<A NAME="IDX1000"></A>
+<P>
+  If you are typing a comment and find that you wish to continue it on
+another line, you can use the command <KBD>M-<KBD>LFD</KBD></KBD>
+(<CODE>indent-new-comment-line</CODE>), which terminates the comment you are
+typing, creates a new blank line afterward, and begins a new comment
+indented under the old one.  When Auto Fill mode is on, going past the
+fill column while typing a comment causes the comment to be continued in
+just this fashion.  If point is not at the end of the line when
+<KBD>M-<KBD>LFD</KBD></KBD> is typed, the text on the rest of the line becomes
+part of the new comment line.
+<P>
+<H3><A NAME="SEC189" HREF="emacs_toc.html#SEC189">Options Controlling Comments</A></H3>
+<A NAME="IDX1001"></A>
+<A NAME="IDX1002"></A>
+<A NAME="IDX1003"></A>
+<P>
+  The comment column is stored in the variable <CODE>comment-column</CODE>.  You
+can set it to a number explicitly.  Alternatively, the command <KBD>C-x ;</KBD>
+(<CODE>set-comment-column</CODE>) sets the comment column to the column point is
+at.  <KBD>C-u C-x ;</KBD> sets the comment column to match the last comment
+before point in the buffer, and then does a <KBD>M-;</KBD> to align the
+current line's comment under the previous one.  Note that <KBD>C-u - C-x ;</KBD>
+runs the function <CODE>kill-comment</CODE> as described above.
+<P>
+  The variable <CODE>comment-column</CODE> is per-buffer: setting the variable
+in the normal fashion affects only the current buffer, but there is a
+default value which you can change with <CODE>setq-default</CODE>.
+See section <A HREF="emacs_35.html#SEC338">Local Variables</A>.  Many major modes initialize this variable for the
+current buffer.
+<A NAME="IDX1004"></A>
+<P>
+  The comment commands recognize comments based on the regular expression
+that is the value of the variable <CODE>comment-start-skip</CODE>.  This regexp
+should not match the null string.  It may match more than the comment
+starting delimiter in the strictest sense of the word; for example, in C
+mode the value of the variable is <CODE><TT>"/\\*+ *"</TT></CODE>, which matches extra
+stars and spaces after the <SAMP>`/*'</SAMP> itself.  (Note that <SAMP>`\\'</SAMP> is
+needed in Lisp syntax to include a <SAMP>`\'</SAMP> in the string, which is needed
+to deny the first star its special meaning in regexp syntax.  See section <A HREF="emacs_17.html#SEC83">Syntax of Regular Expressions</A>.)
+<A NAME="IDX1005"></A>
+<A NAME="IDX1006"></A>
+<P>
+  When a comment command makes a new comment, it inserts the value of
+<CODE>comment-start</CODE> to begin it.  The value of <CODE>comment-end</CODE> is
+inserted after point, so that it will follow the text that you will insert
+into the comment.  In C mode, <CODE>comment-start</CODE> has the value
+<CODE>"/* "</CODE> and <CODE>comment-end</CODE> has the value <CODE>" */"</CODE>.
+<A NAME="IDX1007"></A>
+<P>
+  The variable <CODE>comment-multi-line</CODE> controls how <KBD>M-<KBD>LFD</KBD></KBD>
+(<CODE>indent-new-comment-line</CODE>) behaves when used inside a comment.  If
+<CODE>comment-multi-line</CODE> is <CODE>nil</CODE>, as it normally is, then the
+comment on the starting line is terminated and a new comment is started
+on the new following line.  If <CODE>comment-multi-line</CODE> is not
+<CODE>nil</CODE>, then the new following line is set up as part of the same
+comment that was found on the starting line.  This is done by not
+inserting a terminator on the old line, and not inserting a starter on
+the new line.  In languages where multi-line comments work, the choice
+of value for this variable is a matter of taste.
+<A NAME="IDX1008"></A>
+<P>
+  The variable <CODE>comment-indent-function</CODE> should contain a function
+that will be called to compute the indentation for a newly inserted
+comment or for aligning an existing comment.  It is set differently by
+various major modes.  The function is called with no arguments, but with
+point at the beginning of the comment, or at the end of a line if a new
+comment is to be inserted.  It should return the column in which the
+comment ought to start.  For example, in Lisp mode, the indent hook
+function bases its decision on how many semicolons begin an existing
+comment, and on the code in the preceding lines.
+<P>
+<H2><A NAME="SEC190" HREF="emacs_toc.html#SEC190">Editing Without Unbalanced Parentheses</A></H2>
+<P>
+<DL COMPACT>
+<DT><KBD>M-(</KBD>
+<DD>Put parentheses around next sexp(s) (<CODE>insert-parentheses</CODE>).
+<DT><KBD>M-)</KBD>
+<DD>Move past next close parenthesis and re-indent
+(<CODE>move-over-close-and-reindent</CODE>).
+</DL>
+<A NAME="IDX1009"></A>
+<A NAME="IDX1010"></A>
+<A NAME="IDX1011"></A>
+<A NAME="IDX1012"></A>
+<P>
+  The commands <KBD>M-(</KBD> (<CODE>insert-parentheses</CODE>) and <KBD>M-)</KBD>
+(<CODE>move-over-close-and-reindent</CODE>) are designed to facilitate a style of
+editing which keeps parentheses balanced at all times.  <KBD>M-(</KBD> inserts a
+pair of parentheses, either together as in <SAMP>`()'</SAMP>, or, if given an
+argument, around the next several sexps, and leaves point after the open
+parenthesis.  Instead of typing <KBD>( F O O )</KBD>, you can type <KBD>M-( F O
+O</KBD>, which has the same effect except for leaving the cursor before the
+close parenthesis.  Then you can type <KBD>M-)</KBD>, which moves past the
+close parenthesis, deleting any indentation preceding it (in this example
+there is none), and indenting with <KBD>LFD</KBD> after it.
+<A NAME="IDX1013"></A>
+<P>
+  <KBD>M-(</KBD> may insert a space before the open parenthesis, depending on
+the syntax class or the preceding character.  Set
+<CODE>parens-dont-require-spaces</CODE> to a non-<CODE>nil</CODE> value if you wish
+to inhibit this.
+<P>
+<A NAME="IDX1014"></A>
+<H2><A NAME="SEC191" HREF="emacs_toc.html#SEC191">Completion for Symbol Names</A></H2>
+<P>
+  Usually completion happens in the minibuffer.  But one kind of completion
+is available in all buffers: completion for symbol names.
+<A NAME="IDX1015"></A>
+<P>
+  The character <KBD>M-<KBD>TAB</KBD></KBD> runs a command to complete the partial
+symbol before point against the set of meaningful symbol names.  Any
+additional characters determined by the partial name are inserted at
+point.
+<P>
+  If the partial name in the buffer has more than one possible completion
+and they have no additional characters in common, a list of all possible
+completions is displayed in another window.
+<A NAME="IDX1016"></A>
+<A NAME="IDX1017"></A>
+<A NAME="IDX1018"></A>
+<P>
+  There are two ways of determining the set of legitimate symbol names
+to complete against.  In most major modes, this uses a tag table
+(see section <A HREF="emacs_26.html#SEC194">Tag Tables</A>); the legitimate symbol names are the tag names listed in
+the tag table file.  The command which implements this is
+<CODE>complete-tag</CODE>.
+<A NAME="IDX1019"></A>
+<A NAME="IDX1020"></A>
+<A NAME="IDX1021"></A>
+<P>
+  In Emacs-Lisp mode, the name space for completion normally consists of
+nontrivial symbols present in Emacs--those that have function
+definitions, values or properties.  However, if there is an
+open-parenthesis immediately before the beginning of the partial symbol,
+only symbols with function definitions are considered as completions.
+The command which implements this is <CODE>lisp-complete-symbol</CODE>.
+<P>
+<H2><A NAME="SEC192" HREF="emacs_toc.html#SEC192">Documentation Commands</A></H2>
+<P>
+  As you edit Lisp code to be run in Emacs, the commands <KBD>C-h f</KBD>
+(<CODE>describe-function</CODE>) and <KBD>C-h v</KBD> (<CODE>describe-variable</CODE>) can
+be used to print documentation of functions and variables that you want to
+call.  These commands use the minibuffer to read the name of a function or
+variable to document, and display the documentation in a window.
+<P>
+  For extra convenience, these commands provide default arguments based on
+the code in the neighborhood of point.  <KBD>C-h f</KBD> sets the default to the
+function called in the innermost list containing point.  <KBD>C-h v</KBD> uses
+the symbol name around or adjacent to point as its default.
+<A NAME="IDX1022"></A>
+<P>
+  Documentation on Unix commands, system calls and libraries can be
+obtained with the <KBD>M-x manual-entry</KBD> command.  This reads a topic as
+an argument, and displays the text on that topic from the Unix manual.
+<CODE>manual-entry</CODE> starts a background process that formats the manual
+page, by running the <CODE>man</CODE> program.  The result goes in a buffer
+named <SAMP>`*man <VAR>topic</VAR>*'</SAMP>.  These buffers have a special major mode
+that facilitates scrolling and examining other manual pages.
+<P>
+  Eventually the GNU project hopes to replace most man pages with
+better-organized manuals that you can browse with Info.  See section <A HREF="emacs_12.html#SEC46">Other Help Commands</A>.  Since this process is only partially completed, it is still
+useful to read manual pages.
+<P>
+<H2><A NAME="SEC193" HREF="emacs_toc.html#SEC193">Change Logs</A></H2>
+<A NAME="IDX1023"></A>
+<A NAME="IDX1024"></A>
+<A NAME="IDX1025"></A>
+<P>
+  The Emacs command <KBD>C-x 4 a</KBD> adds a new entry to the change log
+file for the file you are editing
+(<CODE>add-change-log-entry-other-window</CODE>).
+<P>
+  A change log file contains a chronological record of when and why you
+have changed a program, consisting of a sequence of entries describing
+individual changes.  Normally it is kept in a file called
+<TT>`ChangeLog'</TT> in the same directory as the file you are editing, or
+one of its parent directories.  A single <TT>`ChangeLog'</TT> file can
+record changes for all the files in its directory and all its
+subdirectories.
+<P>
+  A change log entry starts with a header line that contains your name
+and the current date.  Aside from these header lines, every line in the
+change log starts with a space or a tab.  The bulk of the entry consists
+of <DFN>items</DFN>, each of which starts with a line starting with
+whitespace and a star.  Here are two entries, each with two items:
+<P>
+<PRE>
+Wed May  5 14:11:45 1993  Richard Stallman  (rms@mole.gnu.ai.mit.edu)
+
+	* man.el: Rename functions and variables `man-*' to `Man-*'.
+	(manual-entry): Make prompt string clearer.
+
+	* simple.el (blink-matching-paren-distance): Change default to 12,000.
+
+Tue May  4 12:42:19 1993  Richard Stallman  (rms@mole.gnu.ai.mit.edu)
+
+	* vc.el (minor-mode-map-alist): Don't use it if it's void.
+	(vc-cancel-version): Doc fix.
+</PRE>
+<P>
+  One entry can describe several changes; each change should have its
+own item.  Normally there should be a blank line between items.  When
+items are related (parts of the same change, in different places), group
+them by leaving no blank line between them.  The second entry above
+contains two items grouped in this way.
+<P>
+  <KBD>C-x 4 a</KBD> visits the change log file and creates a new entry
+unless the most recent entry is for today's date and your name.  It also
+creates a new item for the current file.  For many languages, it can
+even guess the name of the function or other object that was changed.
+<A NAME="IDX1026"></A>
+<A NAME="IDX1027"></A>
+<P>
+  The change log file is visited in Change Log mode.  Each bunch of
+grouped items counts as one paragraph, and each entry is considered a
+page.  This facilitates editing the entries.  <KBD>LFD</KBD> and
+auto-fill indent each new line like the previous line; this is
+convenient for entering the contents of an entry.
+<P>
+<A NAME="IDX1028"></A>
+<H2><A NAME="SEC194" HREF="emacs_toc.html#SEC194">Tag Tables</A></H2>
+<P>
+  A <DFN>tag table</DFN> is a description of how a multi-file program is
+broken up into files.  It lists the names of the component files and the
+names and positions of the functions (or other named subunits) in each
+file.  Grouping the related files makes it possible to search or replace
+through all the files with one command.  Recording the function names
+and positions makes possible the <KBD>M-.</KBD>  command which you can use to
+find the definition of a function without having to know which of the
+files it is in.
+<P>
+  Tag tables are stored in files called <DFN>tag table files</DFN>.  The
+conventional name for a tag table file is <TT>`TAGS'</TT>.
+<P>
+  Each entry in the tag table records the name of one tag, the name of the
+file that the tag is defined in (implicitly), and the position in that file
+of the tag's definition.
+<P>
+  Just what names from the described files are recorded in the tag table
+depends on the programming language of the described file.  They
+normally include all functions and subroutines, and may also include
+global variables, data types, and anything else convenient.  Each name
+recorded is called a <DFN>tag</DFN>.
+<P>
+<H3><A NAME="SEC195" HREF="emacs_toc.html#SEC195">Source File Tag Syntax</A></H3>
+<P>
+  In Lisp code, any function defined with <CODE>defun</CODE>, any variable
+defined with <CODE>defvar</CODE> or <CODE>defconst</CODE>, and in general the first
+argument of any expression that starts with <SAMP>`(def'</SAMP> in column zero, is
+a tag.
+<P>
+  In Scheme code, tags include anything defined with <CODE>def</CODE> or with a
+construct whose name starts with <SAMP>`def'</SAMP>.  They also include variables
+set with <CODE>set!</CODE> at top level in the file.
+<P>
+  In C code, any C function is a tag, and so is any typedef if <CODE>-t</CODE> is
+specified when the tag table is constructed.
+<P>
+  In Yacc or Bison input files, each rule defines as a tag the
+nonterminal it constructs.  The portions of the file that contain C code
+are parsed as C code.
+<P>
+  In Fortran code, functions and subroutines are tags.
+<P>
+  In Prolog code, a tag name appears at the left margin.
+<P>
+  In assembler code, labels appearing at the beginning of a line,
+followed by a colon, are tags.
+<P>
+  In LaTeX text, the argument of any of the commands <CODE>\chapter</CODE>,
+<CODE>\section</CODE>, <CODE>\subsection</CODE>, <CODE>\subsubsection</CODE>, <CODE>\eqno</CODE>,
+<CODE>\label</CODE>, <CODE>\ref</CODE>, <CODE>\cite</CODE>, <CODE>\bibitem</CODE> and
+<CODE>\typeout</CODE> is a tag.<P>
+<A NAME="IDX1029"></A>
+<H3><A NAME="SEC196" HREF="emacs_toc.html#SEC196">Creating Tag Tables</A></H3>
+<P>
+  The <CODE>etags</CODE> program is used to create a tag table file.  It knows
+the syntax of several languages, as described in
+the previous section.
+Here is how to run <CODE>etags</CODE>:
+<P>
+<PRE>
+etags <VAR>inputfiles</VAR>...
+</PRE>
+<P>
+The <CODE>etags</CODE> program reads the specified files, and writes a tag table
+named <TT>`TAGS'</TT> in the current working directory.  <CODE>etags</CODE>
+recognizes the language used in an input file based on its file name and
+contents; there are no switches for specifying the language.  The <CODE>-t</CODE>
+switch tells <CODE>etags</CODE> to record typedefs in C code as tags.
+<P>
+  If the tag table data become outdated due to changes in the files
+described in the table, the way to update the tag table is the same way it
+was made in the first place.  It is not necessary to do this often.
+<P>
+  If the tag table fails to record a tag, or records it for the wrong
+file, then Emacs cannot possibly find its definition.  However, if the
+position recorded in the tag table becomes a little bit wrong (due to
+some editing in the file that the tag definition is in), the only
+consequence is a slight delay in finding the tag.  Even if the stored
+position is very wrong, Emacs will still find the tag, but it must
+search the entire file for it.
+<P>
+  So you should update a tag table when you define new tags that you want
+to have listed, or when you move tag definitions from one file to another,
+or when changes become substantial.  Normally there is no need to update
+the tag table after each edit, or even every day.
+<P>
+<H3><A NAME="SEC197" HREF="emacs_toc.html#SEC197">Selecting a Tag Table</A></H3>
+<A NAME="IDX1030"></A>
+<A NAME="IDX1031"></A>
+<P>
+  Emacs has at any time one <DFN>selected</DFN> tag table, and all the commands
+for working with tag tables use the selected one.  To select a tag table,
+type <KBD>M-x visit-tags-table</KBD>, which reads the tag table file name as an
+argument.  The name <TT>`TAGS'</TT> in the default directory is used as the
+default file name.
+<P>
+  All this command does is store the file name in the variable
+<CODE>tags-file-name</CODE>.  Emacs does not actually read in the tag table
+contents until you try to use them.  Setting this variable yourself is just
+as good as using <CODE>visit-tags-table</CODE>.  The variable's initial value is
+<CODE>nil</CODE>; that value tells all the commands for working with tag tables
+that they must ask for a tag table file name to use.
+<P>
+  Using <CODE>visit-tags-table</CODE> to load a new tag table does not
+discard the other tables previously loaded.  The other tags commands use
+all the tag tables that are loaded; the first one they use is the one
+that mentions the current visited file.
+<P>
+  You can specify a precise list of tag tables by setting the variable
+<CODE>tags-table-list</CODE> to a list of strings, like this:
+<P>
+<PRE>
+(setq tags-table-list
+      '("~/emacs" "/usr/local/lib/emacs/src"))
+</PRE>
+<P>
+This tells the tags commands to look at the <TT>`TAGS'</TT> files in your
+<TT>`~/emacs'</TT> directory and in the <TT>`/usr/local/lib/emacs/src'</TT>
+directory.  The order depends on which file you are in and which tags
+table mentions that file, as explained above.
+<P>
+<H3><A NAME="SEC198" HREF="emacs_toc.html#SEC198">Finding a Tag</A></H3>
+<P>
+  The most important thing that a tag table enables you to do is to find
+the definition of a specific tag.
+<P>
+<DL COMPACT>
+<DT><KBD>M-. <VAR>tag</VAR> <KBD>RET</KBD></KBD>
+<DD>Find first definition of <VAR>tag</VAR> (<CODE>find-tag</CODE>).
+<DT><KBD>C-u M-.</KBD>
+<DD>Find next alternate definition of last tag specified.
+<DT><KBD>C-u - M-.</KBD>
+<DD>Go back to previous tag found.
+<DT><KBD>M-x find-tag-regexp <KBD>RET</KBD> <VAR>pattern</VAR> <KBD>RET</KBD></KBD>
+<DD>Find a tag whose name matches <VAR>pattern</VAR>.
+<DT><KBD>C-u M-x find-tag-regexp</KBD>
+<DD>Find the next tag whose name matches the last pattern used.
+<DT><KBD>C-x 4 . <VAR>tag</VAR> <KBD>RET</KBD></KBD>
+<DD>Find first definition of <VAR>tag</VAR>, but display it in another window
+(<CODE>find-tag-other-window</CODE>).
+<DT><KBD>C-x 5 . <VAR>tag</VAR> <KBD>RET</KBD></KBD>
+<DD>Find first definition of <VAR>tag</VAR>, and create a new frame to select the
+buffer (<CODE>find-tag-other-frame</CODE>).
+</DL>
+<A NAME="IDX1032"></A>
+<A NAME="IDX1033"></A>
+<P>
+  <KBD>M-.</KBD> (<CODE>find-tag</CODE>) is the command to find the definition of
+a specified tag.  It searches through the tag table for that tag, as a
+string, and then uses the tag table info to determine the file that the
+definition is in and the approximate character position in the file of
+the definition.  Then <CODE>find-tag</CODE> visits that file, moves point to
+the approximate character position, and searches ever-increasing
+distances away to find the tag definition.
+<P>
+  If an empty argument is given (just type <KBD>RET</KBD>), the sexp in the
+buffer before or around point is used as the <VAR>tag</VAR> argument.
+See section <A HREF="emacs_26.html#SEC178">Lists and Sexps</A>, for info on sexps.
+<P>
+  You don't need to give <KBD>M-.</KBD> the full name of the tag; a part will
+do.  This is because <KBD>M-.</KBD> finds tags in the table which contain
+<VAR>tag</VAR> as a substring.  However, it prefers an exact match to a
+substring match.
+<P>
+  To find other tags that match the same substring, give <CODE>find-tag</CODE>
+a numeric argument, as in <KBD>C-u M-.</KBD>; this does not read a tag name,
+but continues searching the tag table's text for another tag containing
+the same substring last used.  If you have a real <KBD>META</KBD> key,
+<KBD>M-0 M-.</KBD> is an easier alternative to <KBD>C-u M-.</KBD>.
+<A NAME="IDX1034"></A>
+<A NAME="IDX1035"></A>
+<P>
+  Like most commands that can switch buffers, <CODE>find-tag</CODE> has a
+variant that displays the new buffer in another window, and one that
+makes a new frame for it.  The former is <KBD>C-x 4 .</KBD>, which invokes
+the command <CODE>find-tag-other-window</CODE>.  The latter is <KBD>C-x 5 .</KBD>,
+which invokes <CODE>find-tag-other-frame</CODE>.
+<P>
+  To move back to places you've found tags recently, use <KBD>C-u -
+M-.</KBD>; more generally, <KBD>M-.</KBD> with a negative numeric argument.  This
+command can take you to another buffer.  <KBD>C-x 4 .</KBD> with a negative
+argument finds the previous tag location in another window.
+<A NAME="IDX1036"></A>
+<P>
+  The new command <KBD>M-x find-tag-regexp</KBD> visits the tags
+that match a specified regular expression.  It is just like <KBD>M-.</KBD>
+except that it does regexp matching instead of substring matching.
+<P>
+  Emacs comes with a tag table file <TT>`src/TAGS'</TT> that includes all
+the Lisp libraries and all the C sources of Emacs.  By specifying this
+file with <CODE>visit-tags-table</CODE> and then using <KBD>M-.</KBD> you can
+quickly find the source for any Emacs function.
+<P>
+<H3><A NAME="SEC199" HREF="emacs_toc.html#SEC199">Searching and Replacing with Tag Tables</A></H3>
+<P>
+  The commands in this section visit and search all the files listed in the
+selected tag table, one by one.  For these commands, the tag table serves
+only to specify a sequence of files to search.  A related command is
+<KBD>M-x grep</KBD> (see section <A HREF="emacs_27.html#SEC225">Running `make', or Compilers Generally</A>).
+<P>
+<DL COMPACT>
+<DT><KBD>M-x tags-search</KBD>
+<DD>Search for the specified regexp through the files in the selected tag
+table.
+<DT><KBD>M-x tags-query-replace</KBD>
+<DD>Perform a <CODE>query-replace</CODE> on each file in the selected tag table.
+<DT><KBD>M-,</KBD>
+<DD>Restart one of the commands above, from the current location of point
+(<CODE>tags-loop-continue</CODE>).
+</DL>
+<A NAME="IDX1037"></A>
+<P>
+  <KBD>M-x tags-search</KBD> reads a regexp using the minibuffer, then
+searches for matches in all the files in the selected tag table, one
+file at a time.  It displays the name of the file being searched so you
+can follow its progress.  As soon as it finds an occurrence,
+<CODE>tags-search</CODE> returns.
+<A NAME="IDX1038"></A>
+<A NAME="IDX1039"></A>
+<P>
+  Having found one match, you probably want to find all the rest.  To find
+one more match, type <KBD>M-,</KBD> (<CODE>tags-loop-continue</CODE>) to resume the
+<CODE>tags-search</CODE>.  This searches the rest of the current buffer, followed
+by the remaining files of the tag table.<A NAME="IDX1040"></A>
+<P>
+  <KBD>M-x tags-query-replace</KBD> performs a single <CODE>query-replace</CODE>
+through all the files in the tag table.  It reads a regexp to search for
+and a string to replace with, just like ordinary <KBD>M-x
+query-replace-regexp</KBD>.  It searches much like <KBD>M-x tags-search</KBD> but
+repeatedly, processing matches according to your input.  See section <A HREF="emacs_17.html#SEC85">Replacement Commands</A>,
+for more information on query replace.
+<P>
+  It is possible to get through all the files in the tag table with a
+single invocation of <KBD>M-x tags-query-replace</KBD>.  But since any
+unrecognized character causes the command to exit, you may need to continue
+where you left off.  <KBD>M-,</KBD> can be used for this.  It resumes the last
+tags search or replace command that you did.
+<P>
+  The commands in this section carry out much broader searches than the
+<CODE>find-tags</CODE> family.  The <CODE>find-tags</CODE> commands search only for
+definitions of tags that match your substring or regexp.  The commands
+<CODE>tags-search</CODE> and <CODE>tags-query-replace</CODE> find every occurrence
+of the regexp, as ordinary search commands and replace commands do in
+the current buffer.
+<P>
+  These commands create buffers only temporarily for the files that they
+have to search (those which are not already visited in Emacs buffers).
+Buffers in which no match is found are quickly killed; the others
+continue to exist.
+<P>
+  It may have struck you that <CODE>tags-search</CODE> is a lot like <CODE>grep</CODE>.
+You can also run <CODE>grep</CODE> itself as an inferior of Emacs and have Emacs
+show you the matching lines one by one.  This works mostly the same as
+running a compilation and having Emacs show you where the errors were.
+See section <A HREF="emacs_27.html#SEC225">Running `make', or Compilers Generally</A>.
+<P>
+<A NAME="IDX1041"></A>
+<H3><A NAME="SEC200" HREF="emacs_toc.html#SEC200">Stepping Through a Tag Table</A></H3>
+<P>
+  If you wish to process all the files in the selected tag table, but
+not in the specific ways that <KBD>M-x tags-search</KBD> and <KBD>M-x
+tags-query-replace</KBD> do, you can use <KBD>M-x next-file</KBD> to visit the
+files one by one.
+<P>
+<DL COMPACT>
+<DT><KBD>C-u M-x next-file</KBD>
+<DD>Visit the first file in the tag table, and prepare to advance
+sequentially by files.
+<DT><KBD>M-x next-file</KBD>
+<DD>Visit the next file in the selected tag table.
+</DL>
+<P>
+@break
+<P>
+<H3><A NAME="SEC201" HREF="emacs_toc.html#SEC201">Tag Table Inquiries</A></H3>
+<P>
+<DL COMPACT>
+<DT><KBD>M-x list-tags</KBD>
+<DD>Display a list of the tags defined in a specific program file.
+<DT><KBD>M-x tags-apropos</KBD>
+<DD>Display a list of all tags matching a specified regexp.
+</DL>
+<A NAME="IDX1042"></A>
+<P>
+  <KBD>M-x list-tags</KBD> reads the name of one of the files described by the
+selected tag table, and displays a list of all the tags defined in that
+file.  The "file name" argument is really just a string to compare
+against the names recorded in the tag table; it is read as a string rather
+than as a file name.  Therefore, completion and defaulting are not
+available, and you must enter the string the same way it appears in the tag
+table.  Do not include a directory as part of the file name unless the file
+name recorded in the tag table includes a directory.
+<A NAME="IDX1043"></A>
+<P>
+  <KBD>M-x tags-apropos</KBD> is like <CODE>apropos</CODE> for tags.  It reads a regexp,
+then finds all the tags in the selected tag table whose entries match that
+regexp, and displays the tag names found.
+<P>
+  You can also perform completion in the buffer on the name space of tag
+names in the current tag tables.  See section <A HREF="emacs_26.html#SEC191">Completion for Symbol Names</A>.
+<P>
+<A NAME="IDX1044"></A>
+<A NAME="IDX1045"></A>
+<H2><A NAME="SEC202" HREF="emacs_toc.html#SEC202">Merging Files with Emerge</A></H2>
+<P>
+It's not unusual for programmers to get their signals crossed and modify
+the same program in two different directions.  To recover from this
+confusion, you need to merge the two versions.  Emerge makes this
+easier.  See also section <A HREF="emacs_19.html#SEC125">Comparing Files</A>.
+<P>
+<H3><A NAME="SEC203" HREF="emacs_toc.html#SEC203">Overview of Emerge</A></H3>
+<P>
+To start Emerge, run one of these four commands:
+<P>
+<DL COMPACT>
+<A NAME="IDX1046"></A>
+<DT><KBD>M-x emerge-files</KBD>
+<DD>Merge two specified files.
+<P>
+<A NAME="IDX1047"></A>
+<DT><KBD>M-x emerge-files-with-ancestor</KBD>
+<DD>Merge two specified files, with reference to a common ancestor.
+<P>
+<A NAME="IDX1048"></A>
+<DT><KBD>M-x emerge-buffers</KBD>
+<DD>Merge two buffers.
+<P>
+<A NAME="IDX1049"></A>
+<DT><KBD>M-x emerge-buffers-with-ancestor</KBD>
+<DD>Merge two buffers with reference to a common ancestor in a third
+buffer.
+</DL>
+<A NAME="IDX1050"></A>
+<A NAME="IDX1051"></A>
+<P>
+  The Emerge commands compare two files or buffers, and display the
+comparison in three buffers: one for each input text (the <DFN>A buffer</DFN>
+and the <DFN>B buffer</DFN>), and one (the <DFN>merge buffer</DFN>) where merging
+takes place.  The merge buffer shows the full merged text, not just the
+differences.  Wherever the two input texts differ, you can choose which
+one of them to include in the merge buffer.
+<P>
+  The Emerge commands that take input from existing buffers use only the
+accessible portions of those buffers, if they are narrowed
+(see section <A HREF="emacs_34.html#SEC323">Narrowing</A>).
+<P>
+  If a common ancestor version is available, from which the two texts to
+be merged were both derived, Emerge can use it to guess which
+alternative is right.  Wherever one current version agrees with the
+ancestor, Emerge presumes that the other current version is a deliberate
+change which should be kept in the merged version.  Use the
+<SAMP>`with-ancestor'</SAMP> commands if you want to specify a common ancestor
+text.  These commands read three file or buffer names--variant A,
+variant B, and the common ancestor.
+<P>
+  After the comparison is done and the buffers are prepared, the
+interactive merging starts.  You control the merging by typing special
+commands in the merge buffer.  The merge buffer shows you a full merged
+text, not just differences.  For each run of differences between the
+input texts, you can choose which one of them to keep, or edit them both
+together.
+<P>
+  The merge buffer uses a special major mode, Emerge mode, with commands
+for making these choices.  But you can also edit the buffer with
+ordinary Emacs commands.
+<P>
+  At any given time, the attention of Emerge is focused on one
+particular difference, called the <DFN>selected</DFN> difference.  This
+difference is marked off in the three buffers like this:
+<P>
+<PRE>
+vvvvvvvvvvvvvvvvvvvv
+<VAR>text that differs</VAR>
+^^^^^^^^^^^^^^^^^^^^
+</PRE>
+<P>
+Emerge numbers all the differences sequentially and the mode
+line always shows the number of the selected difference.
+<P>
+  Normally, the merge buffer starts out with the A version of the text.
+But when the A version of a part of the buffer agrees with the common
+ancestor, then the B version is preferred for that part.
+<P>
+  Emerge leaves the merged text in the merge buffer when you exit.  At
+that point, you can save it in a file with <KBD>C-x C-w</KBD>.  If you give a
+prefix argument to <CODE>emerge-files</CODE> or
+<CODE>emerge-files-with-ancestor</CODE>, it reads the name of the output file
+using the minibuffer.  (This is the last file name those commands read.)
+Then exiting from Emerge saves the merged text in the output file.
+<P>
+  If you abort Emerge with <KBD>C-]</KBD>, the output is not saved.
+<P>
+<H3><A NAME="SEC204" HREF="emacs_toc.html#SEC204">Submodes of Emerge</A></H3>
+<P>
+  You can choose between two modes for giving merge commands: Fast mode
+and Edit mode.  In Fast mode, basic Emerge commands are single
+characters, but ordinary Emacs commands are disabled.  This is
+convenient if you use only Emerge commands.
+<P>
+  In Edit mode, all Emerge commands start with the prefix key <KBD>C-c
+C-c</KBD>, and the normal Emacs commands are also available.  This allows
+editing the merge buffer, but slows down Emerge operations.
+<P>
+  Use <KBD>e</KBD> to switch to Edit mode, and <KBD>C-c C-c f</KBD> to switch to
+Fast mode.  The mode line indicates Edit and Fast modes with <SAMP>`E'</SAMP>
+and <SAMP>`F'</SAMP>.
+<P>
+  Emerge has two additional submodes that affect how particular merge
+commands work: Auto Advance mode and Skip Prefers mode.
+<P>
+  If Auto Advance mode is in effect, the <KBD>a</KBD> and <KBD>b</KBD> commands
+advance to the next difference.  This lets you go through the merge
+faster as long as you simply choose one of the alternatives from the
+input.  The mode line indicates Auto Advance mode with <SAMP>`A'</SAMP>.
+<P>
+  If Skip Prefers mode is in effect, the <KBD>n</KBD> and <KBD>p</KBD> commands skip
+over differences in states prefer-A and prefer-B.  Thus you see only
+differences for which neither version is presumed "correct".  The mode
+line indicates Skip Prefers mode with <SAMP>`S'</SAMP>.
+<A NAME="IDX1052"></A>
+<A NAME="IDX1053"></A>
+<P>
+  Use the command <KBD>s a</KBD> (<CODE>emerge-auto-advance-mode</CODE>) to set or
+clear Auto Advance mode.  Use <KBD>s s</KBD>
+(<CODE>emerge-skip-prefers-mode</CODE>) to set or clear Skip Prefers mode.
+These commands turn on the mode with a positive argument, turns it off
+with a negative or zero argument, and toggle the mode with no argument.
+<P>
+<H3><A NAME="SEC205" HREF="emacs_toc.html#SEC205">State of a Difference</A></H3>
+<P>
+  In the merge buffer, a difference is marked with lines of <SAMP>`v'</SAMP> and
+<SAMP>`^'</SAMP> characters.  Each difference has one of these seven states:
+<P>
+<DL COMPACT>
+<DT>A
+<DD>The difference is showing the A version.  The <KBD>a</KBD> command always
+produces this state; the mode line indicates it with <SAMP>`A'</SAMP>.
+<P>
+<DT>B
+<DD>The difference is showing the B version.  The <KBD>b</KBD> command always
+produces this state; the mode line indicates it with <SAMP>`B'</SAMP>.
+<P>
+<DT>default-A
+<DD><DT>default-B
+<DD>The difference is showing the A or the B state by default, because you
+haven't made a choice.  All differences start in the default-A state
+(and thus the merge buffer is a copy of the A buffer), except those for
+which one alternative is "preferred" (see below).
+<P>
+When you select a difference, its state changes from default-A or
+default-B to plain A or B.  Thus, the selected difference never has
+state default-A or default-B, and these states are never displayed in
+the mode line.
+<P>
+The command <KBD>d a</KBD> chooses default-A as the default state, and <KBD>d
+b</KBD> chooses default-B.  This chosen default applies to all differences
+which you haven't selected and for which no alternative is preferred.
+If you are moving through the merge sequentially, the differences you
+haven't selected are those following the selected one.  Thus, while
+moving sequentially, you can effectively make the A version the default
+for some sections of the merge buffer and the B version the default for
+others by using <KBD>d a</KBD> and <KBD>d b</KBD> at the end of each section.
+<P>
+<DT>prefer-A
+<DD><DT>prefer-B
+<DD>The difference is showing the A or B state because it is
+<DFN>preferred</DFN>.  This means that you haven't made an explicit choice,
+but one alternative seems likely to be right because the other
+alternative agrees with the common ancestor.  Thus, where the A buffer
+agrees with the common ancestor, the B version is preferred, because
+chances are it is the one that was actually changed.
+<P>
+These two states are displayed in the mode line as <SAMP>`A*'</SAMP> and <SAMP>`B*'</SAMP>.
+<P>
+<DT>combined
+<DD>The difference is showing a combination of the A and B states, as a
+result of the <KBD>x c</KBD> or <KBD>x C</KBD> commands.
+<P>
+Once a difference is in this state, the <KBD>a</KBD> and <KBD>b</KBD> commands
+don't do anything to it unless you give them a prefix argument.
+<P>
+The mode line displays this state as <SAMP>`comb'</SAMP>.
+</DL>
+<P>
+<H3><A NAME="SEC206" HREF="emacs_toc.html#SEC206">Merge Commands</A></H3>
+<P>
+  Here are the Merge commands for Fast mode; in Edit mode, precede them
+with <KBD>C-c C-c</KBD>:
+<P>
+<DL COMPACT>
+<DT><KBD>p</KBD>
+<DD>Select the previous difference.
+<P>
+<DT><KBD>n</KBD>
+<DD>Select the next difference.
+<P>
+<DT><KBD>a</KBD>
+<DD>Choose the A version of this difference.
+<P>
+<DT><KBD>b</KBD>
+<DD>Choose the B version of this difference.
+<P>
+<DT><KBD>j</KBD>
+<DD>Select a particular difference; specify the sequence number of that
+difference as a prefix argument.
+<P>
+<DT><KBD>.</KBD>
+<DD>Select the difference containing point.  You can use this command in the
+merge buffer or in the A or B buffer.
+<P>
+<DT><KBD>q</KBD>
+<DD>Quit--finish the merge.
+<P>
+<DT><KBD>C-]</KBD>
+<DD>Abort--exit merging and do not save the output.
+<P>
+<DT><KBD>f</KBD>
+<DD>Go into Fast mode.  (In Edit mode, this is actually <KBD>C-c C-c f</KBD>.)
+<P>
+<DT><KBD>e</KBD>
+<DD>Go into Edit mode.
+<P>
+<DT><KBD>l</KBD>
+<DD>Recenter (like <KBD>C-l</KBD>) all three windows.
+<P>
+<DT><KBD>-</KBD>
+<DD>Specify part of a prefix numeric argument.
+<P>
+<DT><KBD><VAR>digit</VAR></KBD>
+<DD>Also specify part of a prefix numeric argument.
+<P>
+<DT><KBD>d a</KBD>
+<DD>Choose the A version as the default from here down in
+the merge buffer.
+<P>
+<DT><KBD>d b</KBD>
+<DD>Choose the B version as the default from here down in
+the merge buffer.
+<P>
+<DT><KBD>c a</KBD>
+<DD>Copy the A version of this difference into the kill ring.
+<P>
+<DT><KBD>c b</KBD>
+<DD>Copy the B version of this difference into the kill ring.
+<P>
+<DT><KBD>i a</KBD>
+<DD>Insert the A version of this difference at the point.
+<P>
+<DT><KBD>i b</KBD>
+<DD>Insert the B version of this difference at the point.
+<P>
+<DT><KBD>m</KBD>
+<DD>Put the point and mark around the difference region.
+<P>
+<DT><KBD>^</KBD>
+<DD>Scroll all three windows down (like <KBD>M-v</KBD>).
+<P>
+<DT><KBD>v</KBD>
+<DD>Scroll all three windows up (like <KBD>C-v</KBD>).
+<P>
+<DT><KBD>&#60;</KBD>
+<DD>Scroll all three windows left (like <KBD>C-x &#60;</KBD>).
+<P>
+<DT><KBD>&#62;</KBD>
+<DD>Scroll all three windows right (like <KBD>C-x &#62;</KBD>).
+<P>
+<DT><KBD>|</KBD>
+<DD>Reset horizontal scroll on all three windows.
+<P>
+<DT><KBD>x 1</KBD>
+<DD>Shrink the merge window to one line.  (Use <KBD>C-u l</KBD> to restore it
+to full size.)
+<P>
+<DT><KBD>x c</KBD>
+<DD>Combine the two versions of this difference.
+<P>
+<DT><KBD>x f</KBD>
+<DD>Show the files/buffers Emerge is operating on in Help window.
+(Use <KBD>C-u l</KBD> to restore windows.)
+<P>
+<DT><KBD>x j</KBD>
+<DD>Join this difference with the following one.
+(<KBD>C-u x j</KBD> joins this difference with the previous one.)
+<P>
+<DT><KBD>x s</KBD>
+<DD>Split this difference into two differences.  Before you use this
+command, position point in each of the three buffers to the place where
+you want to split the difference.
+<P>
+<DT><KBD>x t</KBD>
+<DD>Trim identical lines off top and bottom of the difference.
+Such lines occur when the A and B versions are
+identical but differ from the ancestor version.
+</DL>
+<P>
+<H3><A NAME="SEC207" HREF="emacs_toc.html#SEC207">Exiting Emerge</A></H3>
+<P>
+  The <KBD>q</KBD> command (<CODE>emerge-quit</CODE>) finishes the merge, storing
+the results into the output file if you specified one.  It restores the
+A and B buffers to their proper contents, or kills them if they were
+created by Emerge and you haven't changed them.  It also disables the
+Emerge commands in the merge buffer, since executing them later could
+damage the contents of the various buffers.
+<P>
+  <KBD>C-]</KBD> aborts the merge.  This means exiting without writing the
+output file.  If you didn't specify an output file, then there is no
+real difference between aborting and finishing the merge.
+<P>
+  If Emerge was called from another Lisp program, then its return value
+is <CODE>t</CODE> for successful completion, or <CODE>nil</CODE> if you abort.
+<P>
+<H3><A NAME="SEC208" HREF="emacs_toc.html#SEC208">Combining the Two Versions</A></H3>
+<P>
+  Sometimes you want to keep <EM>both</EM> alternatives for a particular 
+locus.  To do this, use <KBD>x c</KBD>, which edits the merge buffer like this:
+<P>
+<PRE>
+#ifdef NEW
+<VAR>version from A file</VAR>
+#else /* NEW */
+<VAR>version from B file</VAR>
+#endif /* NEW */
+</PRE>
+<P>
+<A NAME="IDX1054"></A>
+While this example shows C preprocessor conditionals delimiting the two
+alternative versions, you can specify the strings you want by setting
+the variable <CODE>emerge-combine-versions-template</CODE> to a string of your
+choice.  In the string, <SAMP>`%a'</SAMP> says where to put version A, and
+<SAMP>`%b'</SAMP> says where to put version B.  The default setting, which
+produces the results shown above, looks like this:
+<P>
+<PRE>
+"#ifdef NEW\n%a#else /* NEW */\n%b#endif /* NEW */\n"
+</PRE>
+<P>
+<H3><A NAME="SEC209" HREF="emacs_toc.html#SEC209">Fine Points of Emerge</A></H3>
+<P>
+  During the merge, you mustn't try to edit the A and B buffers yourself.
+Emerge modifies them temporarily, but ultimately puts them back the way
+they were.
+<P>
+  You can have any number of merges going at once--just don't use any one
+buffer as input to more than one merge at once, since the temporary
+changes made in these buffers would get in each other's way.
+<P>
+  Starting Emerge can take a long time because it needs to compare the
+files fully.  Emacs can't do anything else until <CODE>diff</CODE> finishes.
+Perhaps in the future someone will change Emerge to do the comparison in
+the background when the input files are large--then you could keep on
+doing other things with Emacs until Emerge gets ready to accept
+commands.
+<A NAME="IDX1055"></A>
+<P>
+  After setting up the merge, Emerge runs the hook
+<CODE>emerge-startup-hook</CODE> (see section <A HREF="emacs_35.html#SEC337">Hooks</A>).
+<P>
+<A NAME="IDX1056"></A>
+<A NAME="IDX1057"></A>
+<H2><A NAME="SEC210" HREF="emacs_toc.html#SEC210">C Mode</A></H2>
+<P>
+  In addition to the facilities of typical programming language major
+modes (see section <A HREF="emacs_26.html#SEC177">Major Modes for Programming Languages</A>), C mode has various special facilities.
+<P>
+<DL COMPACT>
+<DT><KBD>M-a</KBD>
+<DD><A NAME="IDX1058"></A>
+<A NAME="IDX1059"></A>
+<A NAME="IDX1060"></A>
+<A NAME="IDX1061"></A>
+<DT><KBD>M-e</KBD>
+<DD>In C mode, <KBD>M-a</KBD> and <KBD>M-e</KBD> now move by complete C statements
+(<CODE>c-beginning-of-statement</CODE> and <CODE>c-end-of-statement</CODE>).  These
+commands do ordinary, textual sentence motion when in or next to a
+comment.
+<P>
+<A NAME="IDX1062"></A>
+<A NAME="IDX1063"></A>
+<DT><KBD>M-q</KBD>
+<DD><KBD>M-q</KBD> in C mode runs <CODE>c-fill-paragraph</CODE>, which is designed for
+filling C comments.  (We assume you don't want to fill the actual C code
+in a C program.)
+<P>
+<A NAME="IDX1064"></A>
+<A NAME="IDX1065"></A>
+<DT><KBD>C-c C-u</KBD>
+<DD>Move back to the containing preprocessor conditional, setting the mark
+at the starting point (<CODE>c-up-conditional</CODE>).
+<P>
+A prefix argument acts as a repeat count.  With a negative argument,
+this command moves forward to the end of the containing preprocessor
+conditional.  When going backwards, <SAMP>`#elif'</SAMP> acts like <SAMP>`#else'</SAMP>
+followed by <SAMP>`#if'</SAMP>.  When going forwards, <SAMP>`#elif'</SAMP> is ignored.
+<P>
+<A NAME="IDX1066"></A>
+<A NAME="IDX1067"></A>
+<DT><KBD>C-c C-n</KBD>
+<DD>Move forward across the next preprocessor conditional, setting the mark
+at the starting point (<CODE>c-forward-conditional</CODE>).
+<P>
+<A NAME="IDX1068"></A>
+<A NAME="IDX1069"></A>
+<DT><KBD>C-c C-p</KBD>
+<DD>Move backward across the previous preprocessor conditional, setting the
+at the starting point (<CODE>c-backward-conditional</CODE>).
+<P>
+<A NAME="IDX1070"></A>
+<A NAME="IDX1071"></A>
+<A NAME="IDX1072"></A>
+<DT><KBD>M-x c-macro-expand</KBD>
+<DD>When you are debugging C code that uses macros, sometimes it is hard to
+figure out precisely how the macros expand.  The command <KBD>M-x
+c-macro-expand</KBD> runs the C preprocessor and shows you what expansion
+results from the region.  The portion of the buffer before the region is
+also included in preprocessing, for the sake of macros defined there,
+but the output from this part isn't shown.
+<P>
+<A NAME="IDX1073"></A>
+<DT><KBD>M-x c-backslash-region</KBD>
+<DD>Insert or align <SAMP>`\'</SAMP> characters at the ends of the lines of the
+region, except for the last such line.  This is useful after writing or
+editing a C macro definition.
+<P>
+If a line already ends in <SAMP>`\'</SAMP>, this command adjusts the amount of
+whitespace before it.  Otherwise, it inserts a new <SAMP>`\'</SAMP>.
+</DL>
+<A NAME="IDX1074"></A>
+<P>
+  C++ mode is like C mode, except that it understands C++ comment syntax
+and certain other differences between C and C++.  It also has a command
+<KBD>M-x fill-c++-comment</KBD>, which fills a paragraph made of C++ comment
+lines.
+<P>
+  The command <CODE>comment-region</CODE> is useful in C++ mode for commenting
+out several consecutive lines, or removing the commenting out of such
+lines.  (You don't need this command with C comment syntax because you
+don't need to put comment delimiters on each line.)  See section <A HREF="emacs_26.html#SEC187">Manipulating Comments</A>.
+<P>
+<A NAME="IDX1075"></A>
+<A NAME="IDX1076"></A>
+<H2><A NAME="SEC211" HREF="emacs_toc.html#SEC211">Fortran Mode</A></H2>
+<P>
+  Fortran mode provides special motion commands for Fortran statements and
+subprograms, and indentation commands that understand Fortran conventions
+of nesting, line numbers and continuation statements.  Fortran mode has
+it's own Auto Fill mode that breaks long lines into proper Fortran
+continuation lines.
+<P>
+  Special commands for comments are provided because Fortran comments are
+unlike those of other languages.
+<P>
+  Built-in abbrevs optionally save typing when you insert Fortran keywords.
+<A NAME="IDX1077"></A>
+<P>
+  Use <KBD>M-x fortran-mode</KBD> to switch to this major mode.  This command
+runs the hook <CODE>fortran-mode-hook</CODE> (see section <A HREF="emacs_35.html#SEC337">Hooks</A>).
+<P>
+  Fortran mode was contributed by Michael Prange.  It has been updated by
+Stephen A. Wood who has collated the contributions and suggestions of many
+users.
+<P>
+<H3><A NAME="SEC212" HREF="emacs_toc.html#SEC212">Motion Commands</A></H3>
+<P>
+  Fortran mode provides special commands to move by subprograms (functions
+and subroutines) and by statements.  There is also a command to put the
+region around one subprogram, convenient for killing it or moving it.
+<A NAME="IDX1078"></A>
+<A NAME="IDX1079"></A>
+<A NAME="IDX1080"></A>
+<A NAME="IDX1081"></A>
+<A NAME="IDX1082"></A>
+<A NAME="IDX1083"></A>
+<A NAME="IDX1084"></A>
+<A NAME="IDX1085"></A>
+<A NAME="IDX1086"></A>
+<A NAME="IDX1087"></A>
+<P>
+<DL COMPACT>
+<DT><KBD>C-M-a</KBD>
+<DD>Move to beginning of subprogram
+(<CODE>beginning-of-fortran-subprogram</CODE>).
+<DT><KBD>C-M-e</KBD>
+<DD>Move to end of subprogram (<CODE>end-of-fortran-subprogram</CODE>).
+<DT><KBD>C-M-h</KBD>
+<DD>Put point at beginning of subprogram and mark at end
+(<CODE>mark-fortran-subprogram</CODE>).
+<DT><KBD>C-c C-n</KBD>
+<DD>Move to beginning of current or next statement
+(<CODE>fortran-next-statement</CODE>).
+<DT><KBD>C-c C-p</KBD>
+<DD>Move to beginning of current or previous statement
+(<CODE>fortran-previous-statement</CODE>).
+</DL>
+<P>
+<H3><A NAME="SEC213" HREF="emacs_toc.html#SEC213">Fortran Indentation</A></H3>
+<P>
+  Special commands and features are needed for indenting Fortran code in
+order to make sure various syntactic entities (line numbers, comment line
+indicators and continuation line flags) appear in the columns that are
+required for standard Fortran.
+<P>
+<H4><A NAME="SEC214" HREF="emacs_toc.html#SEC214">Fortran Indentation Commands</A></H4>
+<P>
+<DL COMPACT>
+<DT><KBD><KBD>TAB</KBD></KBD>
+<DD>Indent the current line (<CODE>fortran-indent-line</CODE>).
+<DT><KBD><KBD>LFD</KBD></KBD>
+<DD>Indent the current and start a new indented line
+(<CODE>fortran-indent-new-line</CODE>).
+<DT><KBD>M-<KBD>LFD</KBD></KBD>
+<DD>Break the current line and set up a continuation line.
+<DT><KBD>C-M-q</KBD>
+<DD>Indent all the lines of the subprogram point is in
+(<CODE>fortran-indent-subprogram</CODE>).
+</DL>
+<A NAME="IDX1088"></A>
+<P>
+  Fortran mode redefines <KBD>TAB</KBD> to reindent the current line for
+Fortran (<CODE>fortran-indent-line</CODE>).  This command indents Line numbers
+and continuation markers to their required columns, and independently
+indents the body of the statement based on its nesting in the program.
+<A NAME="IDX1089"></A>
+<A NAME="IDX1090"></A>
+<P>
+  The key <KBD>LFD</KBD> runs the command <CODE>fortran-indent-new-line</CODE>,
+which reindents the current line then makes and indents a new line.
+This command is useful to reindent the closing statement of <SAMP>`do'</SAMP>
+loops and other blocks before starting a new line.
+<A NAME="IDX1091"></A>
+<A NAME="IDX1092"></A>
+<P>
+  The key <KBD>C-M-q</KBD> runs <CODE>fortran-indent-subprogram</CODE>, a command
+to reindent all the lines of the Fortran subprogram (function or
+subroutine) containing point.
+<A NAME="IDX1093"></A>
+<A NAME="IDX1094"></A>
+<P>
+  The key <KBD>M-<KBD>LFD</KBD></KBD> runs <CODE>fortran-split-line</CODE>, which splits
+a line in the appropriate fashion for Fortran.  In a non-comment line,
+the second half becomes a continuation line and is indented
+accordingly.  In a comment line, both halves become separate comment
+lines.
+<P>
+<A NAME="IDX1095"></A>
+<H4><A NAME="SEC215" HREF="emacs_toc.html#SEC215">Continuation Lines</A></H4>
+<P>
+  Most modern Fortran compilers allow two ways of writing continuation
+lines.  If the first non-space character on a line is in column 5, then
+that line is a continuation of the previous line.  We call this <DFN>fixed
+format</DFN>.  (In GNU Emacs we always count columns from 0.)  A line that
+starts with a tab character followed by any digit except <SAMP>`0'</SAMP> is also a
+continuation line.  We call this style of continuation <DFN>tab format</DFN>.
+<A NAME="IDX1096"></A>
+<P>
+  Fortran mode can make either style of continuation line, but you
+must specify which one you prefer.  The value of the variable
+<CODE>indent-tabs-mode</CODE> controls the choice: <CODE>nil</CODE> for fixed
+format, and non-<CODE>nil</CODE> for tab format.  You can tell which style
+is presently in effect by the presence or absence of the string
+<SAMP>`Tab'</SAMP> in the mode line.
+<P>
+  If the text on a line starts with the conventional Fortran
+continuation marker <SAMP>`$'</SAMP>, or if it begins with any non-whitespace
+character in column 5, Fortran mode treats it as a continuation line.
+When you indent a continuation line with <KBD>TAB</KBD>, it converts the
+line to the current continuation style.  When you split a Fortran
+statement with <KBD>M-<KBD>LFD</KBD></KBD>, the continuation marker on the
+newline is created according to the continuation style.
+<P>
+  The setting of continuation style affects several other aspects of
+editing in Fortran mode.  In fixed format mode, the minimum column
+number for the body of a statement is 6.  Lines inside of Fortran
+blocks that are indented to larger column numbers always use only the
+space character for whitespace.  In tab format mode, the minimum
+column number for the statement body is 8, and the whitespace before
+column 8 must always consist of one tab character.
+<A NAME="IDX1097"></A>
+<A NAME="IDX1098"></A>
+<P>
+  When you enter Fortran mode for an existing file, it tries to deduce the
+proper continuation style automatically from the file contents.  The first
+line that begins with either a tab character or six spaces determines the
+choice.  The variable <CODE>fortran-analyze-depth</CODE> specifies how many lines
+to consider (at the beginning of the file); if none of those lines
+indicates a style, then the variable <CODE>fortran-tab-mode-default</CODE>
+specifies the style.  If it is <CODE>nil</CODE>, that specifies fixed format, and
+non-<CODE>nil</CODE> specifies tab format.
+<P>
+<H4><A NAME="SEC216" HREF="emacs_toc.html#SEC216">Line Numbers</A></H4>
+<P>
+  If a number is the first non-whitespace in the line, Fortran
+indentation assumes it is a line number and moves it to columns 0
+through 4.  (Columns always count from 0 in GNU Emacs.)
+<A NAME="IDX1099"></A>
+<P>
+  Line numbers of four digits or less are normally indented one space.
+The variable <CODE>fortran-line-number-indent</CODE> controls this; it
+specifies the maximum indentation a line number can have.  Line numbers
+are indented to right-justify them to end in column 4 unless that would
+require more than this maximum indentation.  The default value of the
+variable is 1.
+<A NAME="IDX1100"></A>
+<P>
+  Simply inserting a line number is enough to indent it according to
+these rules.  As each digit is inserted, the indentation is recomputed.
+To turn off this feature, set the variable
+<CODE>fortran-electric-line-number</CODE> to <CODE>nil</CODE>.  Then inserting line
+numbers is like inserting anything else.
+<P>
+<H4><A NAME="SEC217" HREF="emacs_toc.html#SEC217">Syntactic Conventions</A></H4>
+<P>
+  Fortran mode assumes that you follow certain conventions that simplify
+the task of understanding a Fortran program well enough to indent it
+properly:
+<A NAME="IDX1101"></A>
+<P>
+<UL>
+<LI>
+Two nested <SAMP>`do'</SAMP> loops never share a <SAMP>`continue'</SAMP> statement.
+<P>
+<LI>
+Fortran keywords such as <SAMP>`if'</SAMP>, <SAMP>`else'</SAMP>, <SAMP>`then'</SAMP>, <SAMP>`do'</SAMP>
+and others are written without embedded whitespace or line breaks.
+<P>
+Fortran compilers generally ignore whitespace outside of string
+constants, but Fortran mode does not recognize these keywords if they
+are not contiguous.  Constructs such as <SAMP>`else if'</SAMP> or <SAMP>`end do'</SAMP>
+are acceptable, but the second word should be on the same line as the
+first and not on a continuation line.
+</UL>
+<P>
+If you fail to follow these conventions, the indentation commands may
+indent some lines unaesthetically.  However, a correct Fortran program
+retains its meaning when reindented even if the conventions are not
+followed.
+<P>
+<H4><A NAME="SEC218" HREF="emacs_toc.html#SEC218">Variables for Fortran Indentation</A></H4>
+<A NAME="IDX1102"></A>
+<A NAME="IDX1103"></A>
+<A NAME="IDX1104"></A>
+<A NAME="IDX1105"></A>
+<A NAME="IDX1106"></A>
+<A NAME="IDX1107"></A>
+<P>
+  Several additional variables control how Fortran indentation works:
+<P>
+<DL COMPACT>
+<DT><CODE>fortran-do-indent</CODE>
+<DD>Extra indentation within each level of <SAMP>`do'</SAMP> statement (default 3).
+<P>
+<DT><CODE>fortran-if-indent</CODE>
+<DD>Extra indentation within each level of <SAMP>`if'</SAMP> statement (default 3).
+This value is also used for extra indentation within each level of the
+Fortran 90 <SAMP>`where'</SAMP> statement.
+<P>
+<DT><CODE>fortran-structure-indent</CODE>
+<DD>Extra indentation within each level of <SAMP>`structure'</SAMP>, <SAMP>`union'</SAMP>, or
+<SAMP>`map'</SAMP> statements (default 3).
+<P>
+<DT><CODE>fortran-continuation-indent</CODE>
+<DD>Extra indentation for bodies of continuation lines (default 5).
+<P>
+<DT><CODE>fortran-check-all-num-for-matching-do</CODE>
+<DD>If this is <CODE>nil</CODE>, indentation assumes that each <SAMP>`do'</SAMP> statement
+ends on a <SAMP>`continue'</SAMP> statement.  Therefore, when computing
+indentation for a statement other than <SAMP>`continue'</SAMP>, it can save time
+by not checking for a <SAMP>`do'</SAMP> statement ending there.  If this is
+non-<CODE>nil</CODE>, indenting any numbered statement must check for a
+<SAMP>`do'</SAMP> that ends there.  The default is <CODE>nil</CODE>.
+<P>
+<DT><CODE>fortran-blink-matching-if</CODE>
+<DD>If this is <CODE>t</CODE>, indenting an <SAMP>`endif'</SAMP> statement moves the
+cursor momentarily to the matching <SAMP>`if'</SAMP> statement to show where it
+is.  The default is <CODE>nil</CODE>.
+<P>
+<DT><CODE>fortran-minimum-statement-indent-fixed</CODE>
+<DD>Minimum indentation for fortran statements when using fixed format
+continuation line style.  Statement bodies are never indented less than
+this much.  The default is 6.
+<P>
+<DT><CODE>fortran-minimum-statement-indent-tab</CODE>
+<DD>Minimum indentation for fortran statements for tab format continuation line
+style.  Statement bodies are never indented less than this much.  The
+default is 8.
+</DL>
+<P>
+<H3><A NAME="SEC219" HREF="emacs_toc.html#SEC219">Comments</A></H3>
+<P>
+  The usual Emacs comment commands assume that a comment can follow a line
+of code.  In Fortran, the standard comment syntax requires an entire line
+to be just a comment.  Therefore, Fortran mode replaces the standard Emacs
+comment commands and defines some new variables.
+<P>
+  Fortran mode can also handle a nonstandard comment syntax where comments
+start with <SAMP>`!'</SAMP> and can follow other text.  Because only some Fortran
+compilers accept this syntax, Fortran mode will not insert such comments
+unless you have said in advance to do so.  To do this, set the variable
+<CODE>comment-start</CODE> to <SAMP>`"!"'</SAMP> (see section <A HREF="emacs_35.html#SEC334">Variables</A>).
+<P>
+<DL COMPACT>
+<DT><KBD>M-;</KBD>
+<DD>Align comment or insert new comment (<CODE>fortran-comment-indent</CODE>).
+<P>
+<DT><KBD>C-x ;</KBD>
+<DD>Applies to nonstandard <SAMP>`!'</SAMP> comments only.
+<P>
+<DT><KBD>C-c ;</KBD>
+<DD>Turn all lines of the region into comments, or (with argument) turn them back
+into real code (<CODE>fortran-comment-region</CODE>).
+</DL>
+<P>
+  <KBD>M-;</KBD> in Fortran mode is redefined as the command
+<CODE>fortran-comment-indent</CODE>.  Like the usual <KBD>M-;</KBD> command, this
+recognizes any kind of existing comment and aligns its text appropriately;
+if there is no existing comment, a comment is inserted and aligned.  But
+inserting and aligning comments are not the same in Fortran mode as in
+other modes.
+<P>
+  When a new comment must be inserted, if the current line is blank, a
+full-line comment is inserted.  On a non-blank line, a nonstandard <SAMP>`!'</SAMP>
+comment is inserted if you have said you want to use them.  Otherwise a
+full-line comment is inserted on a new line before the current line.
+<P>
+  Nonstandard <SAMP>`!'</SAMP> comments are aligned like comments in other
+languages, but full-line comments are different.  In a standard full-line
+comment, the comment delimiter itself must always appear in column zero.
+What can be aligned is the text within the comment.  You can choose from
+three styles of alignment by setting the variable
+<CODE>fortran-comment-indent-style</CODE> to one of these values:
+<A NAME="IDX1108"></A>
+<A NAME="IDX1109"></A>
+<P>
+<DL COMPACT>
+<DT><CODE>fixed</CODE>
+<DD>Align the text at a fixed column, which is the sum of
+<CODE>fortran-comment-line-extra-indent</CODE> and the minimum statement
+indentation.  This is the default.
+<P>
+The minimum statement indentation is
+<CODE>fortran-minimum-statement-indent-fixed</CODE> for fixed format
+continuation line style and <CODE>fortran-minimum-statement-indent-tab</CODE>
+for tab format style.
+<P>
+<DT><CODE>relative</CODE>
+<DD>Align the text as if it were a line of code, but with an additional
+<CODE>fortran-comment-line-extra-indent</CODE> columns of indentation.
+<P>
+<DT><CODE>nil</CODE>
+<DD>Don't move text in full-line columns automatically at all.
+</DL>
+<A NAME="IDX1110"></A>
+<P>
+  In addition, you can specify the character to be used to indent within
+full-line comments by setting the variable
+<CODE>fortran-comment-indent-char</CODE> to the single-character string you want
+to use.
+<A NAME="IDX1111"></A>
+<A NAME="IDX1112"></A>
+<P>
+  Fortran mode introduces two variables <CODE>comment-line-start</CODE> and
+<CODE>comment-line-start-skip</CODE> which play for full-line comments the same
+roles played by <CODE>comment-start</CODE> and <CODE>comment-start-skip</CODE> for
+ordinary text-following comments.  Normally these are set properly by
+Fortran mode so you do not need to change them.
+<P>
+  The normal Emacs comment command <KBD>C-x ;</KBD> has not been redefined.  If
+you use <SAMP>`!'</SAMP> comments, this command can be used with them.  Otherwise
+it is useless in Fortran mode.
+<A NAME="IDX1113"></A>
+<A NAME="IDX1114"></A>
+<A NAME="IDX1115"></A>
+<P>
+  The command <KBD>C-c ;</KBD> (<CODE>fortran-comment-region</CODE>) turns all the
+lines of the region into comments by inserting the string <SAMP>`C$$$'</SAMP> at
+the front of each one.  With a numeric argument, it turns the region
+back into live code by deleting <SAMP>`C$$$'</SAMP> from the front of each line
+in it.  The string used for these comments can be controlled by setting
+the variable <CODE>fortran-comment-region</CODE>.  Note that here we have an
+example of a command and a variable with the same name; these two uses
+of the name never conflict because in Lisp and in Emacs it is always
+clear from the context which one is meant.
+<P>
+<H3><A NAME="SEC220" HREF="emacs_toc.html#SEC220">Fortran Auto Fill Mode</A></H3>
+<P>
+  Fortran Auto Fill mode is a minor mode which automatically splits Fortran
+statements as you insert them when they become too wide.  Splitting a
+statement involves making continuation lines.  This splitting happens when
+you type <KBD>SPC</KBD>, <KBD>RET</KBD>, or <KBD>TAB</KBD>, and also in the Fortran
+indentation commands.
+<A NAME="IDX1116"></A>
+<P>
+  <KBD>M-x fortran-auto-fill-mode</KBD> turns Fortran Auto Fill mode on if it
+was off, or off if it was on.  This command works the same as <KBD>M-x
+auto-fill-mode</KBD> does for normal Auto Fill mode (see section <A HREF="emacs_25.html#SEC160">Filling Text</A>).  A
+positive numeric argument turns Fortran Auto Fill mode on, and a
+negative argument turns it off.  You can see when Fortran Auto Fill mode
+is in effect by the presence of the word <SAMP>`Fill'</SAMP> in the mode line,
+inside the parentheses.  Fortran Auto Fill mode is a minor mode, turned
+on or off for each buffer individually.  See section <A HREF="emacs_35.html#SEC333">Minor Modes</A>.
+<A NAME="IDX1117"></A>
+<P>
+   Fortran Auto Fill mode breaks lines at spaces or delimiters when the
+lines get longer than the desired width (the value of <CODE>fill-column</CODE>).
+The delimiters that Fortran Auto Fill mode may break at are <SAMP>`,'</SAMP>,
+<SAMP>`''</SAMP>, <SAMP>`+'</SAMP>, <SAMP>`-'</SAMP>, <SAMP>`/'</SAMP>, <SAMP>`*'</SAMP>, <SAMP>`='</SAMP>, and <SAMP>`)'</SAMP>.
+The line break comes after the delimiter if the variable
+<CODE>fortran-break-before-delimiters</CODE> is <CODE>nil</CODE>.  Otherwise (and by
+default), the break comes before the delimiter.
+<P>
+  By default, Fortran Auto Fill mode is not enabled.  If you want this
+feature turned on permanently, add a hook function to
+<CODE>fortran-mode-hook</CODE> to execute <CODE>(fortran-auto-fill-mode 1)</CODE>.
+See section <A HREF="emacs_35.html#SEC337">Hooks</A>.
+<P>
+<H3><A NAME="SEC221" HREF="emacs_toc.html#SEC221">Columns</A></H3>
+<P>
+<DL COMPACT>
+<DT><KBD>C-c C-r</KBD>
+<DD>Display a "column ruler" momentarily above the current line
+(<CODE>fortran-column-ruler</CODE>).
+<DT><KBD>C-c C-w</KBD>
+<DD>Split the current window horizontally temporarily so that it is 72
+columns wide.  This may help you avoid making lines longer than the 72
+character limit that some fortran compilers impose
+(<CODE>fortran-window-create-momentarily</CODE>).
+</DL>
+<A NAME="IDX1118"></A>
+<A NAME="IDX1119"></A>
+<A NAME="IDX1120"></A>
+<P>
+  The command <KBD>C-c C-r</KBD> (<CODE>fortran-column-ruler</CODE>) shows a column
+ruler momentarily above the current line.  The comment ruler is two lines
+of text that show you the locations of columns with special significance in
+Fortran programs.  Square brackets show the limits of the columns for line
+numbers, and curly brackets show the limits of the columns for the
+statement body.  Column numbers appear above them.
+<P>
+  Note that the column numbers count from zero, as always in GNU Emacs.
+As a result, the numbers may be one less than those you are familiar
+with; but the positions they indicate in the line are standard for
+Fortran.
+<P>
+  The text used to display the column ruler is the value of the variable
+<CODE>fortran-comment-ruler</CODE>.  By changing this variable, you can change
+the display.
+<A NAME="IDX1121"></A>
+<A NAME="IDX1122"></A>
+<P>
+  For even more help, use <KBD>C-c C-w</KBD> (<CODE>fortran-window-create</CODE>), a
+command which splits the current window horizontally, making a window 72
+columns wide.  By editing in this window you can immediately see when you
+make a line too wide to be correct Fortran.
+<P>
+<H3><A NAME="SEC222" HREF="emacs_toc.html#SEC222">Fortran Keyword Abbrevs</A></H3>
+<P>
+  Fortran mode provides many built-in abbrevs for common keywords and
+declarations.  These are the same sort of abbrev that you can define
+yourself.  To use them, you must turn on Abbrev mode.  See section <A HREF="emacs_28.html#SEC236">Abbrevs</A>.
+<P>
+  The built-in abbrevs are unusual in one way: they all start with a
+semicolon.  You cannot normally use semicolon in an abbrev, but Fortran
+mode makes this possible by changing the syntax of semicolon to "word
+constituent."
+<P>
+  For example, one built-in Fortran abbrev is <SAMP>`;c'</SAMP> for
+<SAMP>`continue'</SAMP>.  If you insert <SAMP>`;c'</SAMP> and then insert a punctuation
+character such as a space or a newline, the <SAMP>`;c'</SAMP> expands automatically
+to <SAMP>`continue'</SAMP>, provided Abbrev mode is enabled.<P>
+  Type <SAMP>`;?'</SAMP> or <SAMP>`;C-h'</SAMP> to display a list of all the built-in
+Fortran abbrevs and what they stand for.
+<P>
+<H2><A NAME="SEC223" HREF="emacs_toc.html#SEC223">Asm Mode</A></H2>
+<A NAME="IDX1123"></A>
+<P>
+Asm mode is a major mode for editing files of assembler code.  It
+defines these commands:
+<P>
+<DL COMPACT>
+<DT><KBD><KBD>TAB</KBD></KBD>
+<DD><CODE>tab-to-tab-stop</CODE>.
+<DT><KBD><KBD>LFD</KBD></KBD>
+<DD>Insert a newline and then indent using <CODE>tab-to-tab-stop</CODE>.
+<DT><KBD>:</KBD>
+<DD>Insert a colon and then remove the indentation from before the label
+preceding colon.  Then do <CODE>tab-to-tab-stop</CODE>.
+<DT><KBD>;</KBD>
+<DD>Insert or align a comment.
+</DL>
+<P>
+  The variable <CODE>asm-comment-char</CODE> specifies which character
+starts comments in assembler syntax.
+<P>Go to the <A HREF="emacs_25.html">previous</A>, <A HREF="emacs_27.html">next</A> section.<P>

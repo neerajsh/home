@@ -1,0 +1,90 @@
+@import url("chrome://global/skin/");
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace svg url("http://www.w3.org/2000/svg");
+
+/* ::::: Keyboard UI Panel ::::: */
+.KUI-panel-closebutton {
+  list-style-image: url(close.png);
+}
+
+.KUI-panel-closebutton > .toolbarbutton-icon {
+  margin: 0;
+}
+
+/* ::::: Ctrl-Tab Panel ::::: */
+#ctrlTab-label {
+  font-weight: bold;
+  text-align: center;
+  margin-top: .5em;
+  margin-bottom: .7em;
+}
+
+svg|*.ctrlTab-thumbnailborder {
+  stroke: ThreeDDarkShadow;
+  stroke-width: .7px;
+  fill: transparent;
+}
+
+svg|*.ctrlTab-icon {
+  filter: url(chrome://browser/content/browser.xul#ctrlTab-iconShadow);
+}
+
+svg|*#ctrlTab-fadeGradientTop {
+  stop-color: ThreeDShadow;
+  stop-opacity: .75;
+}
+
+svg|*#ctrlTab-fadeGradientBottom {
+  stop-color: -moz-dialog;
+  stop-opacity: 1;
+}
+
+
+/* ::::: All Tabs Panel ::::: */
+.tabs-alltabs-button > .toolbarbutton-icon {
+  display: -moz-box;
+  margin: 2px 0 2px;
+  list-style-image: url(allTabs.png) !important;
+  -moz-image-region: auto !important;
+}
+
+#allTabs-panel {
+  margin-top: -30px;
+  padding-bottom: 10px;
+}
+
+#allTabs-meta {
+  padding: 3px;
+}
+
+#allTabs-filter ,
+#allTabs-filterLabel {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#allTabs-filter {
+  width: 10em;
+}
+
+.allTabs-box > .button-box {
+  border: none;
+}
+
+.allTabs-box:focus {
+  outline: 1px dotted ThreeDDarkShadow;
+}
+
+.allTabs-thumbnail {
+  outline: 6px solid ThreeDLightShadow;
+  -moz-outline-radius: 7px;
+}
+
+.allTabs-box[selected="true"] > .allTabs-thumbnail {
+  outline-color: ThreeDShadow;
+}
+
+.allTabs-box:focus > .allTabs-thumbnail ,
+.allTabs-box:hover > .allTabs-thumbnail {
+  outline-color: Highlight;
+}

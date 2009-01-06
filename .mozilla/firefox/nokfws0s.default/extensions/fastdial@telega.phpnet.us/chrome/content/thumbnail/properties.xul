@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://fastdial/skin/properties.css" type="text/css"?>
+<!DOCTYPE dialog SYSTEM "chrome://fastdial/locale/fastdial.dtd">
+<dialog id="dialog"
+        buttons="accept, cancel, extra2"
+        buttonlabelextra2="&clear;"
+        onload="initialize();"
+        onunload="cleanUp();"
+        ondialogaccept="return onAccept();"
+        ondialogextra2="onClear();"
+        persist="width height"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <tabpanels>
+    <tabpanel>
+      <grid flex="1">
+        <columns>
+          <column/>
+          <column flex="1"/>
+        </columns>
+        <rows>
+          <row align="center">
+            <label control="url" value="&url;:"/>
+            <textbox id="url" type="autocomplete" autocompletesearch="history"
+                     enablehistory="true" showcommentcolumn="true"
+                     searchSessions="history" showCommentColumn="true" flex="1"
+                     oninput="FdDom.get('title').value='';"/>
+            <checkbox id="isFolder" label="&folder;"
+                      oncommand="var folder=this.checked; onClear(); setFolder(folder);"/>
+          </row>
+          <row align="center">
+            <label control="customImage" value="&customImage;:"/>
+            <hbox>
+              <textbox id="customImage" flex="1" oninput="updateRefreshAll();"/>
+              <colorpicker id="customBackground" type="button"
+                           onclick="if (event.button == 2) this.color='transparent';"/>
+              <button id="browse" label="&#x2026;" oncommand="browseCustomImage();"/>
+            </hbox>
+            <hbox align="center">
+              <button id="search" oncommand="searchCustomImage();"/>
+            </hbox>
+          </row>
+          <row align="center">
+            <label control="title" value="&title;:"/>
+            <textbox id="title"/>
+          </row>
+          <row>
+            <spacer/>
+            <hbox><checkbox id="slow" label="&slowSite;"/></hbox>
+          </row>
+          <row align="center">
+            <label value="&shortcutKey;:"/>
+            <hbox align="center">
+              <textbox id="shortcutKey" onkeypress="onShortcutKey(event);"/>
+              <label id="restartIsNeeded" value="&restartIsNeeded;"/>
+            </hbox>
+          </row>
+          <row align="center">
+            <label value="&openIn;:"/>
+            <hbox>
+              <menulist id="openIn">
+                <menupopup>
+                  <menuitem label="" value=""/>
+                  <menuitem label="&currentTab;" value="current"/>
+                  <menuitem label="&newTab;" value="tab"/>
+                  <menuitem label="&backgroundTab;" value="tabshifted"/>
+                  <menuitem label="&newWindow;" value="window"/>
+                </menupopup>
+              </menulist>
+            </hbox>
+          </row>
+          <row align="center">
+            <label value="&refreshEvery;:"/>
+            <hbox align="center">
+              <textbox id="refresh" size="2"/>
+              <label value="&minutes;"/>
+              <checkbox id="refreshAll" label="&refreshAll;"/>
+            </hbox>
+          </row>
+        </rows>
+      </grid>
+    </tabpanel>
+  </tabpanels>
+
+  <script src="../utils.js"/>
+  <script src="../dom.js"/>
+  <script src="../file.js"/>
+  <script src="../bookmark.js"/>
+  <script src="../storage.js"/>
+  <script src="../thumbnail/thumbnail.js"/>
+  <script>
+    <![CDATA[
+      var thumbnail = new FdThumbnail(window.arguments[0], window.arguments[1]);
+      var properties = FdUtils.clone(thumbnail.properties);
+
+      var browserWindow = FdUtils.getBrowserWindow();
+      var gBrowser = browserWindow.gBrowser;
+
+      function initialize() {
+        document.title = FdBundle.getString("properties", [properties.title || ""]);
+
+        FdDom.get("url").value = properties.url || "";
+        FdDom.get("customImage").value = properties.customImage || "";
+        FdDom.get("customBackground").color =
+          (properties.customImage && properties.customBackground) || "transparent";
+        FdDom.get("title").value = properties.title || "";
+        setFolder(properties.isFolder);
+        FdDom.get("slow").checked = properties.slow;
+        FdDom.get("shortcutKey").value = properties.shortcutKey || "";
+        FdUtils.selectItem("openIn", properties.openIn);
+        FdDom.get("refresh").value = properties.refresh || 0;
+        FdDom.get("refreshAll").checked = properties.refreshAll == undefined
+                                  ? !properties.customImage : properties.refreshAll;
+        gBrowser.addEventListener("load", onPageLoad, true);
+      }
+
+      function cleanUp() {
+        gBrowser.removeEventListener("load", onPageLoad, true);
+      }
+
+      function onPageLoad(e) {
+        var doc = e.originalTarget;
+
+        if (!doc.location ||
+            !doc.location.href.match(/^http:\/\/(www\.)?userlogos\.org\//i)) return;
+
+        var images = doc.getElementsByClassName("imagefield");
+        for(var i = 0; i < images.length; i++) {
+          var parent = images[i].parentNode;
+          if (parent.childNodes.length == 1)  {
+            var button = doc.createElement("input");
+            button.type = "button";
+            button.value = "Add to Fast Dial";
+            button.style.display = "block";
+            button.style.marginBottom = "10px";
+            button.addEventListener("click", setCustomImage, false);
+            parent.appendChild(button);
+          }
+        }
+      }
+
+      function setCustomImage(e) {
+        var image = e.target.previousSibling;
+        FdDom.get("customImage").value = image.src;
+        updateRefreshAll();
+        window.focus();
+      }
+
+      function setFolder(value) {
+        FdDom.get("isFolder").checked = value;
+        FdDom.get("url").readOnly = value;
+
+        if (value) {
+          FdDom.get("url").removeAttribute("enablehistory");
+          FdDom.get("title").select();
+        }
+        else {
+          FdDom.get("url").setAttribute("enablehistory", true);
+          FdDom.get("url").select();
+        }
+      }
+
+      function onAccept() {
+        var url = FdDom.get("url").value;
+        properties.url = !url || FdURL.getScheme(url) ? url : "http://" + url;
+        properties.customImage = FdDom.get("customImage").value;
+        properties.customBackground = FdDom.get("customBackground").color;
+        properties.title = FdDom.get("title").value;
+        properties.slow = FdDom.get("slow").checked;
+        properties.isFolder = FdDom.get("isFolder").checked;
+        properties.shortcutKey = FdDom.get("shortcutKey").value;
+        properties.openIn = FdDom.get("openIn").value;
+        var refresh = FdDom.get("refresh").value;
+        properties.refresh = Math.max(parseInt(refresh), 0);
+        properties.refreshAll = FdDom.get("refreshAll").checked;
+
+        if (properties.isFolder != !!thumbnail.properties.isFolder) {
+          var children = thumbnail.properties.isFolder &&
+                         FdStorage.getItems(thumbnail.properties.id);
+
+          if (!thumbnail.remove(!children || !children.length)) return false;
+          delete properties.id;
+        }
+
+        var isRefreshNeeded =
+          properties.url != thumbnail.properties.url ||
+          properties.customImage != thumbnail.properties.customImage ||
+          properties.customBackground != thumbnail.properties.customBackground;
+
+        thumbnail.properties = properties;
+        thumbnail.save();
+
+        if (isRefreshNeeded) thumbnail.refresh();
+        else thumbnail.update();
+      }
+
+      function onClear() {
+        FdDom.get("url").value = "";
+        FdDom.get("url").readOnly = false;
+        FdDom.get("isFolder").checked = false;
+        FdDom.get("customImage").value = "";
+        FdDom.get("customBackground").color = "transparent";
+        FdDom.get("title").value = "";
+        FdDom.get("slow").checked = false;
+        FdDom.get("shortcutKey").value = "";
+        FdDom.get("openIn").value = "";
+        FdDom.get("refresh").value = 0;
+        FdDom.get("url").focus();
+      }
+
+      function browseCustomImage() {
+        var file = FdFile.chooseFile("open", ["images"]);
+        if (file) {
+          FdDom.get("customImage").value = FdFile.getFileURL(file);
+          updateRefreshAll();
+        }
+      }
+
+      function searchCustomImage() {
+        var searchUrl = "http://userlogos.org/logos/top-rated";
+        if (!properties.isFolder) {
+          var url = FdURL.getNsiURL(properties.url);
+          searchUrl += "?filter0=" + url.host;
+        }
+        browserWindow.openUILinkIn(searchUrl, "tab");
+      }
+
+      function onShortcutKey(e) {
+        var key = FdUtils.getShortcutKey(e);
+        FdDom.get("restartIsNeeded").style.visibility = key ? "visible" : "hidden";
+        FdDom.get("shortcutKey").value = key;
+        e.preventDefault();
+      }
+
+      function updateRefreshAll() {
+        FdDom.get("refreshAll").checked = !FdDom.get("customImage").value;
+      }
+    ]]>
+  </script>
+</dialog>

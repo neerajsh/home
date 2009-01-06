@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compiz_session id="1053662fa756543a2b123111634326968800000059010025">
+  <window id="1053662fa756543a2b123111608553830600000059010022" title="x-nautilus-desktop" class="Nautilus" name="desktop_window" command="nautilus">
+    <geometry x="0" y="0" width="1920" height="1200"/>
+  </window>
+  <window id="1053662fa756543a2b123112165361919500000059010034" title="neeraj@ubuntu: ~/.vim" class="Gnome-terminal" name="gnome-terminal" role="gnome-terminal-window-13813--1962815253-1231131596" command="gnome-terminal">
+    <geometry x="1924" y="49" width="657" height="435"/>
+    <maximized vert="yes" horiz="yes"/>
+    <workspace index="0"/>
+  </window>
+  <window id="1053662fa756543a2b123113040519017700000059010039" title="remove ^M from - Google Search - Mozilla Firefox" class="Firefox" name="Navigator" role="browser" command="firefox">
+    <geometry x="1920" y="49" width="940" height="1121"/>
+    <maximized vert="yes" horiz="yes"/>
+    <workspace index="0"/>
+  </window>
+  <window id="1053662fa756543a2b123113457457833900000059010057" title="Sound Preferences" class="Gnome-sound-properties" name="gnome-sound-properties" command="gnome-sound-properties">
+    <geometry x="2598" y="310" width="563" height="579"/>
+    <workspace index="0"/>
+  </window>
+  <window id="1053662fa756543a2b123113457457833900000059010057" title="" class="Gnome-sound-properties" name="gnome-sound-properties" command="gnome-sound-properties">
+    <geometry x="2644" y="558" width="479" height="130"/>
+    <workspace index="0"/>
+  </window>
+</compiz_session>

@@ -1,0 +1,138 @@
+<link rel="stylesheet" href="chrome://fastdial/skin/fastdial.css">
+
+<script src="utils.js"></script>
+<script src="dom.js"></script>
+<script src="drag.js"></script>
+<script src="file.js"></script>
+<script src="bookmark.js"></script>
+<script src="storage.js"></script>
+<script src="template/template.js"></script>
+<script src="thumbnail/thumbnail.js"></script>
+
+<script>
+  var params = FdUtils.getQueryParams(document.location);
+  var folder = params.folder ? FdStorage.getItem(params.folder) : FdStorage.getRoot();
+  folder = FdUtils.merge({}, FdStorage.defaultFolder, folder);
+
+  document.title = folder.title || " ";
+
+  var style = document.createElement("style");
+  style.innerHTML = folder.style;
+  if (!FdPrefs.getBool("showEmpty")) {
+    style.innerHTML += ".empty { opacity: 0 !important; }";
+  }
+  document.documentElement.appendChild(style);
+
+  var thumbnails = [];
+  var items = FdStorage.getItems(folder.id);
+  for(var i = 0; i < folder.width * folder.height; i++) {
+    var properties = FdUtils.merge({
+      index: i,
+      folderId: folder.id
+    }, items[i]);
+    var thumbnail = new FdThumbnail(properties, folder);
+    thumbnails.push(thumbnail);
+  }
+
+  var data = FdURL.readURL("chrome://fastdial/content/template/template.html");
+  var template = new JsTemplate.Template(data);
+  var html = template.run({
+    folder: folder,
+    thumbnails: thumbnails,
+  });
+  document.write(html);
+
+  function calculateThumbnailSize() {
+    var grid = FdDom.get("grid");
+    var gridMargin = parseInt(FdDom.css(grid, "margin-top"));
+    var gridBorder = parseInt(FdDom.css(grid, "border-spacing"));
+
+    var thumbnail = FdDom.get(0);
+    var thumbnailBorder = parseInt(FdDom.css(thumbnail, "border-top-width"));
+    var title = FdDom.child(thumbnail, "title");
+
+    var width = folder.thumbWidth;
+    var height = folder.thumbWidth * FdThumbnail.RATIO;
+
+    if (!folder.fixed) {
+      width = (window.innerWidth - gridMargin * 2 - gridBorder) /
+              folder.width - gridBorder - thumbnailBorder * 2;
+      height = (window.innerHeight - gridMargin * 2 - gridBorder) /
+               folder.height - gridBorder - thumbnailBorder * 2 - title.offsetHeight;
+
+      height / width > FdThumbnail.RATIO
+        ? height = width * FdThumbnail.RATIO
+        : width = height / FdThumbnail.RATIO;
+    }
+    width = Math.floor(width);
+    height = Math.floor(height) + title.offsetHeight;
+
+    return [width, height];
+  }
+
+  window.addEventListener("resize", function() {
+    var [width, height] = calculateThumbnailSize();
+    var stylesheet = document.styleSheets[0];
+
+    for(var i = 0; i < stylesheet.cssRules.length; i++) {
+      var rule = stylesheet.cssRules[i];
+      switch(rule.selectorText) {
+        case ".thumbnail":
+          rule.style.width = width;
+          rule.style.height = height;
+          return;
+      }
+    }
+    stylesheet.insertRule(".thumbnail {" +
+      "width: "  + width  + ";" +
+      "height: " + height + ";" +
+    "}", 0);
+  },
+  false);
+
+  var event = document.createEvent("Event");
+  event.initEvent("resize", false, true);
+  window.dispatchEvent(event);
+
+  document.addEventListener("contextmenu", function(e) {
+    if (!e.ctrlKey) {
+      var wnd = FdUtils.getBrowserWindow();
+      var view = FdDom.parent(e.target, "thumbnail");
+      wnd.Fd.menu.show(e.screenX, e.screenY, view && thumbnails[view.id], folder);
+      e.preventDefault();
+    }
+  }, false);
+
+  document.addEventListener("drop", function(e) {
+    var view = FdDom.parent(e.originalTarget, "thumbnail");
+    var source = thumbnails[view.id];
+
+    for(var i in thumbnails) {
+      var target = thumbnails[i];
+      if (target.isMouseOver(e.pageX, e.pageY)) {
+        target.properties.index = source.properties.index;
+        source.properties.index = i;
+        source.save();
+        target.save();
+        var properties = source.properties;
+        source.properties = target.properties;
+        target.properties = properties;
+        source.update();
+        target.update();
+      }
+    }
+  }, false);
+
+  setTimeout(function() {
+    var wnd = FdUtils.getBrowserWindow();
+    for(var i in thumbnails) {
+      var thumbnail = thumbnails[i];
+      thumbnail.init();
+      if (wnd.FdSnapshot.isLoading(thumbnail.properties.id)) {
+        thumbnail.update();
+      }
+    }
+    var icon = FdDom.eval("<link rel='icon' href='chrome://fastdial/skin/icon.png'>");
+    document.body.appendChild(icon);
+  }, 0);
+</script>

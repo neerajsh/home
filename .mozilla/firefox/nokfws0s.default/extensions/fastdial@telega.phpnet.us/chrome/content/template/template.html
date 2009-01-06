@@ -1,0 +1,36 @@
+<table id="layout">
+  <tr>
+    <td width="50%;"></td>
+    <td>
+      <table id="grid">
+        <% for(var i = 0; i < this.folder.width * this.folder.height; i++) { %>
+          <% if (i % this.folder.width == 0) { %> <tr> <% } %>
+          <td>
+            <% var thumbnail = this.thumbnails[i]; %>
+            <div id="<%= i %>" class="thumbnail <%= thumbnail.getURL() ? "" : "empty" %>">
+              <div class="button autoRefresh"
+                   style="display: <%= thumbnail.isAutoRefresh() ? "block" : "none" %>">
+              </div>
+              <div class="buttons">
+                <div class="button remove"></div>
+                <div class="button refresh"></div>
+                <div class="button properties"></div>
+              </div>
+              <a <%= thumbnail.getURL() ? " href='" + thumbnail.getURL() + "'" : "" %>>
+                <div class="throbber"></div>
+                <div class="body">
+                  <img src="<%= thumbnail.getImageURL() %>">
+                </div>
+              </a>
+              <div class="title">
+                <div class="title-text"><%= thumbnail.getTitle() %></div>
+              </div>
+            </div>
+          </td>
+          <% if ((i + 1) % this.folder.width == 0) { %> </tr> <% } %>
+        <% } %>
+      </table>
+    </td>
+    <td width="50%"></td>
+  </tr>
+</table>

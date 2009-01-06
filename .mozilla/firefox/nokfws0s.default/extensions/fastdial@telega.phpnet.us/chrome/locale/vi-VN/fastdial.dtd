@@ -1,0 +1,56 @@
+<!ENTITY open "Mở">
+<!ENTITY openAll "Mở Tất Cả">
+<!ENTITY refresh "Làm tươi">
+<!ENTITY refreshAll "Làm Tươi Tất Cả">
+<!ENTITY properties "Thuộc tính">
+<!ENTITY remove "Gỡ bỏ">
+<!ENTITY preferences "Tùy chọn">
+<!ENTITY close "Đóng">
+<!ENTITY applyToAll "Áp dụng cho tất cả thư mục">
+<!ENTITY defaults "Mặc định">
+<!ENTITY general "Tổng quát">
+<!ENTITY appearance "Giao diện">
+<!ENTITY folder "Thư mục">
+<!ENTITY quantity "Số lượng">
+<!ENTITY size "Kích thước">
+<!ENTITY fixed "Cố định">
+<!ENTITY shortcutKey "Phím tắt">
+<!ENTITY openIn "Mở trong">
+<!ENTITY newTab "thẻ mới">
+<!ENTITY backgroundTab "thẻ hậu cảnh mới">
+<!ENTITY newWindow "cửa sổ mới">
+<!ENTITY useJava "Sử dụng Java để chỉnh tỉ lệ hình ảnh">
+<!ENTITY showRefreshAll "Hiện Làm Tươi Tất Cả trong danh mục trình đơn">
+<!ENTITY showInNewTabs "Hiện Quay Số Nhanh trong thẻ mới">
+<!ENTITY showEmpty "Hiện ô trống">
+<!ENTITY page "Trang">
+<!ENTITY thumbnail "Hình thu nhỏ">
+<!ENTITY activeThumbnail "Kích hoạt hình thu nhỏ">
+<!ENTITY load "Tải">
+<!ENTITY save "Lưu">
+<!ENTITY font "Phông">
+<!ENTITY image "Hình">
+<!ENTITY center "Trung tâm">
+<!ENTITY background "Nền">
+<!ENTITY spacing "Khoảng trắng">
+<!ENTITY border "Đường viền">
+<!ENTITY titleBackground "Nền tiêu đề">
+<!ENTITY titleBorder "Đường viền tiêu đề">
+<!ENTITY titleColor "Màu tiêu đề">
+<!ENTITY opacity "Độ mờ">
+<!ENTITY clear "Xóa trắng">
+<!ENTITY url "URL">
+<!ENTITY customImage "Ảnh tùy biến">
+<!ENTITY title "Tiêu đề">
+<!ENTITY refreshEvery "Làm tươi mỗi">
+<!ENTITY minutes "phút">
+<!ENTITY help "Trợ giúp">
+<!ENTITY homePage "Trang chủ">
+<!ENTITY addToFastDial "Thêm vào Quay Số Nhanh">
+<!ENTITY slowSite "Slow site">
+<!ENTITY add "Add">
+<!ENTITY currentTab "current tab">
+<!ENTITY restartIsNeeded "(restart is needed)">
+<!ENTITY support "Support">
+<!ENTITY contact "Contact">
+<!ENTITY requestLogo "Request a logo">

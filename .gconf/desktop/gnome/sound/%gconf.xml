@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="default_mixer_device" mtime="1231134575" type="string">
+                <stringvalue>pulsemixer:alsa_input.pci_8086_27d8_sound_card_0_alsa_capture_0</stringvalue>
+        </entry>
+</gconf>

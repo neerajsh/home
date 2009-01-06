@@ -1,0 +1,15 @@
+content	wot	jar:chrome/wot.jar!/content/
+content	wot	jar:chrome/wot.jar!/content/ contentaccessible=yes
+overlay	chrome://browser/content/browser.xul	chrome://wot/content/overlay.xul
+locale	wot	en-US	jar:chrome/wot.jar!/locale/en-US/
+locale	wot	de-DE	jar:chrome/wot.jar!/locale/de-DE/
+locale	wot	fi-FI	jar:chrome/wot.jar!/locale/fi-FI/
+locale	wot	pl-PL	jar:chrome/wot.jar!/locale/pl-PL/
+locale	wot	sv-SE	jar:chrome/wot.jar!/locale/sv-SE/
+locale	wot	it-IT	jar:chrome/wot.jar!/locale/it-IT/
+locale	wot	fr-FR	jar:chrome/wot.jar!/locale/fr-FR/
+locale	wot	pt-BR	jar:chrome/wot.jar!/locale/pt-BR/
+locale	wot	es-ES	jar:chrome/wot.jar!/locale/es-ES/
+locale	wot	ru-RU	jar:chrome/wot.jar!/locale/ru-RU/
+skin	wot	classic/1.0	jar:chrome/wot.jar!/skin/
+style	chrome://global/content/customizeToolbar.xul	chrome://wot/skin/toolbar.css

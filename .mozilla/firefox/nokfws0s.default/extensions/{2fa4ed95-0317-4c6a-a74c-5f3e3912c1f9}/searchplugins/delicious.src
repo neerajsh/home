@@ -1,0 +1,18 @@
+<search
+ version="7.1"
+ name="delicious"
+ description="Discover on delicious" 
+ action="http://delicious.com/search"
+ searchForm="http://delicious.com/search"
+ method="GET">
+
+<input name="all" user>
+<input name="src" value="moz">
+
+</search>
+
+<browser
+ update="http://delicious.com/search/delicious.src"
+ updateIcon="http://delicious.com/static/img/search/delicious.gif"
+ updateCheckDays="7">
+

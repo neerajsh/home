@@ -1,0 +1,44 @@
+@import url("chrome://global/skin/");
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace svg url("http://www.w3.org/2000/svg");
+@namespace xlink url("http://www.w3.org/1999/xlink");
+
+/* ::::: Ctrl-Tab Panel ::::: */
+svg|*.ctrlTab-icon:not([xlink|href]) ,
+svg|*.ctrlTab-thumbnail:not([xlink|href]) {
+  display: none;
+}
+
+/* ::::: All Tabs Panel ::::: */
+#allTabs-container {
+  display: block;
+}
+
+#allTabs-tab-close-button {
+  margin: 0;
+}
+
+.allTabs-box {
+  -moz-box-orient: vertical;
+  -moz-appearance: none;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  min-width: 0;
+}
+
+.allTabs-box[collapsed="true"] {
+  padding: 0 !important;
+}
+
+.allTabs-box > .button-box {
+  -moz-appearance: none;
+  padding: 0;
+}
+
+.allTabs-box > label {
+  margin: 0;
+}

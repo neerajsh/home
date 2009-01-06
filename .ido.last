@@ -1,0 +1,50 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/" . "neeraj/")
+ ("/" . "srv/")
+ ("/home/neeraj/" . "src/")
+ ("/home/neeraj/src/" . "binarytree/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/neeraj/src/binarytree/"
+ "/home/neeraj/"
+ "/home/neeraj/elisp/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "queue.c"
+ ".emacs"
+ "binarytree.c"
+ "TAGS"
+ "modes.el"
+ "binarytree"
+ "prefs.el"
+ ".Xresources"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/neeraj/" (18786 38359) ".mozilla/" "Videos/" "Desktop/" ".xsession-errors" ".update-notifier/" ".macromedia/" ".Xauthority" ".nautilus/" "Pictures/" ".bash_logout" "src/" ".compiz/" ".profile" ".thumbnails/" ".gstreamer-0.10/" ".emacs" ".adobe/" ".recently-used.xbel" ".gksu.lock" ".icons/" "../" ".local/" ".gnome2_private/" ".gconfd/" ".gconf/" ".eshell/" ".Skype/" ".gnupg/" ".gnome2/" "Documents/" ".bash_history" "Music/" ".fontconfig/" ".ido.last" ".dmrc" "./" ".sudo_as_admin_successful" ".viminfo" ".vim/" ".purple/" ".gpilotd.pid" ".update-manager-core/" ".themes/" ".Xresources" ".config/" ".cache/" "elisp/" ".gvfs/" ".emacs.d/" ".ecb-tip-of-day.el" ".gtk-bookmarks" "Templates/" ".esd_auth" ".pulse/" ".nvidia-settings-rc" ".projects.ede" ".ICEauthority" "Examples/" ".dbus/" ".bashrc" ".vimrc" ".gpilotd/" ".pulse-cookie" "Public/")
+
+ ("/home/neeraj/src/binarytree/" (18786 37991) "binarytree.o" "TAGS" "../" "queue.c" "queue.h" "binarytree.c" "./" "queue.o" "makefile" "binarytree" "tags" "#queue.h#")
+
+ ("/home/neeraj/elisp/" (18786 31734) "#start.el#" ".shrc" "modes.el~" ".bash_profile" "modes.elc" "make.el" ".profile" "#window.el#" ".emacs" "lisp/" ".bashrc_clockwitherror" "abtags.el" "prefs.el" "../" "subdirs.el" "emacslisp_back" "semantic.cache" ".bash_history" ".ido.last" "22.el" ".viper" "./" "linux.el" ".recentf~" ".bashrc~" ".recentf" ".viminfo" ".emacs.files" "macros.txt" "#.emacs#" "svn.el" "start.el" ".inputrc" ".bash_profile~" ".bachrc_orangewithfilesizes" "emacslib/" ".emacs~" ".projects.ede" "modes.el" "window.el" ".bashrc" ".vimrc" ".viper~" "added.el" "window.elc" "byte-compile.el")
+
+ ("/home/neeraj/elisp/emacslib/" (18786 36657) "filladapt.el" "psvn.el" "php-mode.el" "cedet/" "tabbar.elc" "apache-mode.el" "haskell-mode/" "nxml-mode-20041004/" "python-mode.el" "tabbar.el" "mmm-mode-0.4.8/" "jdok.el" "pager.el" "../" "yasnippet/" "ascii.el" "apache-mode.elc" "cperl-mode.el" "gnuserv.elc" "ascii.elc" "guess-offset.elc" "setnu.el" "ecb/" "./" "hhm/" "python-mode.elc" "cperl-mode.elc" "ruby/" "setnu.elc" "color-theme.el" "visual-basic-mode.elc" "filladapt.elc" "gnuserv.el" "python-mode/" "color-theme.elc" "css-mode.elc" "jdok.elc" "css-mode.el" "pager.elc" "csharp-mode.el" "visual-basic-mode.el" "p4.el" "php-mode.elc" "htmlize.el" "psvn.elc" "p4.elc" "htmlize.elc" "csharp-mode.elc" "guess-offset.el")
+
+ ("/home/" (18783 26475) "../" "./" "neeraj/")
+
+ ("/srv/" (18696 59760) "../" "./")
+
+ ("/usr/" (18785 22509) "X11R6/" "lib64/" "share/" "bin/" "src/" "include/" "../" "lib/" "games/" "./" "local/" "lib32/" "sbin/")
+
+ ("/home/neeraj/src/" (18785 46577) "../" "./" "binarytree/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

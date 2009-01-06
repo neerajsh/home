@@ -1,0 +1,513 @@
+[2009/1/4 14:1] *********** LOG CREATED. EXT VER: 2.1.018 *************
+[2009/1/4 14:1] *********** OS: Linux i686  FX VER: 3.0.3 *************
+[2009/1/4 14:1] ssrDelicious::_Init()::=> Initial PREFDOMAIN:.delicious.com
+[2009/1/4 14:1] ssrDelicious::=> No user cookie found.
+[2009/1/4 14:1] ybookmarksUtils::getServerPref
+[2009/1/4 14:1] Request timeout period:90
+[2009/1/4 14:1] ybookmarksUtils::getServerPref::LOAD
+[2009/1/4 14:1] value is ====== :.delicious.com
+[2009/1/4 14:1] ssrDelicious::=> No user cookie found.
+[2009/1/4 14:1] Got web preference:.delicious.com
+[2009/1/4 14:1] No username found
+[2009/1/4 14:1] Inside AddHooks.
+[2009/1/4 14:1] Adding Livemark Hook.
+[2009/1/4 14:1] Adding ShortuctURI Hook.
+[2009/1/4 14:1] DEL LASTUPDATE
+[2009/1/4 14:1] ybookmarksUtils::importRDFOnUpgrade: Oops.. version number missing:[Exception... "Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIPrefBranch.getCharPref]"  nsresult: "0x8000ffff (NS_ERROR_UNEXPECTED)"  location: "JS frame :: chrome://ybookmarks/content/ybookmarksUtils.js :: anonymous :: line 1030"  data: no]
+[2009/1/4 14:1] ybookmarksUtils::importRDFOnUpgrade: import NOT required, version:2.1.000
+[2009/1/4 14:1] ybookmarksUtils::importRDFOnUpgrade: Moving fav tags to new format.
+[2009/1/4 14:1] Done loading ybookmarks
+[2009/1/4 14:1] Sidebar loaded
+[2009/1/4 14:1] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 14:1] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 14:1] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 14:1] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 14:1] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 14:1] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 14:1] Exception in ybookmarkStatusOverlay.js::urlBarListener::onLocationChange:TypeError: toolbarTagIcon is null
+[2009/1/4 14:1] Exception in ybookmarkStatusOverlay.js::urlBarListener::onLocationChange:TypeError: toolbarTagIcon is null
+[2009/1/4 14:1] Exception in ybookmarkStatusOverlay.js::urlBarListener::onLocationChange:TypeError: toolbarTagIcon is null
+[2009/1/4 14:1] Looking for incompatible extensions.
+[2009/1/4 14:1] Found 0 incompatible extensions.
+[2009/1/4 14:1] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine not installed
+[2009/1/4 14:1] ybookmarksOverlay.js::ybookmarksMain::installEngine()=> Installing Engine...
+[2009/1/4 14:1] ybookmarksOverlay.js::ybookmarksMain::firstTimeStart()=> Invoked
+[2009/1/4 14:1] ybookmarksOverlay.js::ybookmarksMain::firstTimeStart()=> Version being installed = 2.1.018
+[2009/1/4 14:1] ybookmarksOverlay.js::ybookmarksMain::firstTimeStart()=> Install Type = New Install
+[2009/1/4 14:1] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 14:1] DEL LASTUPDATE
+[2009/1/4 14:1] Delayed load done ybookmarks
+[2009/1/4 14:11] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 14:15] SyncService:=>observe>quit-application-granted : uninstall:Exception[Exception... "Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIPrefBranch.getBoolPref]"  nsresult: "0x8000ffff (NS_ERROR_UNEXPECTED)"  location: "JS frame :: file:///home/neeraj/.mozilla/firefox/nokfws0s.default/extensions/%7B2fa4ed95-0317-4c6a-a74c-5f3e3912c1f9%7D/components/nsYBookmarkSyncService.js :: anonymous :: line 406"  data: no]
+[2009/1/4 14:15] SyncService:=>observe>quit-application-granted : uninstall:Exception[Exception... "Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIPrefBranch.getBoolPref]"  nsresult: "0x8000ffff (NS_ERROR_UNEXPECTED)"  location: "JS frame :: file:///home/neeraj/.mozilla/firefox/nokfws0s.default/extensions/%7B2fa4ed95-0317-4c6a-a74c-5f3e3912c1f9%7D/components/nsYBookmarkSyncService.js :: anonymous :: line 406"  data: no]
+[2009/1/4 14:15] *********** LOG CREATED. EXT VER: 2.1.018 *************
+[2009/1/4 14:15] *********** OS: Linux i686  FX VER: 3.0.3 *************
+[2009/1/4 14:15] ssrDelicious::_Init()::=> Initial PREFDOMAIN:.delicious.com
+[2009/1/4 14:15] ssrDelicious::=> No user cookie found.
+[2009/1/4 14:15] ybookmarksUtils::getServerPref
+[2009/1/4 14:15] Request timeout period:90
+[2009/1/4 14:15] ybookmarksUtils::getServerPref::LOAD
+[2009/1/4 14:15] value is ====== :.delicious.com
+[2009/1/4 14:15] ssrDelicious::=> No user cookie found.
+[2009/1/4 14:15] Got web preference:.delicious.com
+[2009/1/4 14:15] No username found
+[2009/1/4 14:15] Inside AddHooks.
+[2009/1/4 14:15] Adding Livemark Hook.
+[2009/1/4 14:15] Adding ShortuctURI Hook.
+[2009/1/4 14:15] DEL LASTUPDATE
+[2009/1/4 14:15] ybookmarksUtils::importRDFOnUpgrade: import NOT required, version:2.1.018
+[2009/1/4 14:15] Done loading ybookmarks
+[2009/1/4 14:15] Sidebar loaded
+[2009/1/4 14:15] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 14:15] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 14:15] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 14:15] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 14:15] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 14:15] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 14:15] Looking for incompatible extensions.
+[2009/1/4 14:15] Found 0 incompatible extensions.
+[2009/1/4 14:15] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 14:15] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 14:15] DEL LASTUPDATE
+[2009/1/4 14:15] Delayed load done ybookmarks
+[2009/1/4 14:15] SyncService:=>observe>quit-application-granted : uninstall:Exception[Exception... "Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIPrefBranch.getBoolPref]"  nsresult: "0x8000ffff (NS_ERROR_UNEXPECTED)"  location: "JS frame :: file:///home/neeraj/.mozilla/firefox/nokfws0s.default/extensions/%7B2fa4ed95-0317-4c6a-a74c-5f3e3912c1f9%7D/components/nsYBookmarkSyncService.js :: anonymous :: line 406"  data: no]
+[2009/1/4 14:15] SyncService:=>observe>quit-application-granted : uninstall:Exception[Exception... "Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIPrefBranch.getBoolPref]"  nsresult: "0x8000ffff (NS_ERROR_UNEXPECTED)"  location: "JS frame :: file:///home/neeraj/.mozilla/firefox/nokfws0s.default/extensions/%7B2fa4ed95-0317-4c6a-a74c-5f3e3912c1f9%7D/components/nsYBookmarkSyncService.js :: anonymous :: line 406"  data: no]
+[2009/1/4 14:15] *********** LOG CREATED. EXT VER: 2.1.018 *************
+[2009/1/4 14:15] *********** OS: Linux i686  FX VER: 3.0.3 *************
+[2009/1/4 14:15] ssrDelicious::_Init()::=> Initial PREFDOMAIN:.delicious.com
+[2009/1/4 14:15] ssrDelicious::=> No user cookie found.
+[2009/1/4 14:15] ybookmarksUtils::getServerPref
+[2009/1/4 14:15] Request timeout period:90
+[2009/1/4 14:15] ybookmarksUtils::getServerPref::LOAD
+[2009/1/4 14:15] value is ====== :.delicious.com
+[2009/1/4 14:15] ssrDelicious::=> No user cookie found.
+[2009/1/4 14:15] Got web preference:.delicious.com
+[2009/1/4 14:15] No username found
+[2009/1/4 14:15] Inside AddHooks.
+[2009/1/4 14:15] Adding Livemark Hook.
+[2009/1/4 14:15] Adding ShortuctURI Hook.
+[2009/1/4 14:15] DEL LASTUPDATE
+[2009/1/4 14:15] ybookmarksUtils::importRDFOnUpgrade: import NOT required, version:2.1.018
+[2009/1/4 14:15] Done loading ybookmarks
+[2009/1/4 14:15] Sidebar loaded
+[2009/1/4 14:15] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 14:15] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 14:15] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 14:15] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 14:15] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 14:15] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 14:15] Looking for incompatible extensions.
+[2009/1/4 14:15] Found 0 incompatible extensions.
+[2009/1/4 14:15] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 14:15] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 14:15] DEL LASTUPDATE
+[2009/1/4 14:15] Delayed load done ybookmarks
+[2009/1/4 14:25] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 14:35] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 14:45] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 14:55] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 15:5] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 15:15] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 15:25] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 15:35] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 15:45] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 15:55] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 16:5] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 16:15] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 16:54] *********** LOG CREATED. EXT VER: 2.1.018 *************
+[2009/1/4 16:54] *********** OS: Linux i686  FX VER: 3.0.5 *************
+[2009/1/4 16:54] ssrDelicious::_Init()::=> Initial PREFDOMAIN:.delicious.com
+[2009/1/4 16:54] ssrDelicious::=> No user cookie found.
+[2009/1/4 16:54] ybookmarksUtils::getServerPref
+[2009/1/4 16:54] Request timeout period:90
+[2009/1/4 16:54] ybookmarksUtils::getServerPref::LOAD
+[2009/1/4 16:54] value is ====== :.delicious.com
+[2009/1/4 16:54] ssrDelicious::=> No user cookie found.
+[2009/1/4 16:54] Got web preference:.delicious.com
+[2009/1/4 16:54] No username found
+[2009/1/4 16:54] Inside AddHooks.
+[2009/1/4 16:54] Adding Livemark Hook.
+[2009/1/4 16:54] Adding ShortuctURI Hook.
+[2009/1/4 16:54] DEL LASTUPDATE
+[2009/1/4 16:54] ybookmarksUtils::importRDFOnUpgrade: import NOT required, version:2.1.018
+[2009/1/4 16:54] Done loading ybookmarks
+[2009/1/4 16:54] Sidebar loaded
+[2009/1/4 16:54] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 16:54] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 16:54] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 16:54] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 16:54] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 16:54] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 16:54] Looking for incompatible extensions.
+[2009/1/4 16:54] Found 0 incompatible extensions.
+[2009/1/4 16:54] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 16:54] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 16:54] DEL LASTUPDATE
+[2009/1/4 16:54] Delayed load done ybookmarks
+[2009/1/4 17:4] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 17:14] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 17:24] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 17:34] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 17:44] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 17:54] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 17:55] SyncService:=>observe>quit-application-granted : uninstall:Exception[Exception... "Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIPrefBranch.getBoolPref]"  nsresult: "0x8000ffff (NS_ERROR_UNEXPECTED)"  location: "JS frame :: file:///home/neeraj/.mozilla/firefox/nokfws0s.default/extensions/%7B2fa4ed95-0317-4c6a-a74c-5f3e3912c1f9%7D/components/nsYBookmarkSyncService.js :: anonymous :: line 406"  data: no]
+[2009/1/4 17:55] *********** LOG CREATED. EXT VER: 2.1.018 *************
+[2009/1/4 17:55] *********** OS: Linux i686  FX VER: 3.0.5 *************
+[2009/1/4 17:55] ssrDelicious::_Init()::=> Initial PREFDOMAIN:.delicious.com
+[2009/1/4 17:55] ssrDelicious::=> No user cookie found.
+[2009/1/4 17:55] ybookmarksUtils::getServerPref
+[2009/1/4 17:55] Request timeout period:90
+[2009/1/4 17:55] ybookmarksUtils::getServerPref::LOAD
+[2009/1/4 17:55] value is ====== :.delicious.com
+[2009/1/4 17:55] ssrDelicious::=> No user cookie found.
+[2009/1/4 17:55] Got web preference:.delicious.com
+[2009/1/4 17:55] No username found
+[2009/1/4 17:55] Inside AddHooks.
+[2009/1/4 17:55] Adding Livemark Hook.
+[2009/1/4 17:55] Adding ShortuctURI Hook.
+[2009/1/4 17:55] DEL LASTUPDATE
+[2009/1/4 17:55] ybookmarksUtils::importRDFOnUpgrade: import NOT required, version:2.1.018
+[2009/1/4 17:55] Done loading ybookmarks
+[2009/1/4 17:55] Sidebar loaded
+[2009/1/4 17:55] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 17:55] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 17:55] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 17:55] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 17:55] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 17:55] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 17:55] Looking for incompatible extensions.
+[2009/1/4 17:55] Found 0 incompatible extensions.
+[2009/1/4 17:55] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 17:55] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 17:55] DEL LASTUPDATE
+[2009/1/4 17:55] Delayed load done ybookmarks
+[2009/1/4 18:5] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 18:15] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 18:25] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 18:35] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 18:45] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 18:55] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 19:5] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 19:15] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 19:25] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 19:35] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 19:45] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 19:55] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 20:1] No username found
+[2009/1/4 20:1] Inside AddHooks.
+[2009/1/4 20:1] Adding Livemark Hook.
+[2009/1/4 20:1] Adding ShortuctURI Hook.
+[2009/1/4 20:1] DEL LASTUPDATE
+[2009/1/4 20:1] Done loading ybookmarks
+[2009/1/4 20:1] Sidebar loaded
+[2009/1/4 20:1] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 20:1] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 20:1] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 20:1] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 20:1] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 20:1] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 20:1] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 20:1] DEL LASTUPDATE
+[2009/1/4 20:1] Delayed load done ybookmarks
+[2009/1/4 20:5] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 20:7] No username found
+[2009/1/4 20:7] Inside AddHooks.
+[2009/1/4 20:7] Adding Livemark Hook.
+[2009/1/4 20:7] Adding ShortuctURI Hook.
+[2009/1/4 20:7] DEL LASTUPDATE
+[2009/1/4 20:7] Done loading ybookmarks
+[2009/1/4 20:7] Sidebar loaded
+[2009/1/4 20:7] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 20:7] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 20:7] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 20:7] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 20:7] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 20:7] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 20:7] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 20:7] DEL LASTUPDATE
+[2009/1/4 20:7] Delayed load done ybookmarks
+[2009/1/4 20:15] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 20:17] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 20:25] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 20:27] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 20:35] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 20:37] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 20:39] SyncService:=>observe>quit-application-granted : uninstall:Exception[Exception... "Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIPrefBranch.getBoolPref]"  nsresult: "0x8000ffff (NS_ERROR_UNEXPECTED)"  location: "JS frame :: file:///home/neeraj/.mozilla/firefox/nokfws0s.default/extensions/%7B2fa4ed95-0317-4c6a-a74c-5f3e3912c1f9%7D/components/nsYBookmarkSyncService.js :: anonymous :: line 406"  data: no]
+[2009/1/4 20:40] *********** LOG CREATED. EXT VER: 2.1.018 *************
+[2009/1/4 20:40] *********** OS: Linux i686  FX VER: 3.0.5 *************
+[2009/1/4 20:40] ssrDelicious::_Init()::=> Initial PREFDOMAIN:.delicious.com
+[2009/1/4 20:40] ssrDelicious::=> No user cookie found.
+[2009/1/4 20:40] ybookmarksUtils::getServerPref
+[2009/1/4 20:40] Request timeout period:90
+[2009/1/4 20:40] ybookmarksUtils::getServerPref::LOAD
+[2009/1/4 20:40] value is ====== :.delicious.com
+[2009/1/4 20:40] ssrDelicious::=> No user cookie found.
+[2009/1/4 20:40] Got web preference:.delicious.com
+[2009/1/4 20:40] No username found
+[2009/1/4 20:40] Inside AddHooks.
+[2009/1/4 20:40] Adding Livemark Hook.
+[2009/1/4 20:40] Adding ShortuctURI Hook.
+[2009/1/4 20:40] DEL LASTUPDATE
+[2009/1/4 20:40] ybookmarksUtils::importRDFOnUpgrade: import NOT required, version:2.1.018
+[2009/1/4 20:40] Done loading ybookmarks
+[2009/1/4 20:40] Sidebar loaded
+[2009/1/4 20:40] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 20:40] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 20:40] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 20:40] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 20:40] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 20:40] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 20:40] Looking for incompatible extensions.
+[2009/1/4 20:40] Found 0 incompatible extensions.
+[2009/1/4 20:40] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 20:40] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 20:40] DEL LASTUPDATE
+[2009/1/4 20:40] Delayed load done ybookmarks
+[2009/1/4 20:50] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 20:55] No username found
+[2009/1/4 20:55] Inside AddHooks.
+[2009/1/4 20:55] Adding Livemark Hook.
+[2009/1/4 20:55] Adding ShortuctURI Hook.
+[2009/1/4 20:55] DEL LASTUPDATE
+[2009/1/4 20:55] Done loading ybookmarks
+[2009/1/4 20:55] Sidebar loaded
+[2009/1/4 20:55] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 20:55] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 20:55] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 20:55] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 20:55] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 20:55] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 20:56] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 20:56] DEL LASTUPDATE
+[2009/1/4 20:56] Delayed load done ybookmarks
+[2009/1/4 21:0] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 21:5] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 21:10] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 21:15] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 21:20] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 21:25] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 21:30] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 21:35] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 21:40] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 21:45] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 21:50] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 22:26] *********** LOG CREATED. EXT VER: 2.1.018 *************
+[2009/1/4 22:26] *********** OS: Linux i686  FX VER: 3.0.5 *************
+[2009/1/4 22:26] ssrDelicious::_Init()::=> Initial PREFDOMAIN:.delicious.com
+[2009/1/4 22:26] ssrDelicious::=> No user cookie found.
+[2009/1/4 22:26] ybookmarksUtils::getServerPref
+[2009/1/4 22:26] Request timeout period:90
+[2009/1/4 22:26] ybookmarksUtils::getServerPref::LOAD
+[2009/1/4 22:26] value is ====== :.delicious.com
+[2009/1/4 22:26] ssrDelicious::=> No user cookie found.
+[2009/1/4 22:26] Got web preference:.delicious.com
+[2009/1/4 22:26] No username found
+[2009/1/4 22:26] Inside AddHooks.
+[2009/1/4 22:26] Adding Livemark Hook.
+[2009/1/4 22:26] Adding ShortuctURI Hook.
+[2009/1/4 22:26] DEL LASTUPDATE
+[2009/1/4 22:26] ybookmarksUtils::importRDFOnUpgrade: import NOT required, version:2.1.018
+[2009/1/4 22:26] Done loading ybookmarks
+[2009/1/4 22:26] Sidebar loaded
+[2009/1/4 22:26] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 22:26] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 22:26] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 22:26] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 22:26] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 22:26] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 22:26] Looking for incompatible extensions.
+[2009/1/4 22:26] Found 0 incompatible extensions.
+[2009/1/4 22:26] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 22:26] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 22:26] DEL LASTUPDATE
+[2009/1/4 22:26] Delayed load done ybookmarks
+[2009/1/4 22:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 22:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 22:46] SyncService:=>observe>quit-application-granted : uninstall:Exception[Exception... "Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIPrefBranch.getBoolPref]"  nsresult: "0x8000ffff (NS_ERROR_UNEXPECTED)"  location: "JS frame :: file:///home/neeraj/.mozilla/firefox/nokfws0s.default/extensions/%7B2fa4ed95-0317-4c6a-a74c-5f3e3912c1f9%7D/components/nsYBookmarkSyncService.js :: anonymous :: line 406"  data: no]
+[2009/1/4 22:46] *********** LOG CREATED. EXT VER: 2.1.018 *************
+[2009/1/4 22:46] *********** OS: Linux i686  FX VER: 3.0.5 *************
+[2009/1/4 22:46] ssrDelicious::_Init()::=> Initial PREFDOMAIN:.delicious.com
+[2009/1/4 22:46] ssrDelicious::=> No user cookie found.
+[2009/1/4 22:46] ybookmarksUtils::getServerPref
+[2009/1/4 22:46] Request timeout period:90
+[2009/1/4 22:46] ybookmarksUtils::getServerPref::LOAD
+[2009/1/4 22:46] value is ====== :.delicious.com
+[2009/1/4 22:46] ssrDelicious::=> No user cookie found.
+[2009/1/4 22:46] Got web preference:.delicious.com
+[2009/1/4 22:46] No username found
+[2009/1/4 22:46] Inside AddHooks.
+[2009/1/4 22:46] Adding Livemark Hook.
+[2009/1/4 22:46] Adding ShortuctURI Hook.
+[2009/1/4 22:46] DEL LASTUPDATE
+[2009/1/4 22:46] ybookmarksUtils::importRDFOnUpgrade: import NOT required, version:2.1.018
+[2009/1/4 22:46] Done loading ybookmarks
+[2009/1/4 22:46] Sidebar loaded
+[2009/1/4 22:46] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/4 22:46] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/4 22:46] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/4 22:46] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/4 22:46] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/4 22:46] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/4 22:46] Looking for incompatible extensions.
+[2009/1/4 22:46] Found 0 incompatible extensions.
+[2009/1/4 22:46] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 22:46] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/4 22:46] DEL LASTUPDATE
+[2009/1/4 22:46] Delayed load done ybookmarks
+[2009/1/4 22:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 23:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 23:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 23:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 23:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 23:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/4 23:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 0:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 0:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 0:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 0:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 0:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 0:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 1:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 1:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 1:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 1:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 1:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 1:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 2:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 2:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 2:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 2:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 2:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 2:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 3:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 3:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 3:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 3:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 3:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 3:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 4:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 4:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 4:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 4:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 4:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 4:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 5:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 5:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 5:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 5:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 5:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 5:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 6:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 6:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 6:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 6:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 6:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 6:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 7:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 7:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 7:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 7:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 7:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 7:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 8:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 8:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 8:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 8:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 8:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 8:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 9:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 9:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 9:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 9:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 9:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 9:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 10:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 10:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 10:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 10:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 10:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 10:56] No username found
+[2009/1/5 10:56] Inside AddHooks.
+[2009/1/5 10:56] Adding Livemark Hook.
+[2009/1/5 10:56] Adding ShortuctURI Hook.
+[2009/1/5 10:56] DEL LASTUPDATE
+[2009/1/5 10:56] Done loading ybookmarks
+[2009/1/5 10:56] Sidebar loaded
+[2009/1/5 10:56] ybookmarkStatusOverlay.js::loadStatusBar()=>Invoked 
+[2009/1/5 10:56] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.init()=>Initialized 
+[2009/1/5 10:56] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.getUpdatedPrefs()=>Updated Pref Fetched 
+[2009/1/5 10:56] ybookmarkStatusOverlay.js::loadStatusBar()::statusBar.loadIcons()=>Icons Loaded 
+[2009/1/5 10:56] ybookmarksStatusOverlay.js::setAlertTimer
+[2009/1/5 10:56] ybookmarksStatusOverlay.js:handleAlert:Timer set to 600 secs
+[2009/1/5 10:56] ybookmarksOverlay.js::ybookmarksMain::isEngineInstalled()=>Engine installed
+[2009/1/5 10:56] DEL LASTUPDATE
+[2009/1/5 10:56] Delayed load done ybookmarks
+[2009/1/5 10:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 11:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 12:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 13:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 14:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:46] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 15:56] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 16:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 16:6] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 16:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 16:16] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 16:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 16:26] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 16:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.
+[2009/1/5 16:36] ybookmarksStatusOverlay.js:notify=> Alert Timer notified.

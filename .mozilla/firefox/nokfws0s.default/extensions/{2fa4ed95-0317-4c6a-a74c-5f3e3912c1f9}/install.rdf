@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$ZUQlk2"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="2.0"
+                   em:maxVersion="3.1b2pre" />
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="{2fa4ed95-0317-4c6a-a74c-5f3e3912c1f9}"
+                   em:name="Delicious Bookmarks"
+                   em:version="2.1.018"
+                   em:creator="Yahoo!"
+                   em:iconURL="chrome://ybookmarks/skin/deliciousIconBig.gif"
+                   em:description="Access your bookmarks wherever you go and keep them organized no matter how many you have."
+                   em:homepageURL="http://delicious.com"
+                   em:optionsURL="chrome://ybookmarks/content/options.xul">
+    <em:targetApplication RDF:resource="rdf:#$ZUQlk2"/>
+  </RDF:Description>
+</RDF:RDF>

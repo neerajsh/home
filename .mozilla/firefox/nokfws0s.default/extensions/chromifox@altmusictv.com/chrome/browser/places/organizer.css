@@ -1,0 +1,296 @@
+
+#placesToolbox {
+-moz-appearance: none;
+border-bottom: 1px solid #b2b2b2;
+}
+
+/* Toolbar */
+#placesToolbar {
+  border: none;
+  min-height: 36px;
+}
+
+/* back & forward buttons */
+
+/* unified back button with keyhole icons */
+
+#back-button {
+  -moz-appearance: none;
+  padding: 0;
+  border: none;
+  margin: 2px 0 2px 6px !important;
+}
+
+#back-button *, #forward-button * {
+padding: 0 !important;
+margin: 0 !important;
+}
+
+#back-button .toolbarbutton-menubutton-dropmarker, 
+#forward-button .toolbarbutton-menubutton-dropmarker {
+  display: none !important;
+}
+
+#back-button {
+  list-style-image: url("chrome://communicator/skin/1.png") !important;
+  -moz-image-region: rect(0px 29px 0px 29px) !important;
+}
+#back-button:not([disabled="true"]):hover {
+  list-style-image: url("chrome://communicator/skin/3.png") !important;
+  -moz-image-region: rect(0px 29px 0px 29px) !important;
+}
+#back-button[disabled="true"] {
+  list-style-image: url("chrome://communicator/skin/2.png") !important;
+  -moz-image-region: rect(0px 29px 0px 29px) !important;
+}
+#back-button:not([disabled="true"]):hover:active {
+  list-style-image: url("chrome://communicator/skin/4.png") !important;
+  -moz-image-region: rect(0px 29px 0px 29px) !important;
+}
+
+/* unified forward button with keyhole icons */
+
+#forward-button {
+  -moz-appearance: none;
+  padding: 0;
+  border: none;
+  margin: 2px 6px 2px 0 !important;
+}
+
+#forward-button {
+  list-style-image: url("chrome://communicator/skin/20.png") !important;
+  -moz-image-region: rect(0px 29px 0px 29px) !important;
+}
+#forward-button:not([disabled="true"]):hover {
+  list-style-image: url("chrome://communicator/skin/22.png") !important;
+  -moz-image-region: rect(0px 29px 0px 29px) !important;
+}
+#forward-button[disabled="true"] {
+  list-style-image: url("chrome://communicator/skin/21.png") !important;
+  -moz-image-region: rect(0px 29px 0px 29px) !important;
+}
+#forward-button:not([disabled="true"]):hover:active {
+  list-style-image: url("chrome://communicator/skin/23.png") !important;
+  -moz-image-region: rect(0px 29px 0px 29px) !important;
+}
+
+/* dropmarker for unified back and forward buttons with keyhole icons */
+
+#back-forward-dropmarker {
+  display: none;
+}
+
+#placesToolbar > toolbarbutton > image,
+#placesToolbar > toolbarbutton > label {
+  margin: 0;
+  padding: 0;
+}
+
+/* Menu */
+#placesMenu {
+  -moz-appearance: none;
+  border: none;
+  background: none !important;
+}
+
+#placesMenu > menu {
+  -moz-padding-start: 4px;
+  -moz-padding-end: 1px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  -moz-appearance: none;
+  color: #000;
+  border: 1px solid transparent;
+}
+
+#placesMenu > menu:hover {
+  -moz-appearance: none !important;
+  border: 1px solid #cfd6de !important;
+  background: #f2f6fb !important;
+  -moz-border-radius: 4px !important;
+}
+
+#placesMenu > menu[open="true"] {
+  -moz-appearance: none !important;
+  border: 1px solid #cfd6de !important;
+  background: #f2f6fb !important;
+  -moz-border-radius: 4px !important;
+}
+
+#placesMenu > menu > label {
+  -moz-padding-end: 8px;
+  background: url(chrome://global/skin/arrow/arrow-dn.gif) right center no-repeat;
+}
+
+#placesMenu[chromedir="rtl"] > menu > label {
+  background-position: left center;
+}
+
+/* organize button */
+#organizeButton {
+  list-style-image: url("chrome://browser/skin/places/organize.png");
+}
+
+/* view button */
+#viewMenu {
+  list-style-image: url("chrome://browser/skin/places/view.png");
+}
+
+/* maintenance button */
+#maintenanceButton {
+  list-style-image: url("chrome://browser/skin/places/importAndBackup.png");
+}
+
+/* Root View */
+#placesView {
+  border-top: 1px solid ThreeDDarkShadow;
+}
+
+/* Place List, Place Content */
+.placesTree {
+  margin: 0px;
+}
+
+#placesList {
+  -moz-appearance: none;
+  margin: 0px;
+  border: none;
+  padding: 0;
+}
+
+#placeContent {
+  -moz-appearance: none;
+  border: 0px;
+}
+
+/* Search Bar */
+#searchbar {
+  margin: 6px -4px 0px 2px;
+}
+
+#infoPaneBox {
+  border-top: 1px solid ThreeDShadow;
+  padding: 5px;
+}
+
+.textbox-input-closebutton {
+  -moz-appearance: none;
+  margin: 0px 2px 0px 1px;
+  min-width: 0;
+  background-color: transparent;
+  border: none;
+  padding: 0 !important;
+  list-style-image: url("chrome://global/skin/icons/closeSidebar.png");
+  -moz-image-region: rect(0px 14px 14px 0px);
+  width: 14px;
+  height: 14px;
+  cursor: default;
+}
+
+.textbox-input-closebutton > .button-box {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.textbox-input-closebutton:hover {
+  -moz-image-region: rect(0px 28px 14px 14px);
+}
+
+.textbox-input-closebutton:hover:active {
+  -moz-image-region: rect(0px 42px 14px 28px);
+}
+
+.small, .small[disabled="true"] {
+  font-size: x-small;
+  min-width: 0px;
+  padding: 0px 4px 0px 4px;
+  margin: 0px;  
+  border: 0px;
+}
+
+.small .button-text,
+.small .button-box {
+  padding: 0px;
+  border: 0px;
+}
+
+#searchFilter {
+  padding: 0px;
+}
+
+#searchFilter .textbox-input-box {
+  padding: 2px 2px 3px 4px;
+}
+
+
+#organizerScopeBar {
+  -moz-appearance: none;
+  padding: 2px 0;
+  -moz-padding-end: 3px;
+}
+
+#organizerScopeBar > toolbarbutton {
+  -moz-appearance: none;
+  border: 1px solid transparent;
+  -moz-border-radius: 2px;
+  padding: 0 !important;
+  margin: 0 1px;
+}
+
+#organizerScopeBar > toolbarbutton > label,
+#organizerScopeBar > toolbarbutton > image {
+  padding: 0;
+  margin: 0;
+}
+
+#organizerScopeBar .toolbarbutton-text {
+   margin: 0;
+   padding: 2px 5px;
+}
+
+#organizerScopeBar > toolbarbutton:not([disabled="true"]):not([checked="true"]):hover {
+  border-color: ThreeDShadow;
+}
+
+#organizerScopeBar > toolbarbutton[checked="true"] {
+  border-color: ThreeDDarkShadow !important;
+}
+
+
+
+
+
+
+
+
+#placesToolbar > toolbarbutton.tabbable {
+  -moz-padding-start: 4px;
+  -moz-padding-end: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  -moz-appearance: none;
+  color: #000;
+  border: 1px solid transparent;
+}
+#placesToolbar > toolbarbutton.tabbable:focus {
+  border: 1px solid transparent !important;
+}
+
+#placesToolbar > toolbarbutton.tabbable:hover {
+  -moz-appearance: none !important;
+  border: 1px solid #cfd6de !important;
+  background: #f2f6fb !important;
+  -moz-border-radius: 4px !important;
+}
+
+#placesToolbar > toolbarbutton.tabbable[open="true"] {
+  -moz-appearance: none !important;
+  border: 1px solid #cfd6de !important;
+  background: #f2f6fb !important;
+  -moz-border-radius: 4px !important;
+}
+
+#placesToolbar > toolbarbutton.tabbable > label {
+  padding: 0 6px 0 8px;
+}

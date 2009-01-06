@@ -1,0 +1,121 @@
+#include "nsISupports.idl"
+
+interface nsIDOMElement;
+interface nsIDOMEvent;
+interface nsIDOMEventTarget;
+interface nsIVariant;
+
+interface xdIGestureHandler;
+interface xdIGestureObserver;
+interface xdIGestureMappings;
+interface xdIGestureCommand;
+
+
+[scriptable, uuid(ca559550-8ab4-41c5-a72f-fd931322cc7e)]
+interface xdIGestureHandler : nsISupports
+{
+
+	/**
+	 * Get DOM element at the starting point of current mouse gesture.
+	 */
+	readonly attribute nsIDOMEventTarget sourceNode;
+
+	/**
+	 * This method starts to handle mouse gestures at |nsIDOMEventTarget|
+	 * and register |xdIGestureObserver| as a observer,
+	 * which responds to mouse gestures.
+	 */
+	void attach(in nsIDOMElement aDrawArea, in xdIGestureObserver aGestureObserver);
+
+	/**
+	 * This method stops to handle mouse gestures.
+	 */
+	void detach();
+
+	/**
+	 * This method opens a popup at pointer and aborts the current mouse gesture.
+	 */
+	void openPopupAtPointer(in nsIDOMElement aPopup, in ACString aType);
+
+};
+
+
+[scriptable, uuid(c0db6b26-01d2-4060-91ff-b54af54bdd92)]
+interface xdIGestureObserver : nsISupports
+{
+
+	/**
+	 * Called when the direction is changed in progress of mouse gesture.
+	 */
+	void onDirectionChanged(in nsIDOMEvent event, in ACString aDirectionChain);
+
+	/**
+	 * Called when user perform mouse gesture.
+	 */
+	void onMouseGesture(in nsIDOMEvent event, in ACString aDirectionChain);
+
+	/**
+	 * Called when user perform some extra gestures.
+	 */
+	void onExtraGesture(in nsIDOMEvent event, in ACString aGestureType);
+
+};
+
+
+[scriptable, uuid(d7018e80-d6da-4cbc-b77f-8dca4d95bbbf)]
+interface xdIGestureMappings : nsISupports
+{
+
+	/**
+	 * Types of commands.
+	 */
+	const unsigned short TYPE_CATEGORY = 0;
+	const unsigned short TYPE_NORMAL   = 1;
+	const unsigned short TYPE_SCRIPT   = 2;
+
+	/**
+	 * Returns xdIGestureCommand object for given direction.
+	 * Returns undefined if there are no definition for the given direction.
+	 */
+	xdIGestureCommand getCommandForDirection(in ACString aDirection);
+
+	/**
+	 * Returns 2D array of all mappings.
+	 */
+	nsIVariant getMappingsArray();
+
+	/**
+	 * Flush user mappings to local disk.
+	 */
+	void saveUserMappings(in nsIVariant aItems);
+
+};
+
+
+[scriptable, uuid(2a8d26ee-6b43-4e73-9352-7632c128b006)]
+interface xdIGestureCommand : nsISupports
+{
+
+	/**
+	 * Represents the type of the command.
+	 */
+	readonly attribute PRUint8 type;
+
+	/**
+	 * Represents the localized name of the command.
+	 */
+	readonly attribute AString name;
+
+	/**
+	 * Represents the value of the command.
+	 */
+	readonly attribute AString value;
+
+	/**
+	 * Represents the direction of the command.
+	 */
+	readonly attribute ACString direction;
+
+};
+
+

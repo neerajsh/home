@@ -1,0 +1,47 @@
+@import url(chrome://global/skin/);
+
+#browse, #clear {
+  min-width: 0px;
+  margin: 0px;
+}
+
+colorpicker {
+  width: 26px;
+}
+
+textbox.color {
+  width: 70px;
+}
+
+textbox[type="number"] {
+  width: 40px;
+}
+
+#thumbnail, #hover {
+  display: none;
+}
+
+button[type="menu"] {
+  height: 22px;
+  margin: 1px;
+}
+
+#restartIsNeeded {
+  visibility: hidden;
+}
+
+radio[pane="general"] {
+  list-style-image: url("chrome://fastdial/skin/preferences/general.png");
+}
+
+radio[pane="appearance"] {
+  list-style-image: url("chrome://fastdial/skin/preferences/appearance.png");
+}
+
+radio[pane="help"] {
+  list-style-image: url("chrome://fastdial/skin/preferences/help.png");
+}
+
+menulist {
+  height: 20px;
+}

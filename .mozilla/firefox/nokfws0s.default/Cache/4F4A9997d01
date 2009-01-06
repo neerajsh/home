@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>EmacsWiki: CSharp Mode</title><link rel="alternate" type="application/wiki" title="Edit this page" href="http://www.emacswiki.org/emacs?action=edit;id=CSharpMode" /><link type="text/css" rel="stylesheet" href="/emacs/wiki.css" /><meta name="robots" content="INDEX,FOLLOW" /><link rel="alternate" type="application/rss+xml" title="EmacsWiki" href="http://www.emacswiki.org/emacs?action=rss" /><link rel="alternate" type="application/rss+xml" title="EmacsWiki: CSharpMode" href="http://www.emacswiki.org/emacs?action=rss;rcidonly=CSharpMode" />
+<link rel="alternate" type="application/rss+xml"
+      title="Emacs Wiki with page content"
+      href="http://www.emacswiki.org/emacs/full.rss" />
+<link rel="alternate" type="application/rss+xml"
+      title="Emacs Wiki with page content and diff"
+      href="http://www.emacswiki.org/emacs/full-diff.rss" />
+<link rel="alternate" type="application/rss+xml"
+      title="Emacs Wiki including minor differences"
+      href="http://www.emacswiki.org/emacs/minor-edits.rss" />
+<link rel="alternate" type="application/rss+xml"
+      title="Changes for CSharpMode only"
+      href="http://www.emacswiki.org/emacs?action=rss;rcidonly=CSharpMode" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/></head><body class="http://www.emacswiki.org/emacs"><div class="header"><a class="logo" href="http://www.emacswiki.org/emacs/SiteMap"><img class="logo" src="/emacs_logo.png" alt="[Home]" /></a><span class="gotobar bar"><a class="local" href="http://www.emacswiki.org/emacs/SiteMap">SiteMap</a> <a class="local" href="http://www.emacswiki.org/emacs/Search">Search</a> <a class="local" href="http://www.emacswiki.org/emacs/ElispArea">ElispArea</a> <a class="local" href="http://www.emacswiki.org/emacs/HowTo">HowTo</a> <a class="local" href="http://www.emacswiki.org/emacs/RecentChanges">RecentChanges</a> <a class="local" href="http://www.emacswiki.org/emacs/News">News</a> <a class="local" href="http://www.emacswiki.org/emacs/Problems">Problems</a> <a class="local" href="http://www.emacswiki.org/emacs/Suggestions">Suggestions</a> </span>
+<!-- Google CSE Search Box Begins  -->
+<form class="tiny" action="http://www.google.com/cse" id="searchbox_004774160799092323420:6-ff2s0o6yi"><p>
+<input type="hidden" name="cx" value="004774160799092323420:6-ff2s0o6yi" />
+<input type="text" name="q" size="25" />
+<input type="submit" name="sa" value="Search" />
+</p></form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=searchbox_004774160799092323420%3A6-ff2s0o6yi"></script>
+<!-- Google CSE Search Box Ends -->
+<h1><a href="http://www.google.com/cse?cx=004774160799092323420:6-ff2s0o6yi&q=CSharpMode">CSharpMode</a></h1></div><div class="wrapper"><div class="content browse"><div class="toc"><h2>Contents</h2><ol><li><a href="#toc1">CSharpMode (CSharp, C#)</a></li><li><a href="#toc2">Modes available</a></li><li><a href="#toc3">Complementary Stuff / Minor Modes</a></li><li><a href="#toc4">Comments/Remarks</a><ol><li><a href="#toc5">http://davh.dk/script/</a><ol><li><a href="#toc6">Easy to install, works fine on Windows</a></li></ol></li><li><a href="#toc7">http://mfgames.com/linux/csharp-mode, DylanMoonfire</a><ol><li><a href="#toc8">Trouble on Xemacs</a></li><li><a href="#toc9">Only one working on Emacs 22?</a></li><li><a href="#toc10">Working with Emacs 21.3.1 but small problem</a></li><li><a href="#toc11">Does not work with Emacs 22.0.50.1?</a></li><li><a href="#toc12">Working with EmacsW32, Emacs 22.0.50.1 but small problems</a></li><li><a href="#toc13">Working with NTEmacs 21.3 + folding tip</a></li><li><a href="#toc14">Problem with TAB</a></li><li><a href="#toc15">Documentation comment help</a></li></ol></li></ol></li></ol></div><h2 id="toc1">CSharpMode (CSharp, C#)</h2><h2 id="toc2">Modes available</h2><dl><dt><a class="url http" href="http://www.cybercom.net/~zbrad/DotNet/Emacs/">http://www.cybercom.net/~zbrad/DotNet/Emacs/</a> </dt><dd>This is the original. It originally involved changes to a set of elisp files. Some say it doesn&#x2019;t handle @&#x201d;\&#x201d; correctly. * please send me a more detailed description of the problem reported here? Thanks <a class="url mailto" href="mailto:zbrad@cybercom.net">mailto:zbrad@cybercom.net</a></dd><dt><a class="url http" href="http://davh.dk/script/">http://davh.dk/script/</a> </dt><dd>Is a mod of the above (doesn&#x2019;t solve the @&#x201d;\&#x201d; problem either), collects all the changes into a single file. <a class="url http number" href="http://lists.ximian.com/pipermail/mono-list/2002-May/006182.html"><span><span class="bracket">[</span>1<span class="bracket">]</span></span></a></dd><dt><a class="url http" href="http://csde.sourceforge.net/">http://csde.sourceforge.net/</a> </dt><dd>Based on <a class="local" href="http://www.emacswiki.org/emacs/JavaDevelopmentEnvironment">JavaDevelopmentEnvironment</a>. Appears to be abandonware.</dd><dt><a class="url http" href="http://mfgames.com/linux/csharp-mode">http://mfgames.com/linux/csharp-mode</a> </dt><dd>Recent work (Dec 2005) by <a class="local" href="http://www.emacswiki.org/emacs/DylanMoonfire">DylanMoonfire</a> on a derived cc-mode. See these threads on sourceforge <a class="url http number" href="http://sourceforge.net/mailarchive/forum.php?thread_id=6676996&amp;forum_id=6827"><span><span class="bracket">[</span>2<span class="bracket">]</span></span></a>, <a class="url http number" href="http://sourceforge.net/mailarchive/forum.php?thread_id=6596410&amp;forum_id=6827"><span><span class="bracket">[</span>3<span class="bracket">]</span></span></a> for more info. The current version (September 5, 2007) is <a class="url http outside" href="http://mfgames.com/linux/csharp-mode">0.7.0</a>. <a class="url http outside" href="http://cinki.mfgames.com/buglist.cgi?bug_status=__all__&amp;product=csharp-mode">Bug Tracking</a></dd><dt><a class="url http" href="http://www.devhood.com/tools/tool_details.aspx?tool_id=643">http://www.devhood.com/tools/tool_details.aspx?tool_id=643</a> </dt><dd></dd><dt><a class="url http" href="http://www.loveshack.ukfsn.org/emacs/index.html#cc-php-js">http://www.loveshack.ukfsn.org/emacs/index.html#cc-php-js</a> </dt><dd>A modified CC mode from Emacs 22, with .elcs for Emacs 21. Done by someone who doesn&#x2019;t use C#, but reported deficiencies will probably get fixed.</dd></dl><h2 id="toc3">Complementary Stuff / Minor Modes</h2><p>yasnippet.el - dynamically expand snippets, like dabbrev on steroids. See this writeup for how to use yasnippet with C#.<a class="url http number" href="http://blogs.msdn.com/dotnetinterop/archive/2008/04/15/c-snippets-for-yasnippet-el-emacs-snippets.aspx"><span><span class="bracket">[</span>4<span class="bracket">]</span></span></a></p><p>hideshow.el - hide and show regions of code. How to use with C# <a class="url http number" href="http://blogs.msdn.com/dotnetinterop/archive/2008/04/14/making-hideshow-el-work-with-csharp-mode-el-and-region-endregion.aspx"><span><span class="bracket">[</span>5<span class="bracket">]</span></span></a></p><p><a class="url http" href="http://flymake.sourceforge.net/">http://flymake.sourceforge.net/</a> - check syntax more-or-less continually, and use overlays to highlight syntax problems in the code. How to use with C#: <a class="url http number" href="http://blogs.msdn.com/dotnetinterop/archive/2008/04/14/getting-flymake-el-to-work-with-c-modules.aspx"><span><span class="bracket">[</span>6<span class="bracket">]</span></span></a></p><p>vj-complete - C# Code Completion <a class="url http number" href="http://ozymandias.dk/emacs/emacs.html#vj-complete"><span><span class="bracket">[</span>7<span class="bracket">]</span></span></a></p><h2 id="toc4">Comments/Remarks</h2><h3 id="toc5">http://davh.dk/script/</h3><h4 id="toc6">Easy to install, works fine on Windows</h4><p>I have used the one-file csharpmode from davh.dk, and it worked pretty darn well for me with C# 2.0 and GNU emacs 21.3, running on Windows XP and on Windows Vista. Installation was a breeze - just copy one elisp file. Everything seems to work pretty nicely: indenting, highlighting, etc. I used it every day.</p><p>I currently use Dylan Moonfire&#x2019;s version, on GNU emacs 22.2. Again, on Windows (Vista). Every day. It also works very well.</p><p>--DinoChiesa<a class="edit" title="Click to edit this page" rel="nofollow" href="http://www.emacswiki.org/emacs?action=edit;id=DinoChiesa">?</a></p><h3 id="toc7">http://mfgames.com/linux/csharp-mode, DylanMoonfire</h3><h4 id="toc8">Trouble on Xemacs</h4><p>Ihad quite a bit of trouble getting Dylan Moonfire&#x2019;s C# mode to work under Xemacs. The following lines helped, especially with the file available from <a class="url http" href="http://davh.dk/script/">http://davh.dk/script/</a></p><pre>    ;;; Helpers for building regexps.
+    (defmacro c-paren-re (re)
+     `(concat "\\(" ,re "\\)"))
+    (defmacro c-identifier-re (re)
+     `(concat "\\[^_]"))</pre><p>--<a class="local" href="http://www.emacswiki.org/emacs/JoeHealy">JoeHealy</a></p><hr /><h4 id="toc9">Only one working on Emacs 22?</h4><p>Only Dylan Moonfire&#x2019;s mode seems to work with emacs CVS.</p><hr /><h4 id="toc10">Working with Emacs 21.3.1 but small problem</h4><p>I&#x2019;ve got Dylan Moonfire&#x2019;s C# mode working with Emacs 21.3.1 using cc-mode 5.30.9. However there was a slight problem. In my .emacs file, I had to have the line: </p><pre class="real">(require 'cc-mode)
+</pre><p>appear before:</p><pre class="real">(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+(require 'csharp-mode)
+</pre><p>Otherwise, emacs would report the error: </p><pre class="real">error: "`c-lang-defconst' must be used in a file"
+</pre><p>--DarrenSmith<a class="edit" title="Click to edit this page" rel="nofollow" href="http://www.emacswiki.org/emacs?action=edit;id=DarrenSmith">?</a></p><hr /><h4 id="toc11">Does not work with Emacs 22.0.50.1?</h4><p>I&#x2019;m not able to use Dylan Moonfire&#x2019;s C# mode working with Emacs 22.0.50.1 and cc-mode 5.31</p><p>I get</p><pre class="real">Eval error in the `c-lang-defconst' for `c-expr-kwds' in csharp-mode:
+Eval error in the `c-lang-defconst' for `c-keywords' in csharp-mode:
+Eval error in the `c-lang-defconst' for `c-regular-keywords-regexp' in csharp-mode:
+Eval error in the `c-lang-defconst' for `c-basic-matchers-before' in csharp-mode:
+Eval error in the `c-lang-defconst' for `c-matchers-2' in csharp-mode:
+File mode specification error: (void-function c-filter-ops)
+</pre><p>Any hint?</p><div class="color one level0"><p> Yes, you may want to try removing any byte-compiled cc-mode files (.elc) that are in your emacs main tree (under /lisp/progmodes/cc-*.elc) . That worked for me when I had similar errors (on GNU Emacs 22.0.50.1 winXP)</p></div><div class="color two level0"><p> Grab cc-mode from cvs. They have this issues fixed for cvs emacs.</p><p>--AZ</p></div><hr /><h4 id="toc12">Working with EmacsW32, Emacs 22.0.50.1 but small problems</h4><p>I just started using Moonfire&#x2019;s mode with <a class="local" href="http://www.emacswiki.org/emacs/EmacsW32">EmacsW32</a>, Emacs version 22.0.50.1. So far so good, with a few minor glitches. Here&#x2019;s the code I use to set it up in my init:</p><pre class="real">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; C# support
+
+(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+(setq auto-mode-alist (cons '("\\.cs$" . csharp-mode) auto-mode-alist))
+
+;; NOTE: The version of cc-langs.el that came with my Emacs
+;; installation has the function c-filter-op defined only at compile
+;; time, but it's needed by csharp-mode at run-time. I hacked
+;; cc-langs.el and recompiled it to fix this.
+
+;; Patterns for finding Microsoft C# compiler error messages:
+(require 'compile)
+(push '("^\\(.*\\)(\\([0-9]+\\),\\([0-9]+\\)): error" 1 2 3 2) compilation-error-regexp-alist)
+(push '("^\\(.*\\)(\\([0-9]+\\),\\([0-9]+\\)): warning" 1 2 3 1) compilation-error-regexp-alist)
+
+;; Patterns for defining blocks to hide/show:
+(push '(csharp-mode
+	"\\(^\\s *#\\s *region\\b\\)\\|{"
+	"\\(^\\s *#\\s *endregion\\b\\)\\|}"
+	"/[*/]"
+	nil
+	hs-c-like-adjust-block-beginning)
+      hs-special-modes-alist)
+</pre><p>Thanks for all the helpful comments on this page and elsewhere!</p><p>&#x2013; <a class="local" href="http://www.emacswiki.org/emacs/DanMuller">DanMuller</a></p><div class="color one level0"><p> If you tell me the minor gliches, I&#x2019;ll put them in my bug-tracking for csharp-mode (<a class="url http number" href="http://cinki.mfgames.com/"><span><span class="bracket">[</span>8<span class="bracket">]</span></span></a>) and see about get them fixed as soon as possible. Thanks for pointing out how to do the Hide/Show stuff, I haven&#x2019;t figured it quite out, but I&#x2019;ll see if I can add most of that automatically into the mode. Or at least as much as possible.</p><p>&#x2013; <a class="local" href="http://www.emacswiki.org/emacs/DylanMoonfire">DylanMoonfire</a></p></div><hr /><h4 id="toc13">Working with NTEmacs 21.3 + folding tip</h4><p>I&#x2019;m using Moonfire&#x2019;s mode with NTEmacs version 21.3 and things are working well. I use the following hide-show setup for folding brace-blocks (just like c/c++ mode)</p><pre class="real">(unless (assoc 'csharp-mode hs-special-modes-alist)
+          (push '(csharp-mode
+                  "{" "}"
+                  "/[*/]"
+                  nil
+                  hs-c-like-adjust-block-beginning)
+                hs-special-modes-alist))
+</pre><p>I also wrote a lineup function for multiline strings: </p><pre class="real">string foo = @"My very long string " +
+              "that spans multiple lines.";
+</pre><p>Here it is: </p><pre class="real">(defun csharp-lineup-string-cont (langelem)
+  "Like `c-lineup-string-cont' but works with csharp string continuations."
+  (save-excursion
+    (back-to-indentation)
+    (and (looking-at "@?\\s\"")
+         (let ((quote (if (equal (char-after) ?@)
+                          (char-after (1+ (point)))
+                        (char-after)))
+               pos)
+           (while (and (progn (c-backward-syntactic-ws)
+                              (when (eq (char-before) ?+)
+                                (backward-char)
+                                (c-backward-syntactic-ws))
+                              (eq (char-before) quote))
+                       (c-safe (c-backward-sexp) t)
+                       ;; uncomment this to lineup under the @
+                       ;;(progn (if (eq (char-before) ?@) (backward-char)) t)
+                       (/= (setq pos (point)) (c-point 'boi))))
+           (when pos
+             (goto-char pos)
+             (vector (current-column)))))))
+</pre><p>Use for the statement-cont option in c-offsets-alist. I use it like so:</p><pre>  (statement-cont . (my-lineup-csharp-string-cont +))</pre><p>&#x2013; DaveS<a class="edit" title="Click to edit this page" rel="nofollow" href="http://www.emacswiki.org/emacs?action=edit;id=DaveS">?</a></p><hr /><h4 id="toc14">Problem with TAB</h4><p>I&#x2019;m using Dylan&#x2019;s csharp-mode. It works well, but after it gets loaded (by visiting a csharp file) and switching back to an elisp file (like my config file) I get an error when indenting a line in the elisp file using TAB and it doesn&#x2019;t indent:</p><pre class="real">Wrong type argument: stringp, nil
+</pre><p>Anyway to fix this?</p><p>&#x2013; Mark A. Nicolosi</p><div class="color one level0"><p>I use this patch with csharp-mode:</p><pre class="real">Index: site-lisp/csharp-mode.el
+===================================================================
+--- site-lisp.orig/csharp-mode.el
++++ site-lisp/csharp-mode.el
+@@ -417,9 +417,11 @@ Each list item should be a regexp matchi
+ ;;		  (cons "C#" (c-lang-const c-mode-menu csharp)))
+
+ ;;; Autoload mode trigger
++;;;###autoload
+ (add-to-list 'auto-mode-alist '("\\.cs" . csharp-mode))
+
+ ;; Custom variables
++;;;###autoload
+ (defcustom csharp-mode-hook nil
+   "*Hook called by `csharp-mode'."
+   :type 'hook
+@@ -439,6 +441,8 @@ Key bindings:
+ \\{csharp-mode-map}"
+   (interactive)
+   (kill-all-local-variables)
++  (make-local-variable 'beginning-of-defun-function)
++  (make-local-variable 'end-of-defun-function)
+   (c-initialize-cc-mode t)
+   (set-syntax-table csharp-mode-syntax-table)
+   (setq major-mode 'csharp-mode
+</pre><p>AlexHarsanyi<a class="edit" title="Click to edit this page" rel="nofollow" href="http://www.emacswiki.org/emacs?action=edit;id=AlexHarsanyi">?</a></p></div><div class="color two level0"><p> Awesome, that fixed it. Thanks Alex.</p><p>&#x2013; Mark A. Nicolosi</p></div><h4 id="toc15">Documentation comment help</h4><p>The fill-paragraph in Moonfire&#x2019;s csharp-mode messes up documentation comment tags. I modified the paragraph-separate regexp to interpret comment lines that contain only an XML tag as paragraph sepatators. This allows fill-paragraph to be used on text between two doc comment tags so that the tag lines don&#x2019;t get pulled into the formatting.</p><p>I also made a helper function that inserts doc comment skeletons quickly. I&#x2019;ve bound it (arbitrarily) to C-c C-z.</p><p>Here&#x2019;s the relevant section from my .emacs:</p><pre class="real">(defun insert-doc-comment-skeleton (tagname arg)
+  (c-indent-command)
+  (insert (format "/// &lt;%s" tagname))
+  (if arg (insert (format " name=\"%s\"" arg)))
+  (insert "&gt;")
+  (newline-and-indent)
+  (insert "///")
+  (newline-and-indent)
+  (insert (format "/// &lt;/%s&gt;" tagname))
+  (forward-line -1)
+  (end-of-line)
+  (insert " "))
+
+(defun insert-doc-comment ()
+  (interactive)
+  (let ((elem (read-string "Element name? "))
+        (arg (read-string "Parameter name? (Leave empty to skip) ")))
+    (insert-doc-comment-skeleton elem (if (string= arg "") nil arg))))
+
+(defun my-csharp-mode-hook ()
+  ; Interpret the XML tags of C# doc comments as paragraph separators so that
+  ; fill-paragraph can be cleanly applied to text between them.
+  ; Modified from the initial cc-mode paragraph-separate value:
+  ; "[ \t]*\\(//+\\|\\**\\)[ \t]*$\\|^ "
+  (setq paragraph-separate "[ \t]*\\(//+\\|\\**\\)[ \t]*\\($\\|&lt;[^&gt;]*&gt;[ \t]*\\)\\|^ ")
+
+  ; XXX: csharp-mode-map doesn't seem to work, c-mode-map does?
+  (define-key c-mode-map "\C-c\C-z" 'insert-doc-comment))
+
+(add-hook 'csharp-mode-hook 'my-csharp-mode-hook)
+</pre><p>I don&#x2019;t know why (define-key csharp-mode-map &#x2026;) doesn&#x2019;t work but c-mode-map does. Is this a bug?</p><p>&#x2013; Risto Saarelma</p><hr /><p><a class="local" href="http://www.emacswiki.org/emacs/CategoryModes">CategoryModes</a> <a class="local" href="http://www.emacswiki.org/emacs/ProgrammingModes">ProgrammingModes</a></p></div><div class="wrapper close"></div></div><div class="footer"><hr /><span class="gotobar bar"><a class="local" href="http://www.emacswiki.org/emacs/SiteMap">SiteMap</a> <a class="local" href="http://www.emacswiki.org/emacs/Search">Search</a> <a class="local" href="http://www.emacswiki.org/emacs/ElispArea">ElispArea</a> <a class="local" href="http://www.emacswiki.org/emacs/HowTo">HowTo</a> <a class="local" href="http://www.emacswiki.org/emacs/RecentChanges">RecentChanges</a> <a class="local" href="http://www.emacswiki.org/emacs/News">News</a> <a class="local" href="http://www.emacswiki.org/emacs/Problems">Problems</a> <a class="local" href="http://www.emacswiki.org/emacs/Suggestions">Suggestions</a> </span><span class="translation bar"><br />  <a class="translation new" rel="nofollow" href="http://www.emacswiki.org/emacs?action=translate;id=CSharpMode;missing=de_es_fr_it_ja_ko_pt_ru_se_zh">Add Translation</a></span><span class="edit bar"><br /> <a class="edit" accesskey="e" title="Click to edit this page" rel="nofollow" href="http://www.emacswiki.org/emacs?action=edit;id=CSharpMode">Edit this page</a> <a class="history" rel="nofollow" href="http://www.emacswiki.org/emacs?action=history;id=CSharpMode">View other revisions</a> <a class="admin" rel="nofollow" href="http://www.emacswiki.org/emacs?action=admin;id=CSharpMode">Administration</a></span><span class="time"><br /> Last edited 2008-12-25 20:05 UTC by <a class="author" title="from cs181128175.pp.htv.fi" href="http://www.emacswiki.org/emacs/RistoSaarelma">RistoSaarelma</a> <a class="diff" rel="nofollow" href="http://www.emacswiki.org/emacs?action=browse;diff=2;id=CSharpMode">(diff)</a></span><div style="float:right; margin-left:1ex;">
+<!-- Creative Commons License -->
+<a href="http://creativecommons.org/licenses/GPL/2.0/"><img alt="CC-GNU GPL" style="border:none" src="/pics/cc-GPL-a.png" /></a>
+<!-- /Creative Commons License -->
+</div>
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="">
+   <license rdf:resource="http://creativecommons.org/licenses/GPL/2.0/" />
+  <dc:type rdf:resource="http://purl.org/dc/dcmitype/Software" />
+</Work>
+
+<License rdf:about="http://creativecommons.org/licenses/GPL/2.0/">
+   <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+   <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+   <requires rdf:resource="http://web.resource.org/cc/Notice" />
+   <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+   <requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+   <requires rdf:resource="http://web.resource.org/cc/SourceCode" />
+</License>
+</rdf:RDF>
+-->
+
+<p class="legal">
+This work is licensed to you under version 2 of the
+<a href="http://www.gnu.org/">GNU</a> <a href="/GPL">General Public License</a>.
+Alternatively, you may choose to receive this work under any other
+license that grants the right to use, copy, modify, and/or distribute
+the work, as long as that license imposes the restriction that
+derivative works have to grant the same rights and impose the same
+restriction. For example, you may choose to receive this work under
+the
+<a href="http://www.gnu.org/">GNU</a>
+<a href="/FDL">Free Documentation License</a>, the
+<a href="http://creativecommons.org/">CreativeCommons</a>
+<a href="http://creativecommons.org/licenses/sa/1.0/">ShareAlike</a>
+License, the XEmacs manual license, or
+<a href="/OLD">similar licenses</a>.
+</p>
+</div>
+</body>
+</html>

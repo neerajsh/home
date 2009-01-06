@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="audiosrc_description" mtime="1231134575" type="string">
+                <stringvalue>ALSA - Advanced Linux Sound Architecture</stringvalue>
+        </entry>
+        <entry name="audiosrc" mtime="1231134575" type="string">
+                <stringvalue>alsasrc</stringvalue>
+        </entry>
+        <entry name="chataudiosink_description" mtime="1231134575" type="string">
+                <stringvalue>Autodetect</stringvalue>
+        </entry>
+        <entry name="chataudiosink" mtime="1231134575" type="string">
+                <stringvalue>autoaudiosink</stringvalue>
+        </entry>
+        <entry name="musicaudiosink_description" mtime="1231134575" type="string">
+                <stringvalue>Autodetect</stringvalue>
+        </entry>
+        <entry name="musicaudiosink" mtime="1231134575" type="string">
+                <stringvalue>autoaudiosink</stringvalue>
+        </entry>
+        <entry name="audiosink_description" mtime="1231134575" type="string">
+                <stringvalue>Autodetect</stringvalue>
+        </entry>
+        <entry name="audiosink" mtime="1231134575" type="string">
+                <stringvalue>autoaudiosink</stringvalue>
+        </entry>
+</gconf>

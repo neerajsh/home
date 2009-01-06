@@ -1,5 +1,0 @@
-skin	browser	gradient_icool	jar:chrome/tmp-1.xpi!/browser/
-skin	communicator	gradient_icool	jar:chrome/tmp-1.xpi!/communicator/
-skin	global	gradient_icool	jar:chrome/tmp-1.xpi!/global/
-skin	mozapps	gradient_icool	jar:chrome/tmp-1.xpi!/mozapps/
-skin	help	gradient_icool	jar:chrome/tmp-1.xpi!/help/

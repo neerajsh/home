@@ -1,8 +1,0 @@
-skin   global      Chromifox   chrome/global_linux/
-skin   help         Chromifox   chrome/help/
-skin   mozapps      Chromifox   chrome/mozapps/
-skin   browser      Chromifox   chrome/browser/
-skin   communicator   Chromifox   chrome/communicator/
-
-skin   global      Chromifox   chrome/global_windows/	os=WINNT
-skin   global      Chromifox   chrome/global_osx/	os=Darwin

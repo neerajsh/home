@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<gconf>
-        <entry name="power_management_delay" mtime="1231201589" type="int" value="120">
-        </entry>
-</gconf>
